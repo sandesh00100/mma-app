@@ -12,8 +12,20 @@ const fighterSchema = mongoose.Schema({
         losses: Number,
         draws: Number,
         disqualifications: Number,
-    },
-    matches:[Match]
+    }
 });
 
-module.exports = mongoose.model('Fighter', fighterSchema);
+const matchSchema = mongoose.Schema({
+    // Will only have two fighters at anytime
+    fighters:[{
+        // fighter: fighterSchema,
+        takeDownAttempts: Number,
+        takeDownDefense: Number,
+        significantStrikes: Number,
+        octagonControl: Number,
+        damageRatio: Number,
+        submissionAttempts: Number
+    }]
+});
+
+module.exports = mongoose.model('Match', matchSchema);
