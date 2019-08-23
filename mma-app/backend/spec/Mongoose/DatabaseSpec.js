@@ -1,6 +1,7 @@
+const MatchFighters = require('../../models/fighter.match.model');
+const mongoose = require('mongoose');
+
 describe("Match fighter sub document", () => {
-  const MatchFighters = require('../../models/fighter.match.model');
-  const mongoose = require('mongoose');
   // const match = new Match({
   //   fighters:[{
   //     fighter: {
@@ -17,7 +18,7 @@ describe("Match fighter sub document", () => {
   // }]
   // });
 
-  beforeAll(() => {
+  beforeAll((done) => {
     // secure password relative to app.js
     const mongoPassword = require('../../../../../pas');
     // 'node-angular' is the database it is storing the post in
@@ -26,26 +27,34 @@ describe("Match fighter sub document", () => {
     mongoose.connect(databaseURL, { useNewUrlParser: true })
       .then(() => {
         console.info('\nConnected to mongo database!\n');
+        done();
       }).catch(() => {
         console.info('\nConnection failed\n');
+        done();
       });
+  });
+
+  afterAll((done) => {
+    MatchFighters.collection.drop().then((response) => {
+      done();
+    });
   });
 
   it('creates a match', (done) => {
     const match = new MatchFighters({
-      // fighters: [{
-      //   firstName: "sandesh",
-      //   lastName: "shrestha",
-      //   weightClass: 155,
-      //   organization: "ufc",
-      //   isActive: true,
-      //   record: {
-      //     wins: 1,
-      //     losses: 2,
-      //     draws: 3,
-      //     disqualifications: 4,
-      //   }
-      // }],
+      fighters: [{
+        firstName: "sandesh",
+        lastName: "shrestha",
+        weightClass: 155,
+        organization: "ufc",
+        isActive: true,
+        record: {
+          wins: 1,
+          losses: 2,
+          draws: 3,
+          disqualifications: 4,
+        }
+      }],
       takeDownAttempts: 4,
       takeDownDefense: 3,
       significantStrikes: 2,
@@ -55,18 +64,19 @@ describe("Match fighter sub document", () => {
     });
 
     match.save().then((savedMatch) => {
-      console.info('Saved fighter id' + savedMatch.fighters[0]);
-      expect(true).toBeTruthy();
-      done();
-    });
+     MatchFighters.findOne({"takeDownAttempts":4}).then((match) => {
+       console.info(match);
 
-  });
-
-  it("finds all matches", (done) => {
-      MatchFighters.find()
-      .then((foundMatchs) => {
-        console.info(foundMatchs);
+        // expect(match.fighters[0].firstName).toBe("sandesh");
+        expect(true).toBe(true);
         done();
-      });
+     });
+    // console.info(match.fighters.id(savedMatch.fighters[0]._id));
+    // done();
+    // }).catch((err)=>{
+    //   console.info(err);
+    //   done()
+    // });
+
   });
 });
