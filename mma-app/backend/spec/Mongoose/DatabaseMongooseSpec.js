@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const EventModel = require('../../models/event.model');
+const FighterModel = require("../../models/fighter.model");
+
 describe('Event database model', () => {
     let event = null;
     beforeAll((done) => {
@@ -65,7 +67,11 @@ describe('Event database model', () => {
 
     afterAll((done) => {
         EventModel.collection.drop().then((response) => {
-            done();
+            FighterModel.collection.drop().then((response) => {
+                done();
+            }).catch((err) => {
+                done();
+            });
         }).catch(err => {
             done();
         });
@@ -78,4 +84,17 @@ describe('Event database model', () => {
             done();
         });
     });
+
+    it ('Creates a new fighter', (done) => {
+        const fighter = new FighterModel({
+            firstName: "Sandesh",
+            lastName: "Shrestha",
+            weightClass: 155
+        });
+
+        fighter.save().then((savedFighter) => {
+            console.info(savedFighter);
+            done();
+        });
+    })
 });
