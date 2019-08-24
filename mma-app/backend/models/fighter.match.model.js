@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const fighterSchema = mongoose.Schema({
+const fighterSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     weightClass: { type: Number, required: true },
@@ -15,11 +15,9 @@ const fighterSchema = mongoose.Schema({
     }
 });
 
-const matchSchema = mongoose.Schema({
+const matchSchema = new mongoose.Schema({
     // Will only have two fighters at anytime
-    fighters: [{
-        fighter: fighterSchema,
-    }],
+    fighters: [fighterSchema],
     takeDownAttempts: Number,
     takeDownDefense: Number,
     significantStrikes: Number,
@@ -28,4 +26,10 @@ const matchSchema = mongoose.Schema({
     submissionAttempts: Number
 });
 
-module.exports = mongoose.model('Match', matchSchema);
+const Match = mongoose.model('Match', matchSchema);
+const Fighter = mongoose.model('Fighter', fighterSchema);
+
+module.exports = {
+    Match: Match,
+    Fighter: Fighter
+};
