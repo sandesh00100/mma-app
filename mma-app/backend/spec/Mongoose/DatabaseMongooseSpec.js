@@ -94,6 +94,7 @@ describe('Event database model', () => {
 
         fighter.save().then((savedFighter) => {
             console.info(savedFighter);
+            
             done();
         });
     })
