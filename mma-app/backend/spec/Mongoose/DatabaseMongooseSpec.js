@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const MatchModel = require('../../models/match.model');
 const FighterModel = require("../../models/fighter.model");
+const JudgeModel = require('../../models/judge.model');
 
 describe('Mongo Database Models', () => {
-    let fighterJson;
-    let fighter2Json;
+    let fighterObj;
+    let fighter2Obj;
     let fighter1;
     let fighter2;
+    let matchObj;
 
     beforeAll((done) => {
         // secure password relative to app.js
@@ -14,7 +16,7 @@ describe('Mongo Database Models', () => {
         // 'node-angular' is the database it is storing the post in
         const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 
-        mongoose.connect(databaseURL, { useNewUrlParser: true })
+        mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true })
             .then(() => {
                 console.info('\n*Connected to mongo\n');
                 done();
@@ -25,7 +27,7 @@ describe('Mongo Database Models', () => {
     });
 
     beforeEach(() => {
-        fighterJson = {
+        fighterObj = {
             firstName: "Sandesh",
             lastName: "Shrestha",
             isActive: true,
@@ -38,54 +40,14 @@ describe('Mongo Database Models', () => {
             },
             isTestData: true
         };
-        fighter2Json = { ...fighterJson };
-        fighter2Json.firstName = "Steve";
 
-        fighter1 = new FighterModel(fighterJson);
-        fighter2 = new FighterModel(fighter2Json);
-    });
+        fighter2Obj = { ...fighterObj };
+        fighter2Obj.firstName = "Steve";
 
-    afterAll((done) => {
-        console.info("\t* Deleting test data: ");
-        // FighterModel.find().then(foundFighters => {
-        //     console.info("\t\t* Num Fighters: " + foundFighters.length);
-        //     FighterModel.collection.drop().then(() => {
-        //         MatchModel.find().then(foundMatches => {
-        //             MatchModel.collection.drop().then(() => {
-        //                 console.info("\t\t* Num Matches: " + foundMatches.length);
-        //                 done();
-        //             });
-        //         });
+        fighter1 = new FighterModel(fighterObj);
+        fighter2 = new FighterModel(fighter2Obj);
 
-        //     }).catch((err) => {
-        //         console.info(err);
-        //         done();
-        //     });
-        // });
-        FighterModel.deleteMany({ isTestData: true }).then((deletedFightsResponse) => {
-            console.info("\t\t* Num Fighters: " + deletedFightsResponse.n);
-            MatchModel.deleteMany({ isTestData: true }).then((deletedMatchesResponse) => {
-                console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
-                done();
-            });
-        });
-
-
-    });
-
-    it('Creates new fighters', (done) => {
-
-        fighter1.save().then((savedFighter) => {
-            expect(savedFighter.firstName).toBe("Sandesh");
-            fighter2.save().then(savedFighter => {
-                expect(savedFighter.firstName).toBe("Steve");
-                done();
-            });
-        });
-    });
-
-    it('Creates a match', done => {
-        let matchObj = {
+        matchObj = {
             eventName: "UFC 242",
             organization: "UFC",
             weightClass: 155,
@@ -94,8 +56,38 @@ describe('Mongo Database Models', () => {
             isFiveRounds: true,
             fighters: [],
             isTestData: true
-        };
+        }
+    });
 
+    afterAll((done) => {
+        console.info("\t* Deleting test data: ");
+
+        // Maybe use return statemetns for these
+        FighterModel.deleteMany({ isTestData: true }).then((deletedFightsResponse) => {
+            console.info("\t\t* Num Fighters: " + deletedFightsResponse.n);
+            MatchModel.deleteMany({ isTestData: true }).then((deletedMatchesResponse) => {
+                console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
+                JudgeModel.deleteMany({isTestData: true}).then(deletedJudgeResponse => {
+                    console.info("\t\t* Num Judges: " + deletedJudgeResponse.n);
+                    done();
+                });
+            });
+        });
+
+
+    });
+
+    it('Creates new fighters', (done) => {
+        fighter1.save().then((savedFighter) => {
+            expect(savedFighter.firstName).toBe("Sandesh");
+            fighter2.save().then(savedFighter2 => {
+                expect(savedFighter2.firstName).toBe("Steve");
+                done();
+            });
+        });
+    });
+
+    it('Creates a match', done => {
         fighter1.save().then((savedFighter1) => {
             matchObj.fighters.push(savedFighter1._id);
             fighter2.save().then((savedFighter2) => {
@@ -120,8 +112,75 @@ describe('Mongo Database Models', () => {
         });
     });
 
-    it('Creates a User', done => {
-        done();
+    it('Creates a Judge', done => {
+        let judgeObj = {
+            email: "sandesh@test.com",
+            password: "testPassword",
+            matches: [
+
+            ],
+            isTestData: true
+        };
+
+        let roundsScoredObj1 = [];
+        let roundsScoredObj2 = [];
+
+        for (let i = 0; i < 5; i++) {
+            roundsScoredObj1.push({
+                takeDownAttempts: i,
+                takeDownDefense: i,
+                significantStrikes: i,
+                octagonControl: i,
+                damageRatio: i,
+                submissionAttempts: i,
+                score: Math.floor(Math.random() * (10-7)) + 7,
+                roundNumber: i+1
+            });
+            roundsScoredObj2.push({
+                takeDownAttempts: i,
+                takeDownDefense: i,
+                significantStrikes: i,
+                octagonControl: i,
+                damageRatio: i,
+                submissionAttempts: i,
+                score: Math.floor(Math.random() * (10-7)) + 7,
+                roundNumber: i+1
+            });
+        }
+
+        fighter1.save().then(savedFighter1 => {
+            matchObj.fighters.push(savedFighter1._id);
+            fighter2.save().then(savedFighter2 => {
+                matchObj.fighters.push(savedFighter2._id);
+                const match = new MatchModel(matchObj);
+                match.save().then(savedMatch => {
+                    MatchModel.findById(savedMatch._id).populate('fighters').exec((err, popMatch) =>{
+                        const judgeMatchObj = {
+                            matchId: popMatch._id,
+                            roundsScored:[
+                                {
+                                    fighter: popMatch.fighters[0]._id,
+                                    rounds: roundsScoredObj1
+                                },
+                                {
+                                    fighter: popMatch.fighters[1]._id,
+                                    rounds: roundsScoredObj2
+                                }
+                            ]
+                        };
+
+                        judgeObj.matches.push(judgeMatchObj);
+                        const judge = new JudgeModel(judgeObj);
+                        judge.save().then(savedJudge => {
+                            // TODO: Add some expect statementsgit 
+                            done();
+                        });
+                    });
+                   
+                });
+            });
+        });
+        
     });
 
 });

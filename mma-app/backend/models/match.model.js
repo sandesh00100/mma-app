@@ -22,7 +22,7 @@ const matchSchema = mongoose.Schema({
         }
     ],
     // TODO: Remove this if we use a test database for the tests
-    isTestData: {type:Boolean, required: true}
+    isTestData: { type: Boolean, required: true }
 });
 
 module.exports = mongoose.model('Match', matchSchema);
