@@ -11,7 +11,9 @@ const fighterSchema = mongoose.Schema({
         draws: Number,
         disqualifications: Number,
     },
-    matches:[{type:mongoose.Schema.Types.ObjectId, ref: "Match"}]
+    matches:[{type:mongoose.Schema.Types.ObjectId, ref: "Match"}],
+    // TODO: Remove this if we use a test database for the tests
+    isTestData: { type:Boolean, required: true}
 });
 
 module.exports = mongoose.model('Fighter', fighterSchema);

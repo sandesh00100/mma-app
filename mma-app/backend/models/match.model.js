@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 const matchSchema = mongoose.Schema({
-    eventName: {
-        type: String
-    },
+    eventName: String,
     organization: {
         type: String,
         enum: ['UFC', 'Bellator'],
@@ -16,13 +14,15 @@ const matchSchema = mongoose.Schema({
     },
     matchOrder: Number,
     isFiveRounds: Boolean,
-    fighters: [{
-        fighter: {
+    fighters: [
+        {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Fighter",
             required: true
         }
-    }]
+    ],
+    // TODO: Remove this if we use a test database for the tests
+    isTestData: {type:Boolean, required: true}
 });
 
 module.exports = mongoose.model('Match', matchSchema);

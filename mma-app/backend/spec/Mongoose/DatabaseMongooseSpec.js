@@ -1,101 +1,127 @@
 const mongoose = require('mongoose');
-const EventModel = require('../../models/event.model');
+const MatchModel = require('../../models/match.model');
 const FighterModel = require("../../models/fighter.model");
 
-describe('Event database model', () => {
-    let event = null;
+describe('Mongo Database Models', () => {
+    let fighterJson;
+    let fighter2Json;
+    let fighter1;
+    let fighter2;
+
     beforeAll((done) => {
         // secure password relative to app.js
         const mongoPassword = require('../../../../../pas');
         // 'node-angular' is the database it is storing the post in
         const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
-       
-        const match1 = {
-            fighters:[{
-            takeDownAttempts: 1,
-            takeDownDefense: 1,
-            significantStrikes: 1,
-            octagonControl: 1,
-            damageRatio: 1,
-            submissionAttempts: 1
-            }]
-            
-        };
-
-        const match2 = {
-            fighters:[{
-            takeDownAttempts: 2,
-            takeDownDefense: 2,
-            significantStrikes: 2,
-            octagonControl: 2,
-            damageRatio: 2,
-            submissionAttempts: 2
-            }]
-            
-        };
-
-        const match3 = {
-            fighters:[{
-            takeDownAttempts: 3,
-            takeDownDefense: 3,
-            significantStrikes: 3,
-            octagonControl: 3,
-            damageRatio: 3,
-            submissionAttempts: 3
-            }]
-        };
-
-        event = new EventModel({
-           eventName: "UFC 225",
-           organization: "UFC",
-           fights: {
-               main: [match1, match2],
-               prelims: [match2],
-               earlyPrelims: [match3]
-           }
-        });
 
         mongoose.connect(databaseURL, { useNewUrlParser: true })
             .then(() => {
-                console.info('\nConnected to mongo database!\n');
+                console.info('\n*Connected to mongo\n');
                 done();
             }).catch(() => {
-                console.info('\nConnection failed\n');
+                console.info('\n*Connection failed\n');
                 done();
             });
+    });
+
+    beforeEach(() => {
+        fighterJson = {
+            firstName: "Sandesh",
+            lastName: "Shrestha",
+            isActive: true,
+            imagePath: "/somepath.png",
+            record: {
+                wins: 1,
+                losses: 1,
+                draws: 1,
+                disqualifications: 1,
+            },
+            isTestData: true
+        };
+        fighter2Json = { ...fighterJson };
+        fighter2Json.firstName = "Steve";
+
+        fighter1 = new FighterModel(fighterJson);
+        fighter2 = new FighterModel(fighter2Json);
     });
 
     afterAll((done) => {
-        EventModel.collection.drop().then((response) => {
-            FighterModel.collection.drop().then((response) => {
-                done();
-            }).catch((err) => {
+        console.info("\t* Deleting test data: ");
+        // FighterModel.find().then(foundFighters => {
+        //     console.info("\t\t* Num Fighters: " + foundFighters.length);
+        //     FighterModel.collection.drop().then(() => {
+        //         MatchModel.find().then(foundMatches => {
+        //             MatchModel.collection.drop().then(() => {
+        //                 console.info("\t\t* Num Matches: " + foundMatches.length);
+        //                 done();
+        //             });
+        //         });
+
+        //     }).catch((err) => {
+        //         console.info(err);
+        //         done();
+        //     });
+        // });
+        FighterModel.deleteMany({ isTestData: true }).then((deletedFightsResponse) => {
+            console.info("\t\t* Num Fighters: " + deletedFightsResponse.n);
+            MatchModel.deleteMany({ isTestData: true }).then((deletedMatchesResponse) => {
+                console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
                 done();
             });
-        }).catch(err => {
-            done();
+        });
+
+
+    });
+
+    it('Creates new fighters', (done) => {
+
+        fighter1.save().then((savedFighter) => {
+            expect(savedFighter.firstName).toBe("Sandesh");
+            fighter2.save().then(savedFighter => {
+                expect(savedFighter.firstName).toBe("Steve");
+                done();
+            });
         });
     });
 
-    it('Creates an event', done => {
-        event.save().then(savedEvent => {
-            console.info(savedEvent);
-            expect(savedEvent.fights.main[0].fighters[0].takeDownAttempts).toBe(1);
-            done();
+    it('Creates a match', done => {
+        let matchObj = {
+            eventName: "UFC 242",
+            organization: "UFC",
+            weightClass: 155,
+            matchType: "Main",
+            matchOrder: 1,
+            isFiveRounds: true,
+            fighters: [],
+            isTestData: true
+        };
+
+        fighter1.save().then((savedFighter1) => {
+            matchObj.fighters.push(savedFighter1._id);
+            fighter2.save().then((savedFighter2) => {
+                matchObj.fighters.push(savedFighter2._id);
+                const match = new MatchModel(matchObj);
+                match.save().then(savedMatch => {
+                    expect(savedMatch.fighters.length).toBe(2);
+                    expect(match.eventName).toBe("UFC 242");
+                    MatchModel.findOne({ eventName: "UFC 242" }).populate('fighters').exec((err, foundMatch) => {
+                        if (err) {
+                            console.info(err);
+                        } else {
+                            expect(foundMatch.fighters[0].firstName).not.toBe(null);
+                        }
+                        done();
+                    });
+                }).catch(err => {
+                    console.info(err);
+                    done();
+                });
+            });
         });
     });
 
-    it ('Creates a new fighter', (done) => {
-        const fighter = new FighterModel({
-            firstName: "Sandesh",
-            lastName: "Shrestha",
-            weightClass: 155
-        });
+    it('Creates a User', done => {
+        done();
+    });
 
-        fighter.save().then((savedFighter) => {
-            console.info(savedFighter);
-            
-            done();
-        });
-    })
 });
