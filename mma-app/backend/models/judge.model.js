@@ -28,7 +28,7 @@ const judgeSchema = mongoose.Schema({
   isTestData: { type: Boolean, required: true },
   matches: [
     {
-      matchId: {
+      match: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Match",
         required: true

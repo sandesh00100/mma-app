@@ -7,7 +7,7 @@
     "helpers/**/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
-  "displaySuccessfulSpec":true,
-  "displaySuccessesSummary":true,
+  "displaySuccessfulSpec": true,
+  "displaySuccessesSummary": true,
   "random": true
 }

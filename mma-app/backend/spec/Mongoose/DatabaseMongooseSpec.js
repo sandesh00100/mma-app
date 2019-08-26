@@ -67,7 +67,7 @@ describe('Mongo Database Models', () => {
             console.info("\t\t* Num Fighters: " + deletedFightsResponse.n);
             MatchModel.deleteMany({ isTestData: true }).then((deletedMatchesResponse) => {
                 console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
-                JudgeModel.deleteMany({isTestData: true}).then(deletedJudgeResponse => {
+                JudgeModel.deleteMany({ isTestData: true }).then(deletedJudgeResponse => {
                     console.info("\t\t* Num Judges: " + deletedJudgeResponse.n);
                     done();
                 });
@@ -116,9 +116,7 @@ describe('Mongo Database Models', () => {
         let judgeObj = {
             email: "sandesh@test.com",
             password: "testPassword",
-            matches: [
-
-            ],
+            matches: [],
             isTestData: true
         };
 
@@ -133,8 +131,9 @@ describe('Mongo Database Models', () => {
                 octagonControl: i,
                 damageRatio: i,
                 submissionAttempts: i,
-                score: Math.floor(Math.random() * (10-7)) + 7,
-                roundNumber: i+1
+                // Random number between 7-10
+                score: Math.floor(Math.random() * (10 - 7)) + 7,
+                roundNumber: i + 1
             });
             roundsScoredObj2.push({
                 takeDownAttempts: i,
@@ -143,8 +142,8 @@ describe('Mongo Database Models', () => {
                 octagonControl: i,
                 damageRatio: i,
                 submissionAttempts: i,
-                score: Math.floor(Math.random() * (10-7)) + 7,
-                roundNumber: i+1
+                score: Math.floor(Math.random() * (10 - 7)) + 7,
+                roundNumber: i + 1
             });
         }
 
@@ -152,12 +151,12 @@ describe('Mongo Database Models', () => {
             matchObj.fighters.push(savedFighter1._id);
             fighter2.save().then(savedFighter2 => {
                 matchObj.fighters.push(savedFighter2._id);
-                const match = new MatchModel(matchObj);
-                match.save().then(savedMatch => {
-                    MatchModel.findById(savedMatch._id).populate('fighters').exec((err, popMatch) =>{
+                const testMatch = new MatchModel(matchObj);
+                testMatch.save().then(savedMatch => {
+                    MatchModel.findById(savedMatch._id).populate('fighters').exec((err, popMatch) => {
                         const judgeMatchObj = {
-                            matchId: popMatch._id,
-                            roundsScored:[
+                            match: popMatch._id,
+                            roundsScored: [
                                 {
                                     fighter: popMatch.fighters[0]._id,
                                     rounds: roundsScoredObj1
@@ -172,15 +171,23 @@ describe('Mongo Database Models', () => {
                         judgeObj.matches.push(judgeMatchObj);
                         const judge = new JudgeModel(judgeObj);
                         judge.save().then(savedJudge => {
-                            // TODO: Add some expect statementsgit 
-                            done();
+                            JudgeModel.findById(savedJudge)
+                                .populate('match')
+                                .populate('fighter')
+                                .exec((err, foundJudge) => {
+                                    if (!err) {
+                                        expect(foundJudge.email).toBe('sandesh@test.com');
+                                        expect(foundJudge.matches.length).toEqual(1);
+                                        done();
+                                    }
+                                });
                         });
                     });
-                   
+
                 });
             });
         });
-        
+
     });
 
 });
