@@ -7,7 +7,7 @@ const matchSchema = mongoose.Schema({
         enum: ['UFC', 'Bellator'],
         default: 'UFC'
     },
-    weightClass: Number,
+    weightClass: {type:Number, required:true},
     matchType: {
         type: String,
         enum: ['Main', 'Prelims', 'Early Prelims']
@@ -18,7 +18,9 @@ const matchSchema = mongoose.Schema({
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Fighter",
-            required: true
+            required: () => {
+                return fighters.length == 2;
+            }
         }
     ],
     // TODO: Remove this if we use a test database for the tests

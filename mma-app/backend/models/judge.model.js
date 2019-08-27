@@ -36,7 +36,7 @@ const judgeSchema = mongoose.Schema({
       roundsScored: [{
         fighter: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Fighter",
+          ref: "Fighter"
         },
         rounds: [roundStatSchema]
       }]
