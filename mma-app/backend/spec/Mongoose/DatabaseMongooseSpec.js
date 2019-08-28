@@ -187,7 +187,6 @@ describe('Mongo Database Models', () => {
                 });
             });
         });
-
     });
 
 });
