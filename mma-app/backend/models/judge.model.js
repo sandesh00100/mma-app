@@ -14,11 +14,15 @@ const roundStatSchema = mongoose.Schema({
   submissionAttempts: Number,
   score: {
     type: Number,
-    require: true
+    require: true,
+    min: 1,
+    max: 10
   },
   roundNumber: {
     type: Number,
-    required: true
+    required: true,
+    min:1,
+    max:5
   }
 });
 

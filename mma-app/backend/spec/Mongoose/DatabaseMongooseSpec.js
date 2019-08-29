@@ -18,7 +18,7 @@ describe('Mongo Database Models', () => {
 
         mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true })
             .then(() => {
-                console.info('\n*Connected to mongo\n');
+                // console.info('\n*Connected to mongo\n');
                 done();
             }).catch(() => {
                 console.info('\n*Connection failed\n');
