@@ -18,6 +18,7 @@ const matchSchema = mongoose.Schema({
     },
     matchOrder: Number,
     isFiveRounds: Boolean,
+    isTitleFight: Boolean,
     fighters: {
         type: [
             {

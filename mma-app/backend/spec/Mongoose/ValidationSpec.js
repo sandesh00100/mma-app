@@ -3,25 +3,7 @@ const FighterModel = require('../../models/fighter.model');
 const MatchModel = require('../../models/match.model');
 
 describe("Validation tests", () => {
-    beforeAll((done) => {
-        //TODO: Might need to add the block of code below, relying on the first spec connecting to mongoose 
-        // secure password relative to app.js
-        const mongoPassword = require('../../../../../pas');
-        // 'node-angular' is the database it is storing the post in
-        const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
-
-        mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true })
-            .then(() => {
-                // console.info('\n*Connected to mongo\n');
-                done();
-            }).catch(() => {
-                console.info('\n*Connection failed\n');
-                done();
-            });
-        jasmine.DEFAULT_TIMEOUT_INTERVAL= 5000;
-        done();
-    });
-
+    
     it('validates a match', done => {
 
         const matchObject = {
