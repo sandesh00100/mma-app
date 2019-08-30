@@ -5,6 +5,8 @@ const fighterSchema = mongoose.Schema({
     lastName: { type: String, required: true },
     isActive: { type: Boolean },
     imagePath: { type: String },
+    rank:{type: String},
+    isChampion:{type: Boolean},
     record: {
         wins: Number,
         losses: Number,

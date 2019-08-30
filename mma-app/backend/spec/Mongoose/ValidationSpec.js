@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const FighterModel = require('../../models/fighter.model');
 const MatchModel = require('../../models/match.model');
 
+// TODO: Need more validation tests
 describe("Validation tests", () => {
     
     it('validates a match', done => {
