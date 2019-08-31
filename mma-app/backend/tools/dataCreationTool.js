@@ -1,17 +1,11 @@
 const mongoose = require('mongoose');
 const MatchModel = require('../models/match.model');
 const FighterModel = require("../models/fighter.model");
-const JudgeModel = require('../models/judge.model');
 const CustomTools = require('./CustomTools');
 const randomNumber = CustomTools.randomNumber;
 
 let fighterObjects = [];
 let matchObjects = [];
-let matchesPerEvents;
-let eventHelper = {
-  ufcEvents: [],
-  bellatorEvents: []
-};
 
 const orgs = ['UFC', 'Bellator'];
 const matchType = ['Main', 'Prelims', 'Early Prelims'];
@@ -69,18 +63,15 @@ const createMockData = async (numFighters, numMatches, numEvents, numJudges) => 
       _id: i,
       isTestData: true
     };
-    const fighter = new FighterModel(fighterObj);
+   // const fighter = new FighterModel(fighterObj);
 
     // Save fighter and keep it in memory
     // const savedFighter = await fighter.save();
-    fighterObjects.push(savedFighter);
+    fighterObjects.push(fighterObj);
   };
 
-  let eventIndex = 0;
-  let matchTypeIndex = 0;
   const numMatchesPerEvents = numMatches / numEvents;
   const numMatchesPerMatchType = numMatchesPerEvents / 3;
-  let currentEvent = [];
 
   for (let i = 0; i < numMatches; i++) {
     // Randomly weightClass and org
@@ -106,7 +97,9 @@ const createMockData = async (numFighters, numMatches, numEvents, numJudges) => 
       isTestData: true
     };
 
-    const match = new Match(matchObj);
+    console.log(matchObj);
+    matchObjects.push(matchObj);
+    //const match = new Match(matchObj);
   }
 
   console.log(fighterObjects);
