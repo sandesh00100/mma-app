@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const MatchModel = require('../models/match.model');
 const FighterModel = require("../models/fighter.model");
 const CustomTools = require('./CustomTools');
+const mongoPassword = require('../../../../pas');
+const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 const randomNumber = CustomTools.randomNumber;
 
 let fighterObjects = [];
@@ -28,7 +30,7 @@ const getFighters = () => {
 };
 
 const isTitleFight = (matchOrder) => {
-  if ((matchOrder == 0) && (randomNumber(0, 1) == 0)) {
+  if ((matchOrder == 0) && (randomNumber(0, 2) == 0)) {
     return true;
   } else {
     return false;
@@ -43,7 +45,9 @@ const isFiveRounder = (matchOrder, isTitleFight) => {
   }
 };
 
-const createMockData = async (numFighters, numMatches, numEvents, numJudges) => {
+const createMockData = async (numFighters, numMatches, numEvents) => {
+  await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
+  console.log("Mongoose Response" + responseMongoose);
 
   // Create fighters with empty records
   for (let i = 0; i < numFighters; i++) {
@@ -58,32 +62,36 @@ const createMockData = async (numFighters, numMatches, numEvents, numJudges) => 
         draws: 0,
         disqualifications: 0
       },
-
-      //TODO: REMOVE THIS WHEN READY TO SAVE
-      _id: i,
       isTestData: true
     };
-   // const fighter = new FighterModel(fighterObj);
+
+    // Undo the flooowing comments
+   const fighter = new FighterModel(fighterObj);
 
     // Save fighter and keep it in memory
-    // const savedFighter = await fighter.save();
-    fighterObjects.push(fighterObj);
+    const savedFighter = await fighter.save();
+
+    fighterObjects.push(savedFighter);
   };
 
   const numMatchesPerEvents = numMatches / numEvents;
   const numMatchesPerMatchType = numMatchesPerEvents / 3;
-
+  let selectedOrg = "";
   for (let i = 0; i < numMatches; i++) {
     // Randomly weightClass and org
-    const selectedWeightClass = weightClasses[randomNumber(0, weightClasses.length - 1)];
-    const selectedOrg = orgs[randomNumber(0, orgs.length - 1)];
+    const selectedWeightClass = weightClasses[randomNumber(0, weightClasses.length)];
+    if (i%numMatchesPerEvents == 0){
+      selectedOrg = orgs[randomNumber(0, orgs.length)];
+    }
+
     const selectedFighters = getFighters();
     // Equally distribute matches between events
-    const selectedMatchType = matchType[i / numMatchesPerMatchType];
-    const eventNumber = i / numMatchesPerEvents;
+    const matchTypeIndex = Math.floor(i / numMatchesPerMatchType) % 3;
+    const selectedMatchType = matchType[matchTypeIndex];
+    const eventNumber = Math.floor(i / numMatchesPerEvents);
     const matchOrder = i % numMatchesPerEvents;
     const titleFightFlag = isTitleFight(matchOrder);
-    const fiveRounderFlag = isFiveRounder(matchOrder, isTitleFight);
+    const fiveRounderFlag = isFiveRounder(matchOrder, titleFightFlag);
 
     const matchObj = {
       eventName: selectedOrg + " " + eventNumber,
@@ -96,13 +104,41 @@ const createMockData = async (numFighters, numMatches, numEvents, numJudges) => 
       fighters: [selectedFighters.fighter1Id, selectedFighters.fighter2Id],
       isTestData: true
     };
-
-    console.log(matchObj);
     matchObjects.push(matchObj);
-    //const match = new Match(matchObj);
+
+    //TODO: undo commment
+    //TODO: Update fighter records after
+    const match = new MatchModel(matchObj);
+    await match.save();
+
+    const fighter1Won = Math.random() > .5;
+
+    const fighter1Update = {
+      $inc: {
+        wins:0,
+        losses:0
+      }
+    };
+
+    fighter1Update.wins = fighter1Won ? 1:0;
+    fighter1Update.losses = fighter1Won ? 0:1;
+
+    const fighter2Update = {
+      $inc: {
+        wins:0,
+        losses:0
+      }
+    };
+
+    fighter2Update.wins = fighter1Won ? 0:1;
+    fighter2Update.losses = fighter1Won ? 1:0;
+
+    await FighterModel.findOneAndUpdate({_id:selectedFighters.fighter1Id}, fighter1Update);
+    await FighterModel.findOneAndUpdate({_id:selectedFighters.fighter2Id}, fighter2Update);
   }
 
-  console.log(fighterObjects);
+  console.log("Num Matches: " + matchObjects.length)
+  console.log("Num Fighters: " + fighterObjects.length);
 };
 
-createMockData(50, 90, 5, 10);
+createMockData(50, 90, 6);

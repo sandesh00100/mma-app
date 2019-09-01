@@ -1,5 +1,5 @@
-const randomNumber = (min,max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
+const randomNumber = (from , to) => {
+    return Math.floor(Math.random() * (to - from)) + from;
 };
 
 module.exports = {
