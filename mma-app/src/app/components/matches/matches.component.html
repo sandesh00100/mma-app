@@ -1,0 +1,32 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab [label]="organization" *ngFor="let organization of organizations">
+        <ng-template matTabContent>
+            <mat-accordion multi="true">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        TITLE
+                    </mat-expansion-panel-header>
+                    <p>
+                        sal;dfjal;sdkjf lkjsa sadfl kajsdflkja sdljfaslk jaslkdjf
+                        aslkdfj laskdjflaksj 
+                    </p>
+                    <mat-action-row>
+                        CONTENT
+                    </mat-action-row>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        TITLE
+                    </mat-expansion-panel-header>
+                    <p>
+                        sal;dfjal;sdkjf lkjsa sadfl kajsdflkja sdljfaslk jaslkdjf
+                        aslkdfj laskdjflaksj 
+                    </p>
+                    <mat-action-row>
+                        CONTENT
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>
