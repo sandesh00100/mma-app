@@ -29,6 +29,7 @@ const getFighters = () => {
   };
 };
 
+// Checks if it's a title fight
 const isTitleFight = (matchOrder) => {
   if ((matchOrder == 0) && (randomNumber(0, 2) == 0)) {
     return true;
@@ -37,6 +38,7 @@ const isTitleFight = (matchOrder) => {
   }
 };
 
+// Checks if it's a five rounder
 const isFiveRounder = (matchOrder, isTitleFight) => {
   if (isTitleFight || matchOrder == 0){
     return true;
@@ -47,7 +49,6 @@ const isFiveRounder = (matchOrder, isTitleFight) => {
 
 const createMockData = async (numFighters, numMatches, numEvents) => {
   await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
-  console.log("Mongoose Response" + responseMongoose);
 
   // Create fighters with empty records
   for (let i = 0; i < numFighters; i++) {
@@ -65,7 +66,7 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
       isTestData: true
     };
 
-    // Undo the flooowing comments
+    // Undo the fllowing comments
    const fighter = new FighterModel(fighterObj);
 
     // Save fighter and keep it in memory
@@ -106,39 +107,51 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
     };
     matchObjects.push(matchObj);
 
-    //TODO: undo commment
-    //TODO: Update fighter records after
     const match = new MatchModel(matchObj);
-    await match.save();
+    const savedMatch = await match.save();
 
     const fighter1Won = Math.random() > .5;
 
-    const fighter1Update = {
+    // Increment fighter records and push the match to the fighter's object
+    let fighter1Update = {
       $inc: {
-        wins:0,
-        losses:0
+        "record.wins":0,
+        "record.losses":0
+      },
+      $push: {
+        matches:savedMatch._id
       }
     };
 
-    fighter1Update.wins = fighter1Won ? 1:0;
-    fighter1Update.losses = fighter1Won ? 0:1;
+    fighter1Update.$inc["record.wins"] = fighter1Won ? 1:0;
+    fighter1Update.$inc["record.losses"] = fighter1Won ? 0:1;
 
-    const fighter2Update = {
+    let fighter2Update = {
       $inc: {
-        wins:0,
-        losses:0
+        "record.wins":0,
+        "record.losses":0
+      },
+      $push: {
+        matches:savedMatch._id
       }
     };
 
-    fighter2Update.wins = fighter1Won ? 0:1;
-    fighter2Update.losses = fighter1Won ? 1:0;
+    fighter2Update.$inc["record.wins"] = fighter1Won ? 0:1;
+    fighter2Update.$inc["record.losses"] = fighter1Won ? 1:0;
 
-    await FighterModel.findOneAndUpdate({_id:selectedFighters.fighter1Id}, fighter1Update);
-    await FighterModel.findOneAndUpdate({_id:selectedFighters.fighter2Id}, fighter2Update);
+    await FighterModel.updateOne({_id:selectedFighters.fighter1Id},fighter1Update);
+    await FighterModel.updateOne({_id:selectedFighters.fighter2Id},fighter2Update);
   }
 
   console.log("Num Matches: " + matchObjects.length)
   console.log("Num Fighters: " + fighterObjects.length);
 };
 
-createMockData(50, 90, 6);
+createMockData(50, 90, 6).then(() => {
+  // Everything executed properly
+  process.exit(0);
+}).catch((err) => {
+  // Something went wrong
+  console.log(err);
+  process.exit(-1);
+});
