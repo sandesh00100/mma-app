@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchesComponent implements OnInit {
   organizations: string[] = ['UFC', 'Bellator'];
+  events: string[] = ['UFC 222', 'UFC 233', 'UFC 234']
   constructor() { }
 
   ngOnInit() {
