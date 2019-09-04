@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+const matchRoutes = require('./routes/match.route');
+
 const mongoose = require('mongoose');
 // secure password relative to app.js
 const mongoPassword = require('../../../pas');
@@ -30,4 +32,6 @@ app.use((req, res, next) => {
     next();
   });
 
-  module.exports = app;
+  app.use('/api/matches', matchRoutes);
+  
+module.exports = app;

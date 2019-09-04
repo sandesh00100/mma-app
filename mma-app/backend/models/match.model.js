@@ -19,6 +19,7 @@ const matchSchema = mongoose.Schema({
     matchOrder: Number,
     isFiveRounds: Boolean,
     isTitleFight: Boolean,
+    date: Date,
     fighters: {
         type: [
             {

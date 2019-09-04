@@ -78,6 +78,8 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
   const numMatchesPerEvents = numMatches / numEvents;
   const numMatchesPerMatchType = numMatchesPerEvents / 3;
   let selectedOrg = "";
+
+  let currentDate = new Date("2018-01-01");
   for (let i = 0; i < numMatches; i++) {
     // Randomly weightClass and org
     const selectedWeightClass = weightClasses[randomNumber(0, weightClasses.length)];
@@ -102,6 +104,7 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
       matchOrder: matchOrder,
       isTitleFight: titleFightFlag,
       isFiveRounder: fiveRounderFlag,
+      date: currentDate,
       fighters: [selectedFighters.fighter1Id, selectedFighters.fighter2Id],
       isTestData: true
     };
@@ -141,6 +144,12 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
 
     await FighterModel.updateOne({_id:selectedFighters.fighter1Id},fighter1Update);
     await FighterModel.updateOne({_id:selectedFighters.fighter2Id},fighter2Update);
+
+    // everytime we switch to a new event we increment the date
+    if ((i+1) % numMatchesPerEvents == 0){
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    
   }
 
   console.log("Num Matches: " + matchObjects.length)
