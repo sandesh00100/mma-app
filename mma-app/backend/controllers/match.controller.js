@@ -1,15 +1,41 @@
-const Match = require('../models/match.model');
-const Fighter = require('../models/fighter.model');
+const MatchModel = require('../models/match.model');
 
-// TODO: put current orgs in a global shared place
-const CurrentOrgs = ['UFC', 'Bellator'];
+const ERROR_MESSAGE_OBJECT = {
+    message: "Fetching matches failed"
+};
 
-const getMatches = (req,res,next) => {
+const fetchMatches = async (pageSize, currentPage, org) => {
+
+    // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
+    const fetchedMatches = await MatchModel.find({ organization: org })
+        .sort({ date: -1 })
+        .skip(pageSize * (currentPage - 1))
+        .limit(pageSize)
+        .populate({ path: 'fighters' });
+
+    const totalMatches = await MatchModel.countDocuments({ organization: org });
+
+    return {
+        message: "Matches fetched sucessfully",
+        matches: fetchedMatches,
+        totalMatches: totalMatches
+    };
+};
+
+const getMatches = (req, res, next) => {
     const pageSize = +req.query.pageSize;
     const currentPage = +req.query.page;
-    
-    if (pageSize && currentPage) {
-        
+    const org = req.query.org;
+
+    if (pageSize && currentPage && org) {
+        fetchMatches(pageSize, currentPage, org).then(fetchedMatches => {
+            res.status(200).json(fetchMatches);
+        }).catch(err => {
+            console.log(err);
+            res.status(500).json(ERROR_MESSAGE_OBJECT);
+        });
+    } else {
+        res.status(500).json(ERROR_MESSAGE_OBJECT);
     }
 };
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 const MatchController = require('../controllers/match.controller');
 
 router.get('', MatchController.getMatches);
