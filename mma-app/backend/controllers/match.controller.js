@@ -40,5 +40,7 @@ const getMatches = (req, res, next) => {
 };
 
 module.exports = {
-    getMatches: getMatches
+    getMatches: getMatches,
+    // exporting fetchMatches for unit testing
+    fetchMatches: fetchMatches
 };
