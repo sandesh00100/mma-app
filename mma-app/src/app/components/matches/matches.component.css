@@ -3,3 +3,33 @@ mat-panel-title{
   justify-content: center;
 }
 
+p {
+  text-align: center;
+}
+
+img {
+  object-fit: cover;
+  height: 15.625em;
+  width: 15.625em;
+  margin: 0.625em;
+  box-shadow: 10px 10px 15px #aaaaaa;
+  border-radius: 15%;
+}
+
+.fighterImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-action-row {
+  justify-content: center;
+  align-items:center;
+}
+
+.tabBodyContainer {
+  margin-top:.625em;
+  margin-bottom: .625em;
+  width: 70%;
+  margin-left: 15%;
+}

@@ -98,7 +98,7 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
 
     const matchObj = {
       eventName: selectedOrg + " " + eventNumber,
-      organizaion: selectedOrg,
+      organization: selectedOrg,
       weightClass: selectedWeightClass,
       matchType: selectedMatchType,
       matchOrder: matchOrder,

@@ -1,27 +1,29 @@
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onChangedTab($event)">
     <mat-tab [label]="organization" *ngFor="let organization of organizations">
-        <ng-template matTabContent>
+        <div class="tabBodyContainer">
             <mat-accordion multi="true">
-                <mat-expansion-panel *ngFor = "let match of matches">
+                <mat-expansion-panel *ngFor="let match of matches">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{match.event}} {{match.fight}}
+                            {{match.eventName}} {{match.fighters[0].lastName}} Vs. {{match.fighters[1].lastName}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
+                    <div class="fighterImageContainer">
+                        <img [src]="tempFighter1Img" [alt]="match.fighters[0].lastName">
+                        <img [src]="tempFighter2Img" [alt]="match.fighters[1].lastName">
+                    </div>
                     <p class="">
                         sal;dfjal;sdkjf lkjsa sadfl kajsdflkja sdljfaslk jaslkdjf
                         aslkdfj laskdjflaksj
                     </p>
                     <mat-action-row>
-                        CONTENT
+                        <button mat-raised-button color="primary">Judge</button>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
-        </ng-template>
+        </div>
     </mat-tab>
 </mat-tab-group>
-<mat-paginator [length]="pageLength"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="pageEvent = $event">
+<mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = onChangedPage($event)">
 </mat-paginator>
