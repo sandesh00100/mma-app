@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Match } from './match.model';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 const httpURL = environment.apiUrl + 'matches/';
 
@@ -11,7 +12,7 @@ const httpURL = environment.apiUrl + 'matches/';
 })
 export class MatchService {
   private matches: Match[] = [];
-
+  private matchesUpdated = new Subject<{matches:Match[], maxMatch:number}>();
   constructor(private http: HttpClient) { }
 
   getMatches(matchesPerPage: number, currentPage: number, org: string) {
@@ -20,6 +21,7 @@ export class MatchService {
     this.http.get<{ message: string, matches: any, totalMatches: number }>(httpURL + queryParams)
       .pipe(
         map(matchData => {
+          // console.log(matchData);
           return {
             matches: matchData.matches.map(fetchedMatch => {
               return {
@@ -39,19 +41,25 @@ export class MatchService {
                     imagePath: fetchedFighter.imagePath,
                     rank: fetchedFighter.rank,
                     record: {
-                      wins: fetchedFighter.wins,
-                      losses: fetchedFighter.losses,
-                      disqualifications: fetchedFighter.disqualifications
+                      wins: fetchedFighter.record.wins,
+                      losses: fetchedFighter.record.losses,
+                      disqualifications: fetchedFighter.record.disqualifications
                     }
                   }
                 })
               }
-            })
+            }),
+            maxMatches: matchData.totalMatches
           }
         })
       ).subscribe(transformedMatches => {
+        console.log(transformedMatches);
          this.matches = transformedMatches.matches;
+         this.matchesUpdated.next({matches:[...this.matches], maxMatch: transformedMatches.maxMatches});
       });
   }
 
+  getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
+      return this.matchesUpdated;
+  }
 }

@@ -103,7 +103,7 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
       matchType: selectedMatchType,
       matchOrder: matchOrder,
       isTitleFight: titleFightFlag,
-      isFiveRounder: fiveRounderFlag,
+      isFiveRounds: fiveRounderFlag,
       date: currentDate,
       fighters: [selectedFighters.fighter1Id, selectedFighters.fighter2Id],
       isTestData: true
