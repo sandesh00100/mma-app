@@ -33,3 +33,9 @@ mat-action-row {
   width: 70%;
   margin-left: 15%;
 }
+
+.titleMatch {
+  background-image: linear-gradient(to left, #8f6B29, #FDE08D, #DF9F28); 
+  background-color: yellow; /* For browsers that do not support gradients */
+  
+}

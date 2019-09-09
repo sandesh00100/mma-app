@@ -26,10 +26,8 @@ const getMatches = (req, res, next) => {
     const pageSize = +req.query.pageSize;
     const currentPage = +req.query.page;
     const org = req.query.org;
-    console.log(req.query);
     if (pageSize && currentPage && org) {
         fetchMatches(pageSize, currentPage, org).then(fetchedMatches => {
-            console.log(fetchedMatches)
             res.status(200).json(fetchedMatches);
         }).catch(err => {
             console.log(err);

@@ -2,7 +2,7 @@
     <mat-tab [label]="organization" *ngFor="let organization of organizations">
         <div class="tabBodyContainer">
             <mat-accordion multi="true">
-                <mat-expansion-panel *ngFor="let match of matches">
+                <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             {{match.eventName}} {{match.fighters[0].lastName}} Vs. {{match.fighters[1].lastName}}
