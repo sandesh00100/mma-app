@@ -22,6 +22,11 @@ img {
   align-items: center;
 }
 
+.fighterImageContainer mat-list-item{
+  justify-content: center;
+}
+
+
 mat-action-row {
   justify-content: center;
   align-items:center;
@@ -38,4 +43,8 @@ mat-action-row {
   background-image: linear-gradient(to left, #8f6B29, #FDE08D, #DF9F28); 
   background-color: yellow; /* For browsers that do not support gradients */
   
+}
+
+.mat-list .mat-list-item.center .mat-list-item-content{
+  justify-content: center;
 }

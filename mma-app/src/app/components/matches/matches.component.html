@@ -5,17 +5,24 @@
                 <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{match.eventName}} {{match.fighters[0].lastName}} Vs. {{match.fighters[1].lastName}}
+                            {{match.eventName}} {{match.fighters[0].lastName}} VS {{match.fighters[1].lastName}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="fighterImageContainer">
                         <img [src]="tempFighter1Img" [alt]="match.fighters[0].lastName">
+                        <mat-list >
+                            <mat-list-item >
+                            {{match.fighters[0].record.wins}}-{{match.fighters[0].record.losses}}-{{match.fighters[0].record.disqualifications}} Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.disqualifications}}
+                            </mat-list-item>
+                            <mat-list-item >
+                                {{match.weightClass}} Weight {{match.weightClass}}
+                            </mat-list-item>
+                            <mat-list-item>other stats...</mat-list-item>
+                        </mat-list>
                         <img [src]="tempFighter2Img" [alt]="match.fighters[1].lastName">
                     </div>
-                    <p class="">
-                        sal;dfjal;sdkjf lkjsa sadfl kajsdflkja sdljfaslk jaslkdjf
-                        aslkdfj laskdjflaksj
-                    </p>
+
+
                     <mat-action-row>
                         <button mat-raised-button color="primary">Judge</button>
                     </mat-action-row>
