@@ -13,7 +13,9 @@ const orgs = ['UFC', 'Bellator'];
 const matchType = ['Main', 'Prelims', 'Early Prelims'];
 const weightClasses = [125, 135, 145, 155, 170, 185, 205, 265];
 
-// Return an object with 2 unique fighter IDs
+/**
+ * Return an object with 2 unique fighter IDs
+ */
 const getFighters = () => {
   const randomFighterIndex = randomNumber(0, fighterObjects.length - 1);
   let randomFighterIndex2 = randomNumber(0, fighterObjects.length - 1);
@@ -29,7 +31,11 @@ const getFighters = () => {
   };
 };
 
-// Checks if it's a title fight
+/**
+ * Checks if it's the main event.
+ * If it is has a 50% chance of being a title fight.
+ * @param {*} matchOrder
+ */
 const isTitleFight = (matchOrder) => {
   if ((matchOrder == 0) && (randomNumber(0, 2) == 0)) {
     return true;
@@ -38,7 +44,12 @@ const isTitleFight = (matchOrder) => {
   }
 };
 
-// Checks if it's a five rounder
+/**
+ * Checks if it's a five rounder.
+ * If it's a title fight its automatically a 5 rounder and if it's a main event it's also a 5 rounder.
+ * @param {*} matchOrder
+ * @param {*} isTitleFight
+ */
 const isFiveRounder = (matchOrder, isTitleFight) => {
   if (isTitleFight || matchOrder == 0){
     return true;
@@ -47,6 +58,12 @@ const isFiveRounder = (matchOrder, isTitleFight) => {
   }
 };
 
+/**
+ * Creates mock data for testing
+ * @param {*} numFighters Number of fighters to be generated.
+ * @param {*} numMatches Number of matches to be generated.
+ * @param {*} numEvents Number of events to be generated.
+ */
 const createMockData = async (numFighters, numMatches, numEvents) => {
   await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
 
@@ -149,7 +166,7 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
     if ((i+1) % numMatchesPerEvents == 0){
       currentDate.setDate(currentDate.getDate() + 1);
     }
-    
+
   }
 
   console.log("Num Matches: " + matchObjects.length)

@@ -4,6 +4,12 @@ const ERROR_MESSAGE_OBJECT = {
     message: "Fetching matches failed"
 };
 
+/**
+ * Async function that finds matches of the provided organization and sorts it by date
+ * @param {*} pageSize size of the selected page
+ * @param {*} currentPage index of the current page
+ * @param {*} org organization name (UFC/Bellator for now)
+ */
 const fetchMatches = async (pageSize, currentPage, org) => {
 
     // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
