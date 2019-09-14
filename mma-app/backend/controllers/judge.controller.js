@@ -37,18 +37,18 @@ const createJudge = (req, res, next) => {
  * @param {*} res
  * @param {*} next
  */
-const signinJudge = async (req, res, next) => {
+const loginJudge = async (req, res, next) => {
   // TODO: Have better error handling
   try {
     const foundJudge = await JudgeModel.findOne({ email: req.email, password: req.password });
     if (!foundJudge) {
-      return res.json({
+      res.status(500).json({
         message: "User could not be found"
       });
     } else {
       const isSamePassword = await bcrypt.compare(req.password, foundJudge.password);
       if (!isSamePassword) {
-        res.json({
+        res.status(500).json({
           message: "Passwords do not match"
         });
       } else {
@@ -63,8 +63,10 @@ const signinJudge = async (req, res, next) => {
           {expiresIn: "1h"}
           );
 
-          res.json({
-
+          res.status(200).json({
+            token:token,
+            expiresIn: 3600,
+            judgeId: foundJudge._id
           });
 
       }
@@ -72,11 +74,14 @@ const signinJudge = async (req, res, next) => {
 
 
   } catch (err) {
-
+    console.log(err);
+    res.status(500).json({
+      message: "Internal error"
+    });
   }
 }
 
 module.exports = {
   createJudge: createJudge,
-  signinJudge: signinJudge
+  loginJudge: loginJudge
 };

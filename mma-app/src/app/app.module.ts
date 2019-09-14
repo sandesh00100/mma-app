@@ -6,12 +6,15 @@ import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, Mat
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatchesComponent } from './components/matches/matches.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './components/auth/auth.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MatchesComponent
+    MatchesComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     HttpClientModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
