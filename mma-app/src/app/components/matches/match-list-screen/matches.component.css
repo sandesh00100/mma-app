@@ -18,7 +18,7 @@ img {
 
 .fighterImageContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -28,10 +28,7 @@ mat-action-row {
 }
 
 .tabBodyContainer {
-  margin-top:.625em;
-  margin-bottom: .625em;
-  width: 70%;
-  margin-left: 15%;
+  margin:.625em;
 }
 
 .titleMatch {
