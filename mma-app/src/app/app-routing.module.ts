@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 import { MatchesComponent } from './components/matches/matches.component';
 import { AuthComponent } from './components/auth/auth.component';
@@ -13,7 +12,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class AppRoutingModule { }
