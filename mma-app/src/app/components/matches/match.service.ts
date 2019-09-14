@@ -25,6 +25,7 @@ export class MatchService {
           return {
             matches: matchData.matches.map(fetchedMatch => {
               return {
+                id:fetchedMatch._id,
                 eventName: fetchedMatch.eventName,
                 organization: fetchedMatch.organization,
                 weightClass: fetchedMatch.weightClass,

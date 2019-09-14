@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatchService } from './match.service';
+import { MatchService } from '../match.service';
 import { Subscription } from 'rxjs';
-import { Match } from './match.model';
+import { Match } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
 
 @Component({

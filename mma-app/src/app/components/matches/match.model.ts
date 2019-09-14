@@ -1,5 +1,6 @@
 // Maybe create a seperate match model later on
 export interface Match {
+    id:string,
     eventName: string,
     organization: string,
     weightClass: number,
