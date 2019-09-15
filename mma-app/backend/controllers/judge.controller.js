@@ -70,7 +70,8 @@ const signinJudge = async (req, res, next) => {
           res.status(200).json({
             token:token,
             expiresIn: 3600,
-            judgeId: foundJudge._id
+            judgeId: foundJudge._id,
+            email:foundJudge.email
           });
 
       }

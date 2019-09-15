@@ -12,7 +12,7 @@ const httpURL = environment.apiUrl + 'judge';
 })
 export class AuthService {
   isAuth: boolean = false;
-  private authStatusListener = new Subject<boolean>();
+  private authStatusListener = new Subject<{ isAuth: boolean, username: string }>();
   constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(email: string, password: string) {
@@ -30,22 +30,32 @@ export class AuthService {
       });
   }
 
-  siginUser(email: string, password: string){
+  signinUser(email: string, password: string) {
     const authData: AuthData = {
       email: email,
       password: password
     }
 
-    this.http.post(`${httpURL}/signin`, authData)
+    this.http.post<{ token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
       .subscribe(response => {
         console.log("sigin server response: ");
         console.log(response);
-        this.authStatusListener.next(true);
+        this.isAuth = true;
+        this.authStatusListener.next({ isAuth: this.isAuth, username: response.email});
         this.router.navigate(['/']);
       });
   }
 
+  signout(){
+    this.isAuth = false;
+    this.authStatusListener.next({isAuth:this.isAuth, username:''});
+  }
+
   getAuthStatusListener() {
     return this.authStatusListener;
+  }
+  
+  userIsAuth(){
+    return this.isAuth;
   }
 }

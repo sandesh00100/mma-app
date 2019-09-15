@@ -4,7 +4,13 @@
         </a>
         <span class="spacer"></span>
         <ul>
-        <a mat-button routerLink="/signin" routerLinkActive="mat-accent">Sign in</a>
-        <a mat-button routerLink="/register" routerLinkActive="mat-accent">Register</a>
+        <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
+        <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
+        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth">{{username}}</button>
+        <mat-menu #menu="matMenu">
+                <button mat-menu-item>Judge History</button>
+                <button mat-menu-item>Settings</button>
+        </mat-menu>
+        <button mat-button (click)="signout()" *ngIf="isAuth">Sign-Out</button>
         </ul>
 </mat-toolbar>

@@ -32,11 +32,10 @@ export class AuthComponent implements OnInit {
 
   authorize(){
     if (this.mode == 'Sign in'){
-      this.authService.siginUser(this.form.value.email,this.form.value.password);
+      this.authService.signinUser(this.form.value.email,this.form.value.password);
     } else {
       console.log(this.form.value);
       this.authService.registerUser(this.form.value.email,this.form.value.password);
     }
   }
-
 }

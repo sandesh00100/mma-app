@@ -24,7 +24,8 @@
 
 
                     <mat-action-row>
-                        <a mat-button color="primary" [routerLink]="['/judge',match.id]">Judge Match</a>
+                        <!-- Maybe a better way of redirection? -->
+                        <a mat-button color="primary" [routerLink]="currentRouterLink">Judge Match</a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>

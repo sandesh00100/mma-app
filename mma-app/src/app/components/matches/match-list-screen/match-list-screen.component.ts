@@ -3,6 +3,7 @@ import { MatchService } from '../match.service';
 import { Subscription } from 'rxjs';
 import { Match } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-matches',
@@ -10,22 +11,30 @@ import { PageEvent, MatTabChangeEvent } from '@angular/material';
   styleUrls: ['./match-list-screen.component.css']
 })
 export class MatchesComponent implements OnInit {
+  currentRouterLink:string = "/signin";
+  isAuth:boolean = false;
   // TODO: Might want to change from being hard coded
   organizations: string[] = ['UFC', 'Bellator'];
   currentOrgIndex: number = 0;
   tempFighter1Img: string = "https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg";
   tempFighter2Img: string = "https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg";
   private matchesSub: Subscription;
+  private authSub: Subscription;
   matches: Match[];
   pageLength: number = 0;
   pageSize: number = 5;
   pageSizeOptions: number[] = [1,5,10,20]
   currentPage: number = 1;
   isLoading: boolean = false;
-  constructor(private matchService: MatchService) { }
+  constructor(private matchService: MatchService, private authService: AuthService) { }
 
   ngOnInit() {
     this.matchService.getMatches(this.pageSize,1,'UFC');
+    if (this.authService.userIsAuth()){
+      this.currentRouterLink = "['/judge','match.id']";
+    } else {
+      this.currentRouterLink = "/signin";
+    }
     this.getListeners();
   }
 
@@ -36,6 +45,12 @@ export class MatchesComponent implements OnInit {
         this.matches = matchData.matches;
         this.pageLength = matchData.maxMatch;
     });
+    // Might use this later
+    // this.authSub = this.authService.getAuthStatusListener().subscribe(authData => {
+    //   console.log(authData);
+    //   this.isAuth = authData.isAuth;
+    //   console.log(this.currentRouterLink);
+    // });
   }
 
   onChangedPage(pageData: PageEvent){
