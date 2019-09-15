@@ -9,19 +9,20 @@ const jwt = require('jsonwebtoken');
  * @param {*} next
  */
 const createJudge = (req, res, next) => {
-  console.log(req);
+  console.log(req.body);
   // TODO: Research second argument, I think it's how many layers of salt it goes through
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
     const judge = new JudgeModel({
       email: req.body.email,
-      password: hashedPassword
+      password: hashedPassword,
+      // TODO: remove this when we're done with everything
+      isTestData: true
     });
 
     // TODO: Check what's in the result
     judge.save().then(result => {
       res.json({
-        message: "Judge registered sucessfully!",
-        result: result
+        message: "Judge registered sucessfully!"
       });
     }).catch(err => {
       console.log(err);
@@ -38,16 +39,18 @@ const createJudge = (req, res, next) => {
  * @param {*} res
  * @param {*} next
  */
-const loginJudge = async (req, res, next) => {
+const signinJudge = async (req, res, next) => {
+  console.log(req.body);
   // TODO: Have better error handling
   try {
-    const foundJudge = await JudgeModel.findOne({ email: req.email, password: req.password });
+    const foundJudge = await JudgeModel.findOne({ email: req.body.email});
+    console.log(foundJudge);
     if (!foundJudge) {
       res.status(500).json({
         message: "User could not be found"
       });
     } else {
-      const isSamePassword = await bcrypt.compare(req.password, foundJudge.password);
+      const isSamePassword = await bcrypt.compare(req.body.password, foundJudge.password);
       if (!isSamePassword) {
         res.status(500).json({
           message: "Passwords do not match"
@@ -84,5 +87,5 @@ const loginJudge = async (req, res, next) => {
 
 module.exports = {
   createJudge: createJudge,
-  loginJudge: loginJudge
+  signinJudge: signinJudge
 };

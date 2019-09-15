@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const matchRoutes = require('./routes/match.route');
+const judgeRoutes = require('./routes/judge.route');
 
 const mongoose = require('mongoose');
 // secure password relative to app.js
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
     next();
   });
 
-  app.use('/api/matches', matchRoutes);
+app.use('/api/matches', matchRoutes);
+app.use('/api/judge',judgeRoutes)
   
 module.exports = app;

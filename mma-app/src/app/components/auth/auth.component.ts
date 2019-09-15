@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
         validators: [Validators.required]
       })
     });
-
+    console.log("Current router url: " + this.router.url);
     if (this.router.url == '/signin'){
       this.mode = 'Sign in';
     } else {
@@ -31,8 +31,8 @@ export class AuthComponent implements OnInit {
   }
 
   authorize(){
-    if (this.mode = 'Sign in'){
-      console.log('sigin');
+    if (this.mode == 'Sign in'){
+      this.authService.siginUser(this.form.value.email,this.form.value.password);
     } else {
       console.log(this.form.value);
       this.authService.registerUser(this.form.value.email,this.form.value.password);
