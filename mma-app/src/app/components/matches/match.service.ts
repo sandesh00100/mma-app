@@ -54,7 +54,7 @@ export class MatchService {
           }
         })
       ).subscribe(transformedMatches => {
-        console.log(transformedMatches);
+        // console.log(transformedMatches);
          this.matches = transformedMatches.matches;
          this.matchesUpdated.next({matches:[...this.matches], maxMatch: transformedMatches.maxMatches});
       });

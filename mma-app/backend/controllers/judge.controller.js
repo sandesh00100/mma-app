@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
  * @param {*} next
  */
 const createJudge = (req, res, next) => {
+  console.log(req);
   // TODO: Research second argument, I think it's how many layers of salt it goes through
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
     const judge = new JudgeModel({

@@ -6,8 +6,8 @@ import { PageEvent, MatTabChangeEvent } from '@angular/material';
 
 @Component({
   selector: 'app-matches',
-  templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.css']
+  templateUrl: './match-list-screen.component.html',
+  styleUrls: ['./match-list-screen.component.css']
 })
 export class MatchesComponent implements OnInit {
   // TODO: Might want to change from being hard coded
@@ -21,27 +21,32 @@ export class MatchesComponent implements OnInit {
   pageSize: number = 5;
   pageSizeOptions: number[] = [1,5,10,20]
   currentPage: number = 1;
+  isLoading: boolean = false;
   constructor(private matchService: MatchService) { }
 
   ngOnInit() {
-    this.matchService.getMatches(4,1,'UFC');
+    this.matchService.getMatches(this.pageSize,1,'UFC');
     this.getListeners();
   }
 
   getListeners(){
+    this.isLoading = true;
     this.matchesSub = this.matchService.getMatchUpdateListener().subscribe((matchData: {matches: Match[], maxMatch:number}) => {
+        this.isLoading = false;
         this.matches = matchData.matches;
         this.pageLength = matchData.maxMatch;
     });
   }
 
   onChangedPage(pageData: PageEvent){
+    this.isLoading = true;
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
     this.matchService.getMatches(this.pageSize,this.currentPage,this.organizations[this.currentOrgIndex]);
   }
   
   onChangedTab(tabData: MatTabChangeEvent){
+    this.isLoading = true;
     this.currentOrgIndex = tabData.index;
     this.matchService.getMatches(this.pageSize,this.currentPage,this.organizations[this.currentOrgIndex]);
   }

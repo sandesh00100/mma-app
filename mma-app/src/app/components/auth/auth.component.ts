@@ -10,12 +10,12 @@ import { Router} from '@angular/router';
 })
 export class AuthComponent implements OnInit {
   form:FormGroup;
-  mode: String = 'signin';
+  mode: String;
   constructor(private authService: AuthService,private router:Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
-      username: new FormControl(null,{
+      email: new FormControl(null,{
         validators: [Validators.required]
       }),
       password: new FormControl(null,{
@@ -24,17 +24,18 @@ export class AuthComponent implements OnInit {
     });
 
     if (this.router.url == '/signin'){
-      this.mode = 'signin';
+      this.mode = 'Sign in';
     } else {
-      this.mode = 'register';
+      this.mode = 'Register';
     }
   }
 
   authorize(){
-    if (this.mode = 'sigin'){
-
+    if (this.mode = 'Sign in'){
+      console.log('sigin');
     } else {
-
+      console.log(this.form.value);
+      this.authService.registerUser(this.form.value.email,this.form.value.password);
     }
   }
 

@@ -1,8 +1,8 @@
 <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onChangedTab($event)">
     <mat-tab [label]="organization" *ngFor="let organization of organizations">
         <div class="tabBodyContainer">
-            <mat-accordion multi="true">
-                <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}">
+            <mat-accordion multi="true" >
+                <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}" [disabled]="isLoading">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             {{match.eventName}} {{match.fighters[0].lastName}} VS {{match.fighters[1].lastName}}
