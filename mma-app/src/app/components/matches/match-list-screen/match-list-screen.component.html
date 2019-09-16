@@ -12,6 +12,7 @@
                         <img [src]="tempFighter1Img" [alt]="match.fighters[0].lastName">
                         <mat-list >
                             <mat-list-item >
+                                <!-- Definitely needs to be cleaned up/optimized -->
                             {{match.fighters[0].record.wins}}-{{match.fighters[0].record.losses}}-{{match.fighters[0].record.disqualifications}} Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.disqualifications}}
                             </mat-list-item>
                             <mat-list-item >
@@ -24,8 +25,8 @@
 
 
                     <mat-action-row>
-                        <!-- Maybe a better way of redirection? -->
-                        <a mat-button color="primary" [routerLink]="currentRouterLink">Judge Match</a>
+                        <!-- if someone is authorized then go to the judge page else go to the signin page-->
+                        <a mat-button color="primary" [routerLink]="(isAuth) ? ['/judge',match.id] : '/signin'">Judge Match</a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>

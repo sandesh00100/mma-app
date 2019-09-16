@@ -30,11 +30,7 @@ export class MatchesComponent implements OnInit {
 
   ngOnInit() {
     this.matchService.getMatches(this.pageSize,1,'UFC');
-    if (this.authService.userIsAuth()){
-      this.currentRouterLink = "['/judge','match.id']";
-    } else {
-      this.currentRouterLink = "/signin";
-    }
+    this.isAuth = this.authService.userIsAuth();
     this.getListeners();
   }
 
@@ -45,12 +41,11 @@ export class MatchesComponent implements OnInit {
         this.matches = matchData.matches;
         this.pageLength = matchData.maxMatch;
     });
-    // Might use this later
-    // this.authSub = this.authService.getAuthStatusListener().subscribe(authData => {
-    //   console.log(authData);
-    //   this.isAuth = authData.isAuth;
-    //   console.log(this.currentRouterLink);
-    // });
+
+    this.authSub = this.authService.getAuthStatusListener().subscribe(authData => {
+      this.isAuth = authData.isAuth;
+      console.log(this.currentRouterLink);
+    });
   }
 
   onChangedPage(pageData: PageEvent){

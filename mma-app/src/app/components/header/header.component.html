@@ -6,11 +6,12 @@
         <ul>
         <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
         <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
-        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth">{{username}}</button>
+        <button mat-raised-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton" color="primary">{{username}} <mat-icon>more_vert</mat-icon></button>
         <mat-menu #menu="matMenu">
-                <button mat-menu-item>Judge History</button>
-                <button mat-menu-item>Settings</button>
+                <button mat-menu-item><mat-icon>history</mat-icon>Judge History </button>
+                <button mat-menu-item><mat-icon>settings</mat-icon>Settings </button>
+                <button mat-menu-item (click)="signout()" *ngIf="isAuth"><mat-icon>settings_power</mat-icon>Sign-Out</button>
         </mat-menu>
-        <button mat-button (click)="signout()" *ngIf="isAuth">Sign-Out</button>
+        
         </ul>
 </mat-toolbar>

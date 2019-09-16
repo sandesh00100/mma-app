@@ -49,6 +49,7 @@ export class AuthService {
   signout(){
     this.isAuth = false;
     this.authStatusListener.next({isAuth:this.isAuth, username:''});
+    this.router.navigate(["/"]);
   }
 
   getAuthStatusListener() {

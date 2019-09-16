@@ -13,3 +13,7 @@ ul {
 .spacer {
     flex: auto;
 }
+
+.accountButton {
+    border-color: white;
+}
