@@ -6,7 +6,7 @@
         <ul>
         <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
         <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
-        <button mat-raised-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton" color="primary">{{username}} <mat-icon>more_vert</mat-icon></button>
+        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton"><mat-icon>expand_more</mat-icon>{{username}} </button>
         <mat-menu #menu="matMenu">
                 <button mat-menu-item><mat-icon>history</mat-icon>Judge History </button>
                 <button mat-menu-item><mat-icon>settings</mat-icon>Settings </button>
