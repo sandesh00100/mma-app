@@ -60,6 +60,12 @@ export class MatchService {
       });
   }
 
+  // Might want to go to fetch it from the server
+  getMatch(matchId: string){
+    return this.matches.find((match: Match) => {
+      return match.id == matchId;
+    });
+  }
   getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
       return this.matchesUpdated;
   }

@@ -1,1 +1,6 @@
-<p>judge-screen works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title *ngIf="currentMatch != null">{{currentMatch.fighters[0].lastName}} VS {{currentMatch.fighters[1].lastName}}</mat-card-title>
+        <mat-card-subtitle *ngIf="currentMatch != null">{{currentMatch.eventName}}</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

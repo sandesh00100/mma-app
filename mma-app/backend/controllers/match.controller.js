@@ -44,8 +44,33 @@ const getMatches = (req, res, next) => {
     }
 };
 
+/**
+ * Might Need this later
+ */
+const getMatch =  (req, res, next) => {
+    const matchId = req.body.matchId;
+    if (matchId){
+        MatchModel.findById({_id:matchId}).then(foundMatch =>{
+            res.status(200).json({
+                match: foundMatch,
+                message: 'Match fetched sucessfully'
+            });
+        }).catch(err => {
+            console.log(err);
+            res.status(500).json({
+                message: 'Match could not be found. Please provide a valid Id'
+            });
+        });
+    } else {
+        res.status(500).json({
+            message: 'No id provided'
+        });
+    }
+}
+
 module.exports = {
     getMatches: getMatches,
+    getMatch:getMatch,
     // exporting fetchMatches for unit testing
     fetchMatches: fetchMatches
 };

@@ -7,7 +7,7 @@
         <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
         <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
         <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton"><mat-icon>expand_more</mat-icon>{{username}} </button>
-        <mat-menu #menu="matMenu">
+        <mat-menu #menu="matMenu" xPosition="after">
                 <button mat-menu-item><mat-icon>history</mat-icon>Judge History </button>
                 <button mat-menu-item><mat-icon>settings</mat-icon>Settings </button>
                 <button mat-menu-item (click)="signout()" *ngIf="isAuth"><mat-icon>settings_power</mat-icon>Sign-Out</button>

@@ -13,3 +13,7 @@ ul {
 .spacer {
     flex: auto;
 }
+
+.accountButton {
+    margin-right: 2em;
+}

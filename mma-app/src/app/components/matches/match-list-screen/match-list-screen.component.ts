@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../match.service';
 import { Subscription } from 'rxjs';
 import { Match } from '../match.model';
@@ -10,7 +10,8 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './match-list-screen.component.html',
   styleUrls: ['./match-list-screen.component.css']
 })
-export class MatchesComponent implements OnInit {
+export class MatchesComponent implements OnInit, OnDestroy {
+  
   currentRouterLink:string = "/signin";
   isAuth:boolean = false;
   // TODO: Might want to change from being hard coded
@@ -33,7 +34,11 @@ export class MatchesComponent implements OnInit {
     this.isAuth = this.authService.userIsAuth();
     this.getListeners();
   }
-
+  
+  ngOnDestroy(): void {
+    this.matchesSub.unsubscribe();
+    this.authSub.unsubscribe();
+  }
   getListeners(){
     this.isLoading = true;
     this.matchesSub = this.matchService.getMatchUpdateListener().subscribe((matchData: {matches: Match[], maxMatch:number}) => {
