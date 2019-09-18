@@ -5,3 +5,20 @@ mat-card-header {
 mat-card-subtitle {
     text-align: center;
 }
+
+mat-card-content {
+    display: flex;
+    justify-content: space-around;
+}
+.fighterCard{
+    width:25%;
+}
+
+img {
+    object-fit: cover;
+    height: 15em;
+    width: 15em;
+    margin: 0.625em;
+    box-shadow: 10px 10px 15px #aaaaaa;
+    border-radius: 15%;
+  }

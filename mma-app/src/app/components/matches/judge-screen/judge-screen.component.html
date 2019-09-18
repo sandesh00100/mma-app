@@ -3,4 +3,25 @@
         <mat-card-title *ngIf="currentMatch != null">{{currentMatch.fighters[0].lastName}} VS {{currentMatch.fighters[1].lastName}}</mat-card-title>
         <mat-card-subtitle *ngIf="currentMatch != null">{{currentMatch.eventName}}</mat-card-subtitle>
     </mat-card-header>
+    <mat-card-content>
+        <mat-card class="fighterCard">
+            <mat-card-header>{{currentMatch.fighters[0].firstName+ " " +currentMatch.fighters[0].lastName}}</mat-card-header>
+            <mat-card-content>
+                <div>
+                    <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="fighterCard">
+            <mat-card-header>{{currentMatch.fighters[0].firstName + " " +currentMatch.fighters[0].lastName}}</mat-card-header>
+            <mat-card-content>
+                <div>
+                    <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg" alt="">
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
 </mat-card>

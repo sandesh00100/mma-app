@@ -48,9 +48,9 @@ const getMatches = (req, res, next) => {
  * Might Need this later
  */
 const getMatch =  (req, res, next) => {
-    const matchId = req.body.matchId;
+    const matchId = req.params.id;
     if (matchId){
-        MatchModel.findById({_id:matchId}).then(foundMatch =>{
+        MatchModel.findById({_id:matchId}).populate({path:'fighters'}).then(foundMatch =>{
             res.status(200).json({
                 match: foundMatch,
                 message: 'Match fetched sucessfully'

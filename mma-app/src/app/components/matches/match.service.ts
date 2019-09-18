@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Match } from './match.model';
 import { map } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, pipe } from 'rxjs';
 
 const httpURL = environment.apiUrl + 'matches/';
 
@@ -61,10 +61,14 @@ export class MatchService {
   }
 
   // Might want to go to fetch it from the server
-  getMatch(matchId: string){
+  getLocalMatch(matchId: string): Match{
     return this.matches.find((match: Match) => {
       return match.id == matchId;
     });
+  }
+
+  getMatch(matchId: String) {
+    return this.http.get<{message:string, match:any}>(httpURL+matchId);
   }
   getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
       return this.matchesUpdated;
