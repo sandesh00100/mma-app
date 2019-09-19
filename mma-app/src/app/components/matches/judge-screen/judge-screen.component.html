@@ -12,6 +12,17 @@
                 </div>
             </mat-card-content>
         </mat-card>
+        <div class="timerContainer">
+            <div class="timerControl">
+                <button mat-button><mat-icon>skip_previous</mat-icon></button>
+                <button mat-button (click)="startTimer()"><mat-icon>play_circle_outline</mat-icon></button>
+                <button mat-button (click)="stopTimer()"><mat-icon>pause_circle_outline</mat-icon></button>
+                <button mat-button><mat-icon>skip_next</mat-icon></button>
+            </div>
+            <div class="timer">
+              <h1>{{minutes}}:{{seconds}}</h1>
+            </div>
+        </div>
         <mat-card class="fighterCard">
             <mat-card-header>{{currentMatch.fighters[0].firstName + " " +currentMatch.fighters[0].lastName}}</mat-card-header>
             <mat-card-content>

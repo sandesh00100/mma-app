@@ -10,10 +10,19 @@ mat-card-content {
     display: flex;
     justify-content: space-around;
 }
+
+.timerContainer{
+    display: flex;
+    flex-direction: column;
+}
+
 .fighterCard{
     width:25%;
 }
 
+.timer {
+    text-align: center;
+}
 img {
     object-fit: cover;
     height: 15em;

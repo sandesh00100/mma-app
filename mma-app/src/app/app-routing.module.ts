@@ -9,7 +9,9 @@ const routes: Routes = [
   {path:'', component:MatchesComponent},
   {path:'signin', component:AuthComponent},
   {path:'register', component:AuthComponent},
-  {path:'judge/:matchId', component:JudgeScreenComponent, canActivate:[AuthGuard]}
+  // temp disable authguard for dev purposes
+  {path:'judge/:matchId', component:JudgeScreenComponent}
+  // {path:'judge/:matchId', component:JudgeScreenComponent, canActivate:[AuthGuard]}
 ]
 @NgModule({
   declarations: [],
