@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="currentMatch != null">
     <mat-card-header>
         <mat-card-title *ngIf="currentMatch != null">{{currentMatch.fighters[0].lastName}} VS {{currentMatch.fighters[1].lastName}}</mat-card-title>
         <mat-card-subtitle *ngIf="currentMatch != null">{{currentMatch.eventName}}</mat-card-subtitle>
@@ -12,7 +12,7 @@
                 </div>
             </mat-card-content>
         </mat-card>
-        <div class="timerContainer">
+        <div class="timerContainer" >
             <div class="timerControl">
                 <button mat-button><mat-icon>skip_previous</mat-icon></button>
                 <button mat-button (click)="startTimer()"><mat-icon>play_circle_outline</mat-icon></button>
@@ -21,6 +21,11 @@
             </div>
             <div class="timer">
               <h1>{{minutes}}:{{seconds}}</h1>
+            </div>
+            <div class="roundsContainer">
+                <div *ngFor = "let round of rounds" class="round">
+                        {{round}}
+                </div>
             </div>
         </div>
         <mat-card class="fighterCard">

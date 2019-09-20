@@ -10,11 +10,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['./judge-screen.component.css']
 })
 export class JudgeScreenComponent implements OnInit {
-  private MINS_PER_ROUND: number = 5;
+  private SECONDS_PER_ROUND: number = 300;
+  private interval;
+  private clockIsActive: boolean = false;
+  private currentTimeInSeconds: number = this.SECONDS_PER_ROUND;
+  
+  rounds:number[];
   minutes:string = "5";
   seconds:string = "00";
-  currentTimeInSeconds: number = 300;
-  private interval;
+  
+  
   constructor(private matchService: MatchService, private route: ActivatedRoute) { }
   currentMatch: Match;
 
@@ -32,29 +37,39 @@ export class JudgeScreenComponent implements OnInit {
             ...fetchedMatch,
             id:fetchedMatch._id
           };
+          if (this.currentMatch.isFiveRounds){
+            this.rounds = Array.from({length:5}, (v,i) => i+1);
+          } else {
+            this.rounds = Array.from({length:3}, (v,i) => i+1);
+          }
         });
       }
     });
   }
 
   startTimer(){
-    this.interval = setInterval( ()=>{
-      if (this.currentTimeInSeconds >= 2) {
-        this.minutes = Math.floor(this.currentTimeInSeconds/60).toString();
-        const nonPadedSeconds:string = (this.currentTimeInSeconds % 60).toString();
-        if (nonPadedSeconds.length < 2){
-          this.seconds = '0'+nonPadedSeconds;
+    if (this.clockIsActive != true) {
+      this.clockIsActive = true;
+      this.interval = setInterval( ()=>{
+        if (this.currentTimeInSeconds >= 0) {
+          this.clockIsActive = true;
+          this.minutes = Math.floor(this.currentTimeInSeconds/60).toString();
+          const nonPadedSeconds:string = (this.currentTimeInSeconds % 60).toString();
+          if (nonPadedSeconds.length < 2){
+            this.seconds = '0'+nonPadedSeconds;
+          } else {
+            this.seconds = nonPadedSeconds;
+          }
+          this.currentTimeInSeconds--;
         } else {
-          this.seconds = nonPadedSeconds;
+          this.stopTimer();
         }
-        this.currentTimeInSeconds--;
-      } else {
-        this.stopTimer();
-      }
-    },1000);
+      },1000);
+    }
   }
 
   stopTimer(){
+    this.clockIsActive = false;
     clearInterval(this.interval);
   }
 }

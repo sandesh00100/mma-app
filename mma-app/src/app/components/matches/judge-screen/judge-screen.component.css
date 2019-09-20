@@ -23,6 +23,21 @@ mat-card-content {
 .timer {
     text-align: center;
 }
+
+.roundsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.round {
+  border-radius: 50%;
+  border:solid grey .15em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+
 img {
     object-fit: cover;
     height: 15em;
