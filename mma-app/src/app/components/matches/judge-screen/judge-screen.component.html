@@ -19,7 +19,7 @@
                 <button mat-button (click)="stopTimer()"><mat-icon>pause_circle_outline</mat-icon></button>
                 <button mat-button><mat-icon>skip_next</mat-icon></button>
             </div>
-            <div class="timer">
+            <div [ngStyle]= "{'color':currentTimerColor}" class="timer">
               <h1>{{minutes}}:{{seconds}}</h1>
             </div>
             <div class="roundsContainer">

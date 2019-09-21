@@ -18,7 +18,7 @@ export class JudgeScreenComponent implements OnInit {
   rounds:number[];
   minutes:string = "5";
   seconds:string = "00";
-  
+  currentTimerColor: string;
   
   constructor(private matchService: MatchService, private route: ActivatedRoute) { }
   currentMatch: Match;
@@ -28,7 +28,6 @@ export class JudgeScreenComponent implements OnInit {
     // Since we have the auth guard it will get it from the already fetched matches for now
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const matchId = paramMap.get('matchId');
-      this.currentMatch = this.matchService.getLocalMatch(matchId);
       if (this.currentMatch == null){
         this.matchService.getMatch(matchId).subscribe(matchData => {
           const fetchedMatch = matchData.match;
@@ -48,13 +47,20 @@ export class JudgeScreenComponent implements OnInit {
   }
 
   startTimer(){
+
+    // Making sure the interval doesn't start again when clock is active
     if (this.clockIsActive != true) {
       this.clockIsActive = true;
       this.interval = setInterval( ()=>{
         if (this.currentTimeInSeconds >= 0) {
+
+          // Timer dynimically changes green value as time decreases
+          this.currentTimerColor = `rgb(255,${255 - (this.SECONDS_PER_ROUND - this.currentTimeInSeconds)},0)`;
           this.clockIsActive = true;
           this.minutes = Math.floor(this.currentTimeInSeconds/60).toString();
           const nonPadedSeconds:string = (this.currentTimeInSeconds % 60).toString();
+          
+          // Quick and dirty way of getting padding
           if (nonPadedSeconds.length < 2){
             this.seconds = '0'+nonPadedSeconds;
           } else {
@@ -68,6 +74,9 @@ export class JudgeScreenComponent implements OnInit {
     }
   }
 
+  /**
+   * Stops fight clock
+   */
   stopTimer(){
     this.clockIsActive = false;
     clearInterval(this.interval);

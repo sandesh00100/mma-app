@@ -22,6 +22,7 @@ mat-card-content {
 
 .timer {
     text-align: center;
+    text-shadow: #000 0px 0px 3px;
 }
 
 .roundsContainer {
@@ -31,11 +32,12 @@ mat-card-content {
 }
 
 .round {
-  border-radius: 50%;
-  border:solid grey .15em;
-  width: 2em;
-  height: 2em;
-  text-align: center;
+    width: 1em;
+    line-height: 1em;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2em;
+    border: .05em solid #666;
 }
 
 img {
