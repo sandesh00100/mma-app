@@ -3,6 +3,7 @@ import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Match } from '../match.model';
 import { Observable } from 'rxjs';
+import { ScoreCard } from '../scorecard.model';
 
 @Component({
   selector: 'app-judge-screen',
@@ -14,7 +15,8 @@ export class JudgeScreenComponent implements OnInit {
   private interval;
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number = this.SECONDS_PER_ROUND;
-  
+  currentScoreCard: ScoreCard;
+
   rounds:number[];
   minutes:string = "5";
   seconds:string = "00";
@@ -41,6 +43,7 @@ export class JudgeScreenComponent implements OnInit {
           } else {
             this.rounds = Array.from({length:3}, (v,i) => i+1);
           }
+          
         });
       }
     });
