@@ -3,68 +3,54 @@ import { Stat } from "../enums/stat.enum";
 import { Validators } from "@angular/forms";
 
 export class Round {
-    public roundNumber: number;
-    public takeDownAttempts: number;
-    public significantStrikes: number;
-    public octagonControl: number;
-    public damageRatio: number;
-    public submissionAttempts: number;
-    public score: number;
-    public statMap: Map<String,{value:string, statType:Stat}>;
+    public roundMap: Map<String,{
+        value:string, 
+        statType:Stat, 
+        min:number|undefined,
+        max:number|undefined
+    }>;
 
-    constructor(roundNumber: number, takeDownAttempts: number, significantStrikes: number, damageRatio: number, submissionAttempts: number, score: number) {
-        this.roundNumber = roundNumber;
-        this.takeDownAttempts = takeDownAttempts;
-        this.significantStrikes = significantStrikes;
-        this.damageRatio = damageRatio;
-        this.submissionAttempts = submissionAttempts;
-        this.score = score;
+    constructor() {
+        this.addNewStat('Round Number', Stat.Range, 1, 1, 5);
+        this.addNewStat('Takedown Attempts', Stat.Positive, 0);
+        this.addNewStat('Submission Attempts', Stat.Positive, 0);
+        this.addNewStat('Octagon Control', Stat.Fraction, .5);
+        this.addNewStat('Damage Ratio', Stat.Fraction, .5);
+        this.addNewStat('Significant Strikes', Stat.Positive, 0);
     }
-
-    // public setTakeDownAttempts(takeDownAttempts: number) {
-    //     ValueValidator.validatePositiveNumber(takeDownAttempts);
-    //     this.takeDownAttempts = takeDownAttempts;
-    // }
-
-    // public setSignificantStrikes(significantStrikes: number) {
-    //     ValueValidator.validatePositiveNumber(significantStrikes);
-    //     this.significantStrikes = significantStrikes;
-    // }
-
-    // public setSubmissionAttempts(submissionAttempts: number) {
-    //     ValueValidator.validatePositiveNumber(submissionAttempts);
-    //     this.submissionAttempts = submissionAttempts;
-    // }
-
-    // public setScore(scoreNumber: number, min: number, max: number) {
-    //     ValueValidator.validateRange(scoreNumber, min, max);
-    //     this.score = this.score;
-    // }
-
-    // public setDamageRatio(damageRatio: number) {
-    //     ValueValidator.validatePositiveNumber(this.takeDownAttempts);
-    //     ValueValidator.validateFraction(this.damageRatio);
-    //     this.damageRatio = damageRatio;
-    // }
-
-    public addNewStat(statName: string, statType: Stat, initialValue: any) {
-        this.statMap.set(statName,{
+    
+    public addNewStat(statName: string, statType: Stat, initialValue: any, min?: number, max?:number){
+        this.validateStatValue(statType, initialValue, min, max);
+        this.roundMap.set(statName,{
             value: initialValue,
-            statType: statType
+            statType: statType,
+            min:min,
+            max:max
         });
     }
-
-    public addStatValue(statName: string, statType: Stat, value: any) {
+    
+    public updateValue(statName: string, value: any, min?: number, max?:number) {
+       const statObj = this.roundMap.get(statName);
+        if (statObj != null){
+            const statType:Stat = statObj.statType;
+            this.validateStatValue(statType, value, min, max);
+            this.roundMap.set(statName, value);
+       } else {
+           throw new ReferenceError("Stat doesn't exist.");
+       }
        
-    };
-
-    private validateStatValue (statType: Stat, value: any){
+    }
+    
+    private validateStatValue (statType: Stat, value: any, min?:number, max?:number){
         switch (statType) {
             case Stat.Positive:
                 ValueValidator.validatePositiveNumber(value);
             case Stat.Fraction:
                 ValueValidator.validateFraction(value);
             case Stat.Range:
+                ValueValidator.validateRange(value, min, max);
+            default:
+                ValueValidator.validatePositiveNumber(value)
         }
     }
 }
