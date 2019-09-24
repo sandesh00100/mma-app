@@ -1,6 +1,5 @@
 import { ValueValidator } from "../validators/value.validator";
 import { Stat } from "../enums/stat.enum";
-import { Validators } from "@angular/forms";
 
 export class Round {
     public roundMap: Map<String,{

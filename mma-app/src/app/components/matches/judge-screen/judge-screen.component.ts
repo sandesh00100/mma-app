@@ -4,6 +4,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Match } from '../match.model';
 import { Observable } from 'rxjs';
 import { ScoreCard } from '../scorecard.model';
+import { Round } from '../round.model';
+import { FighterCard } from '../fighterCard.model';
 
 @Component({
   selector: 'app-judge-screen',
@@ -38,12 +40,30 @@ export class JudgeScreenComponent implements OnInit {
             ...fetchedMatch,
             id:fetchedMatch._id
           };
+          
+          let fighter1Rounds:Round[] = [];
+          let fighter2Rounds:Round[] = [];
+
+          let matchLength;
+
           if (this.currentMatch.isFiveRounds){
-            this.rounds = Array.from({length:5}, (v,i) => i+1);
+            matchLength = 5;
           } else {
-            this.rounds = Array.from({length:3}, (v,i) => i+1);
+            matchLength = 3;
+          }
+
+          for (let i =0; i < matchLength; i++){
+            fighter1Rounds.push(new Round());
+            fighter2Rounds.push(new Round());
           }
           
+          const fighters = this.currentMatch.fighters;
+          if (fighters.length > 0){
+            let fighter1Card = new FighterCard(fighters[0].id,fighter1Rounds,{fighterName:""});
+            let fighter2Card = new FighterCard(fighters[1].id,fighter1Rounds,{fighterName:""});
+          }
+          
+
         });
       }
     });
