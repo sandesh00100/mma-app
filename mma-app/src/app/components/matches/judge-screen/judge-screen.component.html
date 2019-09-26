@@ -1,11 +1,11 @@
 <mat-card *ngIf="currentScoreCard != null">
     <mat-card-header>
-        <mat-card-title>{{currentScoreCard.fighter1Card.fighterInfo.lastName}} VS {{currentScoreCard.fighter2Card.fighterInfo.lastName}}</mat-card-title>
+        <mat-card-title>{{currentScoreCard.getFighter1LastName()}} VS {{currentScoreCard.getFighter2LastName()}}</mat-card-title>
         <mat-card-subtitle>{{currentScoreCard.eventName}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <mat-card class="fighterCard">
-            <mat-card-header>{{currentScoreCard.fighter1Card.fighterInfo.fighterName}}</mat-card-header>
+            <mat-card-header>{{currentScoreCard.getFighter1Name()}}</mat-card-header>
             <mat-card-content>
                 <div>
                     <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <mat-card class="fighterCard">
-            <mat-card-header>{{currentScoreCard.fighter2Card.fighterInfo.fighterName}}</mat-card-header>
+            <mat-card-header>{{currentScoreCard.getFighter2Name()}}</mat-card-header>
             <mat-card-content>
                 <div>
                     <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg" alt="">

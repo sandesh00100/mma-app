@@ -18,8 +18,7 @@ export class JudgeScreenComponent implements OnInit {
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number = this.SECONDS_PER_ROUND;
   currentScoreCard: ScoreCard;
-
-  rounds: number[];
+  currentRound:number = 1;
   minutes: string = "5";
   seconds: string = "00";
   currentTimerColor: string;
