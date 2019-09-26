@@ -2,6 +2,7 @@ import { ValueValidator } from "../validators/value.validator";
 import { Stat } from "../enums/stat.enum";
 
 export class Round {
+    public roundNumber: number;
     public roundMap: Map<String,{
         value:string, 
         statType:Stat, 
@@ -9,7 +10,14 @@ export class Round {
         max:number|undefined
     }>;
 
-    constructor() {
+    constructor(roundNumber:number) {
+        this.roundNumber = roundNumber;
+        this.roundMap = new Map<String,{
+            value:string, 
+            statType:Stat, 
+            min:number|undefined,
+            max:number|undefined
+        }>();
         this.addNewStat('Round Number', Stat.Range, 1, 1, 5);
         this.addNewStat('Takedown Attempts', Stat.Positive, 0);
         this.addNewStat('Submission Attempts', Stat.Positive, 0);
