@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Match } from '../match.model';
-import { Observable } from 'rxjs';
 import { ScoreCard } from '../scorecard.model';
 import { Round } from '../round.model';
 import { FighterCard } from '../fighterCard.model';
@@ -16,9 +14,10 @@ export class JudgeScreenComponent implements OnInit {
   private SECONDS_PER_ROUND: number = 300;
   private interval;
   private clockIsActive: boolean = false;
-  private currentTimeInSeconds: number = this.SECONDS_PER_ROUND;
+  private currentTimeInSeconds: number;
   currentScoreCard: ScoreCard;
-  currentRound:number = 1;
+  currentRound: number = 1;
+  rounds: number[] = [];
   minutes: string = "5";
   seconds: string = "00";
   currentTimerColor: string;
@@ -47,6 +46,7 @@ export class JudgeScreenComponent implements OnInit {
         for (let i = 0; i < matchLength; i++) {
           fighter1Rounds.push(new Round(i + 1));
           fighter2Rounds.push(new Round(i + 1));
+          this.rounds.push(i + 1);
         }
 
         const fighters = fetchedMatch.fighters;
@@ -54,6 +54,9 @@ export class JudgeScreenComponent implements OnInit {
         let fighter2Card = new FighterCard(fighters[1].id, fighter1Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
 
         this.currentScoreCard = new ScoreCard(fetchedMatch.matchId, fighter1Card, fighter2Card, fetchedMatch.eventName);
+
+        this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
+        this.updateClock();
         console.log(this.currentScoreCard);
       });
     });
@@ -66,24 +69,26 @@ export class JudgeScreenComponent implements OnInit {
       this.clockIsActive = true;
       this.interval = setInterval(() => {
         if (this.currentTimeInSeconds >= 0) {
-
-          // Timer dynimically changes green value as time decreases
-          this.currentTimerColor = `rgb(255,${255 - (this.SECONDS_PER_ROUND - this.currentTimeInSeconds)},0)`;
-          this.clockIsActive = true;
-          this.minutes = Math.floor(this.currentTimeInSeconds / 60).toString();
-          const nonPadedSeconds: string = (this.currentTimeInSeconds % 60).toString();
-
-          // Quick and dirty way of getting padding
-          if (nonPadedSeconds.length < 2) {
-            this.seconds = '0' + nonPadedSeconds;
-          } else {
-            this.seconds = nonPadedSeconds;
-          }
           this.currentTimeInSeconds--;
+          this.updateClock();
+          // Timer dynimically changes green value as time decreases
+          this.clockIsActive = true;
         } else {
           this.stopTimer();
         }
       }, 1000);
+    }
+  }
+
+  updateClock() {
+    this.currentTimerColor = `rgb(255,${255 - (this.SECONDS_PER_ROUND - this.currentTimeInSeconds)},0)`;
+    this.minutes = Math.floor(this.currentTimeInSeconds / 60).toString();
+    const nonPadedSeconds: string = (this.currentTimeInSeconds % 60).toString();
+    // Quick and dirty way of getting padding
+    if (nonPadedSeconds.length < 2) {
+      this.seconds = '0' + nonPadedSeconds;
+    } else {
+      this.seconds = nonPadedSeconds;
     }
   }
 
@@ -93,5 +98,25 @@ export class JudgeScreenComponent implements OnInit {
   stopTimer() {
     this.clockIsActive = false;
     clearInterval(this.interval);
+  }
+
+  nextRound() {
+    if (this.currentRound < this.rounds.length) {
+      this.currentRound += 1;
+      this.resetTimer();
+    }
+  }
+
+  previousRound() {
+    if (this.currentRound > 1) {
+      this.currentRound -= 1;
+      this.resetTimer();
+    }
+  }
+
+  resetTimer() {
+    this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
+    this.updateClock();
+    this.stopTimer();
   }
 }

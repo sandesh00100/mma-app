@@ -14,6 +14,7 @@ mat-card-content {
 .timerContainer{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .fighterCard{
@@ -22,7 +23,11 @@ mat-card-content {
 
 .timer {
     text-align: center;
-    text-shadow: #000 0px 0px 3px;
+    text-shadow: #000 0px 0px 1px;
+    background: black;
+    border-radius:20px;
+    width: 50%;
+    text-align: center;
 }
 
 .roundsContainer {
@@ -37,6 +42,7 @@ mat-card-content {
     border-radius: 50%;
     text-align: center;
     font-size: 2em;
+    margin: .25em;
     border: .05em solid #666;
 }
 
@@ -48,3 +54,8 @@ img {
     box-shadow: 10px 10px 15px #aaaaaa;
     border-radius: 15%;
   }
+
+.currentRound {
+    color: lightblue;
+    background-color: black;
+}

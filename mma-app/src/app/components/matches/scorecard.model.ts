@@ -2,6 +2,8 @@ import {FighterCard} from "./fighterCard.model";
 
 export class ScoreCard {
     public matchId: string;
+
+    // TODO: maybe having this as an array would create less duplicate code
     public fighter1Card: FighterCard;
     public fighter2Card: FighterCard;
     public eventName: string;
@@ -27,6 +29,14 @@ export class ScoreCard {
 
     public getFighter2Name(){
         return this.fighter1Card.fighterInfo.fighterName;
+    }
+
+    public getFighter1RoundStats(round:number){
+        return this.fighter1Card.rounds[round + 1].roundMap;
+    }
+
+    public getFighter2RoundStats(round:number){
+        return this.fighter2Card.rounds[round + 1].roundMap;
     }
 
 }
