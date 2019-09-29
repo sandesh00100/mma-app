@@ -15,6 +15,9 @@ export class JudgeScreenComponent implements OnInit {
   private interval;
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number;
+  fighter1StatMap;
+  fighter2StatMap;
+  
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
   rounds: number[] = [];
@@ -57,6 +60,11 @@ export class JudgeScreenComponent implements OnInit {
 
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
         this.updateClock();
+        this.fighter1StatMap = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
+        this.fighter2StatMap = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
+
+        console.log(this.fighter1StatMap);
+        console.log(this.fighter2StatMap);
         console.log(this.currentScoreCard);
       });
     });

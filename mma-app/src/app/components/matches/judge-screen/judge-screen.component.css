@@ -18,7 +18,9 @@ mat-card-content {
 }
 
 .fighterCard{
-    width:25%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 .timer {
@@ -58,4 +60,19 @@ img {
 .currentRound {
     color: lightblue;
     background-color: black;
+}
+
+.statContainer{
+    display: flex;
+    /* align-items: center; */
+}
+
+.incrementContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+}
+
+.spacer{
+    flex-grow: 2;
 }

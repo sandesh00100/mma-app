@@ -4,11 +4,18 @@
         <mat-card-subtitle>{{currentScoreCard.eventName}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-card class="fighterCard">
+        <mat-card>
             <mat-card-header>{{currentScoreCard.getFighter1Name()}}</mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="fighterCard">
                 <div>
                     <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
+                </div>
+                <div>
+                    <div *ngFor="let stat of fighter1StatMap| keyvalue" class="statContainer">
+                        <button mat-button>{{stat.key}}</button>
+                        <span class="spacer"></span>
+                        <input mdInput type="number">
+                    </div>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -28,11 +35,19 @@
                 </div>
             </div>
         </div>
-        <mat-card class="fighterCard">
+        <mat-card >
             <mat-card-header>{{currentScoreCard.getFighter2Name()}}</mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="fighterCard">
                 <div>
                     <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg" alt="">
+                </div> 
+                
+                <div>
+                    <div *ngFor="let stat of fighter2StatMap| keyvalue" class="statContainer">
+                        <button mat-button>{{stat.key}}</button>
+                        <span class="spacer"></span>
+                        <input mdInput type="number">
+                    </div>
                 </div>
             </mat-card-content>
         </mat-card>

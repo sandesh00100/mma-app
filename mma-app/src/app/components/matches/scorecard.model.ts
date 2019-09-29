@@ -38,5 +38,5 @@ export class ScoreCard {
     public getFighter2RoundStats(round:number){
         return this.fighter2Card.rounds[round + 1].roundMap;
     }
-
+    
 }
