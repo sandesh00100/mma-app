@@ -1,12 +1,12 @@
-import { ValueValidator } from "../validators/value.validator";
+//import { ValueValidator } from "../validators/value.validator";
 import { Stat } from "../enums/stat.enum";
 
 export class Round {
     public roundNumber: number;
     public roundMap: Map<String,{
         value:string, 
-        statType:Stat, 
-        min:number|undefined,
+        isShared:boolean, 
+        min:number,
         max:number|undefined
     }>;
 
@@ -14,49 +14,34 @@ export class Round {
         this.roundNumber = roundNumber;
         this.roundMap = new Map<String,{
             value:string, 
-            statType:Stat, 
-            min:number|undefined,
+            isShared:boolean, 
+            min:number,
             max:number|undefined
         }>();
-        this.addNewStat('Takedown Attempts', Stat.Positive, 0, 0);
-        this.addNewStat('Submission Attempts', Stat.Positive, 0, 0);
-        this.addNewStat('Octagon Control', Stat.Fraction, .5, 0, 1);
-        this.addNewStat('Damage Ratio', Stat.Fraction, .5, 0, 1);
-        this.addNewStat('Significant Strikes', Stat.Positive, 0, 0);
+        this.addNewStat('Score', false, 0, 10);
+        this.addNewStat('Takedown Attempts', false , 0, 0);
+        this.addNewStat('Submission Attempts', false, 0, 0);
+        this.addNewStat('Octagon Control', true, .5, 0, 1);
+        this.addNewStat('Damage Ratio', true, .5, 0, 1);
+        this.addNewStat('Significant Strikes', false, 0, 0);
     }
     
-    public addNewStat(statName: string, statType: Stat, initialValue: any, min?: number, max?:number){
-        this.validateStatValue(statType, initialValue, min, max);
+    public addNewStat(statName: string, isShared:boolean, initialValue: any, min: number, max?:number){
         this.roundMap.set(statName,{
             value: initialValue,
-            statType: statType,
+            isShared: isShared,
             min:min,
             max:max
         });
     }
     
-    public updateValue(statName: string, value: any, min?: number, max?:number) {
+    public updateValue(statName: string, value: any) {
        const statObj = this.roundMap.get(statName);
         if (statObj != null){
-            const statType:Stat = statObj.statType;
-            this.validateStatValue(statType, value, min, max);
             this.roundMap.set(statName, value);
        } else {
            throw new ReferenceError("Stat doesn't exist.");
        }
        
-    }
-    
-    private validateStatValue (statType: Stat, value: any, min?:number, max?:number){
-        switch (statType) {
-            case Stat.Positive:
-                ValueValidator.validatePositiveNumber(value);
-            case Stat.Fraction:
-                ValueValidator.validateFraction(value);
-            case Stat.Range:
-                ValueValidator.validateRange(value, min, max);
-            default:
-                ValueValidator.validatePositiveNumber(value)
-        }
     }
 }

@@ -9,7 +9,7 @@ export interface Match {
     isFiveRounds: number,
     isTitleFight: boolean,
     date: Date,
-    fighters:[{
+    fighters:{
         id:string,
         firstName:string,
         lastName:string,
@@ -21,5 +21,5 @@ export interface Match {
             losses:number,
             disqualifications:number
         }
-    }]
+    }[]
 }

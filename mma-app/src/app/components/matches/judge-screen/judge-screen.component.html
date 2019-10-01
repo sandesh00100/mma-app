@@ -1,6 +1,7 @@
 <mat-card *ngIf="currentScoreCard != null">
     <mat-card-header>
-        <mat-card-title>{{currentScoreCard.getFighter1LastName()}} VS {{currentScoreCard.getFighter2LastName()}}</mat-card-title>
+        <mat-card-title>{{currentScoreCard.getFighter1LastName()}} VS {{currentScoreCard.getFighter2LastName()}}
+        </mat-card-title>
         <mat-card-subtitle>{{currentScoreCard.eventName}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
@@ -11,46 +12,61 @@
                     <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
                 </div>
                 <div>
-                    <div *ngFor="let stat of fighter1StatMap| keyvalue" class="statContainer">
-                        <button mat-button (click)="updateStat(stat)">{{stat.key}}</button>
-                        <span class="spacer"></span>
-                        <mat-form-field>
-                            <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input" type="number" [(value)]="stat.value.value">    
-                        </mat-form-field>
+                    <div *ngFor="let stat of fighter2StatMap| keyvalue">
+                        <div class="statContainer" *ngIf="!stat.value.isShared">
+                            <button mat-button>{{stat.key}}</button>
+                            <span class="spacer"></span>
+                            <mat-form-field>
+                                <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
+                                    type="number" [(value)]="stat.value.value">
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
             </mat-card-content>
         </mat-card>
-        <div class="timerContainer" >
+        <div class="timerContainer">
             <div class="timerControl">
-                <button mat-button (click)="previousRound()"><mat-icon>skip_previous</mat-icon></button>
-                <button mat-button (click)="startTimer()" *ngIf="!clockIsActive"><mat-icon>play_circle_outline</mat-icon></button>
-                <button mat-button (click)="stopTimer()" *ngIf="clockIsActive"><mat-icon>pause_circle_outline</mat-icon></button>
-                <button mat-button (click)="nextRound()"><mat-icon>skip_next</mat-icon></button>
+                <button mat-button (click)="previousRound()">
+                    <mat-icon>skip_previous</mat-icon>
+                </button>
+                <button mat-button (click)="startTimer()" *ngIf="!clockIsActive">
+                    <mat-icon>play_circle_outline</mat-icon>
+                </button>
+                <button mat-button (click)="stopTimer()" *ngIf="clockIsActive">
+                    <mat-icon>pause_circle_outline</mat-icon>
+                </button>
+                <button mat-button (click)="nextRound()">
+                    <mat-icon>skip_next</mat-icon>
+                </button>
             </div>
-            <div [ngStyle]= "{'color':currentTimerColor}" class="timer">
-              <h1>{{minutes}}:{{seconds}}</h1>
+            <div [ngStyle]="{'color':currentTimerColor}" class="timer">
+                <h1>{{minutes}}:{{seconds}}</h1>
             </div>
             <div class="roundsContainer">
-                <div *ngFor = "let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
-                        {{round}}
+                <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
+                    {{round}}
                 </div>
             </div>
         </div>
-        <mat-card >
+        <mat-card>
             <mat-card-header>{{currentScoreCard.getFighter2Name()}}</mat-card-header>
             <mat-card-content class="fighterCard">
                 <div>
-                    <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg" alt="">
-                </div> 
-                
+                    <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg"
+                        alt="">
+                </div>
+
                 <div>
-                    <div *ngFor="let stat of fighter2StatMap| keyvalue" class="statContainer">
-                        <button mat-button>{{stat.key}}</button>
-                        <span class="spacer"></span>
-                        <mat-form-field>
-                            <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input" type="number" [value]="stat.value.value">    
-                        </mat-form-field>
+                    <div *ngFor="let stat of fighter2StatMap| keyvalue">
+                        <div class="statContainer" *ngIf="!stat.value.isShared">
+                            <button mat-button>{{stat.key}}</button>
+                            <span class="spacer"></span>
+                            <mat-form-field>
+                                <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
+                                    type="number" [(value)]="stat.value.value">
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
             </mat-card-content>
