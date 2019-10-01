@@ -98,6 +98,7 @@ export class JudgeScreenComponent implements OnInit {
     } else {
       this.seconds = nonPadedSeconds;
     }
+    
   }
 
   /**
@@ -126,5 +127,9 @@ export class JudgeScreenComponent implements OnInit {
     this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
     this.updateClock();
     this.stopTimer();
+  }
+
+  updateStat(stat){
+    console.log(stat);
   }
 }

@@ -18,12 +18,11 @@ export class Round {
             min:number|undefined,
             max:number|undefined
         }>();
-        this.addNewStat('Round Number', Stat.Range, 1, 1, 5);
-        this.addNewStat('Takedown Attempts', Stat.Positive, 0);
-        this.addNewStat('Submission Attempts', Stat.Positive, 0);
-        this.addNewStat('Octagon Control', Stat.Fraction, .5);
-        this.addNewStat('Damage Ratio', Stat.Fraction, .5);
-        this.addNewStat('Significant Strikes', Stat.Positive, 0);
+        this.addNewStat('Takedown Attempts', Stat.Positive, 0, 0);
+        this.addNewStat('Submission Attempts', Stat.Positive, 0, 0);
+        this.addNewStat('Octagon Control', Stat.Fraction, .5, 0, 1);
+        this.addNewStat('Damage Ratio', Stat.Fraction, .5, 0, 1);
+        this.addNewStat('Significant Strikes', Stat.Positive, 0, 0);
     }
     
     public addNewStat(statName: string, statType: Stat, initialValue: any, min?: number, max?:number){

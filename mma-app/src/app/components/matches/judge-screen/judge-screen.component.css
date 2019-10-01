@@ -76,3 +76,7 @@ img {
 .spacer{
     flex-grow: 2;
 }
+
+.statContainer mat-form-field {
+    width: 12.5%;
+}

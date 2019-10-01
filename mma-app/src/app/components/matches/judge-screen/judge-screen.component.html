@@ -12,9 +12,11 @@
                 </div>
                 <div>
                     <div *ngFor="let stat of fighter1StatMap| keyvalue" class="statContainer">
-                        <button mat-button>{{stat.key}}</button>
+                        <button mat-button (click)="updateStat(stat)">{{stat.key}}</button>
                         <span class="spacer"></span>
-                        <input mdInput type="number">
+                        <mat-form-field>
+                            <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input" type="number" [(value)]="stat.value.value">    
+                        </mat-form-field>
                     </div>
                 </div>
             </mat-card-content>
@@ -46,7 +48,9 @@
                     <div *ngFor="let stat of fighter2StatMap| keyvalue" class="statContainer">
                         <button mat-button>{{stat.key}}</button>
                         <span class="spacer"></span>
-                        <input mdInput type="number">
+                        <mat-form-field>
+                            <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input" type="number" [value]="stat.value.value">    
+                        </mat-form-field>
                     </div>
                 </div>
             </mat-card-content>
