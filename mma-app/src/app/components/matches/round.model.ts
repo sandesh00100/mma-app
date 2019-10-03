@@ -18,7 +18,9 @@ export class Round {
             min:number,
             max:number|undefined
         }>();
-        this.addNewStat('Score', false, 0, 10);
+
+        // TODO: need to add input validation on Score so user can't input more than 10
+        this.addNewStat('Score', false, 0, 0, 10);
         this.addNewStat('Takedown Attempts', false , 0, 0);
         this.addNewStat('Submission Attempts', false, 0, 0);
         this.addNewStat('Octagon Control', true, .5, 0, 1);

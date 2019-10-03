@@ -15,8 +15,8 @@ export class JudgeScreenComponent implements OnInit {
   private interval;
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number;
-  fighter1StatMap;
-  fighter2StatMap;
+  currentFighter1StatMap;
+  currentFighter2StatMap;
   
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
@@ -54,17 +54,16 @@ export class JudgeScreenComponent implements OnInit {
 
         const fighters = fetchedMatch.fighters;
         let fighter1Card = new FighterCard(fighters[0].id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
-        let fighter2Card = new FighterCard(fighters[1].id, fighter1Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+        let fighter2Card = new FighterCard(fighters[1].id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
 
         this.currentScoreCard = new ScoreCard(fetchedMatch.matchId, fighter1Card, fighter2Card, fetchedMatch.eventName);
 
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
         this.updateClock();
-        this.fighter1StatMap = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
-        this.fighter2StatMap = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
+        this.updateCurrentStatMaps();
 
-        console.log(this.fighter1StatMap);
-        console.log(this.fighter2StatMap);
+        console.log(this.currentFighter1StatMap);
+        console.log(this.currentFighter2StatMap);
         console.log(this.currentScoreCard);
       });
     });
@@ -112,6 +111,7 @@ export class JudgeScreenComponent implements OnInit {
   nextRound() {
     if (this.currentRound < this.rounds.length) {
       this.currentRound += 1;
+      this.updateCurrentStatMaps();
       this.resetTimer();
     }
   }
@@ -119,6 +119,7 @@ export class JudgeScreenComponent implements OnInit {
   previousRound() {
     if (this.currentRound > 1) {
       this.currentRound -= 1;
+      this.updateCurrentStatMaps();
       this.resetTimer();
     }
   }
@@ -129,7 +130,18 @@ export class JudgeScreenComponent implements OnInit {
     this.stopTimer();
   }
 
-  updateStat(stat){
-    console.log(stat);
+  updateStat(statMap){
+    
+    if (statMap.max == null || statMap.value < statMap.max){
+      statMap.value += 1;
+    }
+  }
+
+  updateCurrentStatMaps(){
+    this.currentFighter1StatMap = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
+    this.currentFighter2StatMap = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
+  }
+  onButtonClicked(event:Event){
+    console.log(event);
   }
 }

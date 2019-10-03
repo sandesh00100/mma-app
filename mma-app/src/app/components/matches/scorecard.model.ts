@@ -32,11 +32,11 @@ export class ScoreCard {
     }
 
     public getFighter1RoundStats(round:number){
-        return this.fighter1Card.rounds[round + 1].roundMap;
+        return this.fighter1Card.rounds[round - 1].roundMap;
     }
 
     public getFighter2RoundStats(round:number){
-        return this.fighter2Card.rounds[round + 1].roundMap;
+        return this.fighter2Card.rounds[round - 1].roundMap;
     }
     
 }

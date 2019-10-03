@@ -12,9 +12,9 @@
                     <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
                 </div>
                 <div>
-                    <div *ngFor="let stat of fighter2StatMap| keyvalue">
+                    <div *ngFor="let stat of currentFighter1StatMap| keyvalue">
                         <div class="statContainer" *ngIf="!stat.value.isShared">
-                            <button mat-button>{{stat.key}}</button>
+                            <button mat-button (click)="updateStat(stat.value)">{{stat.key}}</button>
                             <span class="spacer"></span>
                             <mat-form-field>
                                 <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
@@ -58,9 +58,9 @@
                 </div>
 
                 <div>
-                    <div *ngFor="let stat of fighter2StatMap| keyvalue">
+                    <div *ngFor="let stat of currentFighter2StatMap| keyvalue">
                         <div class="statContainer" *ngIf="!stat.value.isShared">
-                            <button mat-button>{{stat.key}}</button>
+                            <button mat-button (click)="updateStat(stat.value)">{{stat.key}}</button>
                             <span class="spacer"></span>
                             <mat-form-field>
                                 <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
