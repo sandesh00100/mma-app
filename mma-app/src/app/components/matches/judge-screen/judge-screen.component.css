@@ -39,14 +39,14 @@ mat-card-content {
 }
 
 .round {
-    width: 1em;
-    line-height: 1em;
-    border-radius: 50%;
     text-align: center;
-    font-size: 2em;
-    margin: .25em;
-    border: .05em solid #666;
+    display:table-cell;
+    color:grey;
+    font-size: 2.5em;
+    margin:.5em;
+    transition: font-size .5s, color .5s;
 }
+
 
 img {
     object-fit: cover;
@@ -58,8 +58,10 @@ img {
   }
 
 .currentRound {
-    color: lightblue;
-    background-color: black;
+    text-decoration: underline;
+    text-decoration-color: lightblue;
+    font-size: 3em;
+    color:black;
 }
 
 .statContainer{
