@@ -11,6 +11,12 @@ mat-card-content {
     justify-content: space-around;
 }
 
+.timerSliderContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .timerContainer{
     display: flex;
     flex-direction: column;
@@ -76,9 +82,15 @@ img {
 }
 
 .spacer{
-    flex-grow: 2;
+    flex:auto;
 }
 
+.slidercontainer {
+    width: 80%;
+}
+.slider{
+    width: 100%;
+}
 .statContainer mat-form-field {
     width: 12.5%;
 }

@@ -34,12 +34,8 @@ export class JudgeScreenComponent implements OnInit {
       const matchId = paramMap.get('matchId');
       this.matchService.getMatch(matchId).subscribe(matchData => {
         const fetchedMatch = matchData.match;
-
-        let fighter1Rounds: Round[] = [];
-        let fighter2Rounds: Round[] = [];
-
         let matchLength;
-
+        
         if (fetchedMatch.isFiveRounds) {
           matchLength = 5;
         } else {
@@ -47,16 +43,10 @@ export class JudgeScreenComponent implements OnInit {
         }
 
         for (let i = 0; i < matchLength; i++) {
-          fighter1Rounds.push(new Round(i + 1));
-          fighter2Rounds.push(new Round(i + 1));
           this.rounds.push(i + 1);
         }
 
-        const fighters = fetchedMatch.fighters;
-        let fighter1Card = new FighterCard(fighters[0].id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
-        let fighter2Card = new FighterCard(fighters[1].id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
-
-        this.currentScoreCard = new ScoreCard(fetchedMatch.matchId, fighter1Card, fighter2Card, fetchedMatch.eventName);
+        this.currentScoreCard = new ScoreCard(matchLength, fetchedMatch);
 
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
         this.updateClock();

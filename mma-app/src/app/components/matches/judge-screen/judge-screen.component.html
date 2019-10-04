@@ -25,30 +25,39 @@
                 </div>
             </mat-card-content>
         </mat-card>
-        <div class="timerContainer">
-            <div class="timerControl">
-                <button mat-button (click)="previousRound()">
-                    <mat-icon>skip_previous</mat-icon>
-                </button>
-                <button mat-button (click)="startTimer()" *ngIf="!clockIsActive">
-                    <mat-icon>play_circle_outline</mat-icon>
-                </button>
-                <button mat-button (click)="stopTimer()" *ngIf="clockIsActive">
-                    <mat-icon>pause_circle_outline</mat-icon>
-                </button>
-                <button mat-button (click)="nextRound()">
-                    <mat-icon>skip_next</mat-icon>
-                </button>
-            </div>
-            <div [ngStyle]="{'color':currentTimerColor}" class="timer">
-                <h1>{{minutes}}:{{seconds}}</h1>
-            </div>
-            <div class="roundsContainer">
-                <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
-                    {{round}}
+        <div class="timerSliderContainer">
+            <div class="timerContainer">
+                <div class="timerControl">
+                    <button mat-button (click)="previousRound()">
+                        <mat-icon>skip_previous</mat-icon>
+                    </button>
+                    <button mat-button (click)="startTimer()" *ngIf="!clockIsActive">
+                        <mat-icon>play_circle_outline</mat-icon>
+                    </button>
+                    <button mat-button (click)="stopTimer()" *ngIf="clockIsActive">
+                        <mat-icon>pause_circle_outline</mat-icon>
+                    </button>
+                    <button mat-button (click)="nextRound()">
+                        <mat-icon>skip_next</mat-icon>
+                    </button>
+                </div>
+                <div [ngStyle]="{'color':currentTimerColor}" class="timer">
+                    <h1>{{minutes}}:{{seconds}}</h1>
+                </div>
+                <div class="roundsContainer">
+                    <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
+                        {{round}}
+                    </div>
                 </div>
             </div>
+            <div class="spacer">
+
+            </div>
+            <div class="slidercontainer">
+                <input type="range" min="1" max="100" value="50" class="slider">
+            </div>
         </div>
+        
         <mat-card>
             <mat-card-header>{{currentScoreCard.getFighter2Name()}}</mat-card-header>
             <mat-card-content class="fighterCard">

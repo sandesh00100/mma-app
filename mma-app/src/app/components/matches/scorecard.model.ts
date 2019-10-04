@@ -1,4 +1,5 @@
 import {FighterCard} from "./fighterCard.model";
+import { Round } from "./round.model";
 
 export class ScoreCard {
     public matchId: string;
@@ -7,12 +8,25 @@ export class ScoreCard {
     public fighter1Card: FighterCard;
     public fighter2Card: FighterCard;
     public eventName: string;
+    
+    constructor(matchLength:number, fetchedMatch: any){
+        this.matchId = fetchedMatch.matchId;
+        this.eventName = fetchedMatch.eventName;
 
-    constructor(matchId:string, fighter1Card: FighterCard, fighter2card: FighterCard, eventName:string){
-        this.matchId = matchId;
-        this.eventName = eventName;
+        let fighter1Rounds: Round[] = [];
+        let fighter2Rounds: Round[] = [];
+
+        for (let i = 0; i < matchLength; i++){
+            fighter1Rounds.push(new Round(i + 1));
+            fighter2Rounds.push(new Round(i + 1));
+        }
+        
+        const fighters = fetchedMatch.fighters;
+        let fighter1Card = new FighterCard(fighters[0].id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
+        let fighter2Card = new FighterCard(fighters[1].id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+
         this.fighter1Card = fighter1Card;
-        this.fighter2Card = fighter2card;
+        this.fighter2Card = fighter2Card;
     }
 
     public getFighter1LastName(){
