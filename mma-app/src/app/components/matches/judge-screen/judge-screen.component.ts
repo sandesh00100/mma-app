@@ -51,10 +51,7 @@ export class JudgeScreenComponent implements OnInit {
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
         this.updateClock();
         this.updateCurrentStatMaps();
-
-        console.log(this.currentFighter1StatMap);
-        console.log(this.currentFighter2StatMap);
-        console.log(this.currentScoreCard);
+        this.getStatArray();
       });
     });
   }
@@ -131,7 +128,11 @@ export class JudgeScreenComponent implements OnInit {
     this.currentFighter1StatMap = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
     this.currentFighter2StatMap = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
   }
-  onButtonClicked(event:Event){
-    console.log(event);
+
+  // Probably temporary code, might get this info depending on judge settings
+  getStatArray(){
+    // Doesn't matter which map we get keys from
+    // Array.from returns a copy of array from array-like or iteratable object
+    return Array.from(this.currentFighter1StatMap.keys());
   }
 }

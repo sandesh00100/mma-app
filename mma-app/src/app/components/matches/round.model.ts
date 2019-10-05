@@ -1,6 +1,3 @@
-//import { ValueValidator } from "../validators/value.validator";
-import { Stat } from "../enums/stat.enum";
-
 export class Round {
     public roundNumber: number;
     public roundMap: Map<String,{
@@ -18,14 +15,8 @@ export class Round {
             min:number,
             max:number|undefined
         }>();
+        this.addDefaultStats();
 
-        // TODO: need to add input validation on Score so user can't input more than 10
-        this.addNewStat('Score', false, 0, 0, 10);
-        this.addNewStat('Takedown Attempts', false , 0, 0);
-        this.addNewStat('Submission Attempts', false, 0, 0);
-        this.addNewStat('Octagon Control', true, .5, 0, 1);
-        this.addNewStat('Damage Ratio', true, .5, 0, 1);
-        this.addNewStat('Significant Strikes', false, 0, 0);
     }
     
     public addNewStat(statName: string, isShared:boolean, initialValue: any, min: number, max?:number){
@@ -44,6 +35,15 @@ export class Round {
        } else {
            throw new ReferenceError("Stat doesn't exist.");
        }
-       
+    }
+
+    public addDefaultStats(){
+        // TODO: need to add input validation on Score so user can't input more than 10
+        this.addNewStat('Score', false, 0, 0, 10);
+        this.addNewStat('Takedown Attempts', false , 0, 0);
+        this.addNewStat('Submission Attempts', false, 0, 0);
+        this.addNewStat('Octagon Control', true, .5, 0, 1);
+        this.addNewStat('Damage Ratio', true, .5, 0, 1);
+        this.addNewStat('Significant Strikes', false, 0, 0);
     }
 }
