@@ -8,7 +8,7 @@ export class ScoreCard {
     public fighter1Card: FighterCard;
     public fighter2Card: FighterCard;
     public eventName: string;
-    
+
     constructor(matchLength:number, fetchedMatch: any){
         this.matchId = fetchedMatch.matchId;
         this.eventName = fetchedMatch.eventName;
@@ -46,11 +46,11 @@ export class ScoreCard {
     }
 
     public getFighter1RoundStats(round:number){
-        return this.fighter1Card.rounds[round - 1].roundMap;
+        return this.fighter1Card.rounds[round - 1].stats;
     }
 
     public getFighter2RoundStats(round:number){
-        return this.fighter2Card.rounds[round - 1].roundMap;
+        return this.fighter2Card.rounds[round - 1].stats;
     }
     
 }

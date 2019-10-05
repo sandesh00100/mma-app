@@ -15,8 +15,8 @@ export class JudgeScreenComponent implements OnInit {
   private interval;
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number;
-  currentFighter1StatMap;
-  currentFighter2StatMap;
+  currentFighter1Stats;
+  currentFighter2Stats;
   
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
@@ -117,22 +117,22 @@ export class JudgeScreenComponent implements OnInit {
     this.stopTimer();
   }
 
-  updateStat(statMap){
+  updateStat(stat){
     
-    if (statMap.max == null || statMap.value < statMap.max){
-      statMap.value += 1;
+    if (stat.max == null || stat.value < stat.max){
+      stat.value += 1;
     }
   }
 
   updateCurrentStatMaps(){
-    this.currentFighter1StatMap = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
-    this.currentFighter2StatMap = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
+    this.currentFighter1Stats = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
+    this.currentFighter2Stats = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
   }
 
   // Probably temporary code, might get this info depending on judge settings
   getStatArray(){
     // Doesn't matter which map we get keys from
     // Array.from returns a copy of array from array-like or iteratable object
-    return Array.from(this.currentFighter1StatMap.keys());
+    // return Array.from(this.currentFighter1StatMap.keys());
   }
 }

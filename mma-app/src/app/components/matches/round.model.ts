@@ -1,26 +1,18 @@
+import { Stat } from "./stat.model";
+
 export class Round {
     public roundNumber: number;
-    public roundMap: Map<String,{
-        value:string, 
-        isShared:boolean, 
-        min:number,
-        max:number|undefined
-    }>;
+    public stats: Stat[] = [];
 
     constructor(roundNumber:number) {
         this.roundNumber = roundNumber;
-        this.roundMap = new Map<String,{
-            value:string, 
-            isShared:boolean, 
-            min:number,
-            max:number|undefined
-        }>();
         this.addDefaultStats();
 
     }
     
     public addNewStat(statName: string, isShared:boolean, initialValue: any, min: number, max?:number){
-        this.roundMap.set(statName,{
+        this.stats.push({
+            name:statName,
             value: initialValue,
             isShared: isShared,
             min:min,
@@ -28,14 +20,14 @@ export class Round {
         });
     }
     
-    public updateValue(statName: string, value: any) {
-       const statObj = this.roundMap.get(statName);
-        if (statObj != null){
-            this.roundMap.set(statName, value);
-       } else {
-           throw new ReferenceError("Stat doesn't exist.");
-       }
-    }
+    // public updateValue(statName: string, value: any) {
+    //    const statObj = this.roundMap.get(statName);
+    //     if (statObj != null){
+    //         this.roundMap.set(statName, value);
+    //    } else {
+    //        throw new ReferenceError("Stat doesn't exist.");
+    //    }
+    // }
 
     public addDefaultStats(){
         // TODO: need to add input validation on Score so user can't input more than 10

@@ -12,13 +12,13 @@
                     <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
                 </div>
                 <div>
-                    <div *ngFor="let stat of currentFighter1StatMap| keyvalue">
-                        <div class="statContainer" *ngIf="!stat.value.isShared">
-                            <button mat-button (click)="updateStat(stat.value)">{{stat.key}}</button>
+                    <div *ngFor="let stat of currentFighter1Stats">
+                        <div class="statContainer" *ngIf="!stat.isShared">
+                            <button mat-button (click)="updateStat(stat)">{{stat.name}}</button>
                             <span class="spacer"></span>
                             <mat-form-field>
-                                <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
-                                    type="number" [(value)]="stat.value.value">
+                                <input matInput [min]="stat.min" [max]="stat.max" class="mat-input" type="number"
+                                    [(value)]="stat.value">
                             </mat-form-field>
                         </div>
                     </div>
@@ -53,11 +53,12 @@
             <div class="spacer">
 
             </div>
-            <div class="slidercontainer">
+            <div class="slidercontainer" *ngFor="let stat of getStatArray()">
+                <span>{{stat}}</span>
                 <input type="range" min="1" max="100" value="50" class="slider">
             </div>
         </div>
-        
+
         <mat-card>
             <mat-card-header>{{currentScoreCard.getFighter2Name()}}</mat-card-header>
             <mat-card-content class="fighterCard">
@@ -67,13 +68,13 @@
                 </div>
 
                 <div>
-                    <div *ngFor="let stat of currentFighter2StatMap| keyvalue">
-                        <div class="statContainer" *ngIf="!stat.value.isShared">
-                            <button mat-button (click)="updateStat(stat.value)">{{stat.key}}</button>
+                    <div *ngFor="let stat of currentFighter2Stats">
+                        <div class="statContainer" *ngIf="!stat.isShared">
+                            <button mat-button (click)="updateStat(stat)">{{stat.name}}</button>
                             <span class="spacer"></span>
                             <mat-form-field>
-                                <input matInput [min]="stat.value.min" [max]="stat.value.max" class="mat-input"
-                                    type="number" [(value)]="stat.value.value">
+                                <input matInput [min]="stat.min" [max]="stat.max" class="mat-input" type="number"
+                                    [(value)]="stat.value">
                             </mat-form-field>
                         </div>
                     </div>
