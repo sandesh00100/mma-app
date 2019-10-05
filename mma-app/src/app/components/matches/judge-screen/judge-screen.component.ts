@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
-import { Round } from '../round.model';
-import { FighterCard } from '../fighterCard.model';
 
 @Component({
   selector: 'app-judge-screen',
@@ -132,7 +130,10 @@ export class JudgeScreenComponent implements OnInit {
   // Probably temporary code, might get this info depending on judge settings
   getStatArray(){
     // Doesn't matter which map we get keys from
-    // Array.from returns a copy of array from array-like or iteratable object
-    // return Array.from(this.currentFighter1StatMap.keys());
+    return this.currentFighter1Stats.filter((stat) => {
+      return stat.isShared;
+    }).map((stat) => {
+      return stat.name;
+    });
   }
 }
