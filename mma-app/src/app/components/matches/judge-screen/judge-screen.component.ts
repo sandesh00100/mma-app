@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
+import { Stat } from '../stat.model';
 
 @Component({
   selector: 'app-judge-screen',
@@ -13,9 +14,10 @@ export class JudgeScreenComponent implements OnInit {
   private interval;
   private clockIsActive: boolean = false;
   private currentTimeInSeconds: number;
-  currentFighter1Stats;
-  currentFighter2Stats;
-  
+  currentFighter1Stats: Stat[];
+  currentFighter2Stats: Stat[];
+  currentInputValue;
+
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
   rounds: number[] = [];
@@ -135,5 +137,13 @@ export class JudgeScreenComponent implements OnInit {
     }).map((stat) => {
       return stat.name;
     });
+  }
+  
+  getStatValue(stats:Stat[], statName: string){
+    return stats.find(stat => stat.name == statName);
+  }
+
+  updateFighter2Stat(statName:string, value:number){
+    this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
   }
 }

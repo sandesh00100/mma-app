@@ -89,6 +89,11 @@ img {
     width: 80%;
     text-align: center;
 }
+
+.sliderValueContainer{
+    display: flex;
+    justify-content: space-around;
+}
 .slider{
     width: 100%;
 }

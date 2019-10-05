@@ -1,6 +1,6 @@
 export interface Stat{
         name:string,
-        value:string, 
+        value:number, 
         isShared:boolean, 
         min:number,
         max:number|undefined

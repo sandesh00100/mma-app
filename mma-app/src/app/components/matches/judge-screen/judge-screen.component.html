@@ -18,7 +18,7 @@
                             <span class="spacer"></span>
                             <mat-form-field>
                                 <input matInput [min]="stat.min" [max]="stat.max" class="mat-input" type="number"
-                                    [(value)]="stat.value">
+                                    [(ngModel)]="stat.value">
                             </mat-form-field>
                         </div>
                     </div>
@@ -53,9 +53,15 @@
             <div class="spacer">
 
             </div>
+            <!-- TODO: Might want to refactor this code for sliders -->
             <div class="slidercontainer" *ngFor="let stat of getStatArray()">
-                <span>{{stat}}</span>
-                <input type="range" min="1" max="100" value="50" class="slider">
+                <div class="sliderValueContainer"> 
+                    <div>{{getStatValue(currentFighter1Stats,stat).value}}%</div>
+                    <span>{{stat}}</span>
+                    <!-- We want to update the gui instantly with the slider value -->
+                    <div>{{ 100 - getStatValue(currentFighter1Stats,stat).value}}%</div>
+                </div>
+                <input type="range" min="0" max="100" [(ngModel)]="getStatValue(currentFighter1Stats,stat).value" class="slider" (change)="updateFighter2Stat(stat)">
             </div>
         </div>
 
