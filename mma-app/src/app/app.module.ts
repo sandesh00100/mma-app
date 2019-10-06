@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule} from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,9 +36,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatInputModule,
     MatMenuModule,
     MatIconModule,
+    MatSliderModule,
     FormsModule
   ],
-  providers: [],
+  // Hammerjs used to make sliding work for matsliders
+  
+  providers: [{provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

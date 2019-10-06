@@ -11,8 +11,10 @@ import { Stat } from '../stat.model';
 })
 export class JudgeScreenComponent implements OnInit {
   private SECONDS_PER_ROUND: number = 300;
+  private SECONDS_PER_BREAK: number = 60;
   private interval;
   private clockIsActive: boolean = false;
+  private breakStarted: boolean = false;
   private currentTimeInSeconds: number;
   currentFighter1Stats: Stat[];
   currentFighter2Stats: Stat[];
@@ -35,7 +37,7 @@ export class JudgeScreenComponent implements OnInit {
       this.matchService.getMatch(matchId).subscribe(matchData => {
         const fetchedMatch = matchData.match;
         let matchLength;
-        
+        console.log(fetchedMatch);
         if (fetchedMatch.isFiveRounds) {
           matchLength = 5;
         } else {
@@ -62,17 +64,32 @@ export class JudgeScreenComponent implements OnInit {
     if (this.clockIsActive != true) {
       this.clockIsActive = true;
       this.interval = setInterval(() => {
-        if (this.currentTimeInSeconds >= 0) {
+        if (this.currentTimeInSeconds > 0) {
           this.currentTimeInSeconds--;
           this.updateClock();
           // Timer dynimically changes green value as time decreases
           this.clockIsActive = true;
         } else {
-          this.stopTimer();
+          if (this.currentRound < this.rounds.length){
+            if (!this.breakStarted){
+              this.currentTimeInSeconds = this.SECONDS_PER_BREAK;
+              this.breakStarted = true;
+              this.updateClock();
+            } else {
+              this.nextRound();
+              this.breakStarted = false;
+              this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
+              this.updateClock();
+            }
+            
+          } else {
+            this.stopTimer();
+          }
         }
       }, 1000);
     }
   }
+
 
   updateClock() {
     this.currentTimerColor = `rgb(255,${255 - (this.SECONDS_PER_ROUND - this.currentTimeInSeconds)},0)`;
@@ -114,7 +131,9 @@ export class JudgeScreenComponent implements OnInit {
   resetTimer() {
     this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
     this.updateClock();
-    this.stopTimer();
+    if (!this.breakStarted){
+      this.stopTimer();
+    }
   }
 
   updateStat(stat){
@@ -138,12 +157,16 @@ export class JudgeScreenComponent implements OnInit {
       return stat.name;
     });
   }
-  
+
   getStatValue(stats:Stat[], statName: string){
     return stats.find(stat => stat.name == statName);
   }
 
   updateFighter2Stat(statName:string, value:number){
     this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
+  }
+
+  submitScoreCard(){
+    console.log("submitScoreCard() called!");
   }
 }

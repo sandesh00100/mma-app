@@ -44,6 +44,8 @@
                 <div [ngStyle]="{'color':currentTimerColor}" class="timer">
                     <h1>{{minutes}}:{{seconds}}</h1>
                 </div>
+                <span *ngIf="breakStarted" class="breakMessage">Break</span>
+                <span></span>
                 <div class="roundsContainer">
                     <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
                         {{round}}
@@ -89,6 +91,6 @@
         </mat-card>
     </mat-card-content>
     <mat-card-actions>
-
+        <button mat-button (click)="submitScoreCard()" color="primary">Submit Scorecard</button>
     </mat-card-actions>
 </mat-card>
