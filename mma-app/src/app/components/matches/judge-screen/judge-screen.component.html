@@ -43,8 +43,8 @@
                 </div>
                 <div [ngStyle]="{'color':currentTimerColor}" class="timer">
                     <h1>{{minutes}}:{{seconds}}</h1>
-                </div>
-                <span *ngIf="breakStarted" class="breakMessage">Break</span>
+                    <span *ngIf="breakStarted" class="breakMessage">BREAK</span>
+                </div>  
                 <span></span>
                 <div class="roundsContainer">
                     <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
