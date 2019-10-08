@@ -43,4 +43,4 @@ const judgeSchema = mongoose.Schema({
 
 judgeSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('User', judgeSchema);
+module.exports = mongoose.model('Judge', judgeSchema);

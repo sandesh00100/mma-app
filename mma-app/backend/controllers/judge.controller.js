@@ -101,7 +101,9 @@ const signinJudge = async (req, res, next) => {
 }
 
 const getStatInfo = (req, res, next) => {
+  const userData = req.userData;
 
+  JudgeModel.findOne({email:userData.email});
 };
 
 module.exports = {

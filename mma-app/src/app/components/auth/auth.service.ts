@@ -12,6 +12,7 @@ const httpURL = environment.apiUrl + 'judge';
 })
 export class AuthService {
   isAuth: boolean = false;
+  private token: string;
   private authStatusListener = new Subject<{ isAuth: boolean, username: string }>();
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -40,6 +41,7 @@ export class AuthService {
       .subscribe(response => {
         console.log("sigin server response: ");
         console.log(response);
+        this.token = response.token;
         this.isAuth = true;
         this.authStatusListener.next({ isAuth: this.isAuth, username: response.email});
         this.router.navigate(['/']);
@@ -58,5 +60,9 @@ export class AuthService {
   
   userIsAuth(){
     return this.isAuth;
+  }
+
+  getToken(){
+    return this.token;
   }
 }
