@@ -6,13 +6,11 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const roundStatSchema = mongoose.Schema({
- stats:[{
    name:String,
    value:String,
    isShared:Boolean,
    min:Number,
    max:Number
- }]
 });
 
 const judgeSchema = mongoose.Schema({
@@ -33,13 +31,13 @@ const judgeSchema = mongoose.Schema({
         },
         rounds: [{
           round:Number,
-          stats:{type:roundStatSchema}
+          stats:[roundStatSchema]
         }]
       }]
     }
   ],
   preferences:{
-    stats:{type:roundStatSchema}
+    stats:[roundStatSchema]
   }
 });
 

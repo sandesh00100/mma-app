@@ -12,12 +12,26 @@ const createJudge = (req, res, next) => {
   console.log(req.body);
   // TODO: Research second argument, I think it's how many layers of salt it goes through
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
-    const judge = new JudgeModel({
+    let judgeObj = {
       email: req.body.email,
       password: hashedPassword,
       // TODO: remove this when we're done with everything
-      isTestData: true
-    });
+      isTestData: true,
+      // Creating default preferences for judges
+      preferences: {
+        stats: [
+          { name: 'Score', isShared: false, min: 0, max: 10 },
+          { name: 'Takedowns', isShared: false, min: 0 },
+          { name: 'Knockdowns', isShared: false, min: 0 },
+          { name: 'Submission Attempts', isShared: false, min: 0, max: 10 },
+          { name: 'Octagon Control', isShared: true, min: 0, max: 100 },
+          { name: 'Damage Ratio', isShared: true, min: 0, max: 100 },
+          { name: 'Significant Strikes', isShared: false, min: 0 }
+        ]
+      }
+    };
+
+    const judge = new JudgeModel(judgeObj);
 
     // TODO: Check what's in the result
     judge.save().then(result => {
@@ -43,7 +57,7 @@ const signinJudge = async (req, res, next) => {
   console.log(req.body);
   // TODO: Have better error handling
   try {
-    const foundJudge = await JudgeModel.findOne({ email: req.body.email});
+    const foundJudge = await JudgeModel.findOne({ email: req.body.email });
     console.log(foundJudge);
     if (!foundJudge) {
       res.status(500).json({
@@ -58,21 +72,21 @@ const signinJudge = async (req, res, next) => {
       } else {
 
         // TODO: Look into more different ways of hashing JWT
-          const token = jwt.sign({
-            email: foundJudge.email,
-            userId: foundJudge._id
-          },
+        const token = jwt.sign({
+          email: foundJudge.email,
+          userId: foundJudge._id
+        },
           'CHANGE_SERCRET_SIGNING_KEY'
           ,
-          {expiresIn: "1h"}
-          );
+          { expiresIn: "1h" }
+        );
 
-          res.status(200).json({
-            token:token,
-            expiresIn: 3600,
-            judgeId: foundJudge._id,
-            email:foundJudge.email
-          });
+        res.status(200).json({
+          token: token,
+          expiresIn: 3600,
+          judgeId: foundJudge._id,
+          email: foundJudge.email
+        });
 
       }
     }
@@ -85,10 +99,6 @@ const signinJudge = async (req, res, next) => {
     });
   }
 }
-
-const getStatInfo = () =>  {
-
-};
 
 module.exports = {
   createJudge: createJudge,
