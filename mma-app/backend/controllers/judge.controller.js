@@ -71,7 +71,7 @@ const signinJudge = async (req, res, next) => {
         });
       } else {
 
-        // TODO: Look into more different ways of hashing JWT
+        // TODO: Look into more different ways of hashing JWT and change secret key
         const token = jwt.sign({
           email: foundJudge.email,
           userId: foundJudge._id
@@ -99,6 +99,10 @@ const signinJudge = async (req, res, next) => {
     });
   }
 }
+
+const getStatInfo = (req, res, next) => {
+
+};
 
 module.exports = {
   createJudge: createJudge,
