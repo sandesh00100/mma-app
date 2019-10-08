@@ -2,26 +2,17 @@ const mongoose = require('mongoose');
 
 // Extra hook that checks the data before saving it
 // It's a plugin
+// unique is not a validator but allows mongoose to optimize database
 const uniqueValidator = require('mongoose-unique-validator');
 
-// unique is not a validator but allows mongoose to optimize database
 const roundStatSchema = mongoose.Schema({
-  takeDownAttempts: Number,
-  takeDownDefense: Number,
-  significantStrikes: Number,
-  octagonControl: Number,
-  damageRatio: Number,
-  submissionAttempts: Number,
-  score: {
-    type: Number,
-    min: 1,
-    max: 10
-  },
-  roundNumber: {
-    type: Number,
-    min:1,
-    max:5
-  }
+ stats:[{
+   name:String,
+   value:String,
+   isShared:Boolean,
+   min:Number,
+   max:Number
+ }]
 });
 
 const judgeSchema = mongoose.Schema({
@@ -40,10 +31,16 @@ const judgeSchema = mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Fighter"
         },
-        rounds: [roundStatSchema]
+        rounds: [{
+          round:Number,
+          stats:{type:roundStatSchema}
+        }]
       }]
     }
-  ]
+  ],
+  preferences:{
+    stats:{type:roundStatSchema}
+  }
 });
 
 judgeSchema.plugin(uniqueValidator);

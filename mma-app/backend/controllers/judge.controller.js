@@ -86,7 +86,12 @@ const signinJudge = async (req, res, next) => {
   }
 }
 
+const getStatInfo = () =>  {
+
+};
+
 module.exports = {
   createJudge: createJudge,
-  signinJudge: signinJudge
+  signinJudge: signinJudge,
+  getStatInfo: getStatInfo
 };

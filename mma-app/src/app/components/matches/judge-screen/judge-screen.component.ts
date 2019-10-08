@@ -3,6 +3,7 @@ import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
 import { Stat } from '../stat.model';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-judge-screen',
@@ -19,6 +20,7 @@ export class JudgeScreenComponent implements OnInit {
   currentFighter1Stats: Stat[];
   currentFighter2Stats: Stat[];
   currentInputValue;
+  form: FormGroup;
 
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
@@ -47,9 +49,7 @@ export class JudgeScreenComponent implements OnInit {
         for (let i = 0; i < matchLength; i++) {
           this.rounds.push(i + 1);
         }
-
         this.currentScoreCard = new ScoreCard(matchLength, fetchedMatch);
-
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
         this.updateClock();
         this.updateCurrentStatMaps();
