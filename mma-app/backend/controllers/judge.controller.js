@@ -102,8 +102,21 @@ const signinJudge = async (req, res, next) => {
 
 const getStatInfo = (req, res, next) => {
   const userData = req.userData;
-
-  JudgeModel.findOne({email:userData.email});
+  JudgeModel.aggregate([
+    { $match: { email: userData.email } },
+    { $group: { stats: "$preferences.stats" } }
+  ]).then(fetchedResult => {
+    console.log(fetchedResult);
+    res.status(200).json({
+      messege: "Stats fetched sucessfully",
+      stats:fetchedResult.stats
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(401).json({
+      message: "Could not fetch Stats"
+    });
+  });
 };
 
 module.exports = {

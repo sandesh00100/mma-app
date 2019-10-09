@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Match } from './match.model';
 import { map } from 'rxjs/operators';
