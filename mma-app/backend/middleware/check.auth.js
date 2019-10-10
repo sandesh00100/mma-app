@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 module.exports = (req, res, next) => {
     // Could get it as a query paramater
     try {
+        
         const token = req.headers.authorization.split(" ")[1];
         // needs the secret text to verify
         // using nodemon.json config file to inject the jwt key

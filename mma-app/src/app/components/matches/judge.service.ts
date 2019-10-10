@@ -7,15 +7,13 @@ const httpURL = environment.apiUrl + 'judge/';
 @Injectable({
   providedIn: 'root'
 })
-export class JudgeService {
 
+export class JudgeService {
   constructor(private http:HttpClient) { 
 
   }
 
   getPreferences() {
-    this.http.get<{message:string, stats: any}>(`${httpURL}/preference/stats`).subscribe((preferenceData) => {
-
-    });
+    return this.http.get<{message:string, stats: any}>(`${httpURL}preference/stats`);
   }
 }

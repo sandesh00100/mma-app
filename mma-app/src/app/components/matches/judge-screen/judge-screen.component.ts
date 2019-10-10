@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
 import { Stat } from '../stat.model';
 import { FormGroup } from '@angular/forms';
+import { JudgeService } from '../judge.service';
 
 @Component({
   selector: 'app-judge-screen',
@@ -29,7 +30,7 @@ export class JudgeScreenComponent implements OnInit {
   seconds: string = "00";
   currentTimerColor: string;
 
-  constructor(private matchService: MatchService, private route: ActivatedRoute) { }
+  constructor(private matchService: MatchService, private route: ActivatedRoute, private judgeService: JudgeService) { }
 
   ngOnInit() {
     // Don't fetch if we already have a match from the match-list-screen
@@ -45,7 +46,7 @@ export class JudgeScreenComponent implements OnInit {
         } else {
           matchLength = 3;
         }
-
+        
         for (let i = 0; i < matchLength; i++) {
           this.rounds.push(i + 1);
         }
@@ -54,6 +55,11 @@ export class JudgeScreenComponent implements OnInit {
         this.updateClock();
         this.updateCurrentStatMaps();
         this.getStatArray();
+
+        // Testing service
+        this.judgeService.getPreferences().subscribe( response => {
+          console.log(response);
+        })
       });
     });
   }
