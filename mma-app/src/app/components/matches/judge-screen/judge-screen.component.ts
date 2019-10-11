@@ -24,11 +24,12 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   private breakStarted: boolean = false;
   private currentTimeInSeconds: number;
   private preferenceStatsSubscription: Subscription;
-  
+
   currentFighter1Stats: Stat[];
   currentFighter2Stats: Stat[];
   currentInputValue;
   form: FormGroup;
+  initialPreferenceFetch:boolean = false;
 
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
@@ -45,14 +46,6 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const matchId = paramMap.get('matchId');
 
-      this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().pipe(
-        switchMap(statData => {
-          return of(statData);
-        })
-      ).subscribe(statsData => {
-        console.log(statsData);
-      });
-      this.judgeService.getPreferences();
       this.matchService.getMatch(matchId).subscribe(matchData => {
         const fetchedMatch = matchData.match;
         let matchLength;
@@ -62,16 +55,26 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
         } else {
           matchLength = 3;
         }
-        
+
         for (let i = 0; i < matchLength; i++) {
           this.rounds.push(i + 1);
         }
         this.currentScoreCard = new ScoreCard(matchLength, fetchedMatch);
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
-        this.updateClock();
-        this.updateCurrentStatMaps();
-        this.getStatArray();
         
+
+        this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
+          console.log(statsData);
+          if (!this.initialPreferenceFetch){
+            console.log("here");
+            this.currentScoreCard.initializeStats(statsData);
+            this.updateClock();
+            this.updateCurrentStatMaps();
+            this.initialPreferenceFetch = true;
+          }
+        });
+
+        this.judgeService.getPreferences();
       });
     });
   }
@@ -88,8 +91,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
           // Timer dynimically changes green value as time decreases
           this.clockIsActive = true;
         } else {
-          if (this.currentRound < this.rounds.length){
-            if (!this.breakStarted){
+          if (this.currentRound < this.rounds.length) {
+            if (!this.breakStarted) {
               this.currentTimeInSeconds = this.SECONDS_PER_BREAK;
               this.breakStarted = true;
               this.updateClock();
@@ -99,7 +102,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
               this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
               this.updateClock();
             }
-            
+
           } else {
             this.stopTimer();
           }
@@ -119,7 +122,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     } else {
       this.seconds = nonPadedSeconds;
     }
-    
+
   }
 
   /**
@@ -149,25 +152,25 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   resetTimer() {
     this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
     this.updateClock();
-    if (!this.breakStarted){
+    if (!this.breakStarted) {
       this.stopTimer();
     }
   }
 
-  updateStat(stat){
-    
-    if (stat.max == null || stat.value < stat.max){
+  updateStat(stat) {
+
+    if (stat.max == null || stat.value < stat.max) {
       stat.value += 1;
     }
   }
 
-  updateCurrentStatMaps(){
+  updateCurrentStatMaps() {
     this.currentFighter1Stats = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
     this.currentFighter2Stats = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
   }
 
   // Probably temporary code, might get this info depending on judge settings
-  getStatArray(){
+  getStatArray() {
     // Doesn't matter which map we get keys from
     return this.currentFighter1Stats.filter((stat) => {
       return stat.isShared;
@@ -176,15 +179,15 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     });
   }
 
-  getStatValue(stats:Stat[], statName: string){
+  getStatValue(stats: Stat[], statName: string) {
     return stats.find(stat => stat.name == statName);
   }
 
-  updateFighter2Stat(statName:string, value:number){
+  updateFighter2Stat(statName: string, value: number) {
     this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
   }
 
-  submitScoreCard(){
+  submitScoreCard() {
     console.log("submitScoreCard() called!");
   }
 }

@@ -1,5 +1,6 @@
 import {FighterCard} from "./fighterCard.model";
 import { Round } from "./round.model";
+import { Stat } from "./stat.model";
 
 export class ScoreCard {
     public matchId: string;
@@ -27,6 +28,20 @@ export class ScoreCard {
 
         this.fighter1Card = fighter1Card;
         this.fighter2Card = fighter2Card;
+    }
+
+    public initializeStats(stats: Stat[]){
+        this.fighter1Card.rounds.forEach(round => {
+            stats.forEach(stat => {
+                round.addNewStat(stat.name, stat.isShared, stat.value, stat.min, stat.max);
+            });
+        });
+
+        this.fighter2Card.rounds.forEach(round => {
+            stats.forEach(stat => {
+                round.addNewStat(stat.name, stat.isShared, stat.value, stat.min, stat.max);
+            });
+        });
     }
 
     public getFighter1LastName(){
