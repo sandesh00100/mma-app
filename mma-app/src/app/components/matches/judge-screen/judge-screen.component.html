@@ -56,7 +56,7 @@
 
             </div>
             <!-- TODO: Might want to refactor this code for sliders -->
-            <div class="slidercontainer" *ngFor="let stat of getStatArray()">
+            <div class="slidercontainer" *ngFor="let stat of getSharedStatArray()">
                 <div class="sliderValueContainer"> 
                     <div>{{getStatValue(currentFighter1Stats,stat).value}}%</div>
                     <span>{{stat}}</span>

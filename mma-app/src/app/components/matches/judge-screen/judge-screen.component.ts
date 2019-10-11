@@ -170,7 +170,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   }
 
   // Probably temporary code, might get this info depending on judge settings
-  getStatArray() {
+  getSharedStatArray() {
     // Doesn't matter which map we get keys from
     return this.currentFighter1Stats.filter((stat) => {
       return stat.isShared;

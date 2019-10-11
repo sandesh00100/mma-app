@@ -7,7 +7,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const roundStatSchema = mongoose.Schema({
    name:String,
-   value:String,
+   value:Number,
    isShared:Boolean,
    min:Number,
    max:Number
