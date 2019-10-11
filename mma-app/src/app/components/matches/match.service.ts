@@ -21,7 +21,6 @@ export class MatchService {
     this.http.get<{ message: string, matches: any, totalMatches: number }>(httpURL + queryParams)
       .pipe(
         map(matchData => {
-          // console.log(matchData);
           return {
             matches: matchData.matches.map(fetchedMatch => {
               return {
@@ -54,7 +53,7 @@ export class MatchService {
           }
         })
       ).subscribe(transformedMatches => {
-        // console.log(transformedMatches);
+         console.log(transformedMatches);
          this.matches = transformedMatches.matches;
          this.matchesUpdated.next({matches:[...this.matches], maxMatch: transformedMatches.maxMatches});
       });
@@ -70,6 +69,7 @@ export class MatchService {
   getMatch(matchId: String) {
     return this.http.get<{message:string, match:any}>(httpURL+matchId);
   }
+  
   getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
       return this.matchesUpdated;
   }

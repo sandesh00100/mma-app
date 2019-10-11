@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../match.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
 import { Stat } from '../stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from '../judge.service';
+import { Subscription, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-judge-screen',
   templateUrl: './judge-screen.component.html',
   styleUrls: ['./judge-screen.component.css']
 })
-export class JudgeScreenComponent implements OnInit {
+export class JudgeScreenComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    this.preferenceStatsSubscription.unsubscribe();
+  }
   private SECONDS_PER_ROUND: number = 300;
   private SECONDS_PER_BREAK: number = 60;
   private interval;
   private clockIsActive: boolean = false;
   private breakStarted: boolean = false;
   private currentTimeInSeconds: number;
+  private preferenceStatsSubscription: Subscription;
+  
   currentFighter1Stats: Stat[];
   currentFighter2Stats: Stat[];
   currentInputValue;
@@ -37,6 +44,15 @@ export class JudgeScreenComponent implements OnInit {
     // Since we have the auth guard it will get it from the already fetched matches for now
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const matchId = paramMap.get('matchId');
+
+      this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().pipe(
+        switchMap(statData => {
+          return of(statData);
+        })
+      ).subscribe(statsData => {
+        console.log(statsData);
+      });
+      this.judgeService.getPreferences();
       this.matchService.getMatch(matchId).subscribe(matchData => {
         const fetchedMatch = matchData.match;
         let matchLength;
@@ -55,11 +71,7 @@ export class JudgeScreenComponent implements OnInit {
         this.updateClock();
         this.updateCurrentStatMaps();
         this.getStatArray();
-
-        // Testing service
-        this.judgeService.getPreferences().subscribe( response => {
-          console.log(response);
-        })
+        
       });
     });
   }
