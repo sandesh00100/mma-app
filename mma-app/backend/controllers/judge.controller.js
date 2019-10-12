@@ -14,7 +14,6 @@ const createJudge = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
     const INITIAL_VALUE = 0;
     const SHARED_INITIAL_VALUE = 50;
-
     let judgeObj = {
       email: req.body.email,
       password: hashedPassword,
@@ -23,7 +22,7 @@ const createJudge = (req, res, next) => {
       // Creating default preferences for judges
       preferences: {
         stats: [
-          { name: 'Score', isShared: false, min: 0, max: 10, value: INITIAL_VALUE},
+          { name: 'Score', isShared: false, min: 0, max: 10, value: 7},
           { name: 'Takedowns', isShared: false, min: 0, value:INITIAL_VALUE },
           { name: 'Knockdowns', isShared: false, min: 0, value: INITIAL_VALUE},
           { name: 'Submission Attempts', isShared: false, min: 0, max: 10, value: INITIAL_VALUE},

@@ -6,7 +6,6 @@ import { Stat } from '../stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from '../judge.service';
 import { Subscription, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-judge-screen',
@@ -29,7 +28,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   currentFighter2Stats: Stat[];
   currentInputValue;
   form: FormGroup;
-  initialPreferenceFetch:boolean = false;
+  initialPreferenceFetch: boolean = false;
 
   currentScoreCard: ScoreCard;
   currentRound: number = 1;
@@ -61,15 +60,15 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
         }
         this.currentScoreCard = new ScoreCard(matchLength, fetchedMatch);
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
-        
+
 
         this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
           console.log(statsData);
-          if (!this.initialPreferenceFetch){
+          if (!this.initialPreferenceFetch) {
             console.log("here");
             this.currentScoreCard.initializeStats(statsData);
             this.updateClock();
-            this.updateCurrentStatMaps();
+            this.updateCurrentStatLists();
             this.initialPreferenceFetch = true;
           }
         });
@@ -79,8 +78,13 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     });
   }
 
-  startTimer() {
+  updateStat(stat) {
+    if (stat.max == null || stat.value < stat.max) {
+      stat.value += 1;
+    }
+  }
 
+  startTimer() {
     // Making sure the interval doesn't start again when clock is active
     if (this.clockIsActive != true) {
       this.clockIsActive = true;
@@ -97,7 +101,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
               this.breakStarted = true;
               this.updateClock();
             } else {
-              this.nextRound();
+              this.nextRound(false);
               this.breakStarted = false;
               this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
               this.updateClock();
@@ -133,18 +137,24 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     clearInterval(this.interval);
   }
 
-  nextRound() {
+  nextRound(isUserInput: boolean) {
     if (this.currentRound < this.rounds.length) {
       this.currentRound += 1;
-      this.updateCurrentStatMaps();
+      this.updateCurrentStatLists();
+      if (isUserInput) {
+        this.breakStarted = false;
+      }
       this.resetTimer();
     }
   }
 
-  previousRound() {
+  previousRound(isUserInput: boolean) {
     if (this.currentRound > 1) {
       this.currentRound -= 1;
-      this.updateCurrentStatMaps();
+      this.updateCurrentStatLists();
+      if (isUserInput) {
+        this.breakStarted = false;
+      }
       this.resetTimer();
     }
   }
@@ -157,33 +167,20 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateStat(stat) {
-
-    if (stat.max == null || stat.value < stat.max) {
-      stat.value += 1;
-    }
-  }
-
-  updateCurrentStatMaps() {
+  /**
+   * Change current stat list based on what the current round is
+   */
+  updateCurrentStatLists() {
     this.currentFighter1Stats = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
     this.currentFighter2Stats = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
   }
 
-  // Probably temporary code, might get this info depending on judge settings
-  getSharedStatArray() {
-    // Doesn't matter which map we get keys from
-    return this.currentFighter1Stats.filter((stat) => {
-      return stat.isShared;
-    }).map((stat) => {
-      return stat.name;
-    });
-  }
-
-  getStatValue(stats: Stat[], statName: string) {
-    return stats.find(stat => stat.name == statName);
-  }
-
-  updateFighter2Stat(statName: string, value: number) {
+  /**
+   * Since the shared stats sliders are based on fighter 1 stats. 
+   * This method allows us to update fighter 2 stats after a judge has changed the slider.
+   * @param statName 
+   */
+  updateFighter2Stat(statName: string) {
     this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
   }
 
