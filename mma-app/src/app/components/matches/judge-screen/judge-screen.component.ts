@@ -115,7 +115,9 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     }
   }
 
-
+  /**
+   * Converts second's to whats going to be displayed on the clock
+   */
   updateClock() {
     this.currentTimerColor = `rgb(255,${255 - (this.SECONDS_PER_ROUND - this.currentTimeInSeconds)},0)`;
     this.minutes = Math.floor(this.currentTimeInSeconds / 60).toString();
@@ -130,13 +132,17 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Stops fight clock
+   * Stops fight timer
    */
   stopTimer() {
     this.clockIsActive = false;
     clearInterval(this.interval);
   }
 
+  /**
+   * Changes the current round to next and updates the stats list
+   * @param isUserInput true or false depending if this method is called from a click event
+   */
   nextRound(isUserInput: boolean) {
     if (this.currentRound < this.rounds.length) {
       this.currentRound += 1;
@@ -148,6 +154,10 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Changes the current round to previous and updates the stats list
+   * @param isUserInput true or false depending if this method is called from a click event
+   */
   previousRound(isUserInput: boolean) {
     if (this.currentRound > 1) {
       this.currentRound -= 1;
@@ -159,6 +169,9 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Reset's the timer to seconds per round, stops the timer if break is not started 
+   */
   resetTimer() {
     this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
     this.updateClock();

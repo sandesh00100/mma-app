@@ -9,7 +9,6 @@ const jwt = require('jsonwebtoken');
  * @param {*} next
  */
 const createJudge = (req, res, next) => {
-  console.log(req.body);
   // TODO: Research second argument, I think it's how many layers of salt it goes through
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
     const INITIAL_VALUE = 0;
@@ -56,7 +55,6 @@ const createJudge = (req, res, next) => {
  * @param {*} next
  */
 const signinJudge = async (req, res, next) => {
-  console.log(req.body);
   // TODO: Have better error handling
   try {
     const foundJudge = await JudgeModel.findOne({ email: req.body.email });
