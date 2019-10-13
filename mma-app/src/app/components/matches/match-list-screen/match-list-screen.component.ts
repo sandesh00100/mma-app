@@ -47,8 +47,8 @@ export class MatchesComponent implements OnInit, OnDestroy {
         this.pageLength = matchData.maxMatch;
     });
 
-    this.authSub = this.authService.getAuthStatusListener().subscribe(authData => {
-      this.isAuth = authData.isAuth;
+    this.authSub = this.authService.getAuthStatusListener().subscribe(auth => {
+      this.isAuth = auth;
       console.log(this.currentRouterLink);
     });
   }

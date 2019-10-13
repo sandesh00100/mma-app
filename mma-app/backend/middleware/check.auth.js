@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
         // go to the next middleware
         next();
     } catch (error) {
+        console.log(error);
         res.status(401).json({
             message: "You are not authorized"
         });

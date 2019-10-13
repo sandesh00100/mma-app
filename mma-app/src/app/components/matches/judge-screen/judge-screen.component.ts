@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../match.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ScoreCard } from '../scorecard.model';
 import { Stat } from '../stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from '../judge.service';
 import { Subscription, of } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-judge-screen',
