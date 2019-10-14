@@ -58,7 +58,6 @@ const signinJudge = async (req, res, next) => {
   // TODO: Have better error handling
   try {
     const foundJudge = await JudgeModel.findOne({ email: req.body.email });
-    console.log(foundJudge);
     if (!foundJudge) {
       res.status(500).json({
         message: "User could not be found"

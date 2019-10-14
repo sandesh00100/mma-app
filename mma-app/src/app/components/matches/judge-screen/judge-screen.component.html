@@ -17,8 +17,8 @@
                             <button mat-button (click)="updateStat(stat)">{{stat.name}}</button>
                             <span class="spacer"></span>
                             <mat-form-field>
-                                <input matInput [min]="stat.min" [max]="stat.max" class="mat-input" type="number"
-                                    [(ngModel)]="stat.value">
+                                <input #inputField matInput [min]="stat.min" [max]="stat.max" class="mat-input"
+                                    type="number" [(ngModel)]="stat.value" (focusout)="validateVal(stat)">
                             </mat-form-field>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                 <div [ngStyle]="{'color':currentTimerColor}" class="timer">
                     <h1>{{minutes}}:{{seconds}}</h1>
                     <span *ngIf="breakStarted" class="breakMessage">BREAK</span>
-                </div>  
+                </div>
                 <span></span>
                 <div class="roundsContainer">
                     <div *ngFor="let round of rounds" class="round" [ngClass]="{'currentRound':round == currentRound}">
@@ -58,12 +58,13 @@
             <!-- Use fighter1stats to display shared sliders but update fighter 2 stats as it gets updated-->
             <div class="slidercontainer" *ngFor="let stat of currentFighter1Stats">
                 <div *ngIf="stat.isShared">
-                        <div class="sliderValueContainer"> 
-                                <div>{{stat.value}}%</div>
-                                <span>{{stat.name}}</span>
-                                <div>{{100 - stat.value}}%</div>
-                            </div>
-                            <input type="range" min="0" max="100" [(ngModel)]="stat.value" class="slider" (change)="updateFighter2Stat(stat.name)">
+                    <div class="sliderValueContainer">
+                        <div>{{stat.value}}%</div>
+                        <span>{{stat.name}}</span>
+                        <div>{{100 - stat.value}}%</div>
+                    </div>
+                    <input type="range" min="0" max="100" [(ngModel)]="stat.value" class="slider"
+                        (change)="updateFighter2Stat(stat.name)">
                 </div>
             </div>
         </div>
@@ -81,10 +82,11 @@
                         <div class="statContainer" *ngIf="!stat.isShared">
                             <button mat-button (click)="updateStat(stat)">{{stat.name}}</button>
                             <span class="spacer"></span>
+
+                        <!-- TODO: Add error message or some sort of indication when they enter an invalid value -->
                             <mat-form-field>
-                                <!-- TODO: Still need to validate negative number and numbers outside min and max. Maybe use a form to do the job-->
-                                <input matInput [min]="stat.min" [max]="stat.max" class="mat-input" type="number"
-                                    [(ngModel)]="stat.value">
+                                <input #inputField matInput [min]="stat.min" [max]="stat.max" class="mat-input"
+                                    type="number" [(ngModel)]="stat.value" (focusout)="validateVal(stat)">
                             </mat-form-field>
                         </div>
                     </div>

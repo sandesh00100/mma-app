@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { JudgeScreenComponent } from './components/matches/judge-screen/judge-screen.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { PreferencesComponent } from './components/preferences/preferences.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthInterceptor } from './components/auth/auth.interceptor';
     HeaderComponent,
     MatchesComponent,
     AuthComponent,
-    JudgeScreenComponent
+    JudgeScreenComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,

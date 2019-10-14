@@ -201,4 +201,30 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   submitScoreCard() {
     console.log("submitScoreCard() called!");
   }
+
+  /**
+   * Validates and corrects user's inputs.
+   * If input is larger than max it sets it as max.
+   * If input is smaller than min it sets it as the min. 
+   * @param stat statObject it's displaying    
+   */
+  validateVal(stat: Stat) {
+    const max = stat.max;
+    const min = stat.min;
+    // console.log(max);
+    if (stat.value != null) {
+      const keyPressedValue = stat.value;
+      if (max != undefined && keyPressedValue > max) {
+        stat.value = max;
+      } else if (min != undefined && keyPressedValue < min) {
+        stat.value = min;
+      }
+    } else {
+      if (min != undefined) {
+        stat.value = min;
+      } else {
+        stat.value = 0;
+      }
+    }
+  }
 }
