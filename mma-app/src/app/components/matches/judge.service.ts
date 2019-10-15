@@ -4,8 +4,9 @@ import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { Stat } from './stat.model';
 import { map } from 'rxjs/operators';
+import { ScoreCard } from './scorecard.model';
 
-const httpURL = environment.apiUrl + 'judge/';
+const httpURL = environment.apiUrl + '/judge';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class JudgeService {
   }
 
   getPreferences() {
-    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}preference/stats`).pipe(
+    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).pipe(
       map(statData => {
         return {
           stats: statData.stats.map(stat => {
@@ -37,6 +38,12 @@ export class JudgeService {
     ).subscribe(transformedStatData => {
       this.preferenceStats = transformedStatData.stats;
       this.preferenceUpdateListener.next([...this.preferenceStats]);
+    });
+  }
+
+  saveScoreCard(scoreCard: ScoreCard) {
+    this.http.post(`${httpURL}/scorecard`,scoreCard.getJsonObject()).subscribe(response => {
+      console.log(response);
     });
   }
 

@@ -18,4 +18,10 @@ export class Round {
         });
     }
 
+    public getRoundInfo() {
+        return {
+            round: this.roundNumber,
+            stats: this.stats
+        }
+    }
 }

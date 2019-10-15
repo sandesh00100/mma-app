@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 
 
-const httpURL = environment.apiUrl + 'judge';
+const httpURL = environment.apiUrl + '/judge';
 @Injectable({
   providedIn: 'root'
 })

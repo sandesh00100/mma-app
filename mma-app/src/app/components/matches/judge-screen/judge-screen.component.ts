@@ -5,8 +5,7 @@ import { ScoreCard } from '../scorecard.model';
 import { Stat } from '../stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from '../judge.service';
-import { Subscription, of } from 'rxjs';
-import { AuthService } from '../../auth/auth.service';
+import { Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-judge-screen',
@@ -47,7 +46,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
       const matchId = paramMap.get('matchId');
 
       this.matchService.getMatch(matchId).subscribe(matchData => {
-        const fetchedMatch = matchData.match;
+        let fetchedMatch = matchData.match;
         let matchLength;
         console.log(fetchedMatch);
         if (fetchedMatch.isFiveRounds) {
@@ -64,14 +63,16 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
 
 
         this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
-          console.log(statsData);
+          
           if (!this.initialPreferenceFetch) {
-            console.log("here");
             this.currentScoreCard.initializeStats(statsData);
             this.updateClock();
             this.updateCurrentStatLists();
             this.initialPreferenceFetch = true;
+          } else {
+            //TODO: update current score card according to the updated stats
           }
+
         });
 
         this.judgeService.getPreferences();
@@ -199,7 +200,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   }
 
   submitScoreCard() {
-    console.log("submitScoreCard() called!");
+    this.judgeService.saveScoreCard(this.currentScoreCard);
   }
 
   /**

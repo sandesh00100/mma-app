@@ -114,8 +114,14 @@ const getStatInfo = (req, res, next) => {
   })    
 };
 
+const saveScoreCard = (req, res, next) => {
+  const scoreCard = req.body;
+  console.log(scoreCard);
+};
+
 module.exports = {
   createJudge: createJudge,
   signinJudge: signinJudge,
-  getStatInfo: getStatInfo
+  getStatInfo: getStatInfo,
+  saveScoreCard: saveScoreCard
 };

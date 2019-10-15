@@ -5,7 +5,7 @@ import { Match } from './match.model';
 import { map } from 'rxjs/operators';
 import { Subject, pipe } from 'rxjs';
 
-const httpURL = environment.apiUrl + 'matches/';
+const httpURL = environment.apiUrl + '/matches';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class MatchService {
   getMatches(matchesPerPage: number, currentPage: number, org: string) {
 
     const queryParams = `?pageSize=${matchesPerPage}&page=${currentPage}&org=${org}`;
-    this.http.get<{ message: string, matches: any, totalMatches: number }>(httpURL + queryParams)
+    this.http.get<{ message: string, matches: any, totalMatches: number }>(`${httpURL}/${queryParams}`)
       .pipe(
         map(matchData => {
           return {
@@ -67,7 +67,7 @@ export class MatchService {
   }
 
   getMatch(matchId: String) {
-    return this.http.get<{message:string, match:any}>(httpURL+matchId);
+    return this.http.get<{message:string, match:any}>(`${httpURL}/${matchId}`);
   }
   
   getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
