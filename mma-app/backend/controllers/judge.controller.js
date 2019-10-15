@@ -116,7 +116,23 @@ const getStatInfo = (req, res, next) => {
 
 const saveScoreCard = (req, res, next) => {
   const scoreCard = req.body;
+  const userId = req.userData.userId;
   console.log(scoreCard);
+
+  // TODO: Only push unique matches
+  JudgeModel.updateOne({_id:userId}, {$push: {matches:scoreCard}})
+  .then(pushedMatch => {
+    console.log("pushed match: ");
+    console.log(pushedMatch);
+    res.status(200).json({
+      message:"Scorecard submitted."
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      message:"Error occured when submitting score card."
+    });
+  });
 };
 
 module.exports = {
