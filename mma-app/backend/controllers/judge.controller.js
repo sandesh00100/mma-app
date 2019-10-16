@@ -117,10 +117,11 @@ const getStatInfo = (req, res, next) => {
 const saveScoreCard = (req, res, next) => {
   const scoreCard = req.body;
   const userId = req.userData.userId;
-  console.log(scoreCard);
+  console.log(scoreCard.match);
 
-  // TODO: Only push unique matches
-  JudgeModel.updateOne({_id:userId}, {$push: {matches:scoreCard}})
+  // TODO: Make naming schemes consistient 
+  //$set either creates a new element or updates the existing element
+  JudgeModel.updateOne({_id:userId, 'matches.match': scoreCard.match}, {$addToSet: {'matches.$': scoreCard}})
   .then(pushedMatch => {
     console.log("pushed match: ");
     console.log(pushedMatch);

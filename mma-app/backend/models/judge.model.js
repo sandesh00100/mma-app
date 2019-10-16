@@ -4,40 +4,20 @@ const mongoose = require('mongoose');
 // It's a plugin
 // unique is not a validator but allows mongoose to optimize database
 const uniqueValidator = require('mongoose-unique-validator');
-
-const roundStatSchema = mongoose.Schema({
-   name:String,
-   value:Number,
-   isShared:Boolean,
-   min:Number,
-   max:Number
-});
+const roundStatSchema = require('./stat.model');
 
 const judgeSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   isTestData: { type: Boolean, required: true },
-  matches: [
+  scoreCards: [
     {
-      match: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Match",
-        required: true
-      },
-      roundsScored: [{
-        fighter: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Fighter"
-        },
-        rounds: [{
-          round:Number,
-          stats:[roundStatSchema]
-        }]
-      }]
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ScoreCard"
     }
   ],
-  preferences:{
-    stats:[roundStatSchema]
+  preferences: {
+    stats: [roundStatSchema]
   }
 });
 
