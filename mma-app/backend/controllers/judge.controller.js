@@ -1,4 +1,5 @@
 const JudgeModel = require('../models/judge.model');
+const ScoreCardModel = require('../models/scorecard.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -21,13 +22,13 @@ const createJudge = (req, res, next) => {
       // Creating default preferences for judges
       preferences: {
         stats: [
-          { name: 'Score', isShared: false, min: 0, max: 10, value: 7},
-          { name: 'Takedowns', isShared: false, min: 0, value:INITIAL_VALUE },
-          { name: 'Knockdowns', isShared: false, min: 0, value: INITIAL_VALUE},
-          { name: 'Submission Attempts', isShared: false, min: 0, max: 10, value: INITIAL_VALUE},
-          { name: 'Octagon Control', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE},
-          { name: 'Damage Ratio', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE},
-          { name: 'Significant Strikes', isShared: false, min: 0, value:INITIAL_VALUE}
+          { name: 'Score', isShared: false, min: 0, max: 10, value: 7 },
+          { name: 'Takedowns', isShared: false, min: 0, value: INITIAL_VALUE },
+          { name: 'Knockdowns', isShared: false, min: 0, value: INITIAL_VALUE },
+          { name: 'Submission Attempts', isShared: false, min: 0, max: 10, value: INITIAL_VALUE },
+          { name: 'Octagon Control', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE },
+          { name: 'Damage Ratio', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE },
+          { name: 'Significant Strikes', isShared: false, min: 0, value: INITIAL_VALUE }
         ]
       }
     };
@@ -101,7 +102,7 @@ const signinJudge = async (req, res, next) => {
 
 const getStatInfo = (req, res, next) => {
   const userData = req.userData;
-  JudgeModel.findOne({email:userData.email},{preferences:1,_id:0}).then( fetchedJudge => {
+  JudgeModel.findOne({ email: userData.email }, { preferences: 1, _id: 0 }).then(fetchedJudge => {
     res.status(200).json({
       message: "Stats fetched successfully",
       stats: fetchedJudge.preferences.stats
@@ -109,31 +110,45 @@ const getStatInfo = (req, res, next) => {
   }).catch(err => {
     console.log(err);
     res.status(500).json({
-      message:"internal error"
+      message: "internal error"
     });
-  })    
+  })
 };
 
+/**
+ * Update existing scorecard, create a new score cared if it doesn't exist
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 const saveScoreCard = (req, res, next) => {
-  const scoreCard = req.body;
-  const userId = req.userData.userId;
-  console.log(scoreCard.match);
+  const judgeId = req.userData.userId;
+  let scoreCardObj = {...req.body};
 
-  // TODO: Make naming schemes consistient 
-  //$set either creates a new element or updates the existing element
-  JudgeModel.updateOne({_id:userId, 'matches.match': scoreCard.match}, {$addToSet: {'matches.$': scoreCard}})
-  .then(pushedMatch => {
-    console.log("pushed match: ");
-    console.log(pushedMatch);
-    res.status(200).json({
-      message:"Scorecard submitted."
+  ScoreCardModel.updateOne(
+    {
+      match: scoreCardObj.match,
+      judge: judgeId
+    },
+    {
+      judge: judgeId,
+      match: scoreCardObj.match,
+      roundsScored: scoreCardObj.roundsScored,
+      date: new Date()
+    },
+    {
+      upsert: true
+    }).then( updatedScoreCard => {
+      console.log(updatedScoreCard);
+      res.status(200).json({
+        message: "Sucessfully saved score card."
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json({
+        message: "Failed to save your score card. Please try again."
+      })
     });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      message:"Error occured when submitting score card."
-    });
-  });
 };
 
 module.exports = {
