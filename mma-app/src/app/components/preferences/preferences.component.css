@@ -1,0 +1,21 @@
+.statContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.statItemContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+mat-form-field{
+    width: 10%;
+}
+
+.label {
+    margin-right: 10px;
+}
+.spacer {
+    flex: auto;
+}

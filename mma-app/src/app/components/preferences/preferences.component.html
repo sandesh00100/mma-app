@@ -1,3 +1,20 @@
-<mat-card>
-    
-</mat-card>
+<div>
+    <h1>Preferences</h1>
+    <div class="statContainer">
+        <div class="statItemContainer" *ngFor="let stat of preferenceStats">
+            <span>{{stat.name}}</span>
+            <span class="spacer"></span>
+            <span class="label">min</span>
+            <mat-form-field>
+                <input matInput type="number" [value]="stat.min">
+            </mat-form-field>
+            <span class="label">max</span>
+            <mat-form-field>
+                <input matInput type="number" [value]="stat.max">
+            </mat-form-field>
+            <span class="label">Ratio</span>
+            <mat-slide-toggle>
+            </mat-slide-toggle>
+        </div>
+    </div>
+</div>

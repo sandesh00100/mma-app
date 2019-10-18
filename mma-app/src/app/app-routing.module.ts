@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { AuthComponent } from './components/auth/auth.component';
-import { JudgeScreenComponent } from './components/judge-screen/judge-screen.component';
+import { JudgeScreenComponent } from './components/judge/judge-screen.component';
 import { AuthGuard } from './components/auth/auth.guard';
 
 const routes: Routes = [

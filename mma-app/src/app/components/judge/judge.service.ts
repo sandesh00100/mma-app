@@ -52,4 +52,8 @@ export class JudgeService {
   getPreferenceUpdateListener(){
     return this.preferenceUpdateListener;
   }
+
+  getStats(){
+    return [...this.preferenceStats];
+  }
 }

@@ -2,13 +2,13 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig, MatDialogModule} from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig, MatDialogModule, MatSlideToggleModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './components/auth/auth.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JudgeScreenComponent } from './components/judge-screen/judge-screen.component';
+import { JudgeScreenComponent } from './components/judge/judge-screen.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PreferencesComponent } from './components/preferences/preferences.component';
@@ -42,7 +42,8 @@ import { PreferencesComponent } from './components/preferences/preferences.compo
     MatSliderModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
   ],
   // Hammerjs used to make sliding work for matsliders
   
