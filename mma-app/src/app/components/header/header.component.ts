@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { PreferencesComponent } from '../preferences/preferences.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private authServiceListener: Subscription;
   isAuth:boolean = false;
   username:string;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private dialogService: MatDialog) { }
 
   ngOnInit() {
     this.isAuth = this.authService.userIsAuth();
@@ -30,6 +32,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   signout(){
     this.authService.signout();
+  }
+
+  openPreferenceDialog(){
+    this.dialogService.open(PreferencesComponent);
   }
 
 }

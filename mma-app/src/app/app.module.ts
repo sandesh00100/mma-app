@@ -2,13 +2,13 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig} from '@angular/material';
+import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig, MatDialogModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './components/auth/auth.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JudgeScreenComponent } from './components/matches/judge-screen/judge-screen.component';
+import { JudgeScreenComponent } from './components/judge-screen/judge-screen.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PreferencesComponent } from './components/preferences/preferences.component';
@@ -41,7 +41,8 @@ import { PreferencesComponent } from './components/preferences/preferences.compo
     MatIconModule,
     MatSliderModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   // Hammerjs used to make sliding work for matsliders
   
@@ -49,6 +50,9 @@ import { PreferencesComponent } from './components/preferences/preferences.compo
     {provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // TODO: look more at entry components and providers
+  // Since it's a dialog angular doesn't see it so we have to put it as entry components
+  entryComponents: [PreferencesComponent]
 })
 export class AppModule { }

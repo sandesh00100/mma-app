@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatchService } from '../match.service';
+import { MatchService } from '../matches/match.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ScoreCard } from '../scorecard.model';
-import { Stat } from '../stat.model';
+import { ScoreCard } from '../matches/scorecard.model';
+import { Stat } from '../matches/stat.model';
 import { FormGroup } from '@angular/forms';
-import { JudgeService } from '../judge.service';
+import { JudgeService } from './judge.service';
 import { Subscription} from 'rxjs';
 
 @Component({

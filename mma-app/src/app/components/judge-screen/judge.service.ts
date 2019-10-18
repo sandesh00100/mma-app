@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
-import { Stat } from './stat.model';
+import { Stat } from '../matches/stat.model';
 import { map } from 'rxjs/operators';
-import { ScoreCard } from './scorecard.model';
+import { ScoreCard } from '../matches/scorecard.model';
+import { Router } from '@angular/router';
 
 const httpURL = environment.apiUrl + '/judge';
 
@@ -16,7 +17,7 @@ export class JudgeService {
   private preferenceUpdateListener = new Subject<Stat[]>();
   private preferenceStats: Stat[];
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient, private router:Router) { 
 
   }
 
@@ -40,10 +41,11 @@ export class JudgeService {
       this.preferenceUpdateListener.next([...this.preferenceStats]);
     });
   }
-
+  
+  // TODO: add error and retries for all htttp calls
   saveScoreCard(scoreCard: ScoreCard) {
     this.http.post(`${httpURL}/scorecard`,scoreCard.getJsonObject()).subscribe(response => {
-      console.log(response);
+      this.router.navigate(['/']);
     });
   }
 
