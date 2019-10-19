@@ -25,10 +25,10 @@ const createJudge = (req, res, next) => {
           { name: 'Score', isShared: false, min: 0, max: 10, value: 7 },
           { name: 'Takedowns', isShared: false, min: 0, value: INITIAL_VALUE },
           { name: 'Knockdowns', isShared: false, min: 0, value: INITIAL_VALUE },
-          { name: 'Submission Attempts', isShared: false, min: 0, max: 10, value: INITIAL_VALUE },
+          { name: 'Significant Strikes', isShared: false, min: 0, value: INITIAL_VALUE },
+          { name: 'Submission Attempts', isShared: false, min: 0, value: INITIAL_VALUE },
           { name: 'Octagon Control', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE },
           { name: 'Damage Ratio', isShared: true, min: 0, max: 100, value: SHARED_INITIAL_VALUE },
-          { name: 'Significant Strikes', isShared: false, min: 0, value: INITIAL_VALUE }
         ]
       }
     };

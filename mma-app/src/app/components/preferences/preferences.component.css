@@ -9,13 +9,30 @@
     align-items: baseline;
 }
 
-mat-form-field{
-    width: 10%;
+.newItemContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
 }
 
-.label {
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newItem {
+    width:20%;
+}
+
+mat-form-field {
+    width: 7%;
     margin-right: 10px;
 }
+
 .spacer {
     flex: auto;
+}
+
+button {
+    width: fit-content;
 }

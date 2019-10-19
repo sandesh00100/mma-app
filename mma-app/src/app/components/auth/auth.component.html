@@ -1,11 +1,13 @@
-<mat-card>
-    <form [formGroup]="form" (submit) = "authorize()">
-        <mat-form-field>
-            <input type="email" formControlName="email" matInput placeholder="Email">
-        </mat-form-field>
-        <mat-form-field>
-            <input type="password" formControlName="password" matInput placeholder="Password">
-        </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="form.get('email').invalid && form.get('password').invalid">{{mode}}</button>
-    </form>
-</mat-card>
+<div class="authContainer">
+        <mat-card>
+                <form [formGroup]="form" (submit) = "authorize()">
+                    <mat-form-field>
+                        <input type="email" formControlName="email" matInput placeholder="Email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="password" formControlName="password" matInput placeholder="Password">
+                    </mat-form-field>
+                    <button mat-raised-button type="submit" [disabled]="form.get('email').invalid && form.get('password').invalid">{{mode}}</button>
+                </form>
+            </mat-card>
+</div>

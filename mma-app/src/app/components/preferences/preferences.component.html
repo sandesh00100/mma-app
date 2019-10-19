@@ -4,17 +4,49 @@
         <div class="statItemContainer" *ngFor="let stat of preferenceStats">
             <span>{{stat.name}}</span>
             <span class="spacer"></span>
-            <span class="label">min</span>
-            <mat-form-field>
-                <input matInput type="number" [value]="stat.min">
+            <mat-form-field *ngIf="!stat.isShared">
+                <input matInput type="number" [(ngModel)]="stat.value" placeholder="Initial" autocomplete="off">
             </mat-form-field>
-            <span class="label">max</span>
-            <mat-form-field>
-                <input matInput type="number" [value]="stat.max">
+            <mat-form-field *ngIf="!stat.isShared">
+                <input matInput type="number" [(ngModel)]="stat.min" placeholder="Min" autocomplete="off">
             </mat-form-field>
-            <span class="label">Ratio</span>
-            <mat-slide-toggle>
+            <mat-form-field *ngIf="!stat.isShared">
+                <input matInput type="number" [(ngModel)]="stat.max" placeholder="Max" autocomplete="off">
+            </mat-form-field>
+            <mat-slide-toggle [(ngModel)]="stat.isShared">
+                Ratio
             </mat-slide-toggle>
+            <button mat-button (click)=removeStat(stat)>
+                <mat-icon>clear</mat-icon>
+            </button>
         </div>
+        <div class="newItemContainer" *ngIf="newStat != null">
+            <mat-form-field class="newItem">
+                <input matInput type="text" placeholder="Name" [(ngModel)]="newStat.name">
+            </mat-form-field>
+            <span class="spacer"></span>
+            <mat-form-field *ngIf="!newStat.isShared">
+                <input matInput type="number" [(ngModel)]="newStat.value" placeholder="Initial" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field *ngIf="!newStat.isShared">
+                <input matInput type="number" [(ngModel)]="newStat.min" placeholder="Min" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field *ngIf="!newStat.isShared">
+                <input matInput type="number" [(ngModel)]="newStat.max" placeholder="Max" autocomplete="off">
+            </mat-form-field>
+            <mat-slide-toggle [(ngModel)]="newStat.isShared" >
+                Ratio
+            </mat-slide-toggle>
+            <button mat-button (click)="addStat()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <div class="buttonContainer">
+            <button mat-button class="saveButton">
+                <mat-icon>save</mat-icon> Save Preferences
+            </button>
+        </div>
+
     </div>
 </div>
