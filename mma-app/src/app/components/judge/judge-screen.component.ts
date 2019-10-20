@@ -6,6 +6,7 @@ import { Stat } from '../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from './judge.service';
 import { Subscription} from 'rxjs';
+import { StatValidator } from '../validators/Stat.validator';
 
 @Component({
   selector: 'app-judge-screen',
@@ -209,23 +210,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
    * If input is smaller than min it sets it as the min. 
    * @param stat statObject it's displaying    
    */
-  validateVal(stat: Stat) {
-    const max = stat.max;
-    const min = stat.min;
-    // console.log(max);
-    if (stat.value != null) {
-      const keyPressedValue = stat.value;
-      if (max != undefined && keyPressedValue > max) {
-        stat.value = max;
-      } else if (min != undefined && keyPressedValue < min) {
-        stat.value = min;
-      }
-    } else {
-      if (min != undefined) {
-        stat.value = min;
-      } else {
-        stat.value = 0;
-      }
-    }
+  correctStat(stat: Stat) {
+   StatValidator.correctValues(stat);
   }
 }

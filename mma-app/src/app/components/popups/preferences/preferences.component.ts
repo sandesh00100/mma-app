@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { JudgeService } from '../judge/judge.service';
+import { JudgeService } from '../../judge/judge.service';
 import { Router } from '@angular/router';
-import { Stat } from '../matches/stat.model';
+import { Stat } from '../../matches/stat.model';
 import { Subscription } from 'rxjs';
+import { StatValidator } from '../../validators/Stat.validator';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-preferences',
@@ -26,7 +28,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private judgeService: JudgeService, private router: Router) { }
+  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.resetStat();
@@ -50,8 +52,18 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   addStat(){
     console.log("adding stat");
     console.log(this.newStat);
-    this.preferenceStats.push(this.newStat);
-    this.resetStat();
+    const isValid = StatValidator.isValidStat(this.newStat, this.preferenceStats);
+    console.log(isValid);
+    if (isValid) {
+      this.preferenceStats.push(this.newStat);
+      this.resetStat();
+    } else {
+      this.snackBar.open('Please enter a valid name.', 'Error',
+      {
+        duration: 2000
+      });
+    }
+   
   }
 
   resetStat(){
@@ -60,8 +72,16 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       min:undefined,
       max:undefined,
       isShared: false,
-      value:undefined
+      value:0
     };
   }
 
+  resetSharedStat(stat: Stat){
+    stat.min = 0;
+    stat.max = 100;
+    stat.value = 50;
+  }
+  correctStat(stat: Stat) {
+    StatValidator.correctValues(stat);
+   }
 }

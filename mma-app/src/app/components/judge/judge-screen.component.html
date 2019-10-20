@@ -18,7 +18,7 @@
                             <span class="spacer"></span>
                             <mat-form-field>
                                 <input matInput [min]="stat.min" [max]="stat.max" class="mat-input"
-                                    type="number" [(ngModel)]="stat.value" (focusout)="validateVal(stat)">
+                                    type="number" [(ngModel)]="stat.value" (focusout)="correctStat(stat)">
                             </mat-form-field>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                         <!-- TODO: Add error message or some sort of indication when they enter an invalid value -->
                             <mat-form-field>
                                 <input matInput [min]="stat.min" [max]="stat.max" class="mat-input"
-                                    type="number" [(ngModel)]="stat.value" (focusout)="validateVal(stat)">
+                                    type="number" [(ngModel)]="stat.value" (focusout)="correctStat(stat)">
                             </mat-form-field>
                         </div>
                     </div>
