@@ -141,19 +141,24 @@ const saveScoreCard = (req, res, next) => {
     }).then( updatedScoreCard => {
       console.log(updatedScoreCard);
       res.status(200).json({
-        message: "Sucessfully saved score card."
+        message: "Sucessfully submitted score card."
       });
     }).catch(err => {
       console.log(err);
       res.status(500).json({
-        message: "Failed to save your score card. Please try again."
+        message: "Failed to process your score card. Please try again."
       })
     });
+};
+
+const updateStatPreferences = () => {
+
 };
 
 module.exports = {
   createJudge: createJudge,
   signinJudge: signinJudge,
   getStatInfo: getStatInfo,
-  saveScoreCard: saveScoreCard
+  saveScoreCard: saveScoreCard,
+  updateStatPreferences: updateStatPreferences
 };
