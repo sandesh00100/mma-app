@@ -22,7 +22,9 @@ const scoreCardSchema = mongoose.Schema({
         stats:[roundStatSchema]
       }]
     }],
-    date: Date
+    date: Date,
+    isTestData: { type: Boolean, required: true },
+    isMockData: { type: Boolean, required: true}
   });
 
   module.exports = mongoose.model('ScoreCard', scoreCardSchema);

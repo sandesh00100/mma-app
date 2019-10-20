@@ -80,7 +80,8 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
         draws: 0,
         disqualifications: 0
       },
-      isTestData: true
+      isTestData: false,
+      isMockData: true
     };
 
     // Undo the fllowing comments
@@ -123,7 +124,8 @@ const createMockData = async (numFighters, numMatches, numEvents) => {
       isFiveRounds: fiveRounderFlag,
       date: currentDate,
       fighters: [selectedFighters.fighter1Id, selectedFighters.fighter2Id],
-      isTestData: true
+      isTestData: false,
+      isMockData: true
     };
     matchObjects.push(matchObj);
 

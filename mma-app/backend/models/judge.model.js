@@ -9,7 +9,6 @@ const roundStatSchema = require('./stat.model');
 const judgeSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  isTestData: { type: Boolean, required: true },
   scoreCards: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,7 +17,9 @@ const judgeSchema = mongoose.Schema({
   ],
   preferences: {
     stats: [roundStatSchema]
-  }
+  },
+  isMockData: { type: Boolean, required: true},
+  isTestData: { type: Boolean, required: true}
 });
 
 judgeSchema.plugin(uniqueValidator);

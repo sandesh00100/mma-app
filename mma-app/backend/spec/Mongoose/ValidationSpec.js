@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const FighterModel = require('../../models/fighter.model');
 const MatchModel = require('../../models/match.model');
-
+const testJudgeEmail = "unitTestAccount@test";
 // TODO: Need more validation tests
 describe("Validation tests", () => {
 
@@ -29,7 +29,8 @@ describe("Validation tests", () => {
       matchOrder: 1,
       isFiveRounds: true,
       // TODO: Remove this if we use a test database for the tests
-      isTestData: true
+      isTestData: true,
+      isMockData: false
     };
 
     let fighterObjs = [];
@@ -39,7 +40,8 @@ describe("Validation tests", () => {
       fighterObjs.push({
         firstName: "FirstName" + i,
         lastName: "LastName" + i,
-        isTestData: true
+        isTestData: true,
+        isMockData: false
       });
     }
 
@@ -62,7 +64,8 @@ describe("Validation tests", () => {
       matchObject.fighters.push({
         firstName: 'ErrorFirstName',
         lastName: "errorLastName",
-        isTestData: true
+        isTestData: true,
+        isMockData: false
       });
 
       const errorMatch = new MatchModel(matchObject);
@@ -78,5 +81,9 @@ describe("Validation tests", () => {
 
     validateMatch();
 
+  });
+
+  it('validates a score card', done =>{
+    done();
   });
 });

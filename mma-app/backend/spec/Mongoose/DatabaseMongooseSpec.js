@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const MatchModel = require('../../models/match.model');
 const FighterModel = require("../../models/fighter.model");
 const JudgeModel = require('../../models/judge.model');
+const ScoreCardModel = require("../../models/scorecard.model");
 
 describe('Mongo Database Models', () => {
   let fighterObj;
@@ -37,7 +38,8 @@ describe('Mongo Database Models', () => {
         draws: 1,
         disqualifications: 1,
       },
-      isTestData: true
+      isTestData: true,
+      isMockData: false
     };
 
     fighter2Obj = { ...fighterObj };
@@ -54,7 +56,8 @@ describe('Mongo Database Models', () => {
       matchOrder: 1,
       isFiveRounds: true,
       fighters: [],
-      isTestData: true
+      isTestData: true,
+      isMockData: false
     }
   });
 
@@ -111,12 +114,13 @@ describe('Mongo Database Models', () => {
     });
   });
 
-  it('Creates a Judge', done => {
+  xit('Creates a Judge', done => {
     let judgeObj = {
       email: "sandesh@test.com",
       password: "testPassword",
-      matches: [],
-      isTestData: true
+      scoreCards: [],
+      isTestData: true,
+      isMockData: false
     };
 
     let roundsScoredObj1 = [];
@@ -175,8 +179,9 @@ describe('Mongo Database Models', () => {
                 .populate('fighter')
                 .exec((err, foundJudge) => {
                   if (!err) {
+                    console.log(foundJudge);
                     expect(foundJudge.email).toBe('sandesh@test.com');
-                    expect(foundJudge.matches.length).toEqual(1);
+                    expect(foundJudge.scorecards.length).toEqual(1);
                     done();
                   }
                 });

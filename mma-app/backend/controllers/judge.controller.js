@@ -18,7 +18,8 @@ const createJudge = (req, res, next) => {
       email: req.body.email,
       password: hashedPassword,
       // TODO: remove this when we're done with everything
-      isTestData: true,
+      isTestData: false,
+      isMockData: true,
       // Creating default preferences for judges
       preferences: {
         stats: [
@@ -134,7 +135,9 @@ const saveScoreCard = (req, res, next) => {
       judge: judgeId,
       match: scoreCardObj.match,
       roundsScored: scoreCardObj.roundsScored,
-      date: new Date()
+      date: new Date(),
+      isMockData: true,
+      isTestData: false
     },
     {
       upsert: true
