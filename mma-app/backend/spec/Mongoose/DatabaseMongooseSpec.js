@@ -3,7 +3,8 @@ const MatchModel = require('../../models/match.model');
 const FighterModel = require("../../models/fighter.model");
 const JudgeModel = require('../../models/judge.model');
 const ScoreCardModel = require("../../models/scorecard.model");
-
+const bcrypt = require('bcrypt');
+// TODO: Add async functions 
 describe('Mongo Database Models', () => {
   let fighterObj;
   let fighter2Obj;
@@ -114,14 +115,7 @@ describe('Mongo Database Models', () => {
     });
   });
 
-  xit('Creates a Judge', done => {
-    let judgeObj = {
-      email: "sandesh@test.com",
-      password: "testPassword",
-      scoreCards: [],
-      isTestData: true,
-      isMockData: false
-    };
+  it('Creates a Scorecard for a judge', async done => {
 
     let roundsScoredObj1 = [];
     let roundsScoredObj2 = [];
@@ -138,6 +132,7 @@ describe('Mongo Database Models', () => {
         score: Math.floor(Math.random() * (10 - 7)) + 7,
         roundNumber: i + 1
       });
+
       roundsScoredObj2.push({
         takeDownAttempts: i,
         takeDownDefense: i,
@@ -150,47 +145,60 @@ describe('Mongo Database Models', () => {
       });
     }
 
-    fighter1.save().then(savedFighter1 => {
+
+    try {
+      const savedFighter1 = await fighter1.save();
+      const savedFighter2 = await fighter2.save();
       matchObj.fighters.push(savedFighter1._id);
-      fighter2.save().then(savedFighter2 => {
-        matchObj.fighters.push(savedFighter2._id);
-        const testMatch = new MatchModel(matchObj);
-        testMatch.save().then(savedMatch => {
-          MatchModel.findById(savedMatch._id).populate('fighters').exec((err, popMatch) => {
-            const judgeMatchObj = {
-              match: popMatch._id,
-              roundsScored: [
-                {
-                  fighter: popMatch.fighters[0]._id,
-                  rounds: roundsScoredObj1
-                },
-                {
-                  fighter: popMatch.fighters[1]._id,
-                  rounds: roundsScoredObj2
-                }
-              ]
-            };
+      matchObj.fighters.push(savedFighter2._id);
 
-            judgeObj.matches.push(judgeMatchObj);
-            const judge = new JudgeModel(judgeObj);
-            judge.save().then(savedJudge => {
-              JudgeModel.findById(savedJudge)
-                .populate('match')
-                .populate('fighter')
-                .exec((err, foundJudge) => {
-                  if (!err) {
-                    console.log(foundJudge);
-                    expect(foundJudge.email).toBe('sandesh@test.com');
-                    expect(foundJudge.scorecards.length).toEqual(1);
-                    done();
-                  }
-                });
-            });
-          });
+      const testMatch = new MatchModel(matchObj);
+      const savedMatch = await testMatch.save();
 
-        });
+      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$", 10);
+
+      const testJudge = new JudgeModel({
+        email: "sandesh@test.com",
+        password: hashedPassword,
+        isTestData: true,
+        isMockData: false
       });
-    });
+
+      const savedJudge = await testJudge.save();
+
+      const scoreCard = new ScoreCardModel({
+        judge: savedJudge._id,
+        match: savedMatch._id,
+        roundsScored: [
+          {
+            fighter: savedFighter1._id,
+            rounds: roundsScoredObj1
+          },
+          {
+            fighter: savedFighter2._id,
+            rounds: roundsScoredObj2
+          }
+        ],
+        isTestData: true,
+        isMockData: false
+      });
+
+      scoreCard.save()
+      .then(savedScoreCard => {
+        expect(savedScoreCard.judge).toBe(savedJudge._id);
+        expect(savedScoreCard.match).toBe(savedMatch._id);
+        expect(savedScoreCard.roundsScored.length).toBe(2);
+        done();
+      }).catch( err => {
+        console.info(err);
+        fail();
+      });
+      
+    } catch (err) {
+      console.info(err);
+      fail();
+    }
+    
   });
 
 });

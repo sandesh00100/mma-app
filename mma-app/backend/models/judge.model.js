@@ -9,12 +9,6 @@ const roundStatSchema = require('./stat.model');
 const judgeSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  scoreCards: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "ScoreCard"
-    }
-  ],
   preferences: {
     stats: [roundStatSchema]
   },
