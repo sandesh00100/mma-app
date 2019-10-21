@@ -62,21 +62,24 @@ describe('Mongo Database Models', () => {
     }
   });
 
-  afterAll((done) => {
-    console.info("\t* Deleting test data: ");
+  afterAll(async done => {
+    console.info("\t* Cleaning up test data: ");
 
     // Maybe use return statemetns for these
-    FighterModel.deleteMany({ isTestData: true }).then((deletedFightsResponse) => {
+    try {
+      const deletedFightsResponse = await FighterModel.deleteMany({ isTestData: true });
       console.info("\t\t* Num Fighters: " + deletedFightsResponse.n);
-      MatchModel.deleteMany({ isTestData: true }).then((deletedMatchesResponse) => {
-        console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
-        JudgeModel.deleteMany({ isTestData: true }).then(deletedJudgeResponse => {
-          console.info("\t\t* Num Judges: " + deletedJudgeResponse.n);
-          done();
-        });
-      });
-    });
-
+      const deletedMatchesResponse = await MatchModel.deleteMany({ isTestData: true });
+      console.info("\t\t* Num Matches: " + deletedMatchesResponse.n);
+      const deletedJudgeResponse = await JudgeModel.deleteMany({ isTestData: true });
+      console.info("\t\t* Num Judges: " + deletedJudgeResponse.n);
+      const deletedScoreCardResponse = await ScoreCardModel.deleteMany({ isTestData: true });
+      console.info("\t\t* Num Score Cards: " + deletedScoreCardResponse.n);
+      done();
+    } catch (err) {
+      console.log(err);
+      fail();
+    }
 
   });
 
@@ -184,21 +187,21 @@ describe('Mongo Database Models', () => {
       });
 
       scoreCard.save()
-      .then(savedScoreCard => {
-        expect(savedScoreCard.judge).toBe(savedJudge._id);
-        expect(savedScoreCard.match).toBe(savedMatch._id);
-        expect(savedScoreCard.roundsScored.length).toBe(2);
-        done();
-      }).catch( err => {
-        console.info(err);
-        fail();
-      });
-      
+        .then(savedScoreCard => {
+          expect(savedScoreCard.judge).toBe(savedJudge._id);
+          expect(savedScoreCard.match).toBe(savedMatch._id);
+          expect(savedScoreCard.roundsScored.length).toBe(2);
+          done();
+        }).catch(err => {
+          console.info(err);
+          fail();
+        });
+
     } catch (err) {
       console.info(err);
       fail();
     }
-    
+
   });
 
 });
