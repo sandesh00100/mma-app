@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 const FighterModel = require('../../models/fighter.model');
 const MatchModel = require('../../models/match.model');
+const ScoreCardModel = require("../../models/scorecard.model");
+
 const testJudgeEmail = "unitTestAccount@test";
 // TODO: Need more validation tests
 describe("Validation tests", () => {
-
+  let matchObject;
+  let fighterObjs
   beforeAll(done => {
     const mongoPassword = require('../../../../../pas');
     // 'node-angular' is the database it is storing the post in
@@ -19,71 +22,126 @@ describe("Validation tests", () => {
       });
   });
 
-  it('validates a match', done => {
-
-    const matchObject = {
+  beforeEach(done => {
+    matchObject = {
       eventName: "UFC 242",
       organization: "UFC",
       weightClass: 170,
       matchType: 'Main',
       matchOrder: 1,
       isFiveRounds: true,
-      // TODO: Remove this if we use a test database for the tests
       isTestData: true,
       isMockData: false
     };
 
-    let fighterObjs = [];
-    let fighterIds = [];
-
-    for (let i = 0; i < 2; i++) {
-      fighterObjs.push({
-        firstName: "FirstName" + i,
-        lastName: "LastName" + i,
+    fighterObjs = [
+      {
+        firstName: "FirstName1",
+        lastName: "LastName1",
         isTestData: true,
         isMockData: false
-      });
-    }
-
-    const validateMatch = async () => {
-      for (fighterObj of fighterObjs) {
-        const fighter = new FighterModel(fighterObj);
-        const savedFighter = await fighter.save();
-        fighterIds.push(savedFighter._id);
-      }
-      matchObject.fighters = fighterIds;
-      // console.info(matchObject.fighters);
-      const match = new MatchModel(matchObject);
-      match.save().then(savedMatch => {
-        done();
-      }
-      ).catch((err) => {
-        fail('should always save');
-      });
-
-      matchObject.fighters.push({
-        firstName: 'ErrorFirstName',
-        lastName: "errorLastName",
+      },
+      {
+        firstName: "FirstName2",
+        lastName: "LastName2",
         isTestData: true,
         isMockData: false
-      });
-
-      const errorMatch = new MatchModel(matchObject);
-      errorMatch.save().then(() => {
-        fail('should always throw an error')
       }
-      ).catch((err) => {
-        expect(err.ValidationError).not.toBe(null);
-        done();
-      });
-
-    };
-
-    validateMatch();
-
+    ];
+    done();
   });
 
-  it('validates a score card', done =>{
-    done();
+  it('validates a match', async done => {
+
+    let fighterIds = [];
+    for (let i = 0; i < 2; i++) {
+      fighterObjs.push();
+    }
+    for (fighterObj of fighterObjs) {
+      const fighter = new FighterModel(fighterObj);
+      const savedFighter = await fighter.save();
+      fighterIds.push(savedFighter._id);
+    }
+    matchObject.fighters = fighterIds;
+    // console.info(matchObject.fighters);
+    const match = new MatchModel(matchObject);
+    match.save().then(savedMatch => {
+      done();
+    }
+    ).catch((err) => {
+      fail('should always save');
+    });
+
+    matchObject.fighters.push({
+      firstName: 'ErrorFirstName',
+      lastName: "errorLastName",
+      isTestData: true,
+      isMockData: false
+    });
+
+    const errorMatch = new MatchModel(matchObject);
+    errorMatch.save().then(() => {
+      fail('should always throw an error')
+    }
+    ).catch((err) => {
+      expect(err.ValidationError).not.toBe(null);
+      done();
+    });
+  });
+
+  it('validates a score card', async done => {
+
+    try {
+      const fighter1 = new FighterModel(fighterObjs[0]);
+      const savedFighter1 = await fighter1.save();
+      const fighter2 = new FighterModel(fighterObjs[1]);
+      const savedFighter2 = await fighter2.save();
+
+      matchObject.fighters = [savedFighter1._id, savedFighter2._id];
+      const match = new MatchModel(matchObject);
+      const savedMatch = await match.save();
+      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$", 10);
+
+      const testJudge = new JudgeModel({
+        email: "sandesh@test.com",
+        password: hashedPassword,
+        isTestData: true,
+        isMockData: false
+      });
+
+      const savedJudge = await testJudge.save();
+
+      let stats = [];
+      for (let i = 0; i < 3; i++) {
+        stats.push({
+          name: "name" + i,
+          value: 5,
+          min: 0,
+          max: 10
+        });
+      }
+
+      let scoreCardObj = {
+        match: savedMatch._id,
+        judge: savedJudge._id,
+        roundsScored: [
+          {
+            fighter: savedFighter1._id,
+            stats: stats
+          }
+        ]
+      };
+
+      const scoreCard = new ScoreCardModel(scoreCardObj);
+      const savedScoreCard = await scoreCard.save();
+
+      console.info("rounds scored:" + savedScoreCard.roundsScored.length);
+      done();
+    } catch (err) {
+      fail();
+    }
+
+
+
   });
 });
