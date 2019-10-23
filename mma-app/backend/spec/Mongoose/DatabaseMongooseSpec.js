@@ -158,7 +158,7 @@ describe('Mongo Database Models', () => {
       const testMatch = new MatchModel(matchObj);
       const savedMatch = await testMatch.save();
 
-      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$", 10);
+      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$2", 10);
 
       const testJudge = new JudgeModel({
         email: "sandesh@test.com",
@@ -199,7 +199,7 @@ describe('Mongo Database Models', () => {
 
     } catch (err) {
       console.info(err);
-      fail();
+      fail(err);
     }
 
   });

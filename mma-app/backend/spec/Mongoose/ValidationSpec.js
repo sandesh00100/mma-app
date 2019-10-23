@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const FighterModel = require('../../models/fighter.model');
 const MatchModel = require('../../models/match.model');
 const ScoreCardModel = require("../../models/scorecard.model");
-
-const testJudgeEmail = "unitTestAccount@test";
+const JudgeModel = require('../../models/judge.model');
+const bcrypt = require('bcrypt');
+const CustomTools = require('../../tools/CustomTools');
 // TODO: Need more validation tests
 describe("Validation tests", () => {
   let matchObject;
@@ -96,28 +97,33 @@ describe("Validation tests", () => {
       const savedFighter1 = await fighter1.save();
       const fighter2 = new FighterModel(fighterObjs[1]);
       const savedFighter2 = await fighter2.save();
-
       matchObject.fighters = [savedFighter1._id, savedFighter2._id];
       const match = new MatchModel(matchObject);
       const savedMatch = await match.save();
-      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$", 10);
+      const hashedPassword = await bcrypt.hash("unitTestPassword%$%$2", 10);
 
       const testJudge = new JudgeModel({
-        email: "sandesh@test.com",
+        email: "sandesh@test" + CustomTools.randomNumber(0, 1000) + ".com",
         password: hashedPassword,
         isTestData: true,
         isMockData: false
       });
 
       const savedJudge = await testJudge.save();
-
-      let stats = [];
+      console.info("5");
+      let rounds = [];
       for (let i = 0; i < 3; i++) {
-        stats.push({
-          name: "name" + i,
-          value: 5,
-          min: 0,
-          max: 10
+        rounds.push({
+          round: i + 1,
+          stats: [
+            {
+              name: "some stat",
+              value: 2,
+              min: 1,
+              max: 3,
+              isShared: false
+            }
+          ]
         });
       }
 
@@ -127,17 +133,41 @@ describe("Validation tests", () => {
         roundsScored: [
           {
             fighter: savedFighter1._id,
-            stats: stats
+            rounds: [...rounds]
+          },
+          {
+            fighter: savedFighter2._id,
+            rounds: [...rounds]
           }
-        ]
+        ],
+        isMockData: false,
+        isTestData: true
       };
 
       const scoreCard = new ScoreCardModel(scoreCardObj);
       const savedScoreCard = await scoreCard.save();
 
+      try {
+        scoreCardObj.roundsScored[0].rounds[0].stats[0] = {
+          name: "some stat",
+          value: 0,
+          min: 3,
+          max: 2,
+          isShared: false
+        };
+
+        const errorScoreCard = new ScoreCardModel(scoreCardObj);
+        const savedErrorScoreCard = await errorScoreCard.save();
+        console.info(savedErrorScoreCard.roundsScored[0].rounds[0].stats[0]);
+        fail("Error should have been caught");
+      } catch (expectedError) {
+        console.info(expectedError);
+        done();
+      }
       console.info("rounds scored:" + savedScoreCard.roundsScored.length);
       done();
     } catch (err) {
+      console.log(err);
       fail();
     }
 
