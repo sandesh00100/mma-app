@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Stat } from '../../matches/stat.model';
 import { Subscription } from 'rxjs';
 import { StatValidator } from '../../validators/Stat.validator';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-preferences',
@@ -28,7 +28,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
 
   ngOnInit() {
     this.resetStat();
@@ -64,6 +64,13 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       });
     }
    
+  }
+
+  updatePreferences(){
+    this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
+      console.log(response);
+      this.dialogRef.close(response.message);
+    });
   }
 
   resetStat(){

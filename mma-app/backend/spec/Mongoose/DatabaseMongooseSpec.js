@@ -4,7 +4,7 @@ const FighterModel = require("../../models/fighter.model");
 const JudgeModel = require('../../models/judge.model');
 const ScoreCardModel = require("../../models/scorecard.model");
 const bcrypt = require('bcrypt');
-// TODO: Add async functions 
+// TODO: Add async functions to make code more readable
 describe('Mongo Database Models', () => {
   let fighterObj;
   let fighter2Obj;

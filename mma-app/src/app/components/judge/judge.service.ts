@@ -58,7 +58,7 @@ export class JudgeService {
   }
 
   updatePreferences(statList: Stat[]){
-    
+    return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
 
   getStats(){
