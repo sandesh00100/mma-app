@@ -110,7 +110,6 @@ describe("Validation tests", () => {
       });
 
       const savedJudge = await testJudge.save();
-      console.info("5");
       let rounds = [];
       for (let i = 0; i < 3; i++) {
         rounds.push({
@@ -146,7 +145,7 @@ describe("Validation tests", () => {
 
       const scoreCard = new ScoreCardModel(scoreCardObj);
       const savedScoreCard = await scoreCard.save();
-
+      expect(savedScoreCard.match).toBe(savedMatch._id);
       try {
         scoreCardObj.roundsScored[0].rounds[0].stats[0] = {
           name: "some stat",
@@ -161,11 +160,8 @@ describe("Validation tests", () => {
         console.info(savedErrorScoreCard.roundsScored[0].rounds[0].stats[0]);
         fail("Error should have been caught");
       } catch (expectedError) {
-        console.info(expectedError);
         done();
       }
-      console.info("rounds scored:" + savedScoreCard.roundsScored.length);
-      done();
     } catch (err) {
       console.log(err);
       fail();
