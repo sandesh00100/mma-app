@@ -44,6 +44,12 @@ export class ScoreCard {
         });
     }
 
+    public updateStats(stats: Stat[]){
+        this.fighter1Card.rounds.forEach(round => {
+            
+        })
+    }
+
     public getJsonObject(){
         return {
             match: this.matchId,

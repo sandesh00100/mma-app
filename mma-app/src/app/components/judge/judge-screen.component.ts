@@ -72,6 +72,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
             this.initialPreferenceFetch = true;
           } else {
             //TODO: update current score card according to the updated stats
+            console.log("Getting info from preference subscription");
+            this.currentScoreCard.updateStats(statsData);
           }
 
         });

@@ -61,6 +61,10 @@ export class JudgeService {
     return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
 
+  updatePreferenceListeners(statList: Stat[]){
+    this.preferenceStats = statList;
+    this.preferenceUpdateListener.next([...this.preferenceStats]);
+  };
   getStats(){
     return [...this.preferenceStats];
   }

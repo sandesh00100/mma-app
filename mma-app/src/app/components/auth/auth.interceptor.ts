@@ -1,6 +1,6 @@
 // Inteceptors are functions that run for any http requests
 // Works like a middleware for outgoing requests
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/common/http";
+import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthService } from "./auth.service";
 
