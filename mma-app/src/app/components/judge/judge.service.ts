@@ -6,7 +6,7 @@ import { Stat } from '../matches/stat.model';
 import { map } from 'rxjs/operators';
 import { ScoreCard } from '../matches/scorecard.model';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar} from '@angular/material';
 
 const httpURL = environment.apiUrl + '/judge';
 

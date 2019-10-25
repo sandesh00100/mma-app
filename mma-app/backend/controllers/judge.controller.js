@@ -158,7 +158,8 @@ const saveScoreCard = (req, res, next) => {
 const updateStatPreferences = (req,res,next) => {
   console.log(req.body);
   const judgeId = req.userData.userId;
-  JudgeModel.updateOne({_id:judgeId}, {preferences: req.body})
+  // NOT UPDATING CORRECTLY
+  JudgeModel.updateOne({_id:judgeId}, {"preferences.stats": req.body})
   .then(savedJudgePreferences => {
     console.log(savedJudgePreferences);
     res.status(200).json({

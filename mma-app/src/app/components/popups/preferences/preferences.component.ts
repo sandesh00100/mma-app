@@ -13,8 +13,7 @@ import { MatSnackBar, MatDialogRef } from '@angular/material';
 })
 
 /**
- * TODO: Validation on preference
- * Require name and initial value for adding stats
+ * TODO: Defaults button, make users have minimum of 1 stat
  */
 export class PreferencesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
@@ -70,7 +69,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
       console.log(response);
       this.dialogRef.close(response.message);
-    });
+    });;
   }
 
   resetStat(){
