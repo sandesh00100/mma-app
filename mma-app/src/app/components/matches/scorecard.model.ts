@@ -21,7 +21,7 @@ export class ScoreCard {
             fighter1Rounds.push(new Round(i + 1));
             fighter2Rounds.push(new Round(i + 1));
         }
-        
+
         const fighters = fetchedMatch.fighters;
         let fighter1Card = new FighterCard(fighters[0]._id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
         let fighter2Card = new FighterCard(fighters[1]._id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
@@ -46,7 +46,28 @@ export class ScoreCard {
 
     public updateStats(stats: Stat[]){
         this.fighter1Card.rounds.forEach(round => {
-            
+            stats.forEach(stat => {
+              let foundRoundStat = round.stats.find(roundStat => {
+                return roundStat.name = stat.name;
+              });
+
+              if (foundRoundStat == null) {
+                round.stats.push(stat);
+              } else {
+                if (stat.isShared){
+                  foundRoundStat = stat;
+                } else {
+                  if (foundRoundStat.value < stat.min){
+                    foundRoundStat.value = stat.min;
+                  } else if (foundRoundStat.value > stat.max){
+                    foundRoundStat.value = stat.max;
+                  }
+                  foundRoundStat.min = stat.min;
+                  foundRoundStat.max = stat.max;
+                }
+              }
+
+            });
         })
     }
 
@@ -89,5 +110,5 @@ export class ScoreCard {
     public getFighter2RoundStats(round:number){
         return this.fighter2Card.rounds[round - 1].stats;
     }
-    
+
 }

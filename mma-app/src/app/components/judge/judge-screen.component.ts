@@ -64,7 +64,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
 
 
         this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
-          
+
           if (!this.initialPreferenceFetch) {
             this.currentScoreCard.initializeStats(statsData);
             this.updateClock();
@@ -175,7 +175,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Reset's the timer to seconds per round, stops the timer if break is not started 
+   * Reset's the timer to seconds per round, stops the timer if break is not started
    */
   resetTimer() {
     this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
@@ -194,9 +194,9 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Since the shared stats sliders are based on fighter 1 stats. 
+   * Since the shared stats sliders are based on fighter 1 stats.
    * This method allows us to update fighter 2 stats after a judge has changed the slider.
-   * @param statName 
+   * @param statName
    */
   updateFighter2Stat(statName: string) {
     this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
@@ -209,8 +209,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   /**
    * Validates and corrects user's inputs.
    * If input is larger than max it sets it as max.
-   * If input is smaller than min it sets it as the min. 
-   * @param stat statObject it's displaying    
+   * If input is smaller than min it sets it as the min.
+   * @param stat statObject it's displaying
    */
   correctStat(stat: Stat) {
    StatValidator.correctValues(stat);
