@@ -46,31 +46,37 @@ export class ScoreCard {
 
     public updateStats(stats: Stat[]){
         this.fighter1Card.rounds.forEach(round => {
-            stats.forEach(stat => {
-              let foundRoundStat = round.stats.find(roundStat => {
-                return roundStat.name = stat.name;
-              });
+          this.applyNewStats(stats, round);
+        });
 
-              if (foundRoundStat == null) {
-                round.stats.push(stat);
-              } else {
-                if (stat.isShared){
-                  foundRoundStat = stat;
-                } else {
-                  if (foundRoundStat.value < stat.min){
-                    foundRoundStat.value = stat.min;
-                  } else if (foundRoundStat.value > stat.max){
-                    foundRoundStat.value = stat.max;
-                  }
-                  foundRoundStat.min = stat.min;
-                  foundRoundStat.max = stat.max;
-                }
-              }
-
-            });
-        })
+        this.fighter2Card.rounds.forEach( round => {
+          this.applyNewStats(stats, round);
+        });
     }
 
+    private applyNewStats(stats: Stat[], round: any){
+      stats.forEach(stat => {
+        let foundRoundStat = round.stats.find(roundStat => {
+          return roundStat.name === stat.name;
+        });
+
+        if (foundRoundStat == null) {
+          round.stats.push(stat);
+        } else {
+          if (stat.isShared){
+            foundRoundStat = stat;
+          } else {
+            if (foundRoundStat.value < stat.min){
+              foundRoundStat.value = stat.min;
+            } else if (foundRoundStat.value > stat.max){
+              foundRoundStat.value = stat.max;
+            }
+            foundRoundStat.min = stat.min;
+            foundRoundStat.max = stat.max;
+          }
+        }
+      });
+    }
     public getJsonObject(){
         return {
             match: this.matchId,
