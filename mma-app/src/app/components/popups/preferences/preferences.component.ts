@@ -17,10 +17,10 @@ import { MatSnackBar, MatDialogRef } from '@angular/material';
  */
 export class PreferencesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
-    if (this.preferenceStatsSub != null){
+    if (this.preferenceStatsSub != null) {
       this.preferenceStatsSub.unsubscribe();
     }
-    
+
   }
 
   preferenceStats: Stat[];
@@ -31,7 +31,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.resetStat();
-    if (this.router.url.includes("judge")){
+    if (this.router.url.includes("judge")) {
       this.preferenceStats = this.judgeService.getStats();
     } else {
       this.preferenceStatsSub = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
@@ -39,33 +39,34 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       });
       this.judgeService.getPreferences();
     }
-    console.log(this.preferenceStats);
   }
 
-  removeStat(stat: Stat){
+  removeStat(stat: Stat) {
     this.preferenceStats = this.preferenceStats.filter(currentStat => {
       return currentStat != stat;
     });
   }
 
-  addStat(){
-    console.log("adding stat");
-    console.log(this.newStat);
+  addStat() {
     const isValid = StatValidator.isValidStat(this.newStat, this.preferenceStats);
-    console.log(isValid);
     if (isValid) {
+
+      if (this.newStat.isShared) {
+        this.resetSharedStat(this.newStat);
+      }
+      
       this.preferenceStats.push(this.newStat);
       this.resetStat();
     } else {
       this.snackBar.open('Please enter a valid name.', 'Error',
-      {
-        duration: 2000
-      });
+        {
+          duration: 2000
+        });
     }
-   
+
   }
 
-  updatePreferences(){
+  updatePreferences() {
     this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
       this.judgeService.updatePreferenceListeners(this.preferenceStats);
       console.log(response);
@@ -73,22 +74,23 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     });;
   }
 
-  resetStat(){
+  resetStat() {
     this.newStat = {
-      name:undefined,
-      min:undefined,
-      max:undefined,
+      name: undefined,
+      min: undefined,
+      max: undefined,
       isShared: false,
-      value:0
+      value: 0
     };
   }
 
-  resetSharedStat(stat: Stat){
+  resetSharedStat(stat: Stat) {
     stat.min = 0;
     stat.max = 100;
     stat.value = 50;
   }
+
   correctStat(stat: Stat) {
     StatValidator.correctValues(stat);
-   }
+  }
 }
