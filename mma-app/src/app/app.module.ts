@@ -12,6 +12,7 @@ import { JudgeScreenComponent } from './components/judge/judge-screen.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PreferencesComponent } from './components/popups/preferences/preferences.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PreferencesComponent } from './components/popups/preferences/preference
     MatchesComponent,
     AuthComponent,
     JudgeScreenComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

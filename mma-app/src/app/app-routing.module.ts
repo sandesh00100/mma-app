@@ -4,12 +4,14 @@ import { MatchesComponent } from './components/matches/match-list-screen/match-l
 import { AuthComponent } from './components/auth/auth.component';
 import { JudgeScreenComponent } from './components/judge/judge-screen.component';
 import { AuthGuard } from './components/auth/auth.guard';
+import { HistoryComponent } from './components/history/history.component';
 
 const routes: Routes = [
   {path:'', component:MatchesComponent},
   {path:'signin', component:AuthComponent},
   {path:'register', component:AuthComponent},
-  {path:'judge/:matchId', component:JudgeScreenComponent, canActivate:[AuthGuard]}
+  {path:'judge/:matchId', component:JudgeScreenComponent, canActivate:[AuthGuard]},
+  {path:'history', component: HistoryComponent}
 ]
 @NgModule({
   declarations: [],
