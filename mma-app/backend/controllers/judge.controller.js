@@ -174,10 +174,45 @@ const updateStatPreferences = (req,res,next) => {
 
 };
 
+const getJudgeHistory = (req,res,next) => {
+  const userId = req.userData.userId;
+  const pageSize = +req.query.pageSize;
+  const currentPage = +req.query.page;
+
+  console.log("Fetching Matches");
+  fetchJudgedScoreCards(pageSize, currentPage, userId).then(fetchedScoreCards => {
+    res.status(200).json(fetchedScoreCards);
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      message: "Could not fetch scoring history"
+    });
+  });
+};
+
+const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
+
+  // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
+  const fetchedScoreCards = await ScoreCardModel.find({ judge: judgeId })
+      .sort({ date: -1 })
+      .skip(pageSize * (currentPage - 1))
+      .limit(pageSize)
+      .populate({ path: 'match', populate :{ path: 'fighters', model:'Fighter'} });
+
+  const totalScoreCards = await ScoreCardModel.countDocuments({ judge: judgeId });
+
+  return {
+      message: "Matches fetched sucessfully",
+      scoreCards: fetchedScoreCards,
+      totalScoreCards: totalScoreCards
+  };
+};
+
 module.exports = {
   createJudge: createJudge,
   signinJudge: signinJudge,
   getStatInfo: getStatInfo,
   saveScoreCard: saveScoreCard,
-  updateStatPreferences: updateStatPreferences
+  updateStatPreferences: updateStatPreferences,
+  getJudgeHistory: getJudgeHistory
 };

@@ -65,7 +65,13 @@ export class JudgeService {
     this.preferenceStats = statList;
     this.preferenceUpdateListener.next([...this.preferenceStats]);
   };
+
   getStats(){
     return [...this.preferenceStats];
+  }
+
+  getJudgeHistory(scoreCardsPerPage:number, currentPage:number){
+    const queryParams = `?pageSize=${scoreCardsPerPage}&page=${currentPage}`;
+    return this.http.get<{message:string, judgeHistory: any[]}>(`${httpURL}/history/${queryParams}`);
   }
 }

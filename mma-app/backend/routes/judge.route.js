@@ -7,7 +7,6 @@ router.post('/register', JudgeController.createJudge);
 router.post('/signin', JudgeController.signinJudge);
 router.post('/scorecard', CheckAuthMiddleWare, JudgeController.saveScoreCard);
 router.post('/preference/stats', CheckAuthMiddleWare, JudgeController.updateStatPreferences);
-// TODO: Use the token to make sure only the right judge can get the preferences
 router.get('/preference/stats', CheckAuthMiddleWare, JudgeController.getStatInfo);
-
+router.get('/history', CheckAuthMiddleWare, JudgeController.getJudgeHistory);
 module.exports = router;
