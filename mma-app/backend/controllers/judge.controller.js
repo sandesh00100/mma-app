@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
  */
 const createJudge = (req, res, next) => {
   // TODO: Research second argument, I think it's how many layers of salt it goes through
+  // TODO: Research and add correct response messages
   bcrypt.hash(req.body.password, 10).then(hashedPassword => {
     const INITIAL_VALUE = 0;
     const SHARED_INITIAL_VALUE = 50;
@@ -38,13 +39,13 @@ const createJudge = (req, res, next) => {
 
     // TODO: Check what's in the result
     judge.save().then(result => {
-      res.json({
+      res.status(200).json({
         message: "Judge registered sucessfully!"
       });
     }).catch(err => {
       console.log(err);
-      res.json({
-        message: "Error user could not be registered"
+      res.status(500).json({
+        message: "Error registering Judge."
       });
     });
   });
@@ -83,6 +84,7 @@ const signinJudge = async (req, res, next) => {
         );
 
         res.status(200).json({
+          message:"Sucessfully signed in!",
           token: token,
           expiresIn: 3600,
           judgeId: foundJudge._id,

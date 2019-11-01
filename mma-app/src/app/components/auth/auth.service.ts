@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { AuthData } from './auth.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
 
-
+// TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AuthService {
   private tokenTimer: any;
   private email: string;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
   registerUser(email: string, password: string) {
     const authData: AuthData = {
@@ -27,11 +28,16 @@ export class AuthService {
     }
 
     // Don't want to authorize users right after because we want them to verify that their email is theirs
-    this.http.post(`${httpURL}/register`, authData)
+    this.http.post<{message:string}>(`${httpURL}/register`, authData)
       .subscribe(response => {
-        console.log("Register server response: ");
-        console.log(response);
+        this.snackBar.open(response.message, 'Success', {
+          duration: 3000
+        });
         this.router.navigate(['/']);
+      }, errResponse => {
+        this.snackBar.open(errResponse.error.message, 'ERROR', {
+          duration: 3000
+        });
       });
   }
 
@@ -41,7 +47,7 @@ export class AuthService {
       password: password
     }
 
-    this.http.post<{ token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
+    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
       .subscribe(response => {
         if (response.token) {
           const expiresInDuration = response.expiresIn;
@@ -55,8 +61,18 @@ export class AuthService {
           const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
           this.saveAuthData(this.token, expirationDate, this.judgeId, this.email);
           this.authStatusListener.next(this.isAuth);
+          
+          this.snackBar.open(response.message, 'Success', {
+            duration: 3000
+          });
+
           this.router.navigate(['/']);
         }
+      }, errResponse => {
+        console.log(errResponse);
+        this.snackBar.open(errResponse.error.message, 'ERROR', {
+          duration: 3000
+        });
       });
   }
 
@@ -70,6 +86,9 @@ export class AuthService {
     this.judgeId = null;
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
+    this.snackBar.open("Successfully signed out!", 'Success', {
+      duration: 3000
+    });
     this.router.navigate(['/']);
   }
 

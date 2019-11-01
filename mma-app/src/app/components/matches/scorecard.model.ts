@@ -9,9 +9,12 @@ export class ScoreCard {
   public fighter1Card: FighterCard;
   public fighter2Card: FighterCard;
   public eventName: string;
-  public isHistoryElement: boolean;
   
-  constructor(matchLength: number, fetchedMatch: any) {
+  static constructHistory(){
+
+  }
+
+  constructor(matchLength: number, fetchedMatch: any, fetchedScoreCardInfo ?: any) {
     this.matchId = fetchedMatch._id;
     this.eventName = fetchedMatch.eventName;
 
