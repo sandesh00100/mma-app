@@ -22,32 +22,20 @@ export class MatchService {
       .pipe(
         map(matchData => {
           return {
-            matches: matchData.matches.map(fetchedMatch => {
-              return {
-                id:fetchedMatch._id,
-                eventName: fetchedMatch.eventName,
-                organization: fetchedMatch.organization,
-                weightClass: fetchedMatch.weightClass,
-                matchType: fetchedMatch.matchType,
-                matchOrder: fetchedMatch.matchOrder,
-                isFiveRounds: fetchedMatch.isFiveRounds,
-                isTitleFight: fetchedMatch.isTitleFight,
-                date: fetchedMatch.date,
-                fighters: fetchedMatch.fighters.map(fetchedFighter => {
+            matches: matchData.matches.map(match => {
+              let fetchedMatch = {
+                ...match,
+                id:match._id,
+                fighters: match.fighters.map(fetchedFighter => {
                   return {
-                    firstName: fetchedFighter.firstName,
-                    lastName: fetchedFighter.lastName,
-                    isActive: fetchedFighter.isActive,
-                    imagePath: fetchedFighter.imagePath,
-                    rank: fetchedFighter.rank,
+                    ...fetchedFighter,
                     record: {
-                      wins: fetchedFighter.record.wins,
-                      losses: fetchedFighter.record.losses,
-                      disqualifications: fetchedFighter.record.disqualifications
+                      ...fetchedFighter.record
                     }
                   }
                 })
-              }
+              };
+              return fetchedMatch;
             }),
             maxMatches: matchData.totalMatches
           }

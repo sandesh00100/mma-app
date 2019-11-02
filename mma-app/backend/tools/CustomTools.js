@@ -7,6 +7,8 @@ const randomNumber = (from , to) => {
     return Math.floor(Math.random() * (to - from)) + from;
 };
 
+const ignoreObject = {isTestData:0,isMockData:0,__v:0};
 module.exports = {
-    randomNumber:randomNumber
+    randomNumber:randomNumber,
+    ignoreObject:ignoreObject
 };

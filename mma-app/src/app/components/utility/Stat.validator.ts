@@ -1,6 +1,6 @@
 import { Stat } from "../matches/stat.model";
 
-export abstract class StatValidator {
+export class StatValidator {
 
     public static correctValues(preferenceStat: Stat) {
         if (preferenceStat.max != undefined && preferenceStat.max < preferenceStat.min) {

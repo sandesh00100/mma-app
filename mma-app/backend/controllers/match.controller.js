@@ -1,5 +1,6 @@
 const MatchModel = require('../models/match.model');
 const FighterModel = require('../models/fighter.model');
+const CustomTools = require('../tools/CustomTools');
 const ERROR_MESSAGE_OBJECT = {
     message: "Fetching matches failed"
 };
@@ -13,7 +14,8 @@ const ERROR_MESSAGE_OBJECT = {
 const fetchMatches = async (pageSize, currentPage, org) => {
 
     // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
-    const fetchedMatches = await MatchModel.find({ organization: org })
+    // TODO: remove ignorable database data from fighters
+    const fetchedMatches = await MatchModel.find({ organization: org }, CustomTools.ignoreObject)
         .sort({ date: -1 })
         .skip(pageSize * (currentPage - 1))
         .limit(pageSize)
@@ -34,6 +36,7 @@ const getMatches = (req, res, next) => {
     const org = req.query.org;
     if (pageSize && currentPage && org) {
         fetchMatches(pageSize, currentPage, org).then(fetchedMatches => {
+            console.log(fetchedMatches);
             res.status(200).json(fetchedMatches);
         }).catch(err => {
             console.log(err);

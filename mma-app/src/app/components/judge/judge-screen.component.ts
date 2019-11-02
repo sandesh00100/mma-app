@@ -6,7 +6,7 @@ import { Stat } from '../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from './judge.service';
 import { Subscription} from 'rxjs';
-import { StatValidator } from '../validators/Stat.validator';
+import { StatValidator } from '../utility/Stat.validator';
 
 @Component({
   selector: 'app-judge-screen',
