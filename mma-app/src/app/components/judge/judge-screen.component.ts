@@ -48,20 +48,10 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
 
       this.matchService.getMatch(matchId).subscribe(matchData => {
         let fetchedMatch = matchData.match;
-        let matchLength;
-        console.log(fetchedMatch);
-        if (fetchedMatch.isFiveRounds) {
-          matchLength = 5;
-        } else {
-          matchLength = 3;
-        }
-
-        for (let i = 0; i < matchLength; i++) {
-          this.rounds.push(i + 1);
-        }
-        this.currentScoreCard = new ScoreCard(matchLength, fetchedMatch);
+    
+        this.currentScoreCard = new ScoreCard(fetchedMatch);
+        this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
-
 
         this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
 

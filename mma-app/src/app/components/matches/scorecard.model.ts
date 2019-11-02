@@ -9,29 +9,35 @@ export class ScoreCard {
   public fighter1Card: FighterCard;
   public fighter2Card: FighterCard;
   public eventName: string;
-  
-  static constructHistory(){
+  public numRounds: number;
 
-  }
 
-  constructor(matchLength: number, fetchedMatch: any, fetchedScoreCardInfo ?: any) {
-    this.matchId = fetchedMatch._id;
-    this.eventName = fetchedMatch.eventName;
+  constructor(fetchedMatch: any) {
 
-    let fighter1Rounds: Round[] = [];
-    let fighter2Rounds: Round[] = [];
+      this.matchId = fetchedMatch._id;
+      this.eventName = fetchedMatch.eventName;
 
-    for (let i = 0; i < matchLength; i++) {
-      fighter1Rounds.push(new Round(i + 1));
-      fighter2Rounds.push(new Round(i + 1));
-    }
+      if (fetchedMatch.isFiveRounds){
+        this.numRounds = 5;
+      }  else {
+        this.numRounds = 3;
+      }
 
-    const fighters = fetchedMatch.fighters;
-    let fighter1Card = new FighterCard(fighters[0]._id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
-    let fighter2Card = new FighterCard(fighters[1]._id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+      let fighter1Rounds: Round[] = [];
+      let fighter2Rounds: Round[] = [];
 
-    this.fighter1Card = fighter1Card;
-    this.fighter2Card = fighter2Card;
+      for (let i = 0; i < this.numRounds; i++) {
+        fighter1Rounds.push(new Round(i + 1));
+        fighter2Rounds.push(new Round(i + 1));
+      }
+
+      const fighters = fetchedMatch.fighters;
+      let fighter1Card = new FighterCard(fighters[0]._id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
+      let fighter2Card = new FighterCard(fighters[1]._id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+
+      this.fighter1Card = fighter1Card;
+      this.fighter2Card = fighter2Card;
+
   }
 
   public initializeStats(stats: Stat[]) {
@@ -96,6 +102,7 @@ export class ScoreCard {
       }
     });
   }
+
   public getJsonObject() {
     return {
       match: this.matchId,
@@ -110,6 +117,16 @@ export class ScoreCard {
         }
       ]
     };
+  }
+  
+  public getNumericalRoundArray(){
+    let roundArray = [];
+
+    for (let i = 0; i < this.numRounds; i++){
+      roundArray.push(i+1);
+    }
+
+    return roundArray;
   }
 
   public getFighter1LastName() {
