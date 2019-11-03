@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Match } from './match.model';
-import { Subject} from 'rxjs';
+import { Subject, Observable} from 'rxjs';
 
 const httpURL = environment.apiUrl + '/matches';
 
@@ -31,7 +31,7 @@ export class MatchService {
     });
   }
 
-  getMatch(matchId: String) {
+  getMatch(matchId: String): Observable<{message:string, match:any}>{
     return this.http.get<{message:string, match:any}>(`${httpURL}/${matchId}`);
   }
 

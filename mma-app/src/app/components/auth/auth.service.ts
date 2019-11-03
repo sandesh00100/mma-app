@@ -21,7 +21,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
-  registerUser(email: string, password: string) {
+  registerUser(email: string, password: string): void{
     const authData: AuthData = {
       email: email,
       password: password
@@ -41,7 +41,7 @@ export class AuthService {
       });
   }
 
-  signinUser(email: string, password: string) {
+  signinUser(email: string, password: string): void{
     const authData: AuthData = {
       email: email,
       password: password
@@ -79,7 +79,7 @@ export class AuthService {
   /**
    *  Reset all auth data, clear auth data from local storage and navigate to home screen.
    */
-  signout() {
+  signout(){
     this.token = null;
     this.isAuth = false;
     this.authStatusListener.next(false);
@@ -92,20 +92,20 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  getAuthStatusListener() {
+  getAuthStatusListener():Subject<boolean>{
     return this.authStatusListener;
   }
 
   // TODO: need to check where else this should be used
-  userIsAuth() {
+  userIsAuth(): boolean{
     return this.isAuth;
   }
 
-  getToken() {
+  getToken(): string{
     return this.token;
   }
 
-  getEmail() {
+  getEmail(): string{
     return this.email;
   }
 
@@ -158,10 +158,11 @@ export class AuthService {
   /**
    * Gets auth information from local storage and puts it in the service
    */
-  private getAuthData() {
+  private getAuthData(): any{
     const token = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expiration");
-    const judgeId = localStorage.getItem('judgeId');
+    const judgeId = localStorage.getItem('judgeId');3
+    
     const email = localStorage.getItem('email');
     if (!token || !expirationDate) {
       return;
@@ -179,7 +180,7 @@ export class AuthService {
    * Depending on the number of seconds. This sets a timer for the client side
    * @param duration number of seconds
    */
-  private setAuthTimer(duration: number) {
+  private setAuthTimer(duration: number): void{
     // Set time in miliseconds
     console.log("setting timer: " + duration);
     this.tokenTimer = setTimeout(() => {

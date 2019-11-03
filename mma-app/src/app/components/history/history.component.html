@@ -1,3 +1,5 @@
 <div class="historyContainer">
-    
+    <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = onChangedPage($event)">
+</mat-paginator>
 </div>  

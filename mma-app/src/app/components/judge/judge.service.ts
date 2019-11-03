@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Stat } from '../matches/stat.model';
-import { map } from 'rxjs/operators';
 import { ScoreCardMaker } from '../matches/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
@@ -22,7 +21,7 @@ export class JudgeService {
 
   }
 
-  getPreferences() {
+  getPreferences(): void{
     this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).subscribe(transformedStatData => {
       this.preferenceStats = transformedStatData.stats;
       this.preferenceUpdateListener.next([...this.preferenceStats]);
@@ -30,7 +29,7 @@ export class JudgeService {
   }
 
   // TODO: add error and retries for all htttp calls
-  saveScoreCard(ScoreCardMaker: ScoreCardMaker) {
+  saveScoreCard(ScoreCardMaker: ScoreCardMaker): void {
     this.http.post<{message: string}>(`${httpURL}/scorecard`,ScoreCardMaker.getJsonObject()).subscribe(response => {
       this.router.navigate(['/']);
       this.snackBar.open(response.message, 'Success', {
@@ -39,24 +38,24 @@ export class JudgeService {
     });
   }
 
-  getPreferenceUpdateListener(){
+  getPreferenceUpdateListener(): Subject<Stat[]>{
     return this.preferenceUpdateListener;
   }
 
-  updatePreferences(statList: Stat[]){
+  updatePreferences(statList: Stat[]): Observable<{message: string}>{
     return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
 
-  updatePreferenceListeners(statList: Stat[]){
+  updatePreferenceListeners(statList: Stat[]): void{
     this.preferenceStats = statList;
     this.preferenceUpdateListener.next([...this.preferenceStats]);
   };
 
-  getStats(){
+  getStats(): Stat[]{
     return [...this.preferenceStats];
   }
 
-  getJudgeHistory(scoreCardsPerPage:number, currentPage:number){
+  getJudgeHistory(scoreCardsPerPage:number, currentPage:number): Observable<{message:string, judgeHistory: any[]}>{
     const queryParams = `?pageSize=${scoreCardsPerPage}&page=${currentPage}`;
     return this.http.get<{message:string, judgeHistory: any[]}>(`${httpURL}/history/${queryParams}`);
   }
