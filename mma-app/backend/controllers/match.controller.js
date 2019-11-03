@@ -1,6 +1,7 @@
 const MatchModel = require('../models/match.model');
 const FighterModel = require('../models/fighter.model');
 const CustomTools = require('../tools/CustomTools');
+
 const ERROR_MESSAGE_OBJECT = {
     message: "Fetching matches failed"
 };
@@ -15,13 +16,14 @@ const fetchMatches = async (pageSize, currentPage, org) => {
 
     // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
     // TODO: remove ignorable database data from fighters
-    const fetchedMatches = await MatchModel.find({ organization: org }, CustomTools.ignoreObject)
+    const fetchedMatches = await MatchModel.find({ organization: org }, CustomTools.ignoreUtility.ignoreObject)
         .sort({ date: -1 })
         .skip(pageSize * (currentPage - 1))
         .limit(pageSize)
-        .populate({ path: 'fighters' });
+        .populate({ path: 'fighters', select: CustomTools.ignoreUtility.ignoreString});
 
     const totalMatches = await MatchModel.countDocuments({ organization: org });
+
 
     return {
         message: "Matches fetched sucessfully",
@@ -36,7 +38,6 @@ const getMatches = (req, res, next) => {
     const org = req.query.org;
     if (pageSize && currentPage && org) {
         fetchMatches(pageSize, currentPage, org).then(fetchedMatches => {
-            console.log(fetchedMatches);
             res.status(200).json(fetchedMatches);
         }).catch(err => {
             console.log(err);
@@ -53,7 +54,7 @@ const getMatches = (req, res, next) => {
 const getMatch =  (req, res, next) => {
     const matchId = req.params.id;
     if (matchId){
-        MatchModel.findById({_id:matchId}).populate({path:'fighters'}).then(foundMatch =>{
+        MatchModel.findById({_id:matchId}).populate({path:'fighters', select: CustomTools.ignoreUtility.ignoreString}).then(foundMatch =>{
             res.status(200).json({
                 match: foundMatch,
                 message: 'Match fetched sucessfully'

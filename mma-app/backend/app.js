@@ -16,7 +16,7 @@ mongoose.connect(databaseURL, { useNewUrlParser: true })
   .then(() => {
     console.log('\nConnected to mongo database!\n');
   }).catch(() => {
-    console.log('Connection failed and the password is');
+    console.log('Connection failed and the password is' + mongoPassword.PASSWORD);
   });
 
 app.use(bodyParser.json());
@@ -35,5 +35,5 @@ app.use((req, res, next) => {
 
 app.use('/api/matches', matchRoutes);
 app.use('/api/judge',judgeRoutes)
-  
+
 module.exports = app;

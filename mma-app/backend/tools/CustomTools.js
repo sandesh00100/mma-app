@@ -3,12 +3,18 @@
  * @param {*} from where the number starts
  * @param {*} to where the number ends -1
  */
-const randomNumber = (from , to) => {
-    return Math.floor(Math.random() * (to - from)) + from;
+const randomNumber = (from, to) => {
+  return Math.floor(Math.random() * (to - from)) + from;
 };
 
-const ignoreObject = {isTestData:0,isMockData:0,__v:0};
+const ignoreUtility = {
+  ignoreObject: {
+    isTestData: 0, isMockData: 0, __v: 0
+  },
+  ignoreString: "-__v -isTestData -isMockData"
+};
+
 module.exports = {
-    randomNumber:randomNumber,
-    ignoreObject:ignoreObject
+  randomNumber: randomNumber,
+  ignoreUtility: ignoreUtility
 };

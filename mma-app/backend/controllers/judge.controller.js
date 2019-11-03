@@ -2,7 +2,7 @@ const JudgeModel = require('../models/judge.model');
 const ScoreCardModel = require('../models/scorecard.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const CustomTools = require('../tools/CustomTools');
 /**
  * Registers the Judge
  * @param {*} req contains the email and password of the Judge
@@ -120,9 +120,9 @@ const getStatInfo = (req, res, next) => {
 
 /**
  * Update existing scorecard, create a new score cared if it doesn't exist
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
  */
 const saveScoreCard = (req, res, next) => {
   const judgeId = req.userData.userId;
@@ -144,7 +144,6 @@ const saveScoreCard = (req, res, next) => {
     {
       upsert: true
     }).then( updatedScoreCard => {
-      console.log(updatedScoreCard);
       res.status(200).json({
         message: "Sucessfully submitted score card."
       });
@@ -158,12 +157,10 @@ const saveScoreCard = (req, res, next) => {
 
 // TODO: Check all return codes
 const updateStatPreferences = (req,res,next) => {
-  console.log(req.body);
   const judgeId = req.userData.userId;
   // NOT UPDATING CORRECTLY
   JudgeModel.updateOne({_id:judgeId}, {"preferences.stats": req.body})
   .then(savedJudgePreferences => {
-    console.log(savedJudgePreferences);
     res.status(200).json({
       message: "Preferences updated sucessfully"
     });
@@ -181,7 +178,6 @@ const getJudgeHistory = (req,res,next) => {
   const pageSize = +req.query.pageSize;
   const currentPage = +req.query.page;
 
-  console.log("Fetching Matches");
   fetchJudgedScoreCards(pageSize, currentPage, userId).then(fetchedScoreCards => {
     res.status(200).json(fetchedScoreCards);
   }).catch(err => {
@@ -195,11 +191,11 @@ const getJudgeHistory = (req,res,next) => {
 const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
 
   // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
-  const fetchedScoreCards = await ScoreCardModel.find({ judge: judgeId })
+  const fetchedScoreCards = await ScoreCardModel.find({ judge: judgeId},CustomTools.ignoreUtility.ignoreObject)
       .sort({ date: -1 })
       .skip(pageSize * (currentPage - 1))
       .limit(pageSize)
-      .populate({ path: 'match', populate :{ path: 'fighters', model:'Fighter'} });
+      .populate({ path: 'match', populate :{ path: 'fighters', model:'Fighter', select: CustomTools.ignoreUtility.ignoreString} });
 
   const totalScoreCards = await ScoreCardModel.countDocuments({ judge: judgeId });
 
