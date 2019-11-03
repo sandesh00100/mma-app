@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JudgeService } from '../judge/judge.service';
-import { ScoreCard } from '../matches/scorecard.model';
+import { ScoreCard } from '../matches/scorecard';
 
 @Component({
   selector: 'app-history',

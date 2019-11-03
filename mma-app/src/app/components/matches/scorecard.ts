@@ -1,7 +1,11 @@
 import { FighterCard } from "./fighterCard.model";
 import { Round } from "./round.model";
 import { Stat } from "./stat.model";
+import { Match } from "./match.model";
 
+/**
+ * Class Used to set up a scorecard before you submit it.
+ */
 export class ScoreCard {
   public matchId: string;
 
@@ -12,7 +16,7 @@ export class ScoreCard {
   public numRounds: number;
 
 
-  constructor(fetchedMatch: any) {
+  constructor(fetchedMatch: Match) {
 
       this.matchId = fetchedMatch._id;
       this.eventName = fetchedMatch.eventName;
@@ -118,7 +122,7 @@ export class ScoreCard {
       ]
     };
   }
-  
+
   public getNumericalRoundArray(){
     let roundArray = [];
 

@@ -26,7 +26,7 @@
 
                     <mat-action-row>
                         <!-- if someone is authorized then go to the judge page else go to the signin page-->
-                        <a mat-button color="primary" [routerLink]="(isAuth) ? ['/judge',match.id] : '/signin'">Judge Match</a>
+                        <a mat-button color="primary" [routerLink]="(isAuth) ? ['/judge',match._id] : '/signin'">Judge Match</a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>

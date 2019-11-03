@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { Stat } from '../matches/stat.model';
 import { map } from 'rxjs/operators';
-import { ScoreCard } from '../matches/scorecard.model';
+import { ScoreCard } from '../matches/scorecard';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
 
@@ -18,7 +18,7 @@ export class JudgeService {
   private preferenceUpdateListener = new Subject<Stat[]>();
   private preferenceStats: Stat[];
 
-  constructor(private http:HttpClient, private router:Router, private snackBar: MatSnackBar) { 
+  constructor(private http:HttpClient, private router:Router, private snackBar: MatSnackBar) {
 
   }
 
@@ -42,7 +42,7 @@ export class JudgeService {
       this.preferenceUpdateListener.next([...this.preferenceStats]);
     });
   }
-  
+
   // TODO: add error and retries for all htttp calls
   saveScoreCard(scoreCard: ScoreCard) {
     this.http.post<{message: string}>(`${httpURL}/scorecard`,scoreCard.getJsonObject()).subscribe(response => {

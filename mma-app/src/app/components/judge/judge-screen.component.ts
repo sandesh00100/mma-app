@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../matches/match.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ScoreCard } from '../matches/scorecard.model';
+import { ScoreCard } from '../matches/scorecard';
 import { Stat } from '../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from './judge.service';
 import { Subscription} from 'rxjs';
 import { StatValidator } from '../utility/Stat.validator';
+import { Match } from '../matches/match.model';
 
 @Component({
   selector: 'app-judge-screen',
@@ -47,8 +48,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
       const matchId = paramMap.get('matchId');
 
       this.matchService.getMatch(matchId).subscribe(matchData => {
-        let fetchedMatch = matchData.match;
-    
+        const fetchedMatch: Match = matchData.match;
+
         this.currentScoreCard = new ScoreCard(fetchedMatch);
         this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;

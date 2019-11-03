@@ -1,6 +1,6 @@
 // Maybe create a seperate match model later on
 export interface Match {
-    id:string,
+    _id:string,
     eventName: string,
     organization: string,
     weightClass: number,
@@ -10,7 +10,7 @@ export interface Match {
     isTitleFight: boolean,
     date: Date,
     fighters:{
-        id:string,
+        _id:string,
         firstName:string,
         lastName:string,
         isActive:boolean,
