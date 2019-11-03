@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../matches/match.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ScoreCard } from '../matches/scorecard';
+import { ScoreCardMaker } from '../matches/scorecardmaker';
 import { Stat } from '../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { JudgeService } from './judge.service';
@@ -32,7 +32,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   form: FormGroup;
   initialPreferenceFetch: boolean = false;
 
-  currentScoreCard: ScoreCard;
+  currentScoreCard: ScoreCardMaker;
   currentRound: number = 1;
   rounds: number[] = [];
   minutes: string = "5";
@@ -50,7 +50,7 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
       this.matchService.getMatch(matchId).subscribe(matchData => {
         const fetchedMatch: Match = matchData.match;
 
-        this.currentScoreCard = new ScoreCard(fetchedMatch);
+        this.currentScoreCard = new ScoreCardMaker(fetchedMatch);
         this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
 

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let roundStatSchema = mongoose.Schema({
     name:{type:String, required:true},
     value: {type: Number, required: true},
-    isShared:{type: Number, required: true},
+    isShared:{type: Boolean, required: true},
     min:Number,
     max:Number
  });

@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { Stat } from '../matches/stat.model';
 import { map } from 'rxjs/operators';
-import { ScoreCard } from '../matches/scorecard';
+import { ScoreCardMaker } from '../matches/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
 
@@ -23,29 +23,15 @@ export class JudgeService {
   }
 
   getPreferences() {
-    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).pipe(
-      map(statData => {
-        return {
-          stats: statData.stats.map(stat => {
-            return {
-              name:stat.name,
-              min:stat.min,
-              max:stat.max,
-              isShared:stat.isShared,
-              value:stat.value
-            }
-          }),
-        }
-      })
-    ).subscribe(transformedStatData => {
+    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).subscribe(transformedStatData => {
       this.preferenceStats = transformedStatData.stats;
       this.preferenceUpdateListener.next([...this.preferenceStats]);
     });
   }
 
   // TODO: add error and retries for all htttp calls
-  saveScoreCard(scoreCard: ScoreCard) {
-    this.http.post<{message: string}>(`${httpURL}/scorecard`,scoreCard.getJsonObject()).subscribe(response => {
+  saveScoreCard(ScoreCardMaker: ScoreCardMaker) {
+    this.http.post<{message: string}>(`${httpURL}/scorecard`,ScoreCardMaker.getJsonObject()).subscribe(response => {
       this.router.navigate(['/']);
       this.snackBar.open(response.message, 'Success', {
         duration: 3000

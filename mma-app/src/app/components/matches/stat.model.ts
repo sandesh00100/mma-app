@@ -3,5 +3,5 @@ export interface Stat{
         value:number, 
         isShared:boolean, 
         min:number,
-        max:number|undefined
+        max:number
 };

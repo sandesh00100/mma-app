@@ -84,7 +84,7 @@ const signinJudge = async (req, res, next) => {
         );
 
         res.status(200).json({
-          message:"Sucessfully signed in!",
+          message: "Sucessfully signed in!",
           token: token,
           expiresIn: 3600,
           judgeId: foundJudge._id,
@@ -126,7 +126,7 @@ const getStatInfo = (req, res, next) => {
  */
 const saveScoreCard = (req, res, next) => {
   const judgeId = req.userData.userId;
-  let scoreCardObj = {...req.body};
+  let scoreCardObj = { ...req.body };
 
   ScoreCardModel.updateOne(
     {
@@ -143,7 +143,7 @@ const saveScoreCard = (req, res, next) => {
     },
     {
       upsert: true
-    }).then( updatedScoreCard => {
+    }).then(updatedScoreCard => {
       res.status(200).json({
         message: "Sucessfully submitted score card."
       });
@@ -156,24 +156,24 @@ const saveScoreCard = (req, res, next) => {
 };
 
 // TODO: Check all return codes
-const updateStatPreferences = (req,res,next) => {
+const updateStatPreferences = (req, res, next) => {
   const judgeId = req.userData.userId;
   // NOT UPDATING CORRECTLY
-  JudgeModel.updateOne({_id:judgeId}, {"preferences.stats": req.body})
-  .then(savedJudgePreferences => {
-    res.status(200).json({
-      message: "Preferences updated sucessfully"
+  JudgeModel.updateOne({ _id: judgeId }, { "preferences.stats": req.body })
+    .then(savedJudgePreferences => {
+      res.status(200).json({
+        message: "Preferences updated sucessfully"
+      });
+    }).catch(err => {
+      res.status(500).json({
+        message: "An error occurred when updating preferences"
+      });
+      console.log(err);
     });
-  }).catch(err => {
-    res.status(500).json({
-      message: "An error occurred when updating preferences"
-    });
-    console.log(err);
-  });
 
 };
 
-const getJudgeHistory = (req,res,next) => {
+const getJudgeHistory = (req, res, next) => {
   const userId = req.userData.userId;
   const pageSize = +req.query.pageSize;
   const currentPage = +req.query.page;
@@ -191,18 +191,29 @@ const getJudgeHistory = (req,res,next) => {
 const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
 
   // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
-  const fetchedScoreCards = await ScoreCardModel.find({ judge: judgeId},CustomTools.ignoreUtility.ignoreObject)
-      .sort({ date: -1 })
-      .skip(pageSize * (currentPage - 1))
-      .limit(pageSize)
-      .populate({ path: 'match', populate :{ path: 'fighters', model:'Fighter', select: CustomTools.ignoreUtility.ignoreString} });
+  const fetchedScoreCards = await ScoreCardModel.find({ judge: judgeId }, CustomTools.ignoreUtility.ignoreObject)
+    .sort({ date: -1 })
+    .skip(pageSize * (currentPage - 1))
+    .limit(pageSize)
+    .populate(
+      {
+        path: 'match',
+        populate:
+        {
+          path: 'fighters',
+          model: 'Fighter',
+          select: CustomTools.ignoreUtility.ignoreString + " -_id"
+        },
+        select: CustomTools.ignoreUtility.ignoreString + " -_id"
+      }
+    );
 
   const totalScoreCards = await ScoreCardModel.countDocuments({ judge: judgeId });
 
   return {
-      message: "Matches fetched sucessfully",
-      scoreCards: fetchedScoreCards,
-      totalScoreCards: totalScoreCards
+    message: "Matches fetched sucessfully",
+    scoreCards: fetchedScoreCards,
+    totalScoreCards: totalScoreCards
   };
 };
 

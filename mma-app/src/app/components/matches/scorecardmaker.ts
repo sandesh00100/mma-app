@@ -2,11 +2,12 @@ import { FighterCard } from "./fighterCard.model";
 import { Round } from "./round.model";
 import { Stat } from "./stat.model";
 import { Match } from "./match.model";
+import { ScoreCard } from "./scorecard.model";
 
 /**
  * Class Used to set up a scorecard before you submit it.
  */
-export class ScoreCard {
+export class ScoreCardMaker {
   public matchId: string;
 
   // TODO: maybe having this as an array would create less duplicate code
@@ -107,9 +108,11 @@ export class ScoreCard {
     });
   }
 
-  public getJsonObject() {
-    return {
+  public getJsonObject(): ScoreCard{
+    // Backend will get judgeid from token
+    const scorecard: ScoreCard = {
       match: this.matchId,
+      judge:"",
       roundsScored: [
         {
           fighter: this.fighter1Card.fighterId,
@@ -121,6 +124,7 @@ export class ScoreCard {
         }
       ]
     };
+    return scorecard;
   }
 
   public getNumericalRoundArray(){
