@@ -6,6 +6,7 @@ import { Stat } from '../matches/stat.model';
 import { ScoreCardMaker } from '../matches/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
+import { ScoreCard } from '../matches/scorecard.model';
 
 const httpURL = environment.apiUrl + '/judge';
 
@@ -15,7 +16,9 @@ const httpURL = environment.apiUrl + '/judge';
 
 export class JudgeService {
   private preferenceUpdateListener = new Subject<Stat[]>();
+  private judgeHistoryUpdateListener = new Subject<{scoreCards: ScoreCard[], totalScoreCards: number}>();
   private preferenceStats: Stat[];
+  private judgeHistory: ScoreCard[];
 
   constructor(private http:HttpClient, private router:Router, private snackBar: MatSnackBar) {
 
@@ -42,6 +45,10 @@ export class JudgeService {
     return this.preferenceUpdateListener;
   }
 
+  getJudgeHistoryUpdateListener(): Subject<{scoreCards: ScoreCard[], totalScoreCards: number}>{
+    return this.judgeHistoryUpdateListener;
+  }
+
   updatePreferences(statList: Stat[]): Observable<{message: string}>{
     return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
@@ -55,8 +62,16 @@ export class JudgeService {
     return [...this.preferenceStats];
   }
 
-  getJudgeHistory(scoreCardsPerPage:number, currentPage:number): Observable<{message:string, judgeHistory: any[]}>{
+  getJudgeHistory(scoreCardsPerPage:number, currentPage:number): void {
     const queryParams = `?pageSize=${scoreCardsPerPage}&page=${currentPage}`;
-    return this.http.get<{message:string, judgeHistory: any[]}>(`${httpURL}/history/${queryParams}`);
+    this.http.get<{message:string, scoreCards: ScoreCard[], totalScoreCards: number}>(`${httpURL}/history/${queryParams}`).subscribe(fetchedJudgeHistory => {
+      console.log(fetchedJudgeHistory);
+      this.judgeHistory = fetchedJudgeHistory.scoreCards;
+      const fetchedJudgeHistoryData = {
+        scoreCards: [...this.judgeHistory],
+        totalScoreCards: fetchedJudgeHistory.totalScoreCards
+      }
+      this.judgeHistoryUpdateListener.next(fetchedJudgeHistoryData);
+    });;
   }
 }

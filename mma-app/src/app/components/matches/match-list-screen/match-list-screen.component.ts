@@ -39,6 +39,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
     this.matchesSub.unsubscribe();
     this.authSub.unsubscribe();
   }
+  
   getListeners(){
     this.isLoading = true;
     this.matchesSub = this.matchService.getMatchUpdateListener().subscribe((matchData: {matches: Match[], maxMatch:number}) => {

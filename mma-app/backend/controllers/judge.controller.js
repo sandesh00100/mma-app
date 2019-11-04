@@ -211,7 +211,7 @@ const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
   const totalScoreCards = await ScoreCardModel.countDocuments({ judge: judgeId });
 
   return {
-    message: "Matches fetched sucessfully",
+    message: "Score cards fetched sucessfully",
     scoreCards: fetchedScoreCards,
     totalScoreCards: totalScoreCards
   };
