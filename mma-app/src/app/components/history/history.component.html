@@ -1,5 +1,10 @@
 <div class="historyContainer">
-    <div class="scoreCardListContainer">
+    <div class="scoreCardListContainer" *ngIf="judgeHistory != null">
+        <div *ngFor="let scorecard of judgeHistory">
+            <table mat-table>
+
+            </table>
+        </div>
     </div>
     <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
     (page)="pageEvent = onChangedPage($event)">
