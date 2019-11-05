@@ -1,8 +1,8 @@
 <div class="historyContainer">
     <div class="scoreCardListContainer" *ngIf="judgeHistory != null">
-        <div *ngFor="let scorecard of judgeHistory">
-            <table mat-table>
-
+        <div *ngFor="let scoreCard of judgeHistory">
+            <table mat-table [dataSource]="getTableDataSource(scoreCard)" class="mat-elevation-z8">
+                
             </table>
         </div>
     </div>

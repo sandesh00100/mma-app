@@ -26,7 +26,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
     this.judgeHistorySubs = this.judgeService.getJudgeHistoryUpdateListener().subscribe( judgeHistoryData => {
       this.judgeHistory = judgeHistoryData.scoreCards;
       this.pageLength = judgeHistoryData.totalScoreCards;
-      console.log(this.judgeHistory);
+      console.log(this.getTableDataSource(this.judgeHistory[0],1));
     });
     this.judgeService.getJudgeHistory(this.pageSize,this.currentPage);
   }
@@ -35,5 +35,23 @@ export class HistoryComponent implements OnInit, OnDestroy {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
     this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
+  }
+
+  getTableDataSource(scorecard: ScoreCard, fighter: number) {
+    const rounds = scorecard.roundsScored[fighter-1].rounds;
+    let dataSource = [];
+    rounds.forEach(currentRound => {
+      let dataSourceRow = {
+        round: currentRound.round
+      };
+      currentRound.stats.forEach(stat => {
+        if (!stat.isShared){
+          dataSourceRow[stat.name] = stat.value;
+        }
+      });
+
+      dataSource.push(dataSourceRow);
+    });
+    return dataSource;
   }
 }
