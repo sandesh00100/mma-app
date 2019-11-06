@@ -37,6 +37,11 @@ export class HistoryComponent implements OnInit, OnDestroy {
     this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
   }
 
+  /**
+   * Function takes in scorecard object and fighter and returns a datasource for the cdk table
+   * @param scorecard 
+   * @param fighter 
+   */
   getTableDataSource(scorecard: ScoreCard, fighter: number) {
     const rounds = scorecard.roundsScored[fighter-1].rounds;
     let dataSource = [];
@@ -53,5 +58,18 @@ export class HistoryComponent implements OnInit, OnDestroy {
       dataSource.push(dataSourceRow);
     });
     return dataSource;
+  }
+
+  getTableColumnsToDisplay(scorecard: ScoreCard, fighter: number): string[]{
+    let columnsToDisplay = ["round"];
+    let fighterStats = scorecard.roundsScored[fighter-1].rounds[0].stats;
+
+    fighterStats.forEach(stat => {
+      if (!stat.isShared){
+        columnsToDisplay.push(stat.name);
+      }
+    });
+    
+    return columnsToDisplay;
   }
 }

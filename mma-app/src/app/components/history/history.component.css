@@ -1,0 +1,10 @@
+.historyContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.scoreCardsContainer{
+    display: flex;
+    justify-content: center;
+}

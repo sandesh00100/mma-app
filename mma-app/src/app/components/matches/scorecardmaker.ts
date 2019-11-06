@@ -108,7 +108,7 @@ export class ScoreCardMaker {
     });
   }
 
-  public getJsonObject(): ScoreCard{
+  public getJsonObject(): ScoreCard {
     // Backend will get judgeid from token
     const scorecard: ScoreCard = {
       match: this.matchId,

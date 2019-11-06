@@ -1,12 +1,28 @@
 <div class="historyContainer">
     <div class="scoreCardListContainer" *ngIf="judgeHistory != null">
-        <div *ngFor="let scoreCard of judgeHistory">
-            <table mat-table [dataSource]="getTableDataSource(scoreCard)" class="mat-elevation-z8">
-                
+        <div *ngFor="let scoreCard of judgeHistory" class="scoreCardsContainer">
+            <table mat-table [dataSource]="getTableDataSource(scoreCard,1)" class="mat-elevation-z8">
+                <!-- TODO: Research ng-container -->
+                <ng-container [matColumnDef]="column" *ngFor="let column of getTableColumnsToDisplay(scoreCard,1)">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="getTableColumnsToDisplay(scoreCard,1)"></tr>
+                <tr mat-row *matRowDef="let row; columns: getTableColumnsToDisplay(scoreCard,1);"></tr>
+            </table>
+            <table mat-table [dataSource]="getTableDataSource(scoreCard,2)" class="mat-elevation-z8">
+                <!-- TODO: Research ng-container -->
+                <ng-container [matColumnDef]="column" *ngFor="let column of getTableColumnsToDisplay(scoreCard,2)">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="getTableColumnsToDisplay(scoreCard,2)"></tr>
+                <tr mat-row *matRowDef="let row; columns: getTableColumnsToDisplay(scoreCard,2);"></tr>
             </table>
         </div>
+
     </div>
     <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = onChangedPage($event)">
-</mat-paginator>
-</div>  
+        (page)="pageEvent = onChangedPage($event)">
+    </mat-paginator>
+</div>
