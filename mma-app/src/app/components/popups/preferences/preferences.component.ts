@@ -69,8 +69,11 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   updatePreferences() {
     this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
       this.judgeService.updatePreferenceListeners(this.preferenceStats);
-      console.log(response);
-      this.dialogRef.close(response.message);
+      this.snackBar.open(response.message, 'Saved',
+        {
+          duration: 2000
+        });
+      this.dialogRef.close();
     });;
   }
 

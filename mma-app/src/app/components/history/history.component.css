@@ -1,10 +1,28 @@
 .historyContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 .scoreCardsContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+mat-card-header {
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card-subtitle {
+    text-align: center;
+}
+
+mat-card-content{
+    margin: 1%;
+    display: flex;
+    justify-content: space-around;
 }
