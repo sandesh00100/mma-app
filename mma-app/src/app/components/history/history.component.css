@@ -1,7 +1,5 @@
 .historyContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -9,9 +7,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
 }
 
+table {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+tr :nth-child(2) {
+    font-weight: bold;
+}
+
+th {
+    margin-right: 10px;
+}
 mat-card-header {
     justify-content: center;
     align-items: center;
@@ -25,4 +35,8 @@ mat-card-content{
     margin: 1%;
     display: flex;
     justify-content: space-around;
+}
+
+mat-card {
+    margin-bottom: 10px;
 }
