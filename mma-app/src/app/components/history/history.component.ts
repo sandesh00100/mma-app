@@ -42,7 +42,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
    * @param scorecard 
    * @param fighter 
    */
-  getTableDataSource(scorecard: ScoreCard, fighter: number) {
+  getTableDataSource(scorecard: ScoreCard, fighter: number): string[]{
     const rounds = scorecard.roundsScored[fighter-1].rounds;
     let dataSource = [];
     rounds.forEach(currentRound => {
@@ -52,6 +52,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
       currentRound.stats.forEach(stat => {
         if (!stat.isShared){
           dataSourceRow[stat.name] = stat.value;
+        } else {
+          dataSourceRow[stat.name] = stat.value+"%";
         }
       });
 
@@ -65,9 +67,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
     let fighterStats = scorecard.roundsScored[fighter-1].rounds[0].stats;
 
     fighterStats.forEach(stat => {
-      if (!stat.isShared){
         columnsToDisplay.push(stat.name);
-      }
     });
     
     return columnsToDisplay;
