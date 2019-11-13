@@ -40,3 +40,9 @@ mat-card-content{
 mat-card {
     margin-bottom: 10px;
 }
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

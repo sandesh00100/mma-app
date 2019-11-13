@@ -142,7 +142,7 @@ export class ScoreCardMaker {
   }
 
   public getFighter2LastName() {
-    return this.fighter1Card.fighterInfo.lastName;
+    return this.fighter2Card.fighterInfo.lastName;
   }
 
   public getFighter1Name() {
@@ -150,7 +150,7 @@ export class ScoreCardMaker {
   }
 
   public getFighter2Name() {
-    return this.fighter1Card.fighterInfo.fighterName;
+    return this.fighter2Card.fighterInfo.fighterName;
   }
 
   public getFighter1RoundStats(round: number) {

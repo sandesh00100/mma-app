@@ -28,7 +28,10 @@
                 <tr mat-row *matRowDef="let row; columns: getTableColumnsToDisplay(scoreCard,2);"></tr>
             </table>
         </mat-card-content>
-
+        <mat-card-actions>
+            <a mat-button color="primary" [routerLink]="['/judge',scoreCard.match._id]">Judge Again</a>
+            <a mat-button color="primary">More Info</a>
+        </mat-card-actions>
     </mat-card>
     <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="pageEvent = onChangedPage($event)">

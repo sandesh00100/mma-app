@@ -204,7 +204,7 @@ const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
           model: 'Fighter',
           select: CustomTools.ignoreUtility.ignoreString + " -_id"
         },
-        select: CustomTools.ignoreUtility.ignoreString + " -_id"
+        select: CustomTools.ignoreUtility.ignoreString
       }
     );
 
