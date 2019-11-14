@@ -1,4 +1,5 @@
 import {Round} from './round.model';
+import { Stat } from './stat.model';
 
 export class FighterCard {
     public fighterId: string;
@@ -12,7 +13,7 @@ export class FighterCard {
         this.fighterInfo = fighterInfo;
     }
 
-    public getRoundInfoList() {
+    public getRoundInfoList(): {round:number,stats:Stat[]}[]{
         let roundInfoList = [];
         this.rounds.forEach(round => {
             roundInfoList.push(

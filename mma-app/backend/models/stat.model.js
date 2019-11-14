@@ -5,7 +5,8 @@ let roundStatSchema = mongoose.Schema({
     value: {type: Number, required: true},
     isShared:{type: Boolean, required: true},
     min:Number,
-    max:Number
+    max:Number,
+    isGreater:{type: Boolean}
  });
 
  // Arrow function uses lexical this

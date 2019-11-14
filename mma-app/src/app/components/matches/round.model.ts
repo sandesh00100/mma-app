@@ -14,11 +14,12 @@ export class Round {
             value: initialValue,
             isShared: isShared,
             min:min,
-            max:max
+            max:max,
+            isGreater:false
         });
     }
 
-    public getRoundInfo() {
+    public getRoundInfo(): {round:number,stats:Stat[]}{
         return {
             round: this.roundNumber,
             stats: this.stats

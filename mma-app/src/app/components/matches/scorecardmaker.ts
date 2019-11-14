@@ -110,10 +110,7 @@ export class ScoreCardMaker {
 
   public getJsonObject(): ScoreCard {
     // Backend will get judgeid from token
-    const scorecard: ScoreCard = {
-      match: this.matchId,
-      judge:"",
-      roundsScored: [
+    let roundsScored = [
         {
           fighter: this.fighter1Card.fighterId,
           rounds: this.fighter1Card.getRoundInfoList()
@@ -122,7 +119,30 @@ export class ScoreCardMaker {
           fighter: this.fighter2Card.fighterId,
           rounds: this.fighter2Card.getRoundInfoList()
         }
-      ]
+      ];
+    
+    const roundLength = roundsScored[0].rounds.length;
+    for (let i = 0; i < roundLength; i++) {
+      const fighter1CurrentStats = roundsScored[0].rounds[i].stats;
+      const fighter2CurrentStats = roundsScored[1].rounds[i].stats;
+      const statLength = roundsScored[0].rounds[i].stats.length;
+
+      for (let j = 0; j < statLength; j++){
+        let fighter1Stat = fighter1CurrentStats[i];
+        let fighter2Stat = fighter2CurrentStats[i];
+
+        if (fighter1Stat.value > fighter2Stat.value){
+          fighter1Stat.isGreater = true;
+        } else if (fighter1Stat.value < fighter2Stat.value){
+          fighter2Stat.isGreater = true;
+        }
+      }
+    }
+
+    const scorecard: ScoreCard = {
+      match: this.matchId,
+      judge:"",
+      roundsScored: roundsScored
     };
     return scorecard;
   }
