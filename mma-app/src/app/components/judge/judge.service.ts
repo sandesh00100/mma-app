@@ -64,7 +64,7 @@ export class JudgeService {
 
   getJudgeHistory(scoreCardsPerPage:number, currentPage:number): void {
     const queryParams = `?pageSize=${scoreCardsPerPage}&page=${currentPage}`;
-    this.http.get<{message:string, scoreCards: ScoreCard[], totalScoreCards: number}>(`${httpURL}/history/${queryParams}`).subscribe(fetchedJudgeHistory => {
+    this.http.get<{message:string, scoreCards: ScoreCard[], summarizedScoreCards: any[],totalScoreCards: number}>(`${httpURL}/history/${queryParams}`).subscribe(fetchedJudgeHistory => {
       console.log(fetchedJudgeHistory);
       this.judgeHistory = fetchedJudgeHistory.scoreCards;
       const fetchedJudgeHistoryData = {

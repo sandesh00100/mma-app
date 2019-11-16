@@ -26,6 +26,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
     this.judgeHistorySubs = this.judgeService.getJudgeHistoryUpdateListener().subscribe( judgeHistoryData => {
       this.judgeHistory = judgeHistoryData.scoreCards;
       this.pageLength = judgeHistoryData.totalScoreCards;
+      console.log(judgeHistoryData);
     });
     this.judgeService.getJudgeHistory(this.pageSize,this.currentPage);
   }

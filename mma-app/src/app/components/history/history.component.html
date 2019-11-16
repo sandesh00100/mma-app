@@ -2,7 +2,7 @@
     <mat-card *ngFor="let scoreCard of judgeHistory">
         <mat-card-header>
             <mat-card-title>
-                {{ scoreCard.match.fighters[0].firstName + scoreCard.match.fighters[0].lastName}} vs {{scoreCard.match.fighters[1].firstName}} {{scoreCard.match.fighters[1].lastName}}
+                {{ scoreCard.match.fighters[0].firstName}} {{scoreCard.match.fighters[0].lastName}} vs {{scoreCard.match.fighters[1].firstName}} {{scoreCard.match.fighters[1].lastName}}
             </mat-card-title>
             <mat-card-subtitle>
                 {{ scoreCard.match.eventName}}

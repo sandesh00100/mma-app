@@ -83,7 +83,8 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       min: undefined,
       max: undefined,
       isShared: false,
-      value: 0
+      value: 0,
+      isGreater: false
     };
   }
 

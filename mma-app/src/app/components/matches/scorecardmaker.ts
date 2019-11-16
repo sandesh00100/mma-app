@@ -128,12 +128,14 @@ export class ScoreCardMaker {
       const statLength = roundsScored[0].rounds[i].stats.length;
 
       for (let j = 0; j < statLength; j++){
-        let fighter1Stat = fighter1CurrentStats[i];
-        let fighter2Stat = fighter2CurrentStats[i];
+        let fighter1Stat = fighter1CurrentStats[j];
+        let fighter2Stat = fighter2CurrentStats[j];
 
         if (fighter1Stat.value > fighter2Stat.value){
+          console.log("fighter1 stat " + fighter1Stat.name + " is greater "+fighter1Stat.value + "-" + fighter2Stat.value);
           fighter1Stat.isGreater = true;
         } else if (fighter1Stat.value < fighter2Stat.value){
+          console.log("fighter2 stat " + fighter2Stat.name + " is greater "+fighter2Stat.value + "-" + fighter1Stat.value);
           fighter2Stat.isGreater = true;
         }
       }
@@ -144,6 +146,8 @@ export class ScoreCardMaker {
       judge:"",
       roundsScored: roundsScored
     };
+    console.log("Json Score Card:");
+    console.log(scorecard);
     return scorecard;
   }
 

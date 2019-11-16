@@ -19,6 +19,7 @@ export class Round {
         });
     }
 
+    // TODO: Create an interface for round
     public getRoundInfo(): {round:number,stats:Stat[]}{
         return {
             round: this.roundNumber,
