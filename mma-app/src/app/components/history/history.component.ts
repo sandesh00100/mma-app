@@ -62,6 +62,13 @@ export class HistoryComponent implements OnInit, OnDestroy {
     return dataSource;
   }
 
+  //TODO
+  getSummarizedTableDataSource(scorecard: ScoreCard, fighter: number): string[] { 
+    let summarizedDataSource = [];
+    
+    return summarizedDataSource;
+  }
+
   getTableColumnsToDisplay(scorecard: ScoreCard, fighter: number): string[]{
     let columnsToDisplay = ["round"];
     let fighterStats = scorecard.roundsScored[fighter-1].rounds[0].stats;

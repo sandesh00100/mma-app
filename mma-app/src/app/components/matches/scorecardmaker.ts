@@ -1,5 +1,5 @@
-import { FighterCard } from "./fighterCard.model";
-import { Round } from "./round.model";
+import { FighterCard } from "./fighterCard";
+import { Round } from "./round";
 import { Stat } from "./stat.model";
 import { Match } from "./match.model";
 import { ScoreCard } from "./scorecard.model";

@@ -1,4 +1,4 @@
-import {Round} from './round.model';
+import {Round} from './round';
 import { Stat } from './stat.model';
 
 export class FighterCard {

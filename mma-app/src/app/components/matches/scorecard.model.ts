@@ -13,3 +13,9 @@ export interface ScoreCard {
         }[]
     }[]
 }
+
+// //TODO
+// export interface SummarizedScoreCard {
+//     _id:string,
+//     roundsScored: SummarizedStat[][]
+// }

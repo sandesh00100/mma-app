@@ -208,54 +208,53 @@ const fetchJudgedScoreCards = async (pageSize, currentPage, judgeId) => {
       }
     );
 
-  // TODO: maybe use mongoose to aggregrigate
-  let scoreCardSummaries = fetchedScoreCards.map(fetchedScoreCard => {
-    let scoreCardSummary = {
-      _id: fetchedScoreCard._id,
-    };
+  // // TODO: maybe use mongoose to aggregrigate
+  // let scoreCardSummaries = fetchedScoreCards.map(fetchedScoreCard => {
+  //   let scoreCardSummary = {
+  //     _id: fetchedScoreCard._id,
+  //   };
 
-    scoreCardSummary.roundsScored = fetchedScoreCard.roundsScored.map(fighterRounds => {
+  //   scoreCardSummary.roundsScored = fetchedScoreCard.roundsScored.map(fighterRounds => {
       
-      const currentFighterRounds = fighterRounds.rounds;
-      const currentFighterRoundsLength = currentFighterRounds.length;
-      const currentFighterSummarizedRounds = currentFighterRounds[0].stats.map(stat => {
-        return {
-          name: stat.name,
-          value: 0
-        };
-      });
+  //     const currentFighterRounds = fighterRounds.rounds;
+  //     const currentFighterRoundsLength = currentFighterRounds.length;
+  //     const currentFighterSummarizedRounds = currentFighterRounds[0].stats.map(stat => {
+  //       return {
+  //         name: stat.name,
+  //         value: 0
+  //       };
+  //     });
       
-      for (let j = 0; j <currentFighterRoundsLength; j++) {
-        const currentRound = currentFighterRounds[j];
-        const statsLength = currentRound.stats.length;
+  //     for (let j = 0; j <currentFighterRoundsLength; j++) {
+  //       const currentRound = currentFighterRounds[j];
+  //       const statsLength = currentRound.stats.length;
 
-        for (let i = 0; i <statsLength; i++){
-          currentFighterSummarizedRounds[i].value += currentRound.stats[i].value;
-        }
+  //       for (let i = 0; i <statsLength; i++){
+  //         currentFighterSummarizedRounds[i].value += currentRound.stats[i].value;
+  //       }
 
-        if (j == currentFighterRoundsLength-1){
-          for (let stat of currentFighterSummarizedRounds) {
-            const isShared = currentFighterRounds[0].stats.find(currentStat => currentStat.name == stat.name).isShared;
-            if (isShared){
-              stat.value /= currentFighterRoundsLength;
-            }
-          }
-        }
-      }
-      return currentFighterSummarizedRounds;
-    });
+  //       if (j == currentFighterRoundsLength-1){
+  //         for (let stat of currentFighterSummarizedRounds) {
+  //           const isShared = currentFighterRounds[0].stats.find(currentStat => currentStat.name == stat.name).isShared;
+  //           if (isShared){
+  //             stat.value /= currentFighterRoundsLength;
+  //           }
+  //         }
+  //       }
+  //     }
+  //     return currentFighterSummarizedRounds;
+  //   });
 
-    return scoreCardSummary;
-  });
+  //   return scoreCardSummary;
+  // });
 
-  console.log("Score Card summaries:")
-  console.log(scoreCardSummaries);
+  // console.log("Score Card summaries:")
+  // console.log(scoreCardSummaries);
   const totalScoreCards = await ScoreCardModel.countDocuments({ judge: judgeId });
 
   return {
     message: "Score cards fetched sucessfully",
     scoreCards: fetchedScoreCards,
-    summarizedScoreCards:scoreCardSummaries,
     totalScoreCards: totalScoreCards
   };
 };
