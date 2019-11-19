@@ -16,22 +16,22 @@ export class HistoryComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   pageLength: number = 0;
   pageSize: number = 5;
-  pageSizeOptions: number[] = [1,5,10,20];
+  pageSizeOptions: number[] = [1, 5, 10, 20];
   judgeHistory: ScoreCard[];
   private judgeHistorySubs: Subscription;
-  
-  constructor(private judgeService:JudgeService) { }
+
+  constructor(private judgeService: JudgeService) { }
 
   ngOnInit() {
-    this.judgeHistorySubs = this.judgeService.getJudgeHistoryUpdateListener().subscribe( judgeHistoryData => {
+    this.judgeHistorySubs = this.judgeService.getJudgeHistoryUpdateListener().subscribe(judgeHistoryData => {
       this.judgeHistory = judgeHistoryData.scoreCards;
       this.pageLength = judgeHistoryData.totalScoreCards;
       console.log(judgeHistoryData);
     });
-    this.judgeService.getJudgeHistory(this.pageSize,this.currentPage);
+    this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
   }
 
-  onChangedPage(pageData: PageEvent){
+  onChangedPage(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
     this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
@@ -42,41 +42,54 @@ export class HistoryComponent implements OnInit, OnDestroy {
    * @param scorecard 
    * @param fighter 
    */
-  getTableDataSource(scorecard: ScoreCard, fighter: number): string[]{
-    const rounds = scorecard.roundsScored[fighter-1].rounds;
+  getTableDataSource(scorecard: ScoreCard, fighter: number): string[] {
+    const rounds = scorecard.roundsScored[fighter - 1].rounds;
     let dataSource = [];
+
+    let sharedStatNames = new Set();
+    let summarizedDataObject = {
+      Round: "*"
+    };
+
     rounds.forEach(currentRound => {
       let dataSourceRow = {
-        round: currentRound.round
+        Round: currentRound.round
       };
       currentRound.stats.forEach(stat => {
-        if (!stat.isShared){
+        if (summarizedDataObject[stat.name] == undefined) {
+          summarizedDataObject[stat.name] = stat.value;
+        } else {
+          summarizedDataObject[stat.name] += stat.value;
+        }
+
+        if (!stat.isShared) {
           dataSourceRow[stat.name] = stat.value;
         } else {
-          dataSourceRow[stat.name] = stat.value+"%";
+          sharedStatNames.add(stat.name);
+          dataSourceRow[stat.name] = stat.value + "%";
         }
       });
-
       dataSource.push(dataSourceRow);
     });
+
+    sharedStatNames.forEach((sharedStatName:string) => {
+      summarizedDataObject[sharedStatName] /= rounds.length;
+      summarizedDataObject[sharedStatName] = Math.round(summarizedDataObject[sharedStatName]) + "%";
+    });
+
+
+    dataSource.push(summarizedDataObject);
     return dataSource;
   }
 
-  //TODO
-  getSummarizedTableDataSource(scorecard: ScoreCard, fighter: number): string[] { 
-    let summarizedDataSource = [];
-    
-    return summarizedDataSource;
-  }
-
-  getTableColumnsToDisplay(scorecard: ScoreCard, fighter: number): string[]{
-    let columnsToDisplay = ["round"];
-    let fighterStats = scorecard.roundsScored[fighter-1].rounds[0].stats;
+  getTableColumnsToDisplay(scorecard: ScoreCard, fighter: number): string[] {
+    let columnsToDisplay = ["Round"];
+    let fighterStats = scorecard.roundsScored[fighter - 1].rounds[0].stats;
 
     fighterStats.forEach(stat => {
-        columnsToDisplay.push(stat.name);
+      columnsToDisplay.push(stat.name);
     });
-    
+
     return columnsToDisplay;
   }
 }
