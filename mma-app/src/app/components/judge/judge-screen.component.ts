@@ -26,8 +26,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   private currentTimeInSeconds: number;
   private preferenceStatsSubscription: Subscription;
 
-  currentFighter1Stats: Stat[];
-  currentFighter2Stats: Stat[];
+  currentRedFighterStats: Stat[];
+  currentBlueFighterStats: Stat[];
   currentInputValue;
   form: FormGroup;
   initialPreferenceFetch: boolean = false;
@@ -180,8 +180,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
    * Change current stat list based on what the current round is
    */
   updateCurrentStatLists() {
-    this.currentFighter1Stats = this.currentScoreCard.getFighter1RoundStats(this.currentRound);
-    this.currentFighter2Stats = this.currentScoreCard.getFighter2RoundStats(this.currentRound);
+    this.currentRedFighterStats = this.currentScoreCard.getRedFighterRoundStats(this.currentRound);
+    this.currentBlueFighterStats = this.currentScoreCard.getBlueFighterRoundStats(this.currentRound);
   }
 
   /**
@@ -189,8 +189,8 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
    * This method allows us to update fighter 2 stats after a judge has changed the slider.
    * @param statName
    */
-  updateFighter2Stat(statName: string) {
-    this.currentFighter2Stats.find(stat => stat.name == statName).value = 100 - this.currentFighter1Stats.find(stat => stat.name == statName).value;
+  updateBlueFighterStat(statName: string) {
+    this.currentBlueFighterStats.find(stat => stat.name == statName).value = 100 - this.currentRedFighterStats.find(stat => stat.name == statName).value;
   }
 
   submitScoreCard() {

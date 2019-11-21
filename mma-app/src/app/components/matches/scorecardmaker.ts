@@ -11,8 +11,8 @@ export class ScoreCardMaker {
   public matchId: string;
 
   // TODO: maybe having this as an array would create less duplicate code
-  public fighter1Card: FighterCard;
-  public fighter2Card: FighterCard;
+  public redFighterCard: FighterCard;
+  public blueFighterCard: FighterCard;
   public eventName: string;
   public numRounds: number;
 
@@ -28,31 +28,31 @@ export class ScoreCardMaker {
         this.numRounds = 3;
       }
 
-      let fighter1Rounds: Round[] = [];
-      let fighter2Rounds: Round[] = [];
+      let redFighterRounds: Round[] = [];
+      let blueFighterRounds: Round[] = [];
 
       for (let i = 0; i < this.numRounds; i++) {
-        fighter1Rounds.push(new Round(i + 1));
-        fighter2Rounds.push(new Round(i + 1));
+        redFighterRounds.push(new Round(i + 1));
+        blueFighterRounds.push(new Round(i + 1));
       }
 
       const fighters = fetchedMatch.fighters;
-      let fighter1Card = new FighterCard(fighters[0]._id, fighter1Rounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
-      let fighter2Card = new FighterCard(fighters[1]._id, fighter2Rounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+      let redFighterCard = new FighterCard(fighters[0]._id, redFighterRounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
+      let blueFighterCard = new FighterCard(fighters[1]._id, blueFighterRounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
 
-      this.fighter1Card = fighter1Card;
-      this.fighter2Card = fighter2Card;
+      this.redFighterCard = redFighterCard;
+      this.blueFighterCard = blueFighterCard;
 
   }
 
   public initializeStats(stats: Stat[]) {
-    this.fighter1Card.rounds.forEach(round => {
+    this.redFighterCard.rounds.forEach(round => {
       stats.forEach(stat => {
         round.addNewStat(stat.name, stat.isShared, stat.value, stat.min, stat.max);
       });
     });
 
-    this.fighter2Card.rounds.forEach(round => {
+    this.blueFighterCard.rounds.forEach(round => {
       stats.forEach(stat => {
         round.addNewStat(stat.name, stat.isShared, stat.value, stat.min, stat.max);
       });
@@ -60,10 +60,10 @@ export class ScoreCardMaker {
   }
 
   public updateStats(stats: Stat[]) {
-    this.fighter1Card.rounds.forEach(round => {
+    this.redFighterCard.rounds.forEach(round => {
       this.applyNewStats(stats, round);
     });
-    this.fighter2Card.rounds.forEach(round => {
+    this.blueFighterCard.rounds.forEach(round => {
       this.applyNewStats(stats, round);
     });
   }
@@ -112,31 +112,31 @@ export class ScoreCardMaker {
     // Backend will get judgeid from token
     let roundsScored = [
         {
-          fighter: this.fighter1Card.fighterId,
-          rounds: this.fighter1Card.getRoundInfoList()
+          fighter: this.redFighterCard.fighterId,
+          rounds: this.redFighterCard.getRoundInfoList()
         },
         {
-          fighter: this.fighter2Card.fighterId,
-          rounds: this.fighter2Card.getRoundInfoList()
+          fighter: this.blueFighterCard.fighterId,
+          rounds: this.blueFighterCard.getRoundInfoList()
         }
       ];
     
     const roundLength = roundsScored[0].rounds.length;
     for (let i = 0; i < roundLength; i++) {
-      const fighter1CurrentStats = roundsScored[0].rounds[i].stats;
-      const fighter2CurrentStats = roundsScored[1].rounds[i].stats;
+      const redFighterCurrentStats = roundsScored[0].rounds[i].stats;
+      const blueFighterCurrentStats = roundsScored[1].rounds[i].stats;
       const statLength = roundsScored[0].rounds[i].stats.length;
 
       for (let j = 0; j < statLength; j++){
-        let fighter1Stat = fighter1CurrentStats[j];
-        let fighter2Stat = fighter2CurrentStats[j];
+        let redFighterStat = redFighterCurrentStats[j];
+        let blueFighterStat = blueFighterCurrentStats[j];
 
-        if (fighter1Stat.value > fighter2Stat.value){
-          console.log("fighter1 stat " + fighter1Stat.name + " is greater "+fighter1Stat.value + "-" + fighter2Stat.value);
-          fighter1Stat.isGreater = true;
-        } else if (fighter1Stat.value < fighter2Stat.value){
-          console.log("fighter2 stat " + fighter2Stat.name + " is greater "+fighter2Stat.value + "-" + fighter1Stat.value);
-          fighter2Stat.isGreater = true;
+        if (redFighterStat.value > blueFighterStat.value){
+          console.log("redFighter stat " + redFighterStat.name + " is greater "+redFighterStat.value + "-" + blueFighterStat.value);
+          redFighterStat.isGreater = true;
+        } else if (redFighterStat.value < blueFighterStat.value){
+          console.log("blueFighter stat " + blueFighterStat.name + " is greater "+blueFighterStat.value + "-" + redFighterStat.value);
+          blueFighterStat.isGreater = true;
         }
       }
     }
@@ -161,28 +161,28 @@ export class ScoreCardMaker {
     return roundArray;
   }
 
-  public getFighter1LastName() {
-    return this.fighter1Card.fighterInfo.lastName;
+  public getRedFighterLastName() {
+    return this.redFighterCard.fighterInfo.lastName;
   }
 
-  public getFighter2LastName() {
-    return this.fighter2Card.fighterInfo.lastName;
+  public getBlueFighterLastName() {
+    return this.blueFighterCard.fighterInfo.lastName;
   }
 
-  public getFighter1Name() {
-    return this.fighter1Card.fighterInfo.fighterName;
+  public getRedFighterName() {
+    return this.redFighterCard.fighterInfo.fighterName;
   }
 
-  public getFighter2Name() {
-    return this.fighter2Card.fighterInfo.fighterName;
+  public getBlueFighterName() {
+    return this.blueFighterCard.fighterInfo.fighterName;
   }
 
-  public getFighter1RoundStats(round: number) {
-    return this.fighter1Card.rounds[round - 1].stats;
+  public getRedFighterRoundStats(round: number) {
+    return this.redFighterCard.rounds[round - 1].stats;
   }
 
-  public getFighter2RoundStats(round: number) {
-    return this.fighter2Card.rounds[round - 1].stats;
+  public getBlueFighterRoundStats(round: number) {
+    return this.blueFighterCard.rounds[round - 1].stats;
   }
 
 }

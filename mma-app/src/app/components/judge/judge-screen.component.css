@@ -109,7 +109,7 @@ img {
     opacity: 0.5;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    background-image: linear-gradient(to right, red, blue);
+    background-image: linear-gradient(to right, blue, red);
 }
 
 .slider::-webkit-slider-thumb {
@@ -130,7 +130,7 @@ img {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-image: linear-gradient(to bottom right, red, blue);
+    background-image: linear-gradient(to bottom right, blue, red);
     cursor: pointer;
   }
 

@@ -13,8 +13,18 @@ table {
     margin-right: 10px;
     margin-left: 10px;
     width: 100%;
+    table-layout: fixed;
 }
 
+.redFighterStat {
+    font-weight: bold;
+    color:red;
+}
+
+.blueFighterStat {
+    font-weight: bold;
+    color:blue;
+}
 /* tr :nth-child(2) {
     font-weight: bold;
 } */
