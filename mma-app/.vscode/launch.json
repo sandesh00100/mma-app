@@ -6,6 +6,22 @@
     "configurations": [
 
         {
+            "name": "Python: UFC List Scraper",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\data tools\\scraper scripts\\UfcEventListScraper.py",
+            "console": "integratedTerminal",
+            "cwd":"${workspaceFolder}\\data tools\\scraper scripts"
+        },
+        {
+            "name": "Python: UFC Event Scraper",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\data tools\\scraper scripts\\UfcEventScraper.py",
+            "console": "integratedTerminal",
+            "cwd":"${workspaceFolder}\\data tools\\scraper scripts"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Database Creation",
