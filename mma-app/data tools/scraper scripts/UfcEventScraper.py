@@ -21,12 +21,13 @@ def isFightTable(table):
     rows = table.find_all(ROW_TAG)
     for row in rows:
         headers = row.find_all(HEADER_TAG)
-        if len(headers) > 8:
-            return False
         for header in headers:
             headerText = header.get_text().strip()
             if headerText in FIGHT_TABLE_HEADER_SET:
-                return True
+                if len(headers) != 8:
+                    return False
+                else:
+                    return True
     return False
 
 def isInfoTable(table):
@@ -43,9 +44,11 @@ def getInfoTableDate(table):
     rows = table.find_all(ROW_TAG)
     for row in rows:
         header = row.find(HEADER_TAG)
-        if header == DATE_HEADER:
-            date = row.find(TABLE_DATA_TAG)
-            return date
+        if header != None:
+            headerText = header.get_text()
+            if headerText == DATE_HEADER:
+                date = row.find(TABLE_DATA_TAG)
+                return date.get_text().strip()
 
 def writeTableCsv(table, eventFilePath):
     with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
@@ -104,7 +107,7 @@ try:
                         infoDate = infoTableDates[i]
                         fileName = infoDate.replace(' ','')
                         eventFilePath = eventFolderPath + "/" + fileName + ".csv"
-                        writeTableCsv(resultsTable,eventFilePath)
+                        writeTableCsv(validResultsTable,eventFilePath)
                 else:
                     resultsTable = validResultsTables[0]
                     fileName = eventDate.replace(' ','')
