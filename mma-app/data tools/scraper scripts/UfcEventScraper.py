@@ -34,8 +34,8 @@ def isInfoTable(table):
     rows = table.find_all(ROW_TAG)
     for row in rows:
         headers = row.find_all(HEADER_TAG)
-        for header in headers:
-            headerText = header.get_text().strip()
+        if len(headers) == 1:
+            headerText = headers[0].get_text().strip()
             if headerText in INFO_TABLE_HEADER_SET:
                 return True
     return False
