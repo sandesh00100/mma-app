@@ -3,6 +3,7 @@ from urllib.request import urlopen as uReq
 from urllib import error
 import csv
 import time
+import os
 
 BASE_WIKI_URL = "https://en.wikipedia.org"
 
@@ -51,10 +52,14 @@ def getInfoTableDate(table):
                 return date.get_text().strip()
 
 def writeTableCsv(table, eventFilePath):
+    if os.path.exists(eventFilePath):
+        eventFilePath = eventFilePath.replace(".csv","_2.csv")
+
     with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
         headers = ['Weight Class','Red Fighter','Outcome', 'Blue Fighter','Method', 'Round', 'Time']
         csvWriter = csv.DictWriter(eventCsv, fieldnames=headers, delimiter=",")
         csvWriter.writeheader()
+
         rows = table.find_all(ROW_TAG)
 
         for row in rows:
