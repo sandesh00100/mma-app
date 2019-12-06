@@ -7,7 +7,7 @@ with open("../data/UFC/UFC_Event_List.csv") as ufcEventList:
     
     for row in csvReader:
         modifiedDate = row["Date"].replace(' ','')
-
+    
         if modifiedDate in eventListDateSet:
             print(modifiedDate + " is a duplicate event list date")
             
