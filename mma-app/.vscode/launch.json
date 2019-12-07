@@ -6,12 +6,19 @@
     "configurations": [
 
         {
-            "name": "Python: UFC List Scraper",
+            "type": "node",
+            "request": "launch",
+            "name": "JS: Database Creation",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}\\backend\\tools\\dataCreationTool.js"
+        },
+        {
+            "name": "Python: Json Converter",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\data tools\\scraper scripts\\UfcEventListScraper.py",
+            "program": "${workspaceFolder}\\data tools\\conversion scripts\\eventDataFilesToJson.py",
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}\\data tools\\scraper scripts"
+            "cwd":"${workspaceFolder}\\data tools\\conversion scripts"
         },
         {
             "name": "Python: UFC Event Scraper",
@@ -24,8 +31,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Database Creation",
-            "program": "${workspaceFolder}\\backend\\tools\\dataCreationTool.js"
+            "name": "JS: Mock Database Creation",
+            "program": "${workspaceFolder}\\backend\\tools\\mockDataCreationTool.js"
         }
     ]
 }

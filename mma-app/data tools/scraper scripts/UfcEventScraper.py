@@ -52,29 +52,29 @@ def getInfoTableDate(table):
                 return date.get_text().strip()
 
 def writeTableCsv(table, eventFilePath):
-    if os.path.exists(eventFilePath):
-        eventFilePath = eventFilePath.replace(".csv","_2.csv")
+    if not os.path.exists(eventFilePath):
+        print("Writing " + eventFilePath)
+        with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
+            headers = ['Weight Class','Red Fighter','Outcome', 'Blue Fighter','Method', 'Round', 'Time']
+            csvWriter = csv.DictWriter(eventCsv, fieldnames=headers, delimiter=",")
+            csvWriter.writeheader()
 
-    with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
-        headers = ['Weight Class','Red Fighter','Outcome', 'Blue Fighter','Method', 'Round', 'Time']
-        csvWriter = csv.DictWriter(eventCsv, fieldnames=headers, delimiter=",")
-        csvWriter.writeheader()
+            rows = table.find_all(ROW_TAG)
 
-        rows = table.find_all(ROW_TAG)
+            for row in rows:
+                tableData = row.find_all(TABLE_DATA_TAG)
+                if len(tableData) == 8:
+                    rowDict = dict()
+                    rowDict["Weight Class"] = tableData[0].get_text().strip()
+                    rowDict["Red Fighter"] = tableData[1].get_text().strip()
+                    rowDict["Outcome"] = tableData[2].get_text().strip()
+                    rowDict["Blue Fighter"] = tableData[3].get_text().strip()
+                    rowDict["Method"] = tableData[4].get_text().strip()
+                    rowDict["Round"] = tableData[5].get_text().strip()
+                    rowDict["Time"] = tableData[6].get_text().strip()
 
-        for row in rows:
-            tableData = row.find_all(TABLE_DATA_TAG)
-            if len(tableData) == 8:
-                rowDict = dict()
-                rowDict["Weight Class"] = tableData[0].get_text().strip()
-                rowDict["Red Fighter"] = tableData[1].get_text().strip()
-                rowDict["Outcome"] = tableData[2].get_text().strip()
-                rowDict["Blue Fighter"] = tableData[3].get_text().strip()
-                rowDict["Method"] = tableData[4].get_text().strip()
-                rowDict["Round"] = tableData[5].get_text().strip()
-                rowDict["Time"] = tableData[6].get_text().strip()
+                    csvWriter.writerow(rowDict)
 
-                csvWriter.writerow(rowDict)
 
 try:
     with open(UFC_EVENT_LIST_CSV_PATH,'r') as ufcEventListCsv:
@@ -106,17 +106,20 @@ try:
                         infoTableDates.append(date)
 
                 eventFolderPath = "../data/UFC/UFC Events"
+                fileName = infoDate.replace(' ','')
+                eventNumber = row["Number"].strip()
                 
+                if len(eventNumber) > 0:
+                    fileName = eventNumber + "," + fileName
+                    
+                eventFilePath = eventFolderPath + "/" + fileName + ".csv"
+
                 if len(validResultsTables) > 1:
                     for i, validResultsTable in enumerate(validResultsTables):
                         infoDate = infoTableDates[i]
-                        fileName = infoDate.replace(' ','')
-                        eventFilePath = eventFolderPath + "/" + fileName + ".csv"
                         writeTableCsv(validResultsTable,eventFilePath)
                 else:
                     resultsTable = validResultsTables[0]
-                    fileName = eventDate.replace(' ','')
-                    eventFilePath = eventFolderPath + "/" + fileName + ".csv"
                     writeTableCsv(resultsTable, eventFilePath)
             
             time.sleep(2)
