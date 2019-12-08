@@ -30,6 +30,7 @@ const matchSchema = mongoose.Schema({
         validate: [requiredLength, 'Match needs to have 2 fighters']
     },
     // TODO: Remove this if we use a test database for the tests
+    winnerIndex: Number,
     isTestData: { type: Boolean, required: true },
     isMockData: { type: Boolean, required: true}
 });

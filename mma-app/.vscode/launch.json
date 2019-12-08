@@ -16,7 +16,7 @@
             "name": "Python: Json Converter",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\data tools\\conversion scripts\\eventDataFilesToJson.py",
+            "program": "${workspaceFolder}\\backend\\tools\\data tools\\conversion scripts\\eventDataFilesToJson.py",
             "console": "integratedTerminal",
             "cwd":"${workspaceFolder}\\backend\\tools\\data tools\\conversion scripts"
         },
@@ -24,7 +24,7 @@
             "name": "Python: UFC Event Scraper",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\data tools\\scraper scripts\\UfcEventScraper.py",
+            "program": "${workspaceFolder}\\backend\\tools\\data tools\\scraper scripts\\UfcEventScraper.py",
             "console": "integratedTerminal",
             "cwd":"${workspaceFolder}\\backend\\tools\\data tools\\scraper scripts"
         },

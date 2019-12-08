@@ -7,7 +7,7 @@ EVENT_LIST_FILE = "UFC_Event_List.csv"
 
 with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventListCsv:
     csvReader = csv.DictReader(ufcEventListCsv)
-    jsonDict = {'Events': []}
+    jsonDict = {'events': []}
 
     for row in csvReader:
         ufcEventsDir = UFC_DIR + "/UFC Events"
@@ -25,11 +25,11 @@ with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventLis
                 print(eventFileName + " does not exist")
 
         eventDict = {
-            "Name": eventName,
-            "Number": eventNumber,
-            "Date": eventDate,
-            "Source": eventSourceWikiLink,
-            "Matches": []
+            "name": eventName,
+            "number": eventNumber,
+            "date": eventDate,
+            "source": eventSourceWikiLink,
+            "matches": []
         }
 
         print(eventName + " " + eventNumber)
@@ -48,19 +48,19 @@ with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventLis
                     if len(MethodArray) > 2:
                         decisionInfo = MethodArray[2].replace(')', '').strip()
 
-                    eventDict["Matches"].append({
-                        "Weight Class": row["Weight Class"],
-                        "Red Fighter": row["Red Fighter"],
-                        "Outcome": row["Outcome"],
-                        "Blue Fighter": row["Blue Fighter"],
-                        "Time": row["Time"],
-                        "Round": row["Round"],
-                        "Method": method,
-                        "Method Info": methodInfo,
-                        "Decision Info": ""
+                    eventDict["matches"].append({
+                        "weightClass": row["Weight Class"],
+                        "redFighter": row["Red Fighter"],
+                        "outcome": row["Outcome"],
+                        "blueFighter": row["Blue Fighter"],
+                        "time": row["Time"],
+                        "round": row["Round"],
+                        "method": method,
+                        "methodInfo": methodInfo,
+                        "decisionInfo": ""
                     })
 
-                jsonDict["Events"].append(eventDict)
+                jsonDict["events"].append(eventDict)
 
     with open(UFC_DIR+"/eventData.json", 'w') as eventDataJson:
         json.dump(jsonDict, eventDataJson)
