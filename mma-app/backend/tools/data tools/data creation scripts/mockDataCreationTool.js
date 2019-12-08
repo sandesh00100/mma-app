@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const MatchModel = require('../models/match.model');
-const FighterModel = require("../models/fighter.model");
-const CustomTools = require('./CustomTools');
-const mongoPassword = require('../../../../pas');
+const MatchModel = require('../../../models/match.model');
+const FighterModel = require("../../../models/fighter.model");
+const CustomTools = require('../../CustomTools');
+const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 const randomNumber = CustomTools.randomNumber;
 

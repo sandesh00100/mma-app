@@ -10,7 +10,7 @@
             "request": "launch",
             "name": "JS: Database Creation",
             "console": "integratedTerminal",
-            "program": "${workspaceFolder}\\backend\\tools\\dataCreationTool.js"
+            "program": "${workspaceFolder}\\backend\\tools\\data tools\\dataCreationTool.js"
         },
         {
             "name": "Python: Json Converter",
@@ -18,7 +18,7 @@
             "request": "launch",
             "program": "${workspaceFolder}\\data tools\\conversion scripts\\eventDataFilesToJson.py",
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}\\data tools\\conversion scripts"
+            "cwd":"${workspaceFolder}\\backend\\tools\\data tools\\conversion scripts"
         },
         {
             "name": "Python: UFC Event Scraper",
@@ -26,13 +26,13 @@
             "request": "launch",
             "program": "${workspaceFolder}\\data tools\\scraper scripts\\UfcEventScraper.py",
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}\\data tools\\scraper scripts"
+            "cwd":"${workspaceFolder}\\backend\\tools\\data tools\\scraper scripts"
         },
         {
             "type": "node",
             "request": "launch",
             "name": "JS: Mock Database Creation",
-            "program": "${workspaceFolder}\\backend\\tools\\mockDataCreationTool.js"
+            "program": "${workspaceFolder}\\backend\\tools\\data tools\\mockDataCreationTool.js"
         }
     ]
 }
