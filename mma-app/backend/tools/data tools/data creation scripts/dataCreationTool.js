@@ -15,8 +15,34 @@ const createDatabase = async () => {
     const events = eventObj.Events;
     for (let event of events){
         const eventMatches = event.Matches;
+        let createdFighters = set();
+
+        // TODO: Need to revisit this code after the image scraper
         for (let i = 0; i <eventMatches.length; i++){
+            const match = event[i];
+            const redFighterName = match.redFighter;
+            const blueFighterName = match.blueFighter;
             
+            if (createdFighters.has(redFighter)){
+                const nameArray = redFighterName.split(' ');
+                const firstName = nameArray[0];
+                const lastName = nameArray[1];
+
+                const foundFighter = await FighterModel.findOne({firstName:firstName,lastName:lastName});
+
+                if (foundFighter == null) {
+                } 
+
+            } else {
+
+            }
+
+            if (createdFighters.has(blueFighter)){
+
+            } else {
+
+            }
+
         }
     }
 };
