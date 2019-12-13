@@ -57,7 +57,7 @@ with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventLis
                         "round": row["Round"],
                         "method": method,
                         "methodInfo": methodInfo,
-                        "decisionInfo": ""
+                        "decisionInfo": decisionInfo
                     })
 
                 jsonDict["events"].append(eventDict)
