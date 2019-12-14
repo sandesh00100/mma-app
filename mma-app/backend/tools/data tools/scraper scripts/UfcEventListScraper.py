@@ -3,6 +3,13 @@ from urllib.request import urlopen as uReq
 from urllib import error
 import csv
 
+'''
+
+UFC EVENT LIST SCRAPER
+Goes through "https://en.wikipedia.org/wiki/List_of_UFC_events" and creates a csv.
+The csv contains Number,WikiLink,Name,Date.
+
+'''
 LIST_OF_UFC_EVENTS_URL = "https://en.wikipedia.org/wiki/List_of_UFC_events"
 BASE_WIKI_URL = "https://en.wikipedia.org/wiki"
 STATIC_HTML_PATH = "X:/Downloads/List of UFC events - Wikipedia.html"

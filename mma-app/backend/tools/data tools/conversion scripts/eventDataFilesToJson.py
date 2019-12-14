@@ -2,6 +2,13 @@ import csv
 import json
 import os
 
+'''
+
+EVENT DATA FILES TO JSON CONVERTER
+Takes in all of the match .csv files in data/UFC/UFC Events/* and generates a JSON File
+
+'''
+
 UFC_DIR = "../data/UFC"
 EVENT_LIST_FILE = "UFC_Event_List.csv"
 

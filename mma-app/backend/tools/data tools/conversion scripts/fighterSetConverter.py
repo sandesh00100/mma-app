@@ -1,6 +1,12 @@
 import json
 import csv
 
+'''
+
+FIGHTER SET CONVERTER
+This converter takes in the eventData.json and generates a fighterList.txt file with all of the fighter names.
+
+'''
 with open("../data/UFC/eventData.json", 'r', encoding="utf-8") as eventDataJson:
     eventDataDic = json.load(eventDataJson)
     fighterSet = set()

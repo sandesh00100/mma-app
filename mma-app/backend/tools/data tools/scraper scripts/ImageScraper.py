@@ -5,6 +5,14 @@ import csv
 import time
 import os
 
+'''
+
+IMAGE SCRAPER
+Uses fighterList.txt and tries to search for every fighter's bio image.
+Scrapes through "https://www.ufc.com/athlete"
+
+'''
+
 BASE_UFC_LINK = "https://www.ufc.com/athlete"
 
 with open("../data/UFC/fighterList.txt",'r',encoding="utf-8") as fighterList:

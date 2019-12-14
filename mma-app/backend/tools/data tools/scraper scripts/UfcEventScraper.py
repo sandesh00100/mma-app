@@ -5,6 +5,13 @@ import csv
 import time
 import os
 
+'''
+
+UFC EVENT SCRAPER
+Uses UFC_Event_List.csv to go through all of it's wiki links for each event and for each event it creates a csv.
+
+'''
+
 BASE_WIKI_URL = "https://en.wikipedia.org"
 
 TABLE_TAG = "table"
@@ -13,7 +20,7 @@ ROW_TAG = "tr"
 TABLE_DATA_TAG = "td"
 
 PARSER_TYPE = "html.parser"
-UFC_EVENT_LIST_CSV_PATH =  "../data/UFC/UFC_Event_List_Alt.csv"
+UFC_EVENT_LIST_CSV_PATH =  "../data/UFC/UFC_Event_List.csv"
 FIGHT_TABLE_HEADER_SET = set(["Weight class","Method","Round","Time","Notes"])
 INFO_TABLE_HEADER_SET = set(["Promotion","Date","Venue","Attendance","Total gate"])
 DATE_HEADER = "Date"
