@@ -17,7 +17,8 @@
             "request": "launch",
             "name": "JS: Database Creation",
             "console": "integratedTerminal",
-            "program": "${workspaceFolder}\\backend\\tools\\data tools\\dataCreationTool.js"
+            "program": "${workspaceFolder}\\backend\\tools\\data tools\\data creation scripts\\dataCreationTool.js",
+            "cwd":"${workspaceFolder}\\backend\\tools\\data tools\\data creation scripts\\"
         },
         {
             "name": "Python: Json Converter",

@@ -3,51 +3,43 @@ const MatchModel = require('../../../models/match.model');
 const FighterModel = require("../../../models/fighter.model");
 const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
+const fs = require('fs').promises;
 
-const eventObj = require('../../data tools/data/UFC/eventData.json')
+const eventObj = require('../../data tools/data/UFC/eventData.json');
 // TODO: Add match type on the database (lower in priority)
 // const matchType = ['Main', 'Prelims', 'Early Prelims'];
-const weightClasses = [125, 135, 145, 155, 170, 185, 205, 265];
 
 const createDatabase = async () => {
     console.log("connecting to mongodb...")
     await mongoose.connect(databaseURL, {useNewUrlParser:true, useCreateIndex:true});
     const events = eventObj.Events;
-    for (let event of events){
-        const eventMatches = event.Matches;
-        let createdFighters = set();
-
-        // TODO: Need to revisit this code after the image scraper
-        for (let i = 0; i <eventMatches.length; i++){
-            const match = event[i];
-            const redFighterName = match.redFighter;
-            const blueFighterName = match.blueFighter;
+    try {
+        const data = await fs.readFile("../../data tools/data/UFC/fighterImage.csv","utf-8");
+        const splitData = data.split("\n");
+        
+        for (let i = 1; i < splitData.length; i++){
+            const currentLine = splitData[i].split(",");
+            const imageLink = currentLine[1];
+            const currentFighterName = currentLine[0].split(" ");
+            const fighterObject = {
+                firstName:currentFighterName[0],
+                lastName:currentFighterName[currentFighterName.length-1],
+                imagePath:imageLink,
+                isTestData:false,
+                isMockData:false
+            };
             
-            if (createdFighters.has(redFighter)){
-                const nameArray = redFighterName.split(' ');
-                const firstName = nameArray[0];
-                const lastName = nameArray[1];
-
-                const foundFighter = await FighterModel.findOne({firstName:firstName,lastName:lastName});
-
-                if (foundFighter == null) {
-                } 
-
-            } else {
-
-            }
-
-            if (createdFighters.has(blueFighter)){
-
-            } else {
-
-            }
-
+            const fighter = FighterModel(fighterObject);
+            const savedFighter = await fighter.save();
+            console.log(savedFighter.firstName + " has been saved");
         }
+
+    } catch (err){
+        console.log(err);
     }
 };
 
-createDatabase.then(() => {
+createDatabase().then(() => {
     process.exit(0);
 }).catch(err => {
     console.log(err);
