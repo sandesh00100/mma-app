@@ -38,6 +38,18 @@ const createFighters = async () => {
 
 let fighterRecordMap = {};
 
+// TODO: Ignoring heavy weight at the moment but might want to revist that
+const weightClassMap = {
+  "Heavyweight":265,
+  "Light Heavyweight": 205,
+  "Middleweight":185,
+  "Welterweight":175,
+  "Lightweight":155,
+  "Featherweight":145,
+  "Bantamweight":135,
+  "Flyweight":125
+};
+
 const createDatabase = async () => {
   console.log("connecting to mongodb...")
   try {
@@ -48,26 +60,28 @@ const createDatabase = async () => {
   }
 
   const events = eventObj.events;
-
+  const eventLen = events.length;
   console.log("Reading events...")
-  for (let event of events) {
-    const matches = event.matches;
 
-    for (let i = 0; i < matches.length; i++) {
+   // Starting from the oldest event to the newest
+  for (let j = 0; j < eventsLen; j++) {
+    currentEvent = events[eventsLen-j-1];
+    const matches = event.matches;
+    const matchesLen = matches.length;
+    console.log(event);
+
+    for (let i = 0; i < matchesLen; i++) {
       const currentMatch = matches[i];
       let isFiveRounder = false;
 
-      if (i == 0) {
+      if (i == isFiveRounder || currentMatch.redFighter.includes("c)") || currentMatch.blueFighter.includes("c)")) {
         isFiveRounder = true;
-      } else {
-        if (currentMatch.redFighter.name.contains("c)") || currentMatch.blueFighter.name.contains("c)")) {
-          isFiveRounder = true;
-        }
       }
 
       const matchObject = {
-        event: "UFC",
-
+        organization: "UFC",
+        eventName: currentEvent.name,
+        
       };
     }
     break;

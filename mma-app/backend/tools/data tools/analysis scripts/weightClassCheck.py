@@ -11,4 +11,5 @@ with open("../data/UFC/eventData.json",'r') as eventDataJson:
       weightClassSet.add(match["weightClass"])
 
   for weightClass in weightClassSet:
-    print(weightClass)
+    if "Catchweight" not in weightClass:
+      print(weightClass)
