@@ -31,6 +31,7 @@ const matchSchema = mongoose.Schema({
     },
     // TODO: Remove this if we use a test database for the tests
     winnerIndex: Number,
+    championIndex: Number,
     isTestData: { type: Boolean, required: true },
     isMockData: { type: Boolean, required: true}
 });

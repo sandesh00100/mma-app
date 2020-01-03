@@ -3,6 +3,8 @@ const MatchModel = require('../../../models/match.model');
 const FighterModel = require("../../../models/fighter.model");
 const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
+const randomNumberGen = require("../../CustomTools").randomNumber;
+ 
 const fs = require('fs').promises;
 
 const eventObj = require('../../data tools/data/UFC/eventData.json');
@@ -36,6 +38,19 @@ const createFighters = async () => {
   }
 };
 
+const getNameArray = name => {
+  const tempNameArray = name.split(" ");
+  return tempNameArray.filter(element => !element.includes("c)"));
+};
+
+const getWeightClass = (weightClassName) => {
+  for (let weightClass of weightClassMap){
+    if (weightClass in weightClassName) {
+      return weightClassMap[weightClass];
+    }
+  }
+};
+
 let fighterRecordMap = {};
 
 // TODO: Ignoring heavy weight at the moment but might want to revist that
@@ -64,25 +79,52 @@ const createDatabase = async () => {
   console.log("Reading events...")
 
    // Starting from the oldest event to the newest
-  for (let j = 0; j < eventsLen; j++) {
-    currentEvent = events[eventsLen-j-1];
-    const matches = event.matches;
+  for (let j = 0; j < eventLen; j++) {
+    currentEvent = events[eventLen-j-1];
+    const matches = currentEvent.matches;
     const matchesLen = matches.length;
-    console.log(event);
 
     for (let i = 0; i < matchesLen; i++) {
       const currentMatch = matches[i];
-      let isFiveRounder = false;
+      const winnerName = getNameArray(currentMatch.redFighter);
+      const loserName = getNameArray(currentMatch.blueFighter);
+      const weightClass = getWeightClass(currentMatch.weightClass);
+      const winnerIndex = randomNumberGen(0,2);
+      const loserIndex = Math.abs(winnerIndex - 1); 
+      const fighterArray = [];
 
-      if (i == isFiveRounder || currentMatch.redFighter.includes("c)") || currentMatch.blueFighter.includes("c)")) {
+      const winner = await FighterModel.findOne({firstName: winnerName[0], lastName: winnerName[1]});
+      const loser = await FighterModel.findOne({firstName: loserName[0], lastName: loserName[1]});
+      fighterArray[winnerIndex] = winner._id;
+      fighterArray[loserIndex] = loser._id;
+
+      let isFiveRounder = false;
+      let isTitleFight = false;
+      console.log(currentMatch);
+
+      if (i == isFiveRounder) {
+        const redFighterIsChamp = currentMatch.redFighter.includes("c)");
+        const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
+        if (redFighterIsChamp || blueFighterIsChamp){
+            if (redFighterIsChamp) {
+
+            }
+          isTitleFight = true;
+        }
+
         isFiveRounder = true;
-      }
+      } 
 
       const matchObject = {
         organization: "UFC",
         eventName: currentEvent.name,
+        matchOrder: i,
+        isFiveRounds: isFiveRounder,
+        isTitleFight: isTitleFight,
+        weightClass: weightClass,
         
       };
+      break;
     }
     break;
   }
