@@ -12,6 +12,7 @@ const fighterSchema = mongoose.Schema({
         losses: Number,
         draws: Number,
         disqualifications: Number,
+        noContest: Number
     },
     matches: [{ type: mongoose.Schema.Types.ObjectId, ref: "Match" }],
     // TODO: Remove this if we use a test database for the tests

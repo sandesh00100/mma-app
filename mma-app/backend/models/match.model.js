@@ -16,6 +16,11 @@ const matchSchema = mongoose.Schema({
         type: String,
         enum: ['Main', 'Prelims', 'Early Prelims']
     },
+    method: String,
+    time: String,
+    methodInfo: String,
+    decisionInfo: String,
+    round: String,
     matchOrder: Number,
     isFiveRounds: Boolean,
     isTitleFight: Boolean,

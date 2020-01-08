@@ -4,7 +4,7 @@ const FighterModel = require("../../../models/fighter.model");
 const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 const randomNumberGen = require("../../CustomTools").randomNumber;
- 
+
 const fs = require('fs').promises;
 
 const eventObj = require('../../data tools/data/UFC/eventData.json');
@@ -44,7 +44,7 @@ const getNameArray = name => {
 };
 
 const getWeightClass = (weightClassName) => {
-  for (let weightClass of weightClassMap){
+  for (let weightClass of weightClassMap) {
     if (weightClass in weightClassName) {
       return weightClassMap[weightClass];
     }
@@ -55,15 +55,26 @@ let fighterRecordMap = {};
 
 // TODO: Ignoring heavy weight at the moment but might want to revist that
 const weightClassMap = {
-  "Heavyweight":265,
+  "Heavyweight": 265,
   "Light Heavyweight": 205,
-  "Middleweight":185,
-  "Welterweight":175,
-  "Lightweight":155,
-  "Featherweight":145,
-  "Bantamweight":135,
-  "Flyweight":125
+  "Middleweight": 185,
+  "Welterweight": 175,
+  "Lightweight": 155,
+  "Featherweight": 145,
+  "Bantamweight": 135,
+  "Flyweight": 125
 };
+
+const newFighterObject = {
+  isChampion: false,
+  record: {
+    wins: 0,
+    losses: 0,
+    draws: 0,
+    disqualifications: 0
+  },
+  matches: []
+}
 
 const createDatabase = async () => {
   console.log("connecting to mongodb...")
@@ -78,25 +89,30 @@ const createDatabase = async () => {
   const eventLen = events.length;
   console.log("Reading events...")
 
-   // Starting from the oldest event to the newest
+  // Starting from the oldest event to the newest
   for (let j = 0; j < eventLen; j++) {
-    currentEvent = events[eventLen-j-1];
+    currentEvent = events[eventLen - j - 1];
     const matches = currentEvent.matches;
     const matchesLen = matches.length;
 
     for (let i = 0; i < matchesLen; i++) {
       const currentMatch = matches[i];
+      const fighterArray = [];
+      const weightClass = getWeightClass(currentMatch.weightClass);
+
       const winnerName = getNameArray(currentMatch.redFighter);
       const loserName = getNameArray(currentMatch.blueFighter);
-      const weightClass = getWeightClass(currentMatch.weightClass);
-      const winnerIndex = randomNumberGen(0,2);
-      const loserIndex = Math.abs(winnerIndex - 1); 
-      const fighterArray = [];
 
-      const winner = await FighterModel.findOne({firstName: winnerName[0], lastName: winnerName[1]});
-      const loser = await FighterModel.findOne({firstName: loserName[0], lastName: loserName[1]});
+      let winnerIndex = randomNumberGen(0, 2);
+      const loserIndex = Math.abs(winnerIndex - 1);
+
+
+      const winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[1] });
+      const loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[1] });
+
       fighterArray[winnerIndex] = winner._id;
       fighterArray[loserIndex] = loser._id;
+      const previousChampIndex;
 
       let isFiveRounder = false;
       let isTitleFight = false;
@@ -105,15 +121,25 @@ const createDatabase = async () => {
       if (i == isFiveRounder) {
         const redFighterIsChamp = currentMatch.redFighter.includes("c)");
         const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
-        if (redFighterIsChamp || blueFighterIsChamp){
-            if (redFighterIsChamp) {
-
-            }
+        if (redFighterIsChamp || blueFighterIsChamp) {
+          if (redFighterIsChamp) {
+            previousChampIndex = winnerIndex
+          } else {
+            previousChampIndex = loserIndex
+          }
           isTitleFight = true;
         }
 
         isFiveRounder = true;
-      } 
+      }
+
+      const matchIsNoContest = currentMatch.method == "No Contest";
+      const matchIsDraw = currentMatch.method.includes("Draw");
+      const matchIsDq = currentMatch.method == "Disqualification";
+
+      if (matchIsDraw || matchIsNoContest) {
+        winnerIndex = -1;
+      }
 
       const matchObject = {
         organization: "UFC",
@@ -122,8 +148,56 @@ const createDatabase = async () => {
         isFiveRounds: isFiveRounder,
         isTitleFight: isTitleFight,
         weightClass: weightClass,
-        
+        fighters: fighterArray,
+        winnerIndex: winnerIndex,
+        championIndex: previousChampIndex,
+        method: currentMatch.method,
+        time: currentMatch.time,
+        methodInfo: currentMatch.methodInfo,
+        decisionInfo: currentMatch.decisionInfo,
+        round: currentMatch.round
       };
+
+      const match = new MatchModel(matchObject);
+      const savedMatch = await match.save();
+
+      if (matchIsDraw) {
+        winnerObject.record.draws += 1;
+        loserObject.record.draws += 1;
+      } else if (matchIsNoContest) {
+        winnerObject.record.noContest += 1;
+        loserObject.record.noContest += 1;
+      } else {
+        let winnerObject = fighterRecordMap[winner._id];
+        let loserObject = fighterRecordMap[loser._id];
+
+        if (winnerObject == null) {
+          winnerObject = { ...newFighterObject };
+          fighterRecordMap[winner._id] = winnerObject;
+        }
+
+        if (loserObject == null) {
+          winnerObject = { ...newFighterObject };
+          fighterRecordMap[loser._id] = loserObject;
+        }
+
+        if (isTitleFight) {
+          winnerObject.isChampion = true;
+          loserObject.isChampion = false;
+        }
+
+        winnerObject.record.wins += 1;
+
+        if (matchIsDq) {
+          loserObject.record.disqualifications += 1;
+        } else {
+          loserObject.record.losses += 1;
+        }
+      }
+
+      winnerObject.matches.push(savedMatch._id);
+      loserObject.matches.push(savedMatch._id);
+
       break;
     }
     break;
