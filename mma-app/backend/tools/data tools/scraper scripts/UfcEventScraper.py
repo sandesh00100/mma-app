@@ -59,77 +59,84 @@ def getInfoTableDate(table):
                 return date.get_text().strip()
 
 def writeTableCsv(table, eventFilePath):
-    if not os.path.exists(eventFilePath):
-        print("Writing " + eventFilePath)
-        with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
-            headers = ['Weight Class','Red Fighter','Outcome', 'Blue Fighter','Method', 'Round', 'Time']
-            csvWriter = csv.DictWriter(eventCsv, fieldnames=headers, delimiter=",")
-            csvWriter.writeheader()
+    print("Writing " + eventFilePath)
+    with open(eventFilePath, 'w', newline = '', encoding="utf-8") as eventCsv:
+        headers = ['Weight Class','Red Fighter','Outcome', 'Blue Fighter','Method', 'Round', 'Time']
+        csvWriter = csv.DictWriter(eventCsv, fieldnames=headers, delimiter=",")
+        csvWriter.writeheader()
 
-            rows = table.find_all(ROW_TAG)
+        rows = table.find_all(ROW_TAG)
 
-            for row in rows:
-                tableData = row.find_all(TABLE_DATA_TAG)
-                if len(tableData) == 8:
-                    rowDict = dict()
-                    rowDict["Weight Class"] = tableData[0].get_text().strip()
-                    rowDict["Red Fighter"] = tableData[1].get_text().strip()
-                    rowDict["Outcome"] = tableData[2].get_text().strip()
-                    rowDict["Blue Fighter"] = tableData[3].get_text().strip()
-                    rowDict["Method"] = tableData[4].get_text().strip()
-                    rowDict["Round"] = tableData[5].get_text().strip()
-                    rowDict["Time"] = tableData[6].get_text().strip()
+        for row in rows:
+            tableData = row.find_all(TABLE_DATA_TAG)
+            if len(tableData) == 8:
+                rowDict = dict()
+                rowDict["Weight Class"] = tableData[0].get_text().strip()
+                rowDict["Red Fighter"] = tableData[1].get_text().strip()
+                rowDict["Outcome"] = tableData[2].get_text().strip()
+                rowDict["Blue Fighter"] = tableData[3].get_text().strip()
+                rowDict["Method"] = tableData[4].get_text().strip()
+                rowDict["Round"] = tableData[5].get_text().strip()
+                rowDict["Time"] = tableData[6].get_text().strip()
 
-                    csvWriter.writerow(rowDict)
+                csvWriter.writerow(rowDict)
 
+matchFileList = os.listdir("X:/git/mma-app/mma-app/backend/tools/data tools/data/UFC/UFC Events")
+dateSet = set()
+
+for matchFile in matchFileList:
+    matchFileArr = matchFile.split(",")
+    matchFileArrLen = len(matchFileArr)
+    year = matchFileArr[matchFileArrLen-1].split["."][0]
+    monthDay = matchFileArr[matchFileArr-2]
+    dateSet.add(monthDay + "," + year)
 
 try:
     with open(UFC_EVENT_LIST_CSV_PATH,'r') as ufcEventListCsv:
         csvReader = csv.DictReader(ufcEventListCsv)
-
         for row in csvReader:
-            eventDate = row["Date"]
+            eventDate = row["Date"].replace(' ','')
             wikiLink = row["WikiLink"]
-
-            if len(wikiLink) > 0:
-                print("Requesting " + wikiLink)
-                
-                request = uReq(BASE_WIKI_URL+wikiLink)
-                pageHTML = request.read()
-                soup = BeautifulSoup(pageHTML,PARSER_TYPE)
-
-                pageTables = soup.find_all(TABLE_TAG)
-
-                validResultsTables = []
-                validInfoTables = []
-                infoTableDates = []
-
-                for table in pageTables:
-                    if isFightTable(table):
-                        validResultsTables.append(table)
-                    elif isInfoTable(table):
-                        validInfoTables.append(table)
-                        date = getInfoTableDate(table)
-                        infoTableDates.append(date)
-
-                eventFolderPath = "../data/UFC/UFC Events"
-                fileName = infoDate.replace(' ','')
-                eventNumber = row["Number"].strip()
-                
-                if len(eventNumber) > 0:
-                    fileName = eventNumber + "," + fileName
+            if eventDate not in dateSet:
+                if len(wikiLink) > 0:
+                    print("Requesting " + wikiLink)
                     
-                eventFilePath = eventFolderPath + "/" + fileName + ".csv"
+                    request = uReq(BASE_WIKI_URL+wikiLink)
+                    pageHTML = request.read()
+                    soup = BeautifulSoup(pageHTML,PARSER_TYPE)
 
-                if len(validResultsTables) > 1:
-                    for i, validResultsTable in enumerate(validResultsTables):
-                        infoDate = infoTableDates[i]
-                        writeTableCsv(validResultsTable,eventFilePath)
-                else:
-                    resultsTable = validResultsTables[0]
-                    writeTableCsv(resultsTable, eventFilePath)
-            
-            time.sleep(2)
+                    pageTables = soup.find_all(TABLE_TAG)
+
+                    validResultsTables = []
+                    validInfoTables = []
+                    infoTableDates = []
+
+                    for table in pageTables:
+                        if isFightTable(table):
+                            validResultsTables.append(table)
+                        elif isInfoTable(table):
+                            validInfoTables.append(table)
+                            date = getInfoTableDate(table)
+                            infoTableDates.append(date)
+
+                    eventFolderPath = "../data/UFC/UFC Events"
+                    fileName = infoDate.replace(' ','')
+                    eventNumber = row["Number"].strip()
+                    
+                    if len(eventNumber) > 0:
+                        fileName = eventNumber + "," + fileName
+                        
+                    eventFilePath = eventFolderPath + "/" + fileName + ".csv"
+
+                    if len(validResultsTables) > 1:
+                        for i, validResultsTable in enumerate(validResultsTables):
+                            infoDate = infoTableDates[i]
+                            writeTableCsv(validResultsTable,eventFilePath)
+                    else:
+                        resultsTable = validResultsTables[0]
+                        writeTableCsv(resultsTable, eventFilePath)
+                
+                time.sleep(2)
 
 except error.HTTPError:
     print("Can't Access UFC fighter WIKI")
