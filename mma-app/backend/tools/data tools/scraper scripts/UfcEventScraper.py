@@ -87,8 +87,8 @@ dateSet = set()
 for matchFile in matchFileList:
     matchFileArr = matchFile.split(",")
     matchFileArrLen = len(matchFileArr)
-    year = matchFileArr[matchFileArrLen-1].split["."][0]
-    monthDay = matchFileArr[matchFileArr-2]
+    year = matchFileArr[matchFileArrLen-1].split(".")[0]
+    monthDay = matchFileArr[matchFileArrLen-2]
     dateSet.add(monthDay + "," + year)
 
 try:
@@ -119,8 +119,9 @@ try:
                             date = getInfoTableDate(table)
                             infoTableDates.append(date)
 
+                    #TODO: Might want to look over old code and how it handeled multiple tables.
                     eventFolderPath = "../data/UFC/UFC Events"
-                    fileName = infoDate.replace(' ','')
+                    fileName = eventDate
                     eventNumber = row["Number"].strip()
                     
                     if len(eventNumber) > 0:
