@@ -55,8 +55,11 @@ def getInfoTableDate(table):
         if header != None:
             headerText = header.get_text()
             if headerText == DATE_HEADER:
-                date = row.find(TABLE_DATA_TAG)
-                return date.get_text().strip()
+                date = row.find(TABLE_DATA_TAG).get_text().strip()
+                dateArray = date.split(",")
+
+                formattedDate = dateArray[0][:3] + dateArray[0][-2:].strip() + "," + dateArray[1].strip()[0:4]
+                return formattedDate
 
 def writeTableCsv(table, eventFilePath):
     print("Writing " + eventFilePath)
@@ -119,23 +122,16 @@ try:
                             date = getInfoTableDate(table)
                             infoTableDates.append(date)
 
-                    #TODO: Might want to look over old code and how it handeled multiple tables.
-                    eventFolderPath = "../data/UFC/UFC Events"
-                    fileName = eventDate
-                    eventNumber = row["Number"].strip()
-                    
-                    if len(eventNumber) > 0:
-                        fileName = eventNumber + "," + fileName
+                    for i, validResultsTable in enumerate(validResultsTables):
+                        eventFolderPath = "../data/UFC/UFC Events"
+                        fileName = infoTableDates[i]
+                        eventNumber = row["Number"].strip()
+                        if len(eventNumber) > 0:
+                            fileName = eventNumber + "," + fileName
+                            
+                        eventFilePath = eventFolderPath + "/" + fileName + ".csv"
                         
-                    eventFilePath = eventFolderPath + "/" + fileName + ".csv"
-
-                    if len(validResultsTables) > 1:
-                        for i, validResultsTable in enumerate(validResultsTables):
-                            infoDate = infoTableDates[i]
-                            writeTableCsv(validResultsTable,eventFilePath)
-                    else:
-                        resultsTable = validResultsTables[0]
-                        writeTableCsv(resultsTable, eventFilePath)
+                        writeTableCsv(validResultsTable,eventFilePath)
                 
                 time.sleep(2)
 
