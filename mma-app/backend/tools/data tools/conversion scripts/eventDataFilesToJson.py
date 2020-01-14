@@ -40,12 +40,11 @@ with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventLis
             eventFilePath = ufcEventsDir + "/" + eventNumber + "," + eventFileName
             if not os.path.exists(eventFilePath):
                 print(eventFileName + " does not exist")
-                break
+                continue
         
         if isNewFile(eventNumber, eventDate, eventJson):
             print("adding " + eventNumber + " " + eventDate)
             eventDict = {
-                "inDatabase":False,
                 "name": eventName,
                 "number": eventNumber,
                 "date": eventDate,
@@ -83,6 +82,10 @@ with open(UFC_DIR + "/" + EVENT_LIST_FILE, 'r', encoding="utf-8") as ufcEventLis
 
                     newEvents.append(eventDict)
 
-    with open(UFC_DIR+"/eventData.json", 'w') as eventJsonFile:
+    with open(UFC_DIR + "/addChangeLog.txt", 'w', encoding='utf-8') as eventAddChangeLog:
+        for event in newEvents:
+            eventAddChangeLog.write(event["number"] + "," + event["date"] + "\n")
+
+    with open(UFC_DIR+"/eventData.json", 'w', encoding='utf-8') as eventJsonFile:
         eventJson["events"] = newEvents + eventJson["events"]
         json.dump(eventJson, eventJsonFile, indent=2)

@@ -1,7 +1,6 @@
 {
   "events": [
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Edgar vs. The Korean Zombie",
       "number": "505",
       "date": "Dec 21, 2019",
@@ -153,7 +152,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 245: Usman vs. Covington",
       "number": "504",
       "date": "Dec 14, 2019",
@@ -305,7 +303,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Overeem vs. Rozenstruik",
       "number": "503",
       "date": "Dec 7, 2019",
@@ -446,7 +443,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: B\u0142achowicz vs. Jacar\u00e9",
       "number": "502",
       "date": "Nov 16, 2019",
@@ -587,7 +583,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Zabit vs. Kattar",
       "number": "501",
       "date": "Nov 9, 2019",
@@ -739,7 +734,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 244: Masvidal vs. Diaz",
       "number": "500",
       "date": "Nov 2, 2019",
@@ -880,7 +874,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Maia vs. Askren",
       "number": "499",
       "date": "Oct 26, 2019",
@@ -1010,7 +1003,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Reyes vs. Weidman",
       "number": "498",
       "date": "Oct 18, 2019",
@@ -1162,7 +1154,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Joanna vs. Waterson",
       "number": "497",
       "date": "Oct 12, 2019",
@@ -1325,7 +1316,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 243: Whittaker vs. Adesanya",
       "number": "496",
       "date": "Oct 5, 2019",
@@ -1455,7 +1445,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hermansson vs. Cannonier",
       "number": "495",
       "date": "Sep 28, 2019",
@@ -1607,7 +1596,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rodr\u00edguez vs. Stephens",
       "number": "494",
       "date": "Sep 21, 2019",
@@ -1748,7 +1736,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Gaethje",
       "number": "493",
       "date": "Sep 14, 2019",
@@ -1889,7 +1876,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 242: Khabib vs. Poirier",
       "number": "492",
       "date": "Sep 7, 2019",
@@ -2041,7 +2027,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Andrade vs. Zhang",
       "number": "491",
       "date": "Aug 31, 2019",
@@ -2171,7 +2156,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 241: Cormier vs. Miocic 2",
       "number": "490",
       "date": "Aug 17, 2019",
@@ -2312,7 +2296,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shevchenko vs. Carmouche 2",
       "number": "489",
       "date": "Aug 10, 2019",
@@ -2464,7 +2447,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Covington vs. Lawler",
       "number": "488",
       "date": "Aug 3, 2019",
@@ -2605,7 +2587,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 240: Holloway vs. Edgar",
       "number": "487",
       "date": "Jul 27, 2019",
@@ -2735,7 +2716,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: dos Anjos vs. Edwards",
       "number": "486",
       "date": "Jul 20, 2019",
@@ -2887,7 +2867,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: de Randamie vs. Ladd",
       "number": "485",
       "date": "Jul 13, 2019",
@@ -3028,7 +3007,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 239: Jones vs. Santos",
       "number": "484",
       "date": "Jul 6, 2019",
@@ -3169,7 +3147,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Ngannou vs. dos Santos",
       "number": "483",
       "date": "Jun 29, 2019",
@@ -3310,7 +3287,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Moicano vs. The Korean Zombie",
       "number": "482",
       "date": "Jun 22, 2019",
@@ -3440,7 +3416,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 238: Cejudo vs. Moraes",
       "number": "481",
       "date": "Jun 8, 2019",
@@ -3592,7 +3567,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Gustafsson vs. Smith",
       "number": "480",
       "date": "Jun 1, 2019",
@@ -3733,7 +3707,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: dos Anjos vs. Lee",
       "number": "479",
       "date": "May 18, 2019",
@@ -3885,7 +3858,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 237: Namajunas vs. Andrade",
       "number": "478",
       "date": "May 11, 2019",
@@ -4026,7 +3998,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Iaquinta vs. Cowboy",
       "number": "477",
       "date": "May 4, 2019",
@@ -4167,7 +4138,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Jacar\u00e9 vs. Hermansson",
       "number": "476",
       "date": "Apr 27, 2019",
@@ -4319,7 +4289,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Overeem vs. Oleinik",
       "number": "475",
       "date": "Apr 20, 2019",
@@ -4449,7 +4418,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 236: Holloway vs. Poirier 2",
       "number": "474",
       "date": "Apr 13, 2019",
@@ -4601,7 +4569,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Barboza vs. Gaethje",
       "number": "473",
       "date": "Mar 30, 2019",
@@ -4753,7 +4720,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Thompson vs. Pettis",
       "number": "472",
       "date": "Mar 23, 2019",
@@ -4894,7 +4860,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Till vs. Masvidal",
       "number": "471",
       "date": "Mar 16, 2019",
@@ -5035,7 +5000,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lewis vs. dos Santos",
       "number": "470",
       "date": "Mar 9, 2019",
@@ -5187,7 +5151,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 235: Jones vs. Smith",
       "number": "469",
       "date": "Mar 2, 2019",
@@ -5328,7 +5291,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: B\u0142achowicz vs. Santos",
       "number": "468",
       "date": "Feb 23, 2019",
@@ -5480,7 +5442,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on ESPN: Ngannou vs. Velasquez",
       "number": "467",
       "date": "Feb 17, 2019",
@@ -5621,7 +5582,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 234: Adesanya vs. Silva",
       "number": "466",
       "date": "Feb 10, 2019",
@@ -5751,7 +5711,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Assun\u00e7\u00e3o vs. Moraes 2",
       "number": "465",
       "date": "Feb 2, 2019",
@@ -5903,7 +5862,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 233",
       "number": "\u2013",
       "date": "Jan 26, 2019",
@@ -6011,7 +5969,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cejudo vs. Dillashaw",
       "number": "464",
       "date": "Jan 19, 2019",
@@ -6163,7 +6120,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 232: Jones vs. Gustafsson 2",
       "number": "463",
       "date": "Dec 29, 2018",
@@ -6315,7 +6271,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Lee vs. Iaquinta 2",
       "number": "462",
       "date": "Dec 15, 2018",
@@ -6456,7 +6411,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 231: Holloway vs. Ortega",
       "number": "461",
       "date": "Dec 8, 2018",
@@ -6608,7 +6562,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: dos Santos vs. Tuivasa",
       "number": "460",
       "date": "Dec 2, 2018",
@@ -6749,7 +6702,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Heavy Hitters Finale",
       "number": "459",
       "date": "Nov 30, 2018",
@@ -6901,7 +6853,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Blaydes vs. Ngannou 2",
       "number": "458",
       "date": "Nov 24, 2018",
@@ -7042,7 +6993,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Magny vs. Ponzinibbio",
       "number": "457",
       "date": "Nov 17, 2018",
@@ -7183,7 +7133,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: The Korean Zombie vs. Rodr\u00edguez",
       "number": "456",
       "date": "Nov 10, 2018",
@@ -7324,7 +7273,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 230: Cormier vs. Lewis",
       "number": "455",
       "date": "Nov 3, 2018",
@@ -7465,7 +7413,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Volkan vs. Smith",
       "number": "454",
       "date": "Oct 27, 2018",
@@ -7617,7 +7564,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 229: Khabib vs. McGregor",
       "number": "453",
       "date": "Oct 6, 2018",
@@ -7758,7 +7704,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Santos vs. Anders",
       "number": "452",
       "date": "Sep 22, 2018",
@@ -7921,7 +7866,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hunt vs. Oleinik",
       "number": "451",
       "date": "Sep 15, 2018",
@@ -8062,7 +8006,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 228: Woodley vs. Till",
       "number": "450",
       "date": "Sep 8, 2018",
@@ -8214,7 +8157,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Gaethje vs. Vick",
       "number": "449",
       "date": "Aug 25, 2018",
@@ -8366,7 +8308,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 227: Dillashaw vs. Garbrandt 2",
       "number": "448",
       "date": "Aug 4, 2018",
@@ -8507,7 +8448,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Alvarez vs. Poirier 2",
       "number": "447",
       "date": "Jul 28, 2018",
@@ -8659,7 +8599,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shogun vs. Smith",
       "number": "446",
       "date": "Jul 22, 2018",
@@ -8811,7 +8750,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: dos Santos vs. Ivanov",
       "number": "445",
       "date": "Jul 14, 2018",
@@ -8963,7 +8901,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 226: Miocic vs. Cormier",
       "number": "444",
       "date": "Jul 7, 2018",
@@ -9093,7 +9030,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Undefeated Finale",
       "number": "443",
       "date": "Jul 6, 2018",
@@ -9234,7 +9170,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Edwards",
       "number": "442",
       "date": "Jun 23, 2018",
@@ -9386,7 +9321,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 225: Whittaker vs. Romero 2",
       "number": "441",
       "date": "Jun 9, 2018",
@@ -9538,7 +9472,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rivera vs. Moraes",
       "number": "440",
       "date": "Jun 1, 2018",
@@ -9679,7 +9612,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Thompson vs. Till",
       "number": "439",
       "date": "May 27, 2018",
@@ -9809,7 +9741,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Maia vs. Usman",
       "number": "438",
       "date": "May 19, 2018",
@@ -9961,7 +9892,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 224: Nunes vs. Pennington",
       "number": "437",
       "date": "May 12, 2018",
@@ -10113,7 +10043,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Barboza vs. Lee",
       "number": "436",
       "date": "Apr 21, 2018",
@@ -10243,7 +10172,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Poirier vs. Gaethje",
       "number": "435",
       "date": "Apr 14, 2018",
@@ -10406,7 +10334,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 223: Khabib vs. Iaquinta",
       "number": "434",
       "date": "Apr 7, 2018",
@@ -10514,7 +10441,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Werdum vs. Volkov",
       "number": "433",
       "date": "Mar 17, 2018",
@@ -10633,7 +10559,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 222: Cyborg vs. Kunitskaya",
       "number": "432",
       "date": "Mar 3, 2018",
@@ -10774,7 +10699,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Emmett vs. Stephens",
       "number": "431",
       "date": "Feb 24, 2018",
@@ -10915,7 +10839,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Medeiros",
       "number": "430",
       "date": "Feb 18, 2018",
@@ -11056,7 +10979,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 221: Romero vs. Rockhold",
       "number": "429",
       "date": "Feb 11, 2018",
@@ -11197,7 +11119,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Machida vs. Anders",
       "number": "428",
       "date": "Feb 3, 2018",
@@ -11327,7 +11248,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Jacar\u00e9 vs. Brunson 2",
       "number": "427",
       "date": "Jan 27, 2018",
@@ -11468,7 +11388,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 220: Miocic vs. Ngannou",
       "number": "426",
       "date": "Jan 20, 2018",
@@ -11598,7 +11517,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Stephens vs. Choi",
       "number": "425",
       "date": "Jan 14, 2018",
@@ -11728,7 +11646,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 219: Cyborg vs. Holm",
       "number": "424",
       "date": "Dec 30, 2017",
@@ -11847,7 +11764,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Lawler vs. dos Anjos",
       "number": "423",
       "date": "Dec 16, 2017",
@@ -11977,7 +11893,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Swanson vs. Ortega",
       "number": "422",
       "date": "Dec 9, 2017",
@@ -12129,7 +12044,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 218: Holloway vs. Aldo 2",
       "number": "421",
       "date": "Dec 2, 2017",
@@ -12281,7 +12195,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: A New World Champion Finale",
       "number": "420",
       "date": "Dec 1, 2017",
@@ -12411,7 +12324,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bisping vs. Gastelum",
       "number": "419",
       "date": "Nov 25, 2017",
@@ -12552,7 +12464,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Werdum vs. Tybura",
       "number": "418",
       "date": "Nov 19, 2017",
@@ -12704,7 +12615,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Poirier vs. Pettis",
       "number": "417",
       "date": "Nov 11, 2017",
@@ -12856,7 +12766,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 217: Bisping vs. St-Pierre",
       "number": "416",
       "date": "Nov 4, 2017",
@@ -12986,7 +12895,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Brunson vs. Machida",
       "number": "415",
       "date": "Oct 28, 2017",
@@ -13127,7 +13035,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Till",
       "number": "414",
       "date": "Oct 21, 2017",
@@ -13257,7 +13164,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 216: Ferguson vs. Lee",
       "number": "413",
       "date": "Oct 7, 2017",
@@ -13387,7 +13293,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Saint Preux vs. Okami",
       "number": "412",
       "date": "Sep 23, 2017",
@@ -13506,7 +13411,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rockhold vs. Branch",
       "number": "411",
       "date": "Sep 16, 2017",
@@ -13625,7 +13529,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 215: Nunes vs. Shevchenko 2",
       "number": "410",
       "date": "Sep 9, 2017",
@@ -13755,7 +13658,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Volkov vs. Struve",
       "number": "409",
       "date": "Sep 2, 2017",
@@ -13896,7 +13798,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Pettis vs. Moreno",
       "number": "408",
       "date": "Aug 5, 2017",
@@ -14037,7 +13938,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 214: Cormier vs. Jones 2",
       "number": "407",
       "date": "Jul 29, 2017",
@@ -14178,7 +14078,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Weidman vs. Gastelum",
       "number": "406",
       "date": "Jul 22, 2017",
@@ -14330,7 +14229,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Nelson vs. Ponzinibbio",
       "number": "405",
       "date": "Jul 16, 2017",
@@ -14471,7 +14369,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 213: Romero vs. Whittaker",
       "number": "404",
       "date": "Jul 8, 2017",
@@ -14601,7 +14498,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Redemption Finale",
       "number": "403",
       "date": "Jul 7, 2017",
@@ -14731,7 +14627,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Chiesa vs. Lee",
       "number": "402",
       "date": "Jun 25, 2017",
@@ -14883,7 +14778,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Holm vs. Correia",
       "number": "401",
       "date": "Jun 17, 2017",
@@ -15024,7 +14918,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lewis vs. Hunt",
       "number": "400",
       "date": "Jun 11, 2017",
@@ -15154,7 +15047,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 212: Aldo vs. Holloway",
       "number": "399",
       "date": "Jun 3, 2017",
@@ -15295,7 +15187,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Gustafsson vs. Teixeira",
       "number": "398",
       "date": "May 28, 2017",
@@ -15436,7 +15327,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 211: Miocic vs. dos Santos 2",
       "number": "397",
       "date": "May 13, 2017",
@@ -15577,7 +15467,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Swanson vs. Lobov",
       "number": "396",
       "date": "Apr 22, 2017",
@@ -15729,7 +15618,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Johnson vs. Reis",
       "number": "395",
       "date": "Apr 15, 2017",
@@ -15881,7 +15769,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 210: Cormier vs. Johnson 2",
       "number": "394",
       "date": "Apr 8, 2017",
@@ -16033,7 +15920,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Manuwa vs. Anderson",
       "number": "393",
       "date": "Mar 18, 2017",
@@ -16163,7 +16049,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Belfort vs. Gastelum",
       "number": "392",
       "date": "Mar 11, 2017",
@@ -16304,7 +16189,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 209: Woodley vs. Thompson 2",
       "number": "391",
       "date": "Mar 4, 2017",
@@ -16434,7 +16318,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lewis vs. Browne",
       "number": "390",
       "date": "Feb 19, 2017",
@@ -16564,7 +16447,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 208: Holm vs. de Randamie",
       "number": "389",
       "date": "Feb 11, 2017",
@@ -16683,7 +16565,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bermudez vs. The Korean Zombie",
       "number": "388",
       "date": "Feb 4, 2017",
@@ -16824,7 +16705,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Shevchenko vs. Pe\u00f1a",
       "number": "387",
       "date": "Jan 28, 2017",
@@ -16965,7 +16845,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rodr\u00edguez vs. Penn",
       "number": "386",
       "date": "Jan 15, 2017",
@@ -17106,7 +16985,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 207: Nunes vs. Rousey",
       "number": "385",
       "date": "Dec 30, 2016",
@@ -17225,7 +17103,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: VanZant vs. Waterson",
       "number": "384",
       "date": "Dec 17, 2016",
@@ -17377,7 +17254,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 206: Holloway vs. Pettis",
       "number": "383",
       "date": "Dec 10, 2016",
@@ -17518,7 +17394,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lewis vs. Abdurakhimov",
       "number": "382",
       "date": "Dec 9, 2016",
@@ -17659,7 +17534,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Tournament of Champions Finale",
       "number": "381",
       "date": "Dec 3, 2016",
@@ -17800,7 +17674,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Whittaker vs. Brunson",
       "number": "380",
       "date": "Nov 27, 2016",
@@ -17952,7 +17825,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bader vs. Nogueira 2",
       "number": "379",
       "date": "Nov 19, 2016",
@@ -18093,7 +17965,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Mousasi vs. Hall 2",
       "number": "378",
       "date": "Nov 19, 2016",
@@ -18245,7 +18116,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 205: Alvarez vs. McGregor",
       "number": "377",
       "date": "Nov 12, 2016",
@@ -18375,7 +18245,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter Latin America 3 Finale: dos Anjos vs. Ferguson",
       "number": "376",
       "date": "Nov 5, 2016",
@@ -18527,7 +18396,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lamas vs. Penn",
       "number": "\u2013",
       "date": "Oct 15, 2016",
@@ -18657,7 +18525,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 204: Bisping vs. Henderson 2",
       "number": "375",
       "date": "Oct 8, 2016",
@@ -18787,7 +18654,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lineker vs. Dodson",
       "number": "374",
       "date": "Oct 1, 2016",
@@ -18928,7 +18794,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cyborg vs. L\u00e4nsberg",
       "number": "373",
       "date": "Sep 24, 2016",
@@ -19080,7 +18945,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Poirier vs. Johnson",
       "number": "372",
       "date": "Sep 17, 2016",
@@ -19221,7 +19085,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 203: Miocic vs. Overeem",
       "number": "371",
       "date": "Sep 10, 2016",
@@ -19340,7 +19203,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Arlovski vs. Barnett",
       "number": "370",
       "date": "Sep 3, 2016",
@@ -19470,7 +19332,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Maia vs. Condit",
       "number": "369",
       "date": "Aug 27, 2016",
@@ -19589,7 +19450,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 202: Diaz vs. McGregor 2",
       "number": "368",
       "date": "Aug 20, 2016",
@@ -19730,7 +19590,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rodr\u00edguez vs. Caceres",
       "number": "367",
       "date": "Aug 6, 2016",
@@ -19871,7 +19730,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 201: Lawler vs. Woodley",
       "number": "366",
       "date": "Jul 30, 2016",
@@ -20001,7 +19859,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Holm vs. Shevchenko",
       "number": "365",
       "date": "Jul 23, 2016",
@@ -20131,7 +19988,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: McDonald vs. Lineker",
       "number": "364",
       "date": "Jul 13, 2016",
@@ -20272,7 +20128,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 200: Tate vs. Nunes",
       "number": "363",
       "date": "Jul 9, 2016",
@@ -20413,7 +20268,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Joanna vs. Team Cl\u00e1udia Finale",
       "number": "362",
       "date": "Jul 8, 2016",
@@ -20554,7 +20408,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: dos Anjos vs. Alvarez",
       "number": "361",
       "date": "Jul 7, 2016",
@@ -20695,7 +20548,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: MacDonald vs. Thompson",
       "number": "360",
       "date": "Jun 18, 2016",
@@ -20847,7 +20699,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 199: Rockhold vs. Bisping 2",
       "number": "359",
       "date": "Jun 4, 2016",
@@ -20999,7 +20850,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Almeida vs. Garbrandt",
       "number": "358",
       "date": "May 29, 2016",
@@ -21140,7 +20990,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 198: Werdum vs. Miocic",
       "number": "357",
       "date": "May 14, 2016",
@@ -21281,7 +21130,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Overeem vs. Arlovski",
       "number": "356",
       "date": "May 8, 2016",
@@ -21433,7 +21281,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 197: Jones vs. Saint Preux",
       "number": "355",
       "date": "Apr 23, 2016",
@@ -21574,7 +21421,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Teixeira vs. Evans",
       "number": "354",
       "date": "Apr 16, 2016",
@@ -21704,7 +21550,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rothwell vs. dos Santos",
       "number": "353",
       "date": "Apr 10, 2016",
@@ -21856,7 +21701,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hunt vs. Mir",
       "number": "352",
       "date": "Mar 20, 2016",
@@ -21997,7 +21841,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 196: McGregor vs. Diaz",
       "number": "351",
       "date": "Mar 5, 2016",
@@ -22138,7 +21981,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Silva vs. Bisping",
       "number": "350",
       "date": "Feb 27, 2016",
@@ -22290,7 +22132,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Cowboy",
       "number": "349",
       "date": "Feb 21, 2016",
@@ -22442,7 +22283,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hendricks vs. Thompson",
       "number": "348",
       "date": "Feb 6, 2016",
@@ -22583,7 +22423,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Johnson vs. Bader",
       "number": "347",
       "date": "Jan 30, 2016",
@@ -22735,7 +22574,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Dillashaw vs. Cruz",
       "number": "346",
       "date": "Jan 17, 2016",
@@ -22887,7 +22725,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 195: Lawler vs. Condit",
       "number": "345",
       "date": "Jan 2, 2016",
@@ -23028,7 +22865,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: dos Anjos vs. Cowboy 2",
       "number": "344",
       "date": "Dec 19, 2015",
@@ -23180,7 +23016,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 194: Aldo vs. McGregor",
       "number": "343",
       "date": "Dec 12, 2015",
@@ -23321,7 +23156,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team McGregor vs. Team Faber Finale",
       "number": "342",
       "date": "Dec 11, 2015",
@@ -23440,7 +23274,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Namajunas vs. VanZant",
       "number": "341",
       "date": "Dec 10, 2015",
@@ -23581,7 +23414,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Henderson vs. Masvidal",
       "number": "340",
       "date": "Nov 28, 2015",
@@ -23711,7 +23543,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter Latin America 2 Finale: Magny vs. Gastelum",
       "number": "339",
       "date": "Nov 21, 2015",
@@ -23863,7 +23694,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 193: Rousey vs. Holm",
       "number": "338",
       "date": "Nov 15, 2015",
@@ -24015,7 +23845,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Belfort vs. Henderson 3",
       "number": "337",
       "date": "Nov 7, 2015",
@@ -24167,7 +23996,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Holohan vs. Smolka",
       "number": "336",
       "date": "Oct 24, 2015",
@@ -24286,7 +24114,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 192: Cormier vs. Gustafsson",
       "number": "335",
       "date": "Oct 3, 2015",
@@ -24427,7 +24254,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Barnett vs. Nelson",
       "number": "334",
       "date": "Sep 27, 2015",
@@ -24546,7 +24372,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 191: Johnson vs. Dodson 2",
       "number": "333",
       "date": "Sep 5, 2015",
@@ -24676,7 +24501,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Holloway vs. Oliveira",
       "number": "332",
       "date": "Aug 23, 2015",
@@ -24817,7 +24641,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Teixeira vs. Saint Preux",
       "number": "331",
       "date": "Aug 8, 2015",
@@ -24969,7 +24792,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 190: Rousey vs. Correia",
       "number": "330",
       "date": "Aug 1, 2015",
@@ -25121,7 +24943,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Dillashaw vs. Bar\u00e3o 2",
       "number": "329",
       "date": "Jul 25, 2015",
@@ -25262,7 +25083,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bisping vs. Leites",
       "number": "328",
       "date": "Jul 18, 2015",
@@ -25403,7 +25223,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Mir vs. Duffee",
       "number": "327",
       "date": "Jul 15, 2015",
@@ -25544,7 +25363,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: American Top Team vs. Blackzilians Finale",
       "number": "326",
       "date": "Jul 12, 2015",
@@ -25674,7 +25492,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 189: Mendes vs. McGregor",
       "number": "325",
       "date": "Jul 11, 2015",
@@ -25804,7 +25621,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Machida vs. Romero",
       "number": "324",
       "date": "Jun 27, 2015",
@@ -25912,7 +25728,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: J\u0119drzejczyk vs. Penne",
       "number": "323",
       "date": "Jun 20, 2015",
@@ -26042,7 +25857,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 188: Velasquez vs. Werdum",
       "number": "322",
       "date": "Jun 13, 2015",
@@ -26172,7 +25986,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Boetsch vs. Henderson",
       "number": "321",
       "date": "Jun 6, 2015",
@@ -26313,7 +26126,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Condit vs. Alves",
       "number": "320",
       "date": "May 30, 2015",
@@ -26454,7 +26266,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 187: Johnson vs. Cormier",
       "number": "319",
       "date": "May 23, 2015",
@@ -26584,7 +26395,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Edgar vs. Faber",
       "number": "318",
       "date": "May 16, 2015",
@@ -26725,7 +26535,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Miocic vs. Hunt",
       "number": "317",
       "date": "May 10, 2015",
@@ -26866,7 +26675,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 186: Johnson vs. Horiguchi",
       "number": "316",
       "date": "Apr 25, 2015",
@@ -27007,7 +26815,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Machida vs. Rockhold",
       "number": "315",
       "date": "Apr 18, 2015",
@@ -27137,7 +26944,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Gonzaga vs. Cro Cop 2",
       "number": "314",
       "date": "Apr 11, 2015",
@@ -27278,7 +27084,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Mendes vs. Lamas",
       "number": "313",
       "date": "Apr 4, 2015",
@@ -27397,7 +27202,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Maia vs. LaFlare",
       "number": "312",
       "date": "Mar 21, 2015",
@@ -27538,7 +27342,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 185: Pettis vs. dos Anjos",
       "number": "311",
       "date": "Mar 14, 2015",
@@ -27679,7 +27482,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 184: Rousey vs. Zingano",
       "number": "310",
       "date": "Feb 28, 2015",
@@ -27809,7 +27611,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bigfoot vs. Mir",
       "number": "309",
       "date": "Feb 22, 2015",
@@ -27939,7 +27740,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Henderson vs. Thatch",
       "number": "308",
       "date": "Feb 14, 2015",
@@ -28058,7 +27858,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 183: Silva vs. Diaz",
       "number": "307",
       "date": "Jan 31, 2015",
@@ -28188,7 +27987,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Gustafsson vs. Johnson",
       "number": "306",
       "date": "Jan 24, 2015",
@@ -28329,7 +28127,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: McGregor vs. Siver",
       "number": "305",
       "date": "Jan 18, 2015",
@@ -28470,7 +28267,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 182: Jones vs. Cormier",
       "number": "304",
       "date": "Jan 3, 2015",
@@ -28600,7 +28396,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Machida vs. Dollaway",
       "number": "303",
       "date": "Dec 20, 2014",
@@ -28741,7 +28536,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: dos Santos vs. Miocic",
       "number": "302",
       "date": "Dec 13, 2014",
@@ -28882,7 +28676,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: A Champion Will Be Crowned Finale",
       "number": "301",
       "date": "Dec 12, 2014",
@@ -29012,7 +28805,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 181: Hendricks vs. Lawler II",
       "number": "300",
       "date": "Dec 6, 2014",
@@ -29142,7 +28934,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Edgar vs. Swanson",
       "number": "299",
       "date": "Nov 22, 2014",
@@ -29283,7 +29074,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 180: Werdum vs. Hunt",
       "number": "298",
       "date": "Nov 15, 2014",
@@ -29413,7 +29203,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shogun vs. Saint Preux",
       "number": "297",
       "date": "Nov 8, 2014",
@@ -29532,7 +29321,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rockhold vs. Bisping",
       "number": "296",
       "date": "Nov 8, 2014",
@@ -29662,7 +29450,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 179: Aldo vs. Mendes 2",
       "number": "295",
       "date": "Oct 25, 2014",
@@ -29792,7 +29579,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: MacDonald vs. Saffiedine",
       "number": "294",
       "date": "Oct 4, 2014",
@@ -29933,7 +29719,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Nelson vs. Story",
       "number": "293",
       "date": "Oct 4, 2014",
@@ -30063,7 +29848,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 178: Johnson vs. Cariaso",
       "number": "292",
       "date": "Sep 27, 2014",
@@ -30193,7 +29977,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hunt vs. Nelson",
       "number": "291",
       "date": "Sep 20, 2014",
@@ -30334,7 +30117,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bigfoot vs. Arlovski",
       "number": "290",
       "date": "Sep 13, 2014",
@@ -30464,7 +30246,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Jacar\u00e9 vs. Mousasi",
       "number": "289",
       "date": "Sep 5, 2014",
@@ -30572,7 +30353,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 177: Dillashaw vs. Soto",
       "number": "288",
       "date": "Aug 30, 2014",
@@ -30669,7 +30449,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Henderson vs. dos Anjos",
       "number": "287",
       "date": "Aug 23, 2014",
@@ -30799,7 +30578,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bisping vs. Le",
       "number": "286",
       "date": "Aug 23, 2014",
@@ -30918,7 +30696,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Bader vs. Saint Preux",
       "number": "285",
       "date": "Aug 16, 2014",
@@ -31037,7 +30814,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 176: Aldo vs. Mendes II",
       "number": "\u2013",
       "date": "Aug 2, 2014",
@@ -31167,7 +30943,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Lawler vs. Brown",
       "number": "284",
       "date": "Jul 26, 2014",
@@ -31308,7 +31083,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: McGregor vs. Brandao",
       "number": "283",
       "date": "Jul 19, 2014",
@@ -31427,7 +31201,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Cowboy vs. Miller",
       "number": "282",
       "date": "Jul 16, 2014",
@@ -31557,7 +31330,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Edgar vs. Team Penn Finale",
       "number": "281",
       "date": "Jul 6, 2014",
@@ -31687,7 +31459,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 175: Weidman vs. Machida",
       "number": "280",
       "date": "Jul 5, 2014",
@@ -31806,7 +31577,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Swanson vs. Stephens",
       "number": "279",
       "date": "Jun 28, 2014",
@@ -31936,7 +31706,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Te Huna vs. Marquardt",
       "number": "278",
       "date": "Jun 28, 2014",
@@ -32055,7 +31824,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 174: Johnson vs. Bagautinov",
       "number": "277",
       "date": "Jun 14, 2014",
@@ -32185,7 +31953,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Henderson vs. Khabilov",
       "number": "276",
       "date": "Jun 7, 2014",
@@ -32315,7 +32082,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter Brazil 3 Finale: Miocic vs. Maldonado",
       "number": "275",
       "date": "May 31, 2014",
@@ -32456,7 +32222,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Mu\u00f1oz vs. Mousasi",
       "number": "274",
       "date": "May 31, 2014",
@@ -32575,7 +32340,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 173: Bar\u00e3o vs. Dillashaw",
       "number": "273",
       "date": "May 24, 2014",
@@ -32716,7 +32480,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Brown vs. Silva",
       "number": "272",
       "date": "May 10, 2014",
@@ -32868,7 +32631,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 172: Jones vs. Teixeira",
       "number": "271",
       "date": "Apr 26, 2014",
@@ -32987,7 +32749,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Werdum vs. Browne",
       "number": "270",
       "date": "Apr 19, 2014",
@@ -33139,7 +32900,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter Nations Finale: Bisping vs. Kennedy",
       "number": "269",
       "date": "Apr 16, 2014",
@@ -33291,7 +33051,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Nogueira vs. Nelson",
       "number": "268",
       "date": "Apr 11, 2014",
@@ -33388,7 +33147,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shogun vs. Henderson 2",
       "number": "267",
       "date": "Mar 23, 2014",
@@ -33518,7 +33276,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 171: Hendricks vs. Lawler",
       "number": "266",
       "date": "Mar 15, 2014",
@@ -33670,7 +33427,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Gustafsson vs. Manuwa",
       "number": "265",
       "date": "Mar 8, 2014",
@@ -33778,7 +33534,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter China Finale: Kim vs. Hathaway",
       "number": "264",
       "date": "Mar 1, 2014",
@@ -33875,7 +33630,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 170: Rousey vs. McMann",
       "number": "263",
       "date": "Feb 22, 2014",
@@ -34005,7 +33759,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Machida vs. Mousasi",
       "number": "262",
       "date": "Feb 15, 2014",
@@ -34146,7 +33899,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 169: Bar\u00e3o vs. Faber II",
       "number": "261",
       "date": "Feb 1, 2014",
@@ -34287,7 +34039,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Henderson vs. Thomson",
       "number": "260",
       "date": "Jan 25, 2014",
@@ -34417,7 +34168,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Rockhold vs. Philippou",
       "number": "259",
       "date": "Jan 15, 2014",
@@ -34558,7 +34308,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Saffiedine vs. Lim",
       "number": "258",
       "date": "Jan 4, 2014",
@@ -34677,7 +34426,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 168: Weidman vs. Silva 2",
       "number": "257",
       "date": "Dec 28, 2013",
@@ -34807,7 +34555,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Johnson vs. Benavidez 2",
       "number": "256",
       "date": "Dec 14, 2013",
@@ -34937,7 +34684,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Hunt vs. Bigfoot",
       "number": "255",
       "date": "Dec 7, 2013",
@@ -35067,7 +34813,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Rousey vs. Team Tate Finale",
       "number": "254",
       "date": "Nov 30, 2013",
@@ -35186,7 +34931,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 167: St-Pierre vs. Hendricks",
       "number": "253",
       "date": "Nov 16, 2013",
@@ -35327,7 +35071,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Belfort vs. Henderson",
       "number": "252",
       "date": "Nov 9, 2013",
@@ -35457,7 +35200,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC: Fight for the Troops 3",
       "number": "251",
       "date": "Nov 6, 2013",
@@ -35609,7 +35351,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Machida vs. Mu\u00f1oz",
       "number": "250",
       "date": "Oct 26, 2013",
@@ -35750,7 +35491,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 166: Velasquez vs. dos Santos III",
       "number": "249",
       "date": "Oct 19, 2013",
@@ -35902,7 +35642,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Maia vs. Shields",
       "number": "248",
       "date": "Oct 9, 2013",
@@ -36021,7 +35760,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 165: Jones vs. Gustafsson",
       "number": "247",
       "date": "Sep 21, 2013",
@@ -36173,7 +35911,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Teixeira vs. Bader",
       "number": "246",
       "date": "Sep 4, 2013",
@@ -36303,7 +36040,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 164: Henderson vs. Pettis",
       "number": "245",
       "date": "Aug 31, 2013",
@@ -36444,7 +36180,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Condit vs. Kampmann 2",
       "number": "244",
       "date": "Aug 28, 2013",
@@ -36585,7 +36320,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shogun vs. Sonnen",
       "number": "243",
       "date": "Aug 17, 2013",
@@ -36737,7 +36471,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 163: Aldo vs. Korean Zombie",
       "number": "242",
       "date": "Aug 3, 2013",
@@ -36878,7 +36611,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Johnson vs. Moraga",
       "number": "241",
       "date": "Jul 27, 2013",
@@ -37019,7 +36751,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 162: Silva vs. Weidman",
       "number": "240",
       "date": "Jul 6, 2013",
@@ -37149,7 +36880,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 161: Evans vs. Henderson",
       "number": "239",
       "date": "Jun 15, 2013",
@@ -37279,7 +37009,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Nogueira vs. Werdum",
       "number": "238",
       "date": "Jun 8, 2013",
@@ -37420,7 +37149,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 160: Velasquez vs. Bigfoot 2",
       "number": "237",
       "date": "May 25, 2013",
@@ -37561,7 +37289,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Belfort vs. Rockhold",
       "number": "236",
       "date": "May 18, 2013",
@@ -37713,7 +37440,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 159: Jones vs. Sonnen",
       "number": "235",
       "date": "Apr 27, 2013",
@@ -37843,7 +37569,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Henderson vs. Melendez",
       "number": "234",
       "date": "Apr 20, 2013",
@@ -37984,7 +37709,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Jones vs. Team Sonnen Finale",
       "number": "233",
       "date": "Apr 13, 2013",
@@ -38125,7 +37849,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Mousasi vs. Latifi",
       "number": "232",
       "date": "Apr 6, 2013",
@@ -38277,7 +38000,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 158: St-Pierre vs. Diaz",
       "number": "231",
       "date": "Mar 16, 2013",
@@ -38418,7 +38140,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Silva vs. Stann",
       "number": "230",
       "date": "Mar 3, 2013",
@@ -38548,7 +38269,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 157: Rousey vs. Carmouche",
       "number": "229",
       "date": "Feb 23, 2013",
@@ -38689,7 +38409,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Bar\u00e3o vs. McDonald",
       "number": "228",
       "date": "Feb 16, 2013",
@@ -38830,7 +38549,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 156: Aldo vs. Edgar",
       "number": "227",
       "date": "Feb 2, 2013",
@@ -38960,7 +38678,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Johnson vs. Dodson",
       "number": "226",
       "date": "Jan 26, 2013",
@@ -39090,7 +38807,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Belfort vs. Bisping",
       "number": "225",
       "date": "Jan 19, 2013",
@@ -39220,7 +38936,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 155: dos Santos vs. Velasquez 2",
       "number": "224",
       "date": "Dec 29, 2012",
@@ -39361,7 +39076,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Carwin vs. Team Nelson Finale",
       "number": "223",
       "date": "Dec 15, 2012",
@@ -39491,7 +39205,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Sotiropoulos vs. Pearson",
       "number": "222",
       "date": "Dec 15, 2012",
@@ -39610,7 +39323,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Henderson vs. Diaz",
       "number": "221",
       "date": "Dec 8, 2012",
@@ -39740,7 +39452,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 154: St-Pierre vs. Condit",
       "number": "220",
       "date": "Nov 17, 2012",
@@ -39881,7 +39592,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Franklin vs. Le",
       "number": "219",
       "date": "Nov 10, 2012",
@@ -39989,7 +39699,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 153: Silva vs. Bonnar",
       "number": "218",
       "date": "Oct 13, 2012",
@@ -40130,7 +39839,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Browne vs. Bigfoot",
       "number": "217",
       "date": "Oct 5, 2012",
@@ -40249,7 +39957,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Struve vs. Miocic",
       "number": "216",
       "date": "Sep 29, 2012",
@@ -40379,7 +40086,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 152: Jones vs. Belfort",
       "number": "215",
       "date": "Sep 22, 2012",
@@ -40520,7 +40226,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 151: Jones vs. Henderson",
       "number": "\u2013",
       "date": "Sep 1, 2012",
@@ -40650,7 +40355,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 150: Henderson vs. Edgar II",
       "number": "214",
       "date": "Aug 11, 2012",
@@ -40769,7 +40473,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Shogun vs. Vera",
       "number": "213",
       "date": "Aug 4, 2012",
@@ -40888,7 +40591,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 149: Faber vs. Bar\u00e3o",
       "number": "212",
       "date": "Jul 21, 2012",
@@ -41018,7 +40720,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Mu\u00f1oz vs. Weidman",
       "number": "211",
       "date": "Jul 11, 2012",
@@ -41148,7 +40849,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 148: Silva vs. Sonnen II",
       "number": "210",
       "date": "Jul 7, 2012",
@@ -41278,7 +40978,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 147: Silva vs. Franklin II",
       "number": "209",
       "date": "Jun 23, 2012",
@@ -41408,7 +41107,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Maynard vs. Guida",
       "number": "208",
       "date": "Jun 22, 2012",
@@ -41549,7 +41247,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Johnson vs. McCall",
       "number": "207",
       "date": "Jun 8, 2012",
@@ -41690,7 +41387,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Live Finale",
       "number": "206",
       "date": "Jun 1, 2012",
@@ -41809,7 +41505,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 146: dos Santos vs. Mir",
       "number": "205",
       "date": "May 26, 2012",
@@ -41950,7 +41645,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: The Korean Zombie vs. Poirier",
       "number": "204",
       "date": "May 15, 2012",
@@ -42091,7 +41785,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Diaz vs. Miller",
       "number": "203",
       "date": "May 5, 2012",
@@ -42232,7 +41925,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 145: Jones vs. Evans",
       "number": "202",
       "date": "Apr 21, 2012",
@@ -42373,7 +42065,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Gustafsson vs. Silva",
       "number": "201",
       "date": "Apr 14, 2012",
@@ -42514,7 +42205,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Alves vs. Kampmann",
       "number": "200",
       "date": "Mar 3, 2012",
@@ -42644,7 +42334,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 144: Edgar vs. Henderson",
       "number": "199",
       "date": "Feb 26, 2012",
@@ -42785,7 +42474,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fuel TV: Sanchez vs. Ellenberger",
       "number": "198",
       "date": "Feb 15, 2012",
@@ -42893,7 +42581,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 143: Diaz vs. Condit",
       "number": "197",
       "date": "Feb 4, 2012",
@@ -43023,7 +42710,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Evans vs. Davis",
       "number": "196",
       "date": "Jan 28, 2012",
@@ -43142,7 +42828,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on FX: Guillard vs. Miller",
       "number": "195",
       "date": "Jan 20, 2012",
@@ -43261,7 +42946,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 142: Aldo vs. Mendes",
       "number": "194",
       "date": "Jan 14, 2012",
@@ -43380,7 +43064,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 141: Lesnar vs. Overeem",
       "number": "193",
       "date": "Dec 30, 2011",
@@ -43499,7 +43182,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 140: Jones vs. Machida",
       "number": "192",
       "date": "Dec 10, 2011",
@@ -43640,7 +43322,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Bisping vs. Team Miller Finale",
       "number": "191",
       "date": "Dec 3, 2011",
@@ -43759,7 +43440,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 139: Shogun vs. Henderson",
       "number": "190",
       "date": "Nov 19, 2011",
@@ -43900,7 +43580,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC on Fox: Velasquez vs. dos Santos",
       "number": "189",
       "date": "Nov 12, 2011",
@@ -44019,7 +43698,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 138: Leben vs. Mu\u00f1oz",
       "number": "188",
       "date": "Nov 5, 2011",
@@ -44138,7 +43816,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 137: Penn vs. Diaz",
       "number": "187",
       "date": "Oct 29, 2011",
@@ -44268,7 +43945,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 136: Edgar vs. Maynard III",
       "number": "186",
       "date": "Oct 8, 2011",
@@ -44398,7 +44074,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Cruz vs. Johnson",
       "number": "185",
       "date": "Oct 1, 2011",
@@ -44517,7 +44192,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 135: Jones vs. Rampage",
       "number": "184",
       "date": "Sep 24, 2011",
@@ -44636,7 +44310,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Shields vs. Ellenberger",
       "number": "183",
       "date": "Sep 17, 2011",
@@ -44777,7 +44450,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 134: Silva vs. Okami",
       "number": "182",
       "date": "Aug 27, 2011",
@@ -44918,7 +44590,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Hardy vs. Lytle",
       "number": "181",
       "date": "Aug 14, 2011",
@@ -45059,7 +44730,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 133: Evans vs. Ortiz",
       "number": "180",
       "date": "Aug 6, 2011",
@@ -45189,7 +44859,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 132: Cruz vs. Faber",
       "number": "179",
       "date": "Jul 2, 2011",
@@ -45319,7 +44988,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Kongo vs. Barry",
       "number": "178",
       "date": "Jun 26, 2011",
@@ -45449,7 +45117,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 131: dos Santos vs. Carwin",
       "number": "177",
       "date": "Jun 11, 2011",
@@ -45590,7 +45257,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Lesnar vs. Team dos Santos Finale",
       "number": "176",
       "date": "Jun 4, 2011",
@@ -45720,7 +45386,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 130: Rampage vs. Hamill",
       "number": "175",
       "date": "May 28, 2011",
@@ -45839,7 +45504,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 129: St-Pierre vs. Shields",
       "number": "174",
       "date": "Apr 30, 2011",
@@ -45980,7 +45644,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Nogueira vs. Davis",
       "number": "173",
       "date": "Mar 26, 2011",
@@ -46121,7 +45784,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 128: Shogun vs. Jones",
       "number": "172",
       "date": "Mar 19, 2011",
@@ -46262,7 +45924,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Sanchez vs. Kampmann",
       "number": "171",
       "date": "Mar 3, 2011",
@@ -46392,7 +46053,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 127: Penn vs. Fitch",
       "number": "170",
       "date": "Feb 27, 2011",
@@ -46533,7 +46193,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 126: Silva vs. Belfort",
       "number": "169",
       "date": "Feb 5, 2011",
@@ -46663,7 +46322,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC: Fight for the Troops 2",
       "number": "168",
       "date": "Jan 22, 2011",
@@ -46793,7 +46451,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 125: Resolution",
       "number": "167",
       "date": "Jan 1, 2011",
@@ -46923,7 +46580,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 124: St-Pierre vs. Koscheck 2",
       "number": "166",
       "date": "Dec 11, 2010",
@@ -47053,7 +46709,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team GSP vs. Team Koscheck Finale",
       "number": "165",
       "date": "Dec 4, 2010",
@@ -47183,7 +46838,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 123: Rampage vs. Machida",
       "number": "164",
       "date": "Nov 20, 2010",
@@ -47313,7 +46967,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 122: Marquardt vs. Okami",
       "number": "163",
       "date": "Nov 13, 2010",
@@ -47432,7 +47085,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 121: Lesnar vs. Velasquez",
       "number": "162",
       "date": "Oct 23, 2010",
@@ -47562,7 +47214,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 120: Bisping vs. Akiyama",
       "number": "161",
       "date": "Oct 16, 2010",
@@ -47681,7 +47332,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 119: Mir vs. Cro Cop",
       "number": "160",
       "date": "Sep 25, 2010",
@@ -47811,7 +47461,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Marquardt vs. Palhares",
       "number": "159",
       "date": "Sep 15, 2010",
@@ -47930,7 +47579,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 118: Edgar vs. Penn 2",
       "number": "158",
       "date": "Aug 28, 2010",
@@ -48049,7 +47697,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 117: Silva vs. Sonnen",
       "number": "157",
       "date": "Aug 7, 2010",
@@ -48179,7 +47826,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Jones vs. Matyushenko",
       "number": "156",
       "date": "Aug 1, 2010",
@@ -48298,7 +47944,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 116: Lesnar vs. Carwin",
       "number": "155",
       "date": "Jul 3, 2010",
@@ -48428,7 +48073,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Liddell vs. Team Ortiz Finale",
       "number": "154",
       "date": "Jun 19, 2010",
@@ -48547,7 +48191,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 115: Liddell vs. Franklin",
       "number": "153",
       "date": "Jun 12, 2010",
@@ -48677,7 +48320,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 114: Rampage vs. Evans",
       "number": "152",
       "date": "May 29, 2010",
@@ -48807,7 +48449,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 113: Machida vs. Shogun 2",
       "number": "151",
       "date": "May 8, 2010",
@@ -48937,7 +48578,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 112: Invincible",
       "number": "150",
       "date": "Apr 10, 2010",
@@ -49056,7 +48696,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Florian vs. Gomi",
       "number": "149",
       "date": "Mar 31, 2010",
@@ -49186,7 +48825,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 111: St-Pierre vs. Hardy",
       "number": "148",
       "date": "Mar 27, 2010",
@@ -49305,7 +48943,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Live: Vera vs. Jones",
       "number": "147",
       "date": "Mar 21, 2010",
@@ -49435,7 +49072,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 110: Nogueira vs. Velasquez",
       "number": "146",
       "date": "Feb 21, 2010",
@@ -49543,7 +49179,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 109: Relentless",
       "number": "145",
       "date": "Feb 6, 2010",
@@ -49673,7 +49308,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Maynard vs. Diaz",
       "number": "144",
       "date": "Jan 11, 2010",
@@ -49803,7 +49437,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 108: Evans vs. Silva",
       "number": "143",
       "date": "Jan 2, 2010",
@@ -49922,7 +49555,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 107: Penn vs. Sanchez",
       "number": "142",
       "date": "Dec 12, 2009",
@@ -50052,7 +49684,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Heavyweights Finale",
       "number": "141",
       "date": "Dec 5, 2009",
@@ -50171,7 +49802,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 106: Ortiz vs. Griffin 2",
       "number": "140",
       "date": "Nov 21, 2009",
@@ -50290,7 +49920,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 105: Couture vs. Vera",
       "number": "139",
       "date": "Nov 14, 2009",
@@ -50420,7 +50049,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 104: Machida vs. Shogun",
       "number": "138",
       "date": "Oct 24, 2009",
@@ -50550,7 +50178,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 103: Franklin vs. Belfort",
       "number": "137",
       "date": "Sep 19, 2009",
@@ -50702,7 +50329,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Diaz vs. Guillard",
       "number": "136",
       "date": "Sep 16, 2009",
@@ -50821,7 +50447,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 102: Couture vs. Nogueira",
       "number": "135",
       "date": "Aug 29, 2009",
@@ -50951,7 +50576,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 101: Declaration",
       "number": "134",
       "date": "Aug 8, 2009",
@@ -51081,7 +50705,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 100",
       "number": "133",
       "date": "Jul 11, 2009",
@@ -51211,7 +50834,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: United States vs. United Kingdom Finale",
       "number": "132",
       "date": "Jun 20, 2009",
@@ -51330,7 +50952,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 99: The Comeback",
       "number": "131",
       "date": "Jun 13, 2009",
@@ -51471,7 +51092,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 98: Evans vs. Machida",
       "number": "130",
       "date": "May 23, 2009",
@@ -51601,7 +51221,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 97: Redemption",
       "number": "129",
       "date": "Apr 18, 2009",
@@ -51742,7 +51361,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Condit vs. Kampmann",
       "number": "128",
       "date": "Apr 1, 2009",
@@ -51872,7 +51490,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 96: Jackson vs. Jardine",
       "number": "127",
       "date": "Mar 7, 2009",
@@ -51991,7 +51608,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 95: Sanchez vs. Stevenson",
       "number": "126",
       "date": "Feb 21, 2009",
@@ -52110,7 +51726,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Lauzon vs. Stephens",
       "number": "125",
       "date": "Feb 7, 2009",
@@ -52229,7 +51844,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 94: St-Pierre vs. Penn 2",
       "number": "124",
       "date": "Jan 31, 2009",
@@ -52348,7 +51962,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 93: Franklin vs. Henderson",
       "number": "123",
       "date": "Jan 17, 2009",
@@ -52467,7 +52080,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 92: The Ultimate 2008",
       "number": "122",
       "date": "Dec 27, 2008",
@@ -52586,7 +52198,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Nogueira vs. Team Mir Finale",
       "number": "121",
       "date": "Dec 13, 2008",
@@ -52705,7 +52316,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC: Fight for the Troops",
       "number": "120",
       "date": "Dec 10, 2008",
@@ -52824,7 +52434,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 91: Couture vs. Lesnar",
       "number": "119",
       "date": "Nov 15, 2008",
@@ -52932,7 +52541,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 90: Silva vs. C\u00f4t\u00e9",
       "number": "118",
       "date": "Oct 25, 2008",
@@ -53051,7 +52659,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 89: Bisping vs. Leben",
       "number": "117",
       "date": "Oct 18, 2008",
@@ -53181,7 +52788,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Diaz vs. Neer",
       "number": "116",
       "date": "Sep 17, 2008",
@@ -53300,7 +52906,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 88: Breakthrough",
       "number": "115",
       "date": "Sep 6, 2008",
@@ -53408,7 +53013,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 87: Seek and Destroy",
       "number": "114",
       "date": "Aug 9, 2008",
@@ -53527,7 +53131,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Silva vs. Irvin",
       "number": "113",
       "date": "Jul 19, 2008",
@@ -53657,7 +53260,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 86: Jackson vs. Griffin",
       "number": "112",
       "date": "Jul 5, 2008",
@@ -53765,7 +53367,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Rampage vs. Team Forrest Finale",
       "number": "111",
       "date": "Jun 21, 2008",
@@ -53884,7 +53485,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 85: Bedlam",
       "number": "110",
       "date": "Jun 7, 2008",
@@ -54014,7 +53614,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 84: Ill Will",
       "number": "109",
       "date": "May 24, 2008",
@@ -54144,7 +53743,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 83: Serra vs. St-Pierre 2",
       "number": "108",
       "date": "Apr 19, 2008",
@@ -54274,7 +53872,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Florian vs. Lauzon",
       "number": "107",
       "date": "Apr 2, 2008",
@@ -54415,7 +54012,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 82: Pride of a Champion",
       "number": "106",
       "date": "Mar 1, 2008",
@@ -54534,7 +54130,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 81: Breaking Point",
       "number": "105",
       "date": "Feb 2, 2008",
@@ -54642,7 +54237,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Swick vs. Burkman",
       "number": "104",
       "date": "Jan 23, 2008",
@@ -54750,7 +54344,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 80: Rapid Fire",
       "number": "103",
       "date": "Jan 19, 2008",
@@ -54858,7 +54451,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 79: Nemesis",
       "number": "102",
       "date": "Dec 29, 2007",
@@ -54977,7 +54569,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Hughes vs. Team Serra Finale",
       "number": "101",
       "date": "Dec 8, 2007",
@@ -55085,7 +54676,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 78: Validation",
       "number": "100",
       "date": "Nov 17, 2007",
@@ -55193,7 +54783,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 77: Hostile Territory",
       "number": "099",
       "date": "Oct 20, 2007",
@@ -55301,7 +54890,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 76: Knockout",
       "number": "098",
       "date": "Sep 22, 2007",
@@ -55409,7 +54997,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Thomas vs. Florian",
       "number": "097",
       "date": "Sep 19, 2007",
@@ -55517,7 +55104,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 75: Champion vs. Champion",
       "number": "096",
       "date": "Sep 8, 2007",
@@ -55625,7 +55211,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 74: Respect",
       "number": "095",
       "date": "Aug 25, 2007",
@@ -55733,7 +55318,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 73: Stacked",
       "number": "094",
       "date": "Jul 7, 2007",
@@ -55841,7 +55425,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Pulver vs. Team Penn Finale",
       "number": "093",
       "date": "Jun 23, 2007",
@@ -55949,7 +55532,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 72: Victory",
       "number": "092",
       "date": "Jun 16, 2007",
@@ -56046,7 +55628,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Stout vs. Fisher",
       "number": "091",
       "date": "Jun 12, 2007",
@@ -56154,7 +55735,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 71: Liddell vs. Jackson",
       "number": "090",
       "date": "May 26, 2007",
@@ -56262,7 +55842,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 70: Nations Collide",
       "number": "089",
       "date": "Apr 21, 2007",
@@ -56381,7 +55960,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 69: Shootout",
       "number": "088",
       "date": "Apr 7, 2007",
@@ -56489,7 +56067,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Stevenson vs. Guillard",
       "number": "087",
       "date": "Apr 5, 2007",
@@ -56597,7 +56174,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 68: The Uprising",
       "number": "086",
       "date": "Mar 3, 2007",
@@ -56705,7 +56281,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 67: All or Nothing",
       "number": "085",
       "date": "Feb 3, 2007",
@@ -56813,7 +56388,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Evans vs. Salmon",
       "number": "084",
       "date": "Jan 25, 2007",
@@ -56910,7 +56484,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 66: Liddell vs. Ortiz",
       "number": "083",
       "date": "Dec 30, 2006",
@@ -57018,7 +56591,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night: Sanchez vs. Riggs",
       "number": "082",
       "date": "Dec 13, 2006",
@@ -57126,7 +56698,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 65: Bad Intentions",
       "number": "081",
       "date": "Nov 18, 2006",
@@ -57234,7 +56805,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: The Comeback Finale",
       "number": "080",
       "date": "Nov 11, 2006",
@@ -57331,7 +56901,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 64: Unstoppable",
       "number": "079",
       "date": "Oct 14, 2006",
@@ -57428,7 +56997,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night 6.5",
       "number": "078",
       "date": "Oct 10, 2006",
@@ -57536,7 +57104,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 63: Hughes vs. Penn",
       "number": "077",
       "date": "Sep 23, 2006",
@@ -57644,7 +57211,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 62: Liddell vs. Sobral",
       "number": "076",
       "date": "Aug 26, 2006",
@@ -57752,7 +57318,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Fight Night 6",
       "number": "075",
       "date": "Aug 17, 2006",
@@ -57860,7 +57425,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 61: Bitter Rivals",
       "number": "074",
       "date": "Jul 8, 2006",
@@ -57968,7 +57532,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Ultimate Fight Night 5",
       "number": "073",
       "date": "Jun 28, 2006",
@@ -58076,7 +57639,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Ortiz vs. Team Shamrock Finale",
       "number": "072",
       "date": "Jun 24, 2006",
@@ -58184,7 +57746,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 60: Hughes vs. Gracie",
       "number": "071",
       "date": "May 27, 2006",
@@ -58292,7 +57853,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 59: Reality Check",
       "number": "070",
       "date": "Apr 15, 2006",
@@ -58400,7 +57960,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Ultimate Fight Night 4",
       "number": "069",
       "date": "Apr 6, 2006",
@@ -58508,7 +58067,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 58: USA vs. Canada",
       "number": "068",
       "date": "Mar 4, 2006",
@@ -58605,7 +58163,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 57: Liddell vs. Couture 3",
       "number": "067",
       "date": "Feb 4, 2006",
@@ -58713,7 +58270,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Ultimate Fight Night 3",
       "number": "066",
       "date": "Jan 16, 2006",
@@ -58810,7 +58366,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 56: Full Force",
       "number": "065",
       "date": "Nov 19, 2005",
@@ -58907,7 +58462,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Hughes vs. Team Franklin Finale",
       "number": "064",
       "date": "Nov 5, 2005",
@@ -58993,7 +58547,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 55: Fury",
       "number": "063",
       "date": "Oct 7, 2005",
@@ -59090,7 +58643,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Ultimate Fight Night 2",
       "number": "062",
       "date": "Oct 3, 2005",
@@ -59176,7 +58728,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 54: Boiling Point",
       "number": "061",
       "date": "Aug 20, 2005",
@@ -59273,7 +58824,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 53: Heavy Hitters",
       "number": "059",
       "date": "Jun 4, 2005",
@@ -59370,7 +58920,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 52: Couture vs. Liddell",
       "number": "058",
       "date": "Apr 16, 2005",
@@ -59467,7 +59016,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "The Ultimate Fighter: Team Couture vs. Team Liddell Finale",
       "number": "057",
       "date": "Apr 9, 2005",
@@ -59575,7 +59123,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 51: Super Saturday",
       "number": "056",
       "date": "Feb 5, 2005",
@@ -59683,7 +59230,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 50: The War of '04",
       "number": "055",
       "date": "Oct 22, 2004",
@@ -59769,7 +59315,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 49: Unfinished Business",
       "number": "054",
       "date": "Aug 21, 2004",
@@ -59866,7 +59411,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 48: Payback",
       "number": "053",
       "date": "Jun 19, 2004",
@@ -59963,7 +59507,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 47: It's On!",
       "number": "052",
       "date": "Apr 2, 2004",
@@ -60060,7 +59603,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 46: Supernatural",
       "number": "051",
       "date": "Jan 31, 2004",
@@ -60157,7 +59699,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 45: Revolution",
       "number": "050",
       "date": "Nov 21, 2003",
@@ -60254,7 +59795,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 44: Undisputed",
       "number": "049",
       "date": "Sep 26, 2003",
@@ -60362,7 +59902,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 43: Meltdown",
       "number": "048",
       "date": "Jun 6, 2003",
@@ -60459,7 +59998,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 42: Sudden Impact",
       "number": "047",
       "date": "Apr 25, 2003",
@@ -60556,7 +60094,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 41: Onslaught",
       "number": "046",
       "date": "Feb 28, 2003",
@@ -60653,7 +60190,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 40: Vendetta",
       "number": "045",
       "date": "Nov 22, 2002",
@@ -60750,7 +60286,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 39: The Warriors Return",
       "number": "044",
       "date": "Sep 27, 2002",
@@ -60847,7 +60382,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 38: Brawl at the Hall",
       "number": "043",
       "date": "Jul 13, 2002",
@@ -60933,7 +60467,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 37.5: As Real As It Gets",
       "number": "042",
       "date": "Jun 22, 2002",
@@ -61008,7 +60541,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 37: High Impact",
       "number": "041",
       "date": "May 10, 2002",
@@ -61105,7 +60637,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 36: Worlds Collide",
       "number": "040",
       "date": "Mar 22, 2002",
@@ -61202,7 +60733,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 35: Throwdown",
       "number": "039",
       "date": "Jan 11, 2002",
@@ -61299,7 +60829,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 34: High Voltage",
       "number": "038",
       "date": "Nov 2, 2001",
@@ -61396,7 +60925,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 33: Victory in Vegas",
       "number": "037",
       "date": "Sep 28, 2001",
@@ -61493,7 +61021,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 32: Showdown in the Meadowlands",
       "number": "036",
       "date": "Jun 29, 2001",
@@ -61590,7 +61117,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 31: Locked and Loaded",
       "number": "035",
       "date": "May 4, 2001",
@@ -61687,7 +61213,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 30: Battle on the Boardwalk",
       "number": "034",
       "date": "Feb 23, 2001",
@@ -61784,7 +61309,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 29: Defense of the Belts",
       "number": "033",
       "date": "Dec 16, 2000",
@@ -61870,7 +61394,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 28: High Stakes",
       "number": "032",
       "date": "Nov 17, 2000",
@@ -61956,7 +61479,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 27: Ultimate Bad Boyz",
       "number": "031",
       "date": "Sep 22, 2000",
@@ -62053,7 +61575,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 26: Ultimate Field of Dreams",
       "number": "030",
       "date": "Jun 9, 2000",
@@ -62150,7 +61671,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 25: Ultimate Japan 3",
       "number": "029",
       "date": "Apr 14, 2000",
@@ -62225,7 +61745,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 24: First Defense",
       "number": "028",
       "date": "Mar 10, 2000",
@@ -62311,7 +61830,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 23: Ultimate Japan 2",
       "number": "027",
       "date": "Nov 19, 1999",
@@ -62397,7 +61915,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 22: Only One Can be Champion",
       "number": "026",
       "date": "Sep 24, 1999",
@@ -62494,7 +62011,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 21: Return of the Champions",
       "number": "025",
       "date": "Jul 16, 1999",
@@ -62591,7 +62107,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 20: Battle for the Gold",
       "number": "024",
       "date": "May 7, 1999",
@@ -62677,7 +62192,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 19: Ultimate Young Guns",
       "number": "023",
       "date": "Mar 5, 1999",
@@ -62763,7 +62277,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 18: The Road to the Heavyweight Title",
       "number": "022",
       "date": "Jan 8, 1999",
@@ -62849,7 +62362,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Brazil: Ultimate Brazil",
       "number": "021",
       "date": "Oct 16, 1998",
@@ -62946,7 +62458,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 17: Redemption",
       "number": "020",
       "date": "May 15, 1998",
@@ -63054,7 +62565,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 16: Battle in the Bayou",
       "number": "019",
       "date": "Mar 13, 1998",
@@ -63151,7 +62661,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC Japan: Ultimate Japan",
       "number": "018",
       "date": "Dec 21, 1997",
@@ -63237,7 +62746,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 15: Collision Course",
       "number": "017",
       "date": "Oct 17, 1997",
@@ -63323,7 +62831,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 14: Showdown",
       "number": "016",
       "date": "Jul 27, 1997",
@@ -63431,7 +62938,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 13: The Ultimate Force",
       "number": "015",
       "date": "May 30, 1997",
@@ -63539,7 +63045,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 12: Judgement Day",
       "number": "014",
       "date": "Feb 7, 1997",
@@ -63647,7 +63152,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC: The Ultimate Ultimate 2",
       "number": "013",
       "date": "Dec 7, 1996",
@@ -63766,7 +63270,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 11: The Proving Ground",
       "number": "012",
       "date": "Sep 20, 1996",
@@ -63874,7 +63377,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 10: The Tournament",
       "number": "011",
       "date": "Jul 12, 1996",
@@ -63982,7 +63484,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 9: Motor City Madness",
       "number": "010",
       "date": "May 17, 1996",
@@ -64068,7 +63569,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 8: David vs. Goliath",
       "number": "009",
       "date": "Feb 16, 1996",
@@ -64176,7 +63676,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC: The Ultimate Ultimate",
       "number": "008",
       "date": "Dec 16, 1995",
@@ -64284,7 +63783,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 7: The Brawl in Buffalo",
       "number": "007",
       "date": "Sep 8, 1995",
@@ -64414,7 +63912,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 6: Clash of the Titans",
       "number": "006",
       "date": "Jul 14, 1995",
@@ -64533,7 +64030,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 5: The Return of the Beast",
       "number": "005",
       "date": "Apr 7, 1995",
@@ -64652,7 +64148,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 4: Revenge of the Warriors",
       "number": "004",
       "date": "Dec 16, 1994",
@@ -64771,7 +64266,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 3: The American Dream",
       "number": "003",
       "date": "Sep 9, 1994",
@@ -64846,7 +64340,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 2: No Way Out",
       "number": "002",
       "date": "Mar 11, 1994",
@@ -65020,7 +64513,6 @@
       ]
     },
     {
-      "inDatabase": false,
       "name": "UFC 1: The Beginning",
       "number": "001",
       "date": "Nov 12, 1993",
