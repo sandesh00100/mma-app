@@ -4,8 +4,9 @@ const FighterModel = require("../../../models/fighter.model");
 const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 const randomNumberGen = require("../../CustomTools").randomNumber;
-
-const fs = require('fs').promises;
+const fs = require('fs');
+const fsPromises = fs.promises;
+const util = require('util');
 
 const eventObj = require('../../data tools/data/UFC/eventData.json');
 // TODO: Add match type on the database (lower in priority)
@@ -13,7 +14,7 @@ const eventObj = require('../../data tools/data/UFC/eventData.json');
 
 const createFighters = async () => {
   try {
-    const data = await fs.readFile("../../data tools/data/UFC/fighterImage.csv", "utf-8");
+    const data = await fsPromises.readFile("../../data tools/data/UFC/fighterImage.csv", "utf-8");
     const splitData = data.split("\n");
 
     for (let i = 1; i < splitData.length; i++) {
@@ -38,49 +39,43 @@ const createFighters = async () => {
   }
 };
 
+const timeStamp = () => {
+  const now = new Date();
+  return `${now.getMonth() + 1}-${now.getDate()}-${now.getFullYear()}-${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}:${now.getMilliseconds()}`;
+};
+
 const getNameArray = name => {
   const tempNameArray = name.split(" ");
   return tempNameArray.filter(element => !element.includes("c)"));
 };
 
 const getWeightClass = (weightClassName) => {
-  for (let weightClass of weightClassMap) {
-    if (weightClass in weightClassName) {
+  console.log("Searching through weight classes");
+  if (weightClassName.includes("Catchweight")) {
+    return weightClassName.match(/\d+.\d+/)[0];
+  }
+  for (let weightClass in weightClassMap) {
+    if (weightClassName.includes(weightClass)) {
       return weightClassMap[weightClass];
     }
   }
+  console.log("No weight class found")
+  return 0;
 };
 
-let fighterRecordMap = {};
-
-// TODO: Ignoring heavy weight at the moment but might want to revist that
-const weightClassMap = {
-  "Heavyweight": 265,
-  "Light Heavyweight": 205,
-  "Middleweight": 185,
-  "Welterweight": 175,
-  "Lightweight": 155,
-  "Featherweight": 145,
-  "Bantamweight": 135,
-  "Flyweight": 125
+const logObject = obj => {
+  let objString = "";
+  for (let attr in obj) {
+    objString += `\n${attr}:${obj[attr]} `
+  }
+  console.log(objString)
 };
-
-const newFighterObject = {
-  isChampion: false,
-  record: {
-    wins: 0,
-    losses: 0,
-    draws: 0,
-    disqualifications: 0
-  },
-  matches: []
-}
-
 const createDatabase = async () => {
+  let fighterRecordMap = {};
+
   console.log("connecting to mongodb...")
   try {
-    // Remove comment
-    // await mongoose.connect(databaseURL, {useNewUrlParser:true, useCreateIndex:true});
+    await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
   } catch (err) {
     console.log(err);
   }
@@ -91,10 +86,11 @@ const createDatabase = async () => {
 
   // Starting from the oldest event to the newest
   for (let j = 0; j < eventLen; j++) {
-    currentEvent = events[eventLen - j - 1];
+    const currentEvent = events[eventLen - j - 1];
     const matches = currentEvent.matches;
     const matchesLen = matches.length;
 
+    console.log("Reading " + currentEvent.name);
     for (let i = 0; i < matchesLen; i++) {
       const currentMatch = matches[i];
       const fighterArray = [];
@@ -106,19 +102,17 @@ const createDatabase = async () => {
       let winnerIndex = randomNumberGen(0, 2);
       const loserIndex = Math.abs(winnerIndex - 1);
 
-
       const winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[1] });
       const loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[1] });
 
       fighterArray[winnerIndex] = winner._id;
       fighterArray[loserIndex] = loser._id;
-      const previousChampIndex;
+      const previousChampIndex = null;
 
       let isFiveRounder = false;
       let isTitleFight = false;
-      console.log(currentMatch);
 
-      if (i == isFiveRounder) {
+      if (i == 0) {
         const redFighterIsChamp = currentMatch.redFighter.includes("c)");
         const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
         if (redFighterIsChamp || blueFighterIsChamp) {
@@ -155,11 +149,17 @@ const createDatabase = async () => {
         time: currentMatch.time,
         methodInfo: currentMatch.methodInfo,
         decisionInfo: currentMatch.decisionInfo,
-        round: currentMatch.round
+        round: currentMatch.round,
+        isTestData: false,
+        isMockData: false
       };
 
       const match = new MatchModel(matchObject);
       const savedMatch = await match.save();
+      console.log("Saving match: ");
+      logObject(matchObject);
+      let winnerObject = fighterRecordMap[winner.id];
+      let loserObject = fighterRecordMap[loser.id];
 
       if (matchIsDraw) {
         winnerObject.record.draws += 1;
@@ -168,17 +168,14 @@ const createDatabase = async () => {
         winnerObject.record.noContest += 1;
         loserObject.record.noContest += 1;
       } else {
-        let winnerObject = fighterRecordMap[winner._id];
-        let loserObject = fighterRecordMap[loser._id];
-
         if (winnerObject == null) {
-          winnerObject = { ...newFighterObject };
-          fighterRecordMap[winner._id] = winnerObject;
+          winnerObject = { ...newFighterObject, record: { ...newFighterObject.record } };
+          fighterRecordMap[winner.id] = winnerObject;
         }
 
         if (loserObject == null) {
-          winnerObject = { ...newFighterObject };
-          fighterRecordMap[loser._id] = loserObject;
+          loserObject = { ...newFighterObject, record: { ...newFighterObject.record } };
+          fighterRecordMap[loser.id] = loserObject;
         }
 
         if (isTitleFight) {
@@ -200,8 +197,46 @@ const createDatabase = async () => {
 
       break;
     }
+
+    //TODO: Need to test
+    for (let fighterId in fighterRecordMap) {
+      console.log("Updating fighter record:");
+      const fighterObj = fighterRecordMap[fighterId];
+      await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
+      logObject(fighterObj);
+    }
     break;
   }
+};
+
+// TODO: Ignoring heavy weight at the moment but might want to revist that
+const weightClassMap = {
+  "Heavyweight": 265,
+  "Light Heavyweight": 205,
+  "Middleweight": 185,
+  "Welterweight": 175,
+  "Lightweight": 155,
+  "Featherweight": 145,
+  "Bantamweight": 135,
+  "Flyweight": 125
+};
+
+const newFighterObject = {
+  isChampion: false,
+  record: {
+    wins: 0,
+    losses: 0,
+    draws: 0,
+    disqualifications: 0
+  },
+  matches: []
+}
+
+const logFile = fs.createWriteStream('dataCreation.access.log', { flags: 'a' });
+
+console.log = log => {
+  logFile.write(timeStamp() + " " + util.format(log) + '\n');
+  process.stdout.write(util.format(log) + '\n');
 };
 
 createDatabase().then(() => {
