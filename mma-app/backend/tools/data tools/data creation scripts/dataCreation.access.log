@@ -1,31 +1,11 @@
-1-23-2020-18:48:52:158 connecting to mongodb...
-1-23-2020-18:48:52:776 Reading events...
-1-23-2020-18:48:52:776 Reading UFC 1: The Beginning
-1-23-2020-18:48:52:777 Searching through weight classes
-1-23-2020-18:48:52:777 No weight class found
-1-23-2020-18:48:54:855 
-organization:UFC 
-eventName:UFC 1: The Beginning 
-matchOrder:0 
-isFiveRounds:true 
-isTitleFight:false 
-weightClass:0 
-fighters:5df98b26b4e09826e489c583,5df98b1cb4e09826e489c463 
-winnerIndex:0 
-championIndex:null 
-method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
-decisionInfo: 
-round: 
-isTestData:false 
-isMockData:false 
-1-23-2020-18:50:10:331 connecting to mongodb...
-1-23-2020-18:50:10:880 Reading events...
-1-23-2020-18:50:10:881 Reading UFC 1: The Beginning
-1-23-2020-18:50:10:881 Searching through weight classes
-1-23-2020-18:50:10:882 No weight class found
-1-23-2020-18:50:14:378 
+1-25-2020-8:17:30:874 connecting to mongodb...
+1-25-2020-8:17:31:979 Reading events...
+1-25-2020-8:17:37:380 Reading UFC 1: The Beginning
+1-25-2020-8:17:37:381 Searching through weight classes
+1-25-2020-8:17:37:381 No weight class found
+1-25-2020-8:17:37:382 Finding fighters Royce Gracie and Gerard Gordeau
+1-25-2020-8:17:37:630 Saving match: 
+1-25-2020-8:17:37:631 
 organization:UFC 
 eventName:UFC 1: The Beginning 
 matchOrder:0 
@@ -42,2604 +22,460 @@ decisionInfo:
 round: 
 isTestData:false 
 isMockData:false 
-1-23-2020-18:51:2:68 connecting to mongodb...
-1-23-2020-18:51:2:718 Reading events...
-1-23-2020-18:51:2:719 Reading UFC 1: The Beginning
-1-23-2020-18:51:2:719 Searching through weight classes
-1-23-2020-18:51:2:719 No weight class found
-1-23-2020-18:51:3:789 
+1-25-2020-8:17:37:657 Searching through weight classes
+1-25-2020-8:17:37:657 No weight class found
+1-25-2020-8:17:37:658 Finding fighters Royce Gracie and Ken Shamrock
+1-25-2020-8:17:37:843 Saving match: 
+1-25-2020-8:17:37:843 
 organization:UFC 
 eventName:UFC 1: The Beginning 
-matchOrder:0 
-isFiveRounds:true 
+matchOrder:1 
+isFiveRounds:false 
 isTitleFight:false 
 weightClass:0 
-fighters:5df98b26b4e09826e489c583,5df98b1cb4e09826e489c463 
+fighters:5df98b26b4e09826e489c583,5df98b28b4e09826e489c5b5 
 winnerIndex:0 
 championIndex:null 
 method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
+time:0:57 
+methodInfo:sleeve choke 
 decisionInfo: 
 round: 
 isTestData:false 
 isMockData:false 
-1-23-2020-18:52:19:937 connecting to mongodb...
-1-23-2020-18:52:20:701 Reading events...
-1-23-2020-18:52:20:702 Reading UFC 1: The Beginning
-1-23-2020-18:52:20:703 Searching through weight classes
-1-23-2020-18:52:20:703 No weight class found
-1-23-2020-18:52:25:683 
+1-25-2020-8:17:37:854 Searching through weight classes
+1-25-2020-8:17:37:864 No weight class found
+1-25-2020-8:17:37:864 Finding fighters Gerard Gordeau and Kevin Rosier
+1-25-2020-8:17:38:186 Saving match: 
+1-25-2020-8:17:38:187 
 organization:UFC 
 eventName:UFC 1: The Beginning 
-matchOrder:0 
-isFiveRounds:true 
+matchOrder:2 
+isFiveRounds:false 
 isTitleFight:false 
 weightClass:0 
-fighters:5df98b26b4e09826e489c583,5df98b1cb4e09826e489c463 
-winnerIndex:0 
-championIndex:null 
-method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
-decisionInfo: 
-round: 
-isTestData:false 
-isMockData:false 
-1-23-2020-18:53:8:17 connecting to mongodb...
-1-23-2020-18:53:9:779 Reading events...
-1-23-2020-18:53:9:780 Reading UFC 1: The Beginning
-1-23-2020-18:53:9:781 Searching through weight classes
-1-23-2020-18:53:9:781 No weight class found
-1-23-2020-18:53:10:919 
-organization:UFC 
-eventName:UFC 1: The Beginning 
-matchOrder:0 
-isFiveRounds:true 
-isTitleFight:false 
-weightClass:0 
-fighters:5df98b26b4e09826e489c583,5df98b1cb4e09826e489c463 
-winnerIndex:0 
-championIndex:null 
-method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
-decisionInfo: 
-round: 
-isTestData:false 
-isMockData:false 
-1-23-2020-18:55:29:533 connecting to mongodb...
-1-23-2020-18:55:30:210 Reading events...
-1-23-2020-18:55:30:210 Reading UFC 1: The Beginning
-1-23-2020-18:55:30:210 Searching through weight classes
-1-23-2020-18:55:30:211 No weight class found
-1-23-2020-18:55:33:772 
-1-23-2020-18:56:33:914 connecting to mongodb...
-1-23-2020-18:56:34:541 Reading events...
-1-23-2020-18:56:34:542 Reading UFC 1: The Beginning
-1-23-2020-18:56:34:542 Searching through weight classes
-1-23-2020-18:56:34:542 No weight class found
-1-23-2020-19:1:52:926 connecting to mongodb...
-1-23-2020-19:1:53:639 Reading events...
-1-23-2020-19:1:53:640 Reading UFC 1: The Beginning
-1-23-2020-19:1:53:640 Searching through weight classes
-1-23-2020-19:1:53:641 No weight class found
-1-23-2020-19:2:2:314 
-$__:[object Object] 
-isNew:false 
-errors:undefined 
-_doc:[object Object] 
-$locals:[object Object] 
-db:[object Object] 
-discriminators:undefined 
-eventName:UFC 1: The Beginning 
-organization:UFC 
-weightClass:0 
-matchType:undefined 
-method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
-decisionInfo: 
-round: 
-matchOrder:0 
-isFiveRounds:true 
-isTitleFight:false 
-date:undefined 
-fighters:5df98b1cb4e09826e489c463,5df98b26b4e09826e489c583 
+fighters:5df98b07b4e09826e489c250,5df98b1cb4e09826e489c463 
 winnerIndex:1 
 championIndex:null 
+method:TKO 
+time:0:59 
+methodInfo:corner stoppage 
+decisionInfo: 
+round: 
 isTestData:false 
 isMockData:false 
-_id:5e2a33f1f55d9032bc94a906 
-__v:0 
-id:5e2a33f1f55d9032bc94a906 
-schema:[object Object] 
-collection:[object Object] 
-$__save:function() {
-    var _context = context || this;
-    var args = Array.prototype.slice.call(arguments);
-    _this.wrap(name, fn, _context, args, options);
-  } 
-$__originalValidate:function(options, callback) {
-  if (typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-
-  const hasValidateModifiedOnlyOption = options &&
-      (typeof options === 'object') &&
-      ('validateModifiedOnly' in options);
-
-  let shouldValidateModifiedOnly;
-  if (hasValidateModifiedOnlyOption) {
-    shouldValidateModifiedOnly = !!options.validateModifiedOnly;
-  } else {
-    shouldValidateModifiedOnly = this.schema.options.validateModifiedOnly;
-  }
-
-  const _this = this;
-  const _complete = () => {
-    const err = this.$__.validationError;
-    this.$__.validationError = undefined;
-    this.$__.cachedRequired = {};
-    this.emit('validate', _this);
-    this.constructor.emit('validate', _this);
-    if (err) {
-      for (const key in err.errors) {
-        // Make sure cast errors persist
-        if (!this[documentArrayParent] && err.errors[key] instanceof MongooseError.CastError) {
-          this.invalidate(key, err.errors[key]);
-        }
-      }
-
-      return err;
-    }
-  };
-
-  // only validate required fields when necessary
-  const pathDetails = _getPathsToValidate(this);
-  const paths = shouldValidateModifiedOnly ?
-    pathDetails[0].filter((path) => this.isModified(path)) :
-    pathDetails[0];
-  const skipSchemaValidators = pathDetails[1];
-
-  if (paths.length === 0) {
-    return process.nextTick(function() {
-      const error = _complete();
-      if (error) {
-        return _this.schema.s.hooks.execPost('validate:error', _this, [ _this], { error: error }, function(error) {
-          callback(error);
-        });
-      }
-      callback(null, _this);
-    });
-  }
-
-  const validated = {};
-  let total = 0;
-
-  const complete = function() {
-    const error = _complete();
-    if (error) {
-      return _this.schema.s.hooks.execPost('validate:error', _this, [ _this], { error: error }, function(error) {
-        callback(error);
-      });
-    }
-    callback(null, _this);
-  };
-
-  const validatePath = function(path) {
-    if (path == null || validated[path]) {
-      return;
-    }
-
-    validated[path] = true;
-    total++;
-
-    process.nextTick(function() {
-      const p = _this.schema.path(path);
-
-      if (!p) {
-        return --total || complete();
-      }
-
-      // If user marked as invalid or there was a cast error, don't validate
-      if (!_this.$isValid(path)) {
-        --total || complete();
-        return;
-      }
-
-      let val = _this.$__getValue(path);
-
-      // If you `populate()` and get back a null value, required validators
-      // shouldn't fail (gh-8018). We should always fall back to the populated
-      // value.
-      let pop;
-      if (val == null && (pop = _this.populated(path))) {
-        val = pop;
-      }
-      const scope = path in _this.$__.pathsToScopes ?
-        _this.$__.pathsToScopes[path] :
-        _this;
-
-      p.doValidate(val, function(err) {
-        if (err && (!p.$isMongooseDocumentArray || err.$isArrayValidatorError)) {
-          if (p.$isSingleNested &&
-              err.name === 'ValidationError' &&
-              p.schema.options.storeSubdocValidationError === false) {
-            return --total || complete();
-          }
-          _this.invalidate(path, err, undefined, true);
-        }
-        --total || complete();
-      }, scope, { skipSchemaValidators: skipSchemaValidators[path], path: path });
-    });
-  };
-
-  const numPaths = paths.length;
-  for (let i = 0; i < numPaths; ++i) {
-    validatePath(paths[i]);
-  }
-} 
-$__validate:function() {
-      process.nextTick(() => fn.apply(this, arguments));
-    } 
-$__remove:function() {
-    var _context = context || this;
-    var args = Array.prototype.slice.call(arguments);
-    _this.wrap(name, fn, _context, args, options);
-  } 
-$__deleteOne:function() {
-      process.nextTick(() => fn.apply(this, arguments));
-    } 
-$__init:function syncWrapper() {
-    kareem.execPreSync(name, this, arguments);
-
-    var toReturn = fn.apply(this, arguments);
-
-    kareem.execPostSync(name, this, [toReturn]);
-
-    return toReturn;
-  } 
-$isMongooseModelPrototype:true 
-$__handleSave:function(options, callback) {
-  const _this = this;
-  let saveOptions = {};
-
-  if ('safe' in options) {
-    _handleSafe(options);
-  }
-  applyWriteConcern(this.schema, options);
-  if ('w' in options) {
-    saveOptions.w = options.w;
-  }
-  if ('j' in options) {
-    saveOptions.j = options.j;
-  }
-  if ('wtimeout' in options) {
-    saveOptions.wtimeout = options.wtimeout;
-  }
-  if ('checkKeys' in options) {
-    saveOptions.checkKeys = options.checkKeys;
-  }
-
-  const session = this.$session();
-  if (!saveOptions.hasOwnProperty('session')) {
-    saveOptions.session = session;
-  }
-
-  if (Object.keys(saveOptions).length === 0) {
-    saveOptions = null;
-  }
-
-  if (this.isNew) {
-    // send entire doc
-    const obj = this.toObject(internalToObjectOptions);
-
-    if ((obj || {})._id === void 0) {
-      // documents must have an _id else mongoose won't know
-      // what to update later if more changes are made. the user
-      // wouldn't know what _id was generated by mongodb either
-      // nor would the ObjectId generated by mongodb necessarily
-      // match the schema definition.
-      setTimeout(function() {
-        callback(new MongooseError('document must have an _id before saving'));
-      }, 0);
-      return;
-    }
-
-    this.$__version(true, obj);
-    this[modelCollectionSymbol].insertOne(obj, saveOptions, function(err, ret) {
-      if (err) {
-        _this.isNew = true;
-        _this.emit('isNew', true);
-        _this.constructor.emit('isNew', true);
-
-        callback(err, null);
-        return;
-      }
-
-      callback(null, ret);
-    });
-    this.$__reset();
-    this.isNew = false;
-    this.emit('isNew', false);
-    this.constructor.emit('isNew', false);
-    // Make it possible to retry the insert
-    this.$__.inserting = true;
-  } else {
-    // Make sure we don't treat it as a new object on error,
-    // since it already exists
-    this.$__.inserting = false;
-
-    const delta = this.$__delta();
-
-    if (delta) {
-      if (delta instanceof MongooseError) {
-        callback(delta);
-        return;
-      }
-
-      const where = this.$__where(delta[0]);
-      if (where instanceof MongooseError) {
-        callback(where);
-        return;
-      }
-
-      _applyCustomWhere(this, where);
-
-      this[modelCollectionSymbol].updateOne(where, delta[1], saveOptions, function(err, ret) {
-        if (err) {
-          callback(err);
-          return;
-        }
-        ret.$where = where;
-        callback(null, ret);
-      });
-    } else {
-      this.$__reset();
-      callback();
-      return;
-    }
-
-    this.emit('isNew', false);
-    this.constructor.emit('isNew', false);
-  }
-} 
-save:function(options, fn) {
-  let parallelSave;
-
-  if (this.$__.saving) {
-    parallelSave = new ParallelSaveError(this);
-  } else {
-    this.$__.saving = new ParallelSaveError(this);
-  }
-
-  if (typeof options === 'function') {
-    fn = options;
-    options = undefined;
-  }
-
-  if (fn) {
-    fn = this.constructor.$wrapCallback(fn);
-  }
-
-  options = new SaveOptions(options);
-  if (options.hasOwnProperty('session')) {
-    this.$session(options.session);
-  }
-
-  this.$__.$versionError = generateVersionError(this, this.modifiedPaths());
-
-  return utils.promiseOrCallback(fn, cb => {
-    if (parallelSave) {
-      this.$__handleReject(parallelSave);
-      return cb(parallelSave);
-    }
-
-    this.$__.saveOptions = options;
-
-    this.$__save(options, error => {
-      this.$__.saving = undefined;
-      delete this.$__.saveOptions;
-      delete this.$__.versionError;
-
-      if (error) {
-        this.$__handleReject(error);
-        return cb(error);
-      }
-      cb(null, this);
-    });
-  }, this.constructor.events);
-} 
-$__delta:function() {
-  const dirty = this.$__dirty();
-  if (!dirty.length && VERSION_ALL !== this.$__.version) {
-    return;
-  }
-
-  const where = {};
-  const delta = {};
-  const len = dirty.length;
-  const divergent = [];
-  let d = 0;
-
-  where._id = this._doc._id;
-  // If `_id` is an object, need to depopulate, but also need to be careful
-  // because `_id` can technically be null (see gh-6406)
-  if (get(where, '_id.$__', null) != null) {
-    where._id = where._id.toObject({ transform: false, depopulate: true });
-  }
-
-  for (; d < len; ++d) {
-    const data = dirty[d];
-    let value = data.value;
-
-    const match = checkDivergentArray(this, data.path, value);
-    if (match) {
-      divergent.push(match);
-      continue;
-    }
-
-    const pop = this.populated(data.path, true);
-    if (!pop && this.$__.selected) {
-      // If any array was selected using an $elemMatch projection, we alter the path and where clause
-      // NOTE: MongoDB only supports projected $elemMatch on top level array.
-      const pathSplit = data.path.split('.');
-      const top = pathSplit[0];
-      if (this.$__.selected[top] && this.$__.selected[top].$elemMatch) {
-        // If the selected array entry was modified
-        if (pathSplit.length > 1 && pathSplit[1] == 0 && typeof where[top] === 'undefined') {
-          where[top] = this.$__.selected[top];
-          pathSplit[1] = '$';
-          data.path = pathSplit.join('.');
-        }
-        // if the selected array was modified in any other way throw an error
-        else {
-          divergent.push(data.path);
-          continue;
-        }
-      }
-    }
-
-    if (divergent.length) continue;
-
-    if (value === undefined) {
-      operand(this, where, delta, data, 1, '$unset');
-    } else if (value === null) {
-      operand(this, where, delta, data, null);
-    } else if (value.isMongooseArray && value.$path() && value[arrayAtomicsSymbol]) {
-      // arrays and other custom types (support plugins etc)
-      handleAtomics(this, where, delta, data, value);
-    } else if (value[MongooseBuffer.pathSymbol] && Buffer.isBuffer(value)) {
-      // MongooseBuffer
-      value = value.toObject();
-      operand(this, where, delta, data, value);
-    } else {
-      value = utils.clone(value, {
-        depopulate: true,
-        transform: false,
-        virtuals: false,
-        getters: false,
-        _isNested: true
-      });
-      operand(this, where, delta, data, value);
-    }
-  }
-
-  if (divergent.length) {
-    return new DivergentArrayError(divergent);
-  }
-
-  if (this.$__.version) {
-    this.$__version(where, delta);
-  }
-
-  return [where, delta];
-} 
-$__version:function(where, delta) {
-  const key = this.schema.options.versionKey;
-
-  if (where === true) {
-    // this is an insert
-    if (key) this.$__setValue(key, delta[key] = 0);
-    return;
-  }
-
-  // updates
-
-  // only apply versioning if our versionKey was selected. else
-  // there is no way to select the correct version. we could fail
-  // fast here and force them to include the versionKey but
-  // thats a bit intrusive. can we do this automatically?
-  if (!this.isSelected(key)) {
-    return;
-  }
-
-  // $push $addToSet don't need the where clause set
-  if (VERSION_WHERE === (VERSION_WHERE & this.$__.version)) {
-    const value = this.$__getValue(key);
-    if (value != null) where[key] = value;
-  }
-
-  if (VERSION_INC === (VERSION_INC & this.$__.version)) {
-    if (get(delta.$set, key, null) != null) {
-      // Version key is getting set, means we'll increment the doc's version
-      // after a successful save, so we should set the incremented version so
-      // future saves don't fail (gh-5779)
-      ++delta.$set[key];
-    } else {
-      delta.$inc = delta.$inc || {};
-      delta.$inc[key] = 1;
-    }
-  }
-} 
-increment:function increment() {
-  this.$__.version = VERSION_ALL;
-  return this;
-} 
-$__where:function _where(where) {
-  where || (where = {});
-
-  if (!where._id) {
-    where._id = this._doc._id;
-  }
-
-  if (this._doc._id === void 0) {
-    return new MongooseError('No _id found on document!');
-  }
-
-  return where;
-} 
-remove:function remove(options, fn) {
-  if (typeof options === 'function') {
-    fn = options;
-    options = undefined;
-  }
-
-  options = new RemoveOptions(options);
-  if (options.hasOwnProperty('session')) {
-    this.$session(options.session);
-  }
-
-  if (fn) {
-    fn = this.constructor.$wrapCallback(fn);
-  }
-
-  return utils.promiseOrCallback(fn, cb => {
-    this.$__remove(options, cb);
-  }, this.constructor.events);
-} 
-delete:function remove(options, fn) {
-  if (typeof options === 'function') {
-    fn = options;
-    options = undefined;
-  }
-
-  options = new RemoveOptions(options);
-  if (options.hasOwnProperty('session')) {
-    this.$session(options.session);
-  }
-
-  if (fn) {
-    fn = this.constructor.$wrapCallback(fn);
-  }
-
-  return utils.promiseOrCallback(fn, cb => {
-    this.$__remove(options, cb);
-  }, this.constructor.events);
-} 
-deleteOne:function deleteOne(options, fn) {
-  if (typeof options === 'function') {
-    fn = options;
-    options = undefined;
-  }
-
-  if (!options) {
-    options = {};
-  }
-
-  if (fn) {
-    fn = this.constructor.$wrapCallback(fn);
-  }
-
-  return utils.promiseOrCallback(fn, cb => {
-    this.$__deleteOne(options, cb);
-  }, this.constructor.events);
-} 
-model:function model(name) {
-  return this.db.model(name);
-} 
-on:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-once:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-emit:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-listeners:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-removeListener:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-setMaxListeners:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-removeAllListeners:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-addListener:function() {
-      return this.$__.emitter[emitterFn].apply(this.$__.emitter, arguments);
-    } 
-$__buildDoc:function(obj, fields, skipId, exclude, hasIncludedChildren) {
-  const doc = {};
-
-  const paths = Object.keys(this.schema.paths).
-    // Don't build up any paths that are underneath a map, we don't know
-    // what the keys will be
-    filter(p => !p.includes('$*'));
-  const plen = paths.length;
-  let ii = 0;
-
-  for (; ii < plen; ++ii) {
-    const p = paths[ii];
-
-    if (p === '_id') {
-      if (skipId) {
-        continue;
-      }
-      if (obj && '_id' in obj) {
-        continue;
-      }
-    }
-
-    const path = p.split('.');
-    const len = path.length;
-    const last = len - 1;
-    let curPath = '';
-    let doc_ = doc;
-    let included = false;
-
-    for (let i = 0; i < len; ++i) {
-      const piece = path[i];
-
-      curPath += (!curPath.length ? '' : '.') + piece;
-
-      // support excluding intermediary levels
-      if (exclude === true) {
-        if (curPath in fields) {
-          break;
-        }
-      } else if (exclude === false && fields && !included) {
-        if (curPath in fields) {
-          included = true;
-        } else if (!hasIncludedChildren[curPath]) {
-          break;
-        }
-      }
-
-      if (i < last) {
-        doc_ = doc_[piece] || (doc_[piece] = {});
-      }
-    }
-  }
-
-  this._doc = doc;
-} 
-toBSON:function() {
-  return this.toObject(internalToObjectOptions);
-} 
-init:function(doc, opts, fn) {
-  if (typeof opts === 'function') {
-    fn = opts;
-    opts = null;
-  }
-
-  this.$__init(doc, opts);
-
-  if (fn) {
-    fn(null, this);
-  }
-
-  return this;
-} 
-update:function update() {
-  const args = utils.args(arguments);
-  args.unshift({_id: this._id});
-  const query = this.constructor.update.apply(this.constructor, args);
-
-  if (this.$session() != null) {
-    if (!('session' in query.options)) {
-      query.options.session = this.$session();
-    }
-  }
-
-  return query;
-} 
-updateOne:function updateOne(doc, options, callback) {
-  const query = this.constructor.updateOne({_id: this._id}, doc, options);
-  query._pre(cb => {
-    this.constructor._middleware.execPre('updateOne', this, [], cb);
-  });
-  query._post(cb => {
-    this.constructor._middleware.execPost('updateOne', this, [], {}, cb);
-  });
-
-  if (this.$session() != null) {
-    if (!('session' in query.options)) {
-      query.options.session = this.$session();
-    }
-  }
-
-  if (callback != null) {
-    return query.exec(callback);
-  }
-
-  return query;
-} 
-replaceOne:function replaceOne() {
-  const args = utils.args(arguments);
-  args.unshift({ _id: this._id });
-  return this.constructor.replaceOne.apply(this.constructor, args);
-} 
-$session:function $session(session) {
-  if (arguments.length === 0) {
-    return this.$__.session;
-  }
-  this.$__.session = session;
-
-  if (!this.ownerDocument) {
-    const subdocs = this.$__getAllSubdocs();
-    for (const child of subdocs) {
-      child.$session(session);
-    }
-  }
-
-  return session;
-} 
-overwrite:function overwrite(obj) {
-  const keys = Array.from(new Set(Object.keys(this._doc).concat(Object.keys(obj))));
-
-  for (const key of keys) {
-    if (key === '_id') {
-      continue;
-    }
-    // Explicitly skip version key
-    if (this.schema.options.versionKey && key === this.schema.options.versionKey) {
-      continue;
-    }
-    this.$set(key, obj[key]);
-  }
-
-  return this;
-} 
-$set:function $set(path, val, type, options) {
-  if (utils.isPOJO(type)) {
-    options = type;
-    type = undefined;
-  }
-
-  options = options || {};
-  const merge = options.merge;
-  const adhoc = type && type !== true;
-  const constructing = type === true;
-  let adhocs;
-  let keys;
-  let i = 0;
-  let pathtype;
-  let key;
-  let prefix;
-
-  const strict = 'strict' in options
-    ? options.strict
-    : this.$__.strictMode;
-
-  if (adhoc) {
-    adhocs = this.$__.adhocPaths || (this.$__.adhocPaths = {});
-    adhocs[path] = this.schema.interpretAsType(path, type, this.schema.options);
-  }
-
-  if (typeof path !== 'string') {
-    // new Document({ key: val })
-    if (path === null || path === void 0) {
-      const _ = path;
-      path = val;
-      val = _;
-    } else {
-      prefix = val ? val + '.' : '';
-
-      if (path instanceof Document) {
-        if (path.$__isNested) {
-          path = path.toObject();
-        } else {
-          path = path._doc;
-        }
-      }
-
-      keys = Object.keys(path);
-      const len = keys.length;
-
-      if (len === 0 && !this.schema.options.minimize) {
-        if (val) {
-          this.$set(val, {});
-        }
-        return this;
-      }
-
-      while (i < len) {
-        _handleIndex.call(this, i++);
-      }
-
-      return this;
-    }
-  } else {
-    this.$__.$setCalled.add(path);
-  }
-
-  function _handleIndex(i) {
-    key = keys[i];
-    const pathName = prefix + key;
-    pathtype = this.schema.pathType(pathName);
-
-    // On initial set, delete any nested keys if we're going to overwrite
-    // them to ensure we keep the user's key order.
-    if (type === true &&
-        !prefix &&
-        path[key] != null &&
-        pathtype === 'nested' &&
-        this._doc[key] != null &&
-        Object.keys(this._doc[key]).length === 0) {
-      delete this._doc[key];
-    }
-
-    if (typeof path[key] === 'object' &&
-        !utils.isNativeObject(path[key]) &&
-        !utils.isMongooseType(path[key]) &&
-        path[key] != null &&
-        pathtype !== 'virtual' &&
-        pathtype !== 'real' &&
-        !(this.$__path(pathName) instanceof MixedSchema) &&
-        !(this.schema.paths[pathName] &&
-        this.schema.paths[pathName].options &&
-        this.schema.paths[pathName].options.ref)) {
-      this.$__.$setCalled.add(prefix + key);
-      this.$set(path[key], prefix + key, constructing);
-    } else if (strict) {
-      // Don't overwrite defaults with undefined keys (gh-3981)
-      if (constructing && path[key] === void 0 &&
-          this.get(key) !== void 0) {
-        return;
-      }
-
-      if (pathtype === 'adhocOrUndefined') {
-        pathtype = getEmbeddedDiscriminatorPath(this, pathName, { typeOnly: true });
-      }
-
-      if (pathtype === 'real' || pathtype === 'virtual') {
-        // Check for setting single embedded schema to document (gh-3535)
-        let p = path[key];
-        if (this.schema.paths[pathName] &&
-            this.schema.paths[pathName].$isSingleNested &&
-            path[key] instanceof Document) {
-          p = p.toObject({ virtuals: false, transform: false });
-        }
-        this.$set(prefix + key, p, constructing);
-      } else if (pathtype === 'nested' && path[key] instanceof Document) {
-        this.$set(prefix + key,
-          path[key].toObject({transform: false}), constructing);
-      } else if (strict === 'throw') {
-        if (pathtype === 'nested') {
-          throw new ObjectExpectedError(key, path[key]);
-        } else {
-          throw new StrictModeError(key);
-        }
-      }
-    } else if (path[key] !== void 0) {
-      this.$set(prefix + key, path[key], constructing);
-    }
-  }
-
-  let pathType = this.schema.pathType(path);
-  if (pathType === 'adhocOrUndefined') {
-    pathType = getEmbeddedDiscriminatorPath(this, path, { typeOnly: true });
-  }
-
-  // Assume this is a Mongoose document that was copied into a POJO using
-  // `Object.assign()` or `{...doc}`
-  if (utils.isPOJO(val) && val.$__ != null && val._doc != null) {
-    val = val._doc;
-  }
-
-  if (pathType === 'nested' && val) {
-    if (typeof val === 'object' && val != null) {
-      if (!merge) {
-        this.$__setValue(path, null);
-        cleanModifiedSubpaths(this, path);
-      } else {
-        return this.$set(val, path, constructing);
-      }
-
-      const keys = Object.keys(val);
-      this.$__setValue(path, {});
-      for (const key of keys) {
-        this.$set(path + '.' + key, val[key], constructing);
-      }
-      this.markModified(path);
-      cleanModifiedSubpaths(this, path, { skipDocArrays: true });
-      return this;
-    }
-    this.invalidate(path, new MongooseError.CastError('Object', val, path));
-    return this;
-  }
-
-  let schema;
-  const parts = path.split('.');
-
-  // Might need to change path for top-level alias
-  if (typeof this.schema.aliases[parts[0]] == 'string') {
-    parts[0] = this.schema.aliases[parts[0]];
-  }
-
-  if (pathType === 'adhocOrUndefined' && strict) {
-    // check for roots that are Mixed types
-    let mixed;
-
-    for (i = 0; i < parts.length; ++i) {
-      const subpath = parts.slice(0, i + 1).join('.');
-
-      // If path is underneath a virtual, bypass everything and just set it.
-      if (i + 1 < parts.length && this.schema.pathType(subpath) === 'virtual') {
-        mpath.set(path, val, this);
-        return this;
-      }
-
-      schema = this.schema.path(subpath);
-      if (schema == null) {
-        continue;
-      }
-
-      if (schema instanceof MixedSchema) {
-        // allow changes to sub paths of mixed types
-        mixed = true;
-        break;
-      }
-    }
-
-    if (schema == null) {
-      // Check for embedded discriminators
-      schema = getEmbeddedDiscriminatorPath(this, path);
-    }
-
-    if (!mixed && !schema) {
-      if (strict === 'throw') {
-        throw new StrictModeError(path);
-      }
-      return this;
-    }
-  } else if (pathType === 'virtual') {
-    schema = this.schema.virtualpath(path);
-    schema.applySetters(val, this);
-    return this;
-  } else {
-    schema = this.$__path(path);
-  }
-
-  // gh-4578, if setting a deeply nested path that doesn't exist yet, create it
-  let cur = this._doc;
-  let curPath = '';
-  for (i = 0; i < parts.length - 1; ++i) {
-    cur = cur[parts[i]];
-    curPath += (curPath.length > 0 ? '.' : '') + parts[i];
-    if (!cur) {
-      this.$set(curPath, {});
-      // Hack re: gh-5800. If nested field is not selected, it probably exists
-      // so `MongoError: cannot use the part (nested of nested.num) to
-      // traverse the element ({nested: null})` is not likely. If user gets
-      // that error, its their fault for now. We should reconsider disallowing
-      // modifying not selected paths for 6.x
-      if (!this.isSelected(curPath)) {
-        this.unmarkModified(curPath);
-      }
-      cur = this.$__getValue(curPath);
-    }
-  }
-
-  let pathToMark;
-
-  // When using the $set operator the path to the field must already exist.
-  // Else mongodb throws: "LEFT_SUBFIELD only supports Object"
-
-  if (parts.length <= 1) {
-    pathToMark = path;
-  } else {
-    for (i = 0; i < parts.length; ++i) {
-      const subpath = parts.slice(0, i + 1).join('.');
-      if (this.get(subpath, null, { getters: false }) === null) {
-        pathToMark = subpath;
-        break;
-      }
-    }
-
-    if (!pathToMark) {
-      pathToMark = path;
-    }
-  }
-
-  // if this doc is being constructed we should not trigger getters
-  const priorVal = (() => {
-    if (this.$__.$options.priorDoc != null) {
-      return this.$__.$options.priorDoc.$__getValue(path);
-    }
-    if (constructing) {
-      return void 0;
-    }
-    return this.$__getValue(path);
-  })();
-
-  if (!schema) {
-    this.$__set(pathToMark, path, constructing, parts, schema, val, priorVal);
-    return this;
-  }
-
-  let shouldSet = true;
-  try {
-    // If the user is trying to set a ref path to a document with
-    // the correct model name, treat it as populated
-    const refMatches = (() => {
-      if (schema.options == null) {
-        return false;
-      }
-      if (!(val instanceof Document)) {
-        return false;
-      }
-      const model = val.constructor;
-
-      // Check ref
-      const ref = schema.options.ref;
-      if (ref != null && (ref === model.modelName || ref === model.baseModelName)) {
-        return true;
-      }
-
-      // Check refPath
-      const refPath = schema.options.refPath;
-      if (refPath == null) {
-        return false;
-      }
-      const modelName = val.get(refPath);
-      if (modelName === model.modelName || modelName === model.baseModelName) {
-        return true;
-      }
-      return false;
-    })();
-
-    let didPopulate = false;
-    if (refMatches && val instanceof Document) {
-      if (this.ownerDocument) {
-        this.ownerDocument().populated(this.$__fullPath(path),
-          val._id, { [populateModelSymbol]: val.constructor });
-      } else {
-        this.populated(path, val._id, { [populateModelSymbol]: val.constructor });
-      }
-      didPopulate = true;
-    }
-
-    let popOpts;
-    if (schema.options &&
-        Array.isArray(schema.options[this.schema.options.typeKey]) &&
-        schema.options[this.schema.options.typeKey].length &&
-        schema.options[this.schema.options.typeKey][0].ref &&
-        Array.isArray(val) &&
-        val.length > 0 &&
-        val[0] instanceof Document &&
-        val[0].constructor.modelName &&
-        (schema.options[this.schema.options.typeKey][0].ref === val[0].constructor.baseModelName || schema.options[this.schema.options.typeKey][0].ref === val[0].constructor.modelName)) {
-      if (this.ownerDocument) {
-        popOpts = { [populateModelSymbol]: val[0].constructor };
-        this.ownerDocument().populated(this.$__fullPath(path),
-          val.map(function(v) { return v._id; }), popOpts);
-      } else {
-        popOpts = { [populateModelSymbol]: val[0].constructor };
-        this.populated(path, val.map(function(v) { return v._id; }), popOpts);
-      }
-      didPopulate = true;
-    }
-
-    // If this path is underneath a single nested schema, we'll call the setter
-    // later in `$__set()` because we don't take `_doc` when we iterate through
-    // a single nested doc. That's to make sure we get the correct context.
-    // Otherwise we would double-call the setter, see gh-7196.
-    if (this.schema.singleNestedPaths[path] == null) {
-      val = schema.applySetters(val, this, false, priorVal);
-    }
-
-    if (!didPopulate && this.$__.populated) {
-      delete this.$__.populated[path];
-    }
-
-    this.$markValid(path);
-  } catch (e) {
-    this.invalidate(path,
-      new MongooseError.CastError(schema.instance, val, path, e));
-    shouldSet = false;
-  }
-
-  if (shouldSet) {
-    this.$__set(pathToMark, path, constructing, parts, schema, val, priorVal);
-  }
-
-  if (schema.$isSingleNested && (this.isDirectModified(path) || val == null)) {
-    cleanModifiedSubpaths(this, path);
-  }
-
-  return this;
-} 
-set:function $set(path, val, type, options) {
-  if (utils.isPOJO(type)) {
-    options = type;
-    type = undefined;
-  }
-
-  options = options || {};
-  const merge = options.merge;
-  const adhoc = type && type !== true;
-  const constructing = type === true;
-  let adhocs;
-  let keys;
-  let i = 0;
-  let pathtype;
-  let key;
-  let prefix;
-
-  const strict = 'strict' in options
-    ? options.strict
-    : this.$__.strictMode;
-
-  if (adhoc) {
-    adhocs = this.$__.adhocPaths || (this.$__.adhocPaths = {});
-    adhocs[path] = this.schema.interpretAsType(path, type, this.schema.options);
-  }
-
-  if (typeof path !== 'string') {
-    // new Document({ key: val })
-    if (path === null || path === void 0) {
-      const _ = path;
-      path = val;
-      val = _;
-    } else {
-      prefix = val ? val + '.' : '';
-
-      if (path instanceof Document) {
-        if (path.$__isNested) {
-          path = path.toObject();
-        } else {
-          path = path._doc;
-        }
-      }
-
-      keys = Object.keys(path);
-      const len = keys.length;
-
-      if (len === 0 && !this.schema.options.minimize) {
-        if (val) {
-          this.$set(val, {});
-        }
-        return this;
-      }
-
-      while (i < len) {
-        _handleIndex.call(this, i++);
-      }
-
-      return this;
-    }
-  } else {
-    this.$__.$setCalled.add(path);
-  }
-
-  function _handleIndex(i) {
-    key = keys[i];
-    const pathName = prefix + key;
-    pathtype = this.schema.pathType(pathName);
-
-    // On initial set, delete any nested keys if we're going to overwrite
-    // them to ensure we keep the user's key order.
-    if (type === true &&
-        !prefix &&
-        path[key] != null &&
-        pathtype === 'nested' &&
-        this._doc[key] != null &&
-        Object.keys(this._doc[key]).length === 0) {
-      delete this._doc[key];
-    }
-
-    if (typeof path[key] === 'object' &&
-        !utils.isNativeObject(path[key]) &&
-        !utils.isMongooseType(path[key]) &&
-        path[key] != null &&
-        pathtype !== 'virtual' &&
-        pathtype !== 'real' &&
-        !(this.$__path(pathName) instanceof MixedSchema) &&
-        !(this.schema.paths[pathName] &&
-        this.schema.paths[pathName].options &&
-        this.schema.paths[pathName].options.ref)) {
-      this.$__.$setCalled.add(prefix + key);
-      this.$set(path[key], prefix + key, constructing);
-    } else if (strict) {
-      // Don't overwrite defaults with undefined keys (gh-3981)
-      if (constructing && path[key] === void 0 &&
-          this.get(key) !== void 0) {
-        return;
-      }
-
-      if (pathtype === 'adhocOrUndefined') {
-        pathtype = getEmbeddedDiscriminatorPath(this, pathName, { typeOnly: true });
-      }
-
-      if (pathtype === 'real' || pathtype === 'virtual') {
-        // Check for setting single embedded schema to document (gh-3535)
-        let p = path[key];
-        if (this.schema.paths[pathName] &&
-            this.schema.paths[pathName].$isSingleNested &&
-            path[key] instanceof Document) {
-          p = p.toObject({ virtuals: false, transform: false });
-        }
-        this.$set(prefix + key, p, constructing);
-      } else if (pathtype === 'nested' && path[key] instanceof Document) {
-        this.$set(prefix + key,
-          path[key].toObject({transform: false}), constructing);
-      } else if (strict === 'throw') {
-        if (pathtype === 'nested') {
-          throw new ObjectExpectedError(key, path[key]);
-        } else {
-          throw new StrictModeError(key);
-        }
-      }
-    } else if (path[key] !== void 0) {
-      this.$set(prefix + key, path[key], constructing);
-    }
-  }
-
-  let pathType = this.schema.pathType(path);
-  if (pathType === 'adhocOrUndefined') {
-    pathType = getEmbeddedDiscriminatorPath(this, path, { typeOnly: true });
-  }
-
-  // Assume this is a Mongoose document that was copied into a POJO using
-  // `Object.assign()` or `{...doc}`
-  if (utils.isPOJO(val) && val.$__ != null && val._doc != null) {
-    val = val._doc;
-  }
-
-  if (pathType === 'nested' && val) {
-    if (typeof val === 'object' && val != null) {
-      if (!merge) {
-        this.$__setValue(path, null);
-        cleanModifiedSubpaths(this, path);
-      } else {
-        return this.$set(val, path, constructing);
-      }
-
-      const keys = Object.keys(val);
-      this.$__setValue(path, {});
-      for (const key of keys) {
-        this.$set(path + '.' + key, val[key], constructing);
-      }
-      this.markModified(path);
-      cleanModifiedSubpaths(this, path, { skipDocArrays: true });
-      return this;
-    }
-    this.invalidate(path, new MongooseError.CastError('Object', val, path));
-    return this;
-  }
-
-  let schema;
-  const parts = path.split('.');
-
-  // Might need to change path for top-level alias
-  if (typeof this.schema.aliases[parts[0]] == 'string') {
-    parts[0] = this.schema.aliases[parts[0]];
-  }
-
-  if (pathType === 'adhocOrUndefined' && strict) {
-    // check for roots that are Mixed types
-    let mixed;
-
-    for (i = 0; i < parts.length; ++i) {
-      const subpath = parts.slice(0, i + 1).join('.');
-
-      // If path is underneath a virtual, bypass everything and just set it.
-      if (i + 1 < parts.length && this.schema.pathType(subpath) === 'virtual') {
-        mpath.set(path, val, this);
-        return this;
-      }
-
-      schema = this.schema.path(subpath);
-      if (schema == null) {
-        continue;
-      }
-
-      if (schema instanceof MixedSchema) {
-        // allow changes to sub paths of mixed types
-        mixed = true;
-        break;
-      }
-    }
-
-    if (schema == null) {
-      // Check for embedded discriminators
-      schema = getEmbeddedDiscriminatorPath(this, path);
-    }
-
-    if (!mixed && !schema) {
-      if (strict === 'throw') {
-        throw new StrictModeError(path);
-      }
-      return this;
-    }
-  } else if (pathType === 'virtual') {
-    schema = this.schema.virtualpath(path);
-    schema.applySetters(val, this);
-    return this;
-  } else {
-    schema = this.$__path(path);
-  }
-
-  // gh-4578, if setting a deeply nested path that doesn't exist yet, create it
-  let cur = this._doc;
-  let curPath = '';
-  for (i = 0; i < parts.length - 1; ++i) {
-    cur = cur[parts[i]];
-    curPath += (curPath.length > 0 ? '.' : '') + parts[i];
-    if (!cur) {
-      this.$set(curPath, {});
-      // Hack re: gh-5800. If nested field is not selected, it probably exists
-      // so `MongoError: cannot use the part (nested of nested.num) to
-      // traverse the element ({nested: null})` is not likely. If user gets
-      // that error, its their fault for now. We should reconsider disallowing
-      // modifying not selected paths for 6.x
-      if (!this.isSelected(curPath)) {
-        this.unmarkModified(curPath);
-      }
-      cur = this.$__getValue(curPath);
-    }
-  }
-
-  let pathToMark;
-
-  // When using the $set operator the path to the field must already exist.
-  // Else mongodb throws: "LEFT_SUBFIELD only supports Object"
-
-  if (parts.length <= 1) {
-    pathToMark = path;
-  } else {
-    for (i = 0; i < parts.length; ++i) {
-      const subpath = parts.slice(0, i + 1).join('.');
-      if (this.get(subpath, null, { getters: false }) === null) {
-        pathToMark = subpath;
-        break;
-      }
-    }
-
-    if (!pathToMark) {
-      pathToMark = path;
-    }
-  }
-
-  // if this doc is being constructed we should not trigger getters
-  const priorVal = (() => {
-    if (this.$__.$options.priorDoc != null) {
-      return this.$__.$options.priorDoc.$__getValue(path);
-    }
-    if (constructing) {
-      return void 0;
-    }
-    return this.$__getValue(path);
-  })();
-
-  if (!schema) {
-    this.$__set(pathToMark, path, constructing, parts, schema, val, priorVal);
-    return this;
-  }
-
-  let shouldSet = true;
-  try {
-    // If the user is trying to set a ref path to a document with
-    // the correct model name, treat it as populated
-    const refMatches = (() => {
-      if (schema.options == null) {
-        return false;
-      }
-      if (!(val instanceof Document)) {
-        return false;
-      }
-      const model = val.constructor;
-
-      // Check ref
-      const ref = schema.options.ref;
-      if (ref != null && (ref === model.modelName || ref === model.baseModelName)) {
-        return true;
-      }
-
-      // Check refPath
-      const refPath = schema.options.refPath;
-      if (refPath == null) {
-        return false;
-      }
-      const modelName = val.get(refPath);
-      if (modelName === model.modelName || modelName === model.baseModelName) {
-        return true;
-      }
-      return false;
-    })();
-
-    let didPopulate = false;
-    if (refMatches && val instanceof Document) {
-      if (this.ownerDocument) {
-        this.ownerDocument().populated(this.$__fullPath(path),
-          val._id, { [populateModelSymbol]: val.constructor });
-      } else {
-        this.populated(path, val._id, { [populateModelSymbol]: val.constructor });
-      }
-      didPopulate = true;
-    }
-
-    let popOpts;
-    if (schema.options &&
-        Array.isArray(schema.options[this.schema.options.typeKey]) &&
-        schema.options[this.schema.options.typeKey].length &&
-        schema.options[this.schema.options.typeKey][0].ref &&
-        Array.isArray(val) &&
-        val.length > 0 &&
-        val[0] instanceof Document &&
-        val[0].constructor.modelName &&
-        (schema.options[this.schema.options.typeKey][0].ref === val[0].constructor.baseModelName || schema.options[this.schema.options.typeKey][0].ref === val[0].constructor.modelName)) {
-      if (this.ownerDocument) {
-        popOpts = { [populateModelSymbol]: val[0].constructor };
-        this.ownerDocument().populated(this.$__fullPath(path),
-          val.map(function(v) { return v._id; }), popOpts);
-      } else {
-        popOpts = { [populateModelSymbol]: val[0].constructor };
-        this.populated(path, val.map(function(v) { return v._id; }), popOpts);
-      }
-      didPopulate = true;
-    }
-
-    // If this path is underneath a single nested schema, we'll call the setter
-    // later in `$__set()` because we don't take `_doc` when we iterate through
-    // a single nested doc. That's to make sure we get the correct context.
-    // Otherwise we would double-call the setter, see gh-7196.
-    if (this.schema.singleNestedPaths[path] == null) {
-      val = schema.applySetters(val, this, false, priorVal);
-    }
-
-    if (!didPopulate && this.$__.populated) {
-      delete this.$__.populated[path];
-    }
-
-    this.$markValid(path);
-  } catch (e) {
-    this.invalidate(path,
-      new MongooseError.CastError(schema.instance, val, path, e));
-    shouldSet = false;
-  }
-
-  if (shouldSet) {
-    this.$__set(pathToMark, path, constructing, parts, schema, val, priorVal);
-  }
-
-  if (schema.$isSingleNested && (this.isDirectModified(path) || val == null)) {
-    cleanModifiedSubpaths(this, path);
-  }
-
-  return this;
-} 
-$__shouldModify:function(pathToMark, path, constructing, parts, schema, val, priorVal) {
-  if (this.isNew) {
-    return true;
-  }
-
-  // Re: the note about gh-7196, `val` is the raw value without casting or
-  // setters if the full path is under a single nested subdoc because we don't
-  // want to double run setters. So don't set it as modified. See gh-7264.
-  if (this.schema.singleNestedPaths[path] != null) {
-    return false;
-  }
-
-  if (val === void 0 && !this.isSelected(path)) {
-    // when a path is not selected in a query, its initial
-    // value will be undefined.
-    return true;
-  }
-
-  if (val === void 0 && path in this.$__.activePaths.states.default) {
-    // we're just unsetting the default value which was never saved
-    return false;
-  }
-
-  // gh-3992: if setting a populated field to a doc, don't mark modified
-  // if they have the same _id
-  if (this.populated(path) &&
-      val instanceof Document &&
-      deepEqual(val._id, priorVal)) {
-    return false;
-  }
-
-  if (!deepEqual(val, priorVal || this.get(path))) {
-    return true;
-  }
-
-  if (!constructing &&
-      val !== null &&
-      val !== undefined &&
-      path in this.$__.activePaths.states.default &&
-      deepEqual(val, schema.getDefault(this, constructing))) {
-    // a path with a default was $unset on the server
-    // and the user is setting it to the same value again
-    return true;
-  }
-  return false;
-} 
-$__set:function(pathToMark, path, constructing, parts, schema, val, priorVal) {
-  Embedded = Embedded || require('./types/embedded');
-
-  const shouldModify = this.$__shouldModify(pathToMark, path, constructing, parts,
-    schema, val, priorVal);
-  const _this = this;
-
-  if (shouldModify) {
-    this.markModified(pathToMark);
-
-    // handle directly setting arrays (gh-1126)
-    MongooseArray || (MongooseArray = require('./types/array'));
-    if (val && val.isMongooseArray) {
-      val._registerAtomic('$set', val);
-
-      // Update embedded document parent references (gh-5189)
-      if (val.isMongooseDocumentArray) {
-        val.forEach(function(item) {
-          item && item.__parentArray && (item.__parentArray = val);
-        });
-      }
-
-      // Small hack for gh-1638: if we're overwriting the entire array, ignore
-      // paths that were modified before the array overwrite
-      this.$__.activePaths.forEach(function(modifiedPath) {
-        if (modifiedPath.startsWith(path + '.')) {
-          _this.$__.activePaths.ignore(modifiedPath);
-        }
-      });
-    }
-  }
-
-  let obj = this._doc;
-  let i = 0;
-  const l = parts.length;
-  let cur = '';
-
-  for (; i < l; i++) {
-    const next = i + 1;
-    const last = next === l;
-    cur += (cur ? '.' + parts[i] : parts[i]);
-    if (specialProperties.has(parts[i])) {
-      return;
-    }
-
-    if (last) {
-      if (obj instanceof Map) {
-        obj.set(parts[i], val);
-      } else {
-        obj[parts[i]] = val;
-      }
-    } else {
-      if (utils.isPOJO(obj[parts[i]])) {
-        obj = obj[parts[i]];
-      } else if (obj[parts[i]] && obj[parts[i]] instanceof Embedded) {
-        obj = obj[parts[i]];
-      } else if (obj[parts[i]] && obj[parts[i]].$isSingleNested) {
-        obj = obj[parts[i]];
-      } else if (obj[parts[i]] && Array.isArray(obj[parts[i]])) {
-        obj = obj[parts[i]];
-      } else {
-        obj[parts[i]] = obj[parts[i]] || {};
-        obj = obj[parts[i]];
-      }
-    }
-  }
-} 
-$__getValue:function(path) {
-  return utils.getValue(path, this._doc);
-} 
-$__setValue:function(path, val) {
-  utils.setValue(path, val, this._doc);
-  return this;
-} 
-get:function(path, type, options) {
-  let adhoc;
-  options = options || {};
-  if (type) {
-    adhoc = this.schema.interpretAsType(path, type, this.schema.options);
-  }
-
-  let schema = this.$__path(path);
-  if (schema == null) {
-    schema = this.schema.virtualpath(path);
-  }
-  if (schema instanceof MixedSchema) {
-    const virtual = this.schema.virtualpath(path);
-    if (virtual != null) {
-      schema = virtual;
-    }
-  }
-  const pieces = path.split('.');
-  let obj = this._doc;
-
-  if (schema instanceof VirtualType) {
-    if (schema.getters.length === 0) {
-      return void 0;
-    }
-    return schema.applyGetters(null, this);
-  }
-
-  // Might need to change path for top-level alias
-  if (typeof this.schema.aliases[pieces[0]] == 'string') {
-    pieces[0] = this.schema.aliases[pieces[0]];
-  }
-
-  for (let i = 0, l = pieces.length; i < l; i++) {
-    if (obj && obj._doc) {
-      obj = obj._doc;
-    }
-
-    if (obj == null) {
-      obj = void 0;
-    } else if (obj instanceof Map) {
-      obj = obj.get(pieces[i]);
-    } else if (i === l - 1) {
-      obj = utils.getValue(pieces[i], obj);
-    } else {
-      obj = obj[pieces[i]];
-    }
-  }
-
-  if (adhoc) {
-    obj = adhoc.cast(obj);
-  }
-
-  if (schema != null && options.getters !== false) {
-    obj = schema.applyGetters(obj, this);
-  } else if (this.schema.nested[path] && options.virtuals) {
-    // Might need to apply virtuals if this is a nested path
-    return applyGetters(this, utils.clone(obj) || {}, 'virtuals', { path: path });
-  }
-
-  return obj;
-} 
-$__path:function(path) {
-  const adhocs = this.$__.adhocPaths;
-  const adhocType = adhocs && adhocs.hasOwnProperty(path) ? adhocs[path] : null;
-
-  if (adhocType) {
-    return adhocType;
-  }
-  return this.schema.path(path);
-} 
-markModified:function(path, scope) {
-  this.$__.activePaths.modify(path);
-  if (scope != null && !this.ownerDocument) {
-    this.$__.pathsToScopes[path] = scope;
-  }
-} 
-unmarkModified:function(path) {
-  this.$__.activePaths.init(path);
-  delete this.$__.pathsToScopes[path];
-} 
-$ignore:function(path) {
-  this.$__.activePaths.ignore(path);
-} 
-directModifiedPaths:function() {
-  return Object.keys(this.$__.activePaths.states.modify);
-} 
-$isEmpty:function(path) {
-  const isEmptyOptions = {
-    minimize: true,
-    virtuals: false,
-    getters: false,
-    transform: false
-  };
-
-  if (arguments.length > 0) {
-    const v = this.get(path);
-    if (v == null) {
-      return true;
-    }
-    if (typeof v !== 'object') {
-      return false;
-    }
-    if (utils.isPOJO(v)) {
-      return _isEmpty(v);
-    }
-    return Object.keys(v.toObject(isEmptyOptions)).length === 0;
-  }
-
-  return Object.keys(this.toObject(isEmptyOptions)).length === 0;
-} 
-modifiedPaths:function(options) {
-  options = options || {};
-  const directModifiedPaths = Object.keys(this.$__.activePaths.states.modify);
-  const _this = this;
-  return directModifiedPaths.reduce(function(list, path) {
-    const parts = path.split('.');
-    list = list.concat(parts.reduce(function(chains, part, i) {
-      return chains.concat(parts.slice(0, i).concat(part).join('.'));
-    }, []).filter(function(chain) {
-      return (list.indexOf(chain) === -1);
-    }));
-
-    if (!options.includeChildren) {
-      return list;
-    }
-
-    let cur = _this.get(path);
-    if (cur != null && typeof cur === 'object') {
-      if (cur._doc) {
-        cur = cur._doc;
-      }
-      if (Array.isArray(cur)) {
-        const len = cur.length;
-        for (let i = 0; i < len; ++i) {
-          if (list.indexOf(path + '.' + i) === -1) {
-            list.push(path + '.' + i);
-            if (cur[i] != null && cur[i].$__) {
-              const modified = cur[i].modifiedPaths();
-              for (const childPath of modified) {
-                list.push(path + '.' + i + '.' + childPath);
-              }
-            }
-          }
-        }
-      } else {
-        Object.keys(cur).
-          filter(function(key) {
-            return list.indexOf(path + '.' + key) === -1;
-          }).
-          forEach(function(key) {
-            list.push(path + '.' + key);
-          });
-      }
-    }
-
-    return list;
-  }, []);
-} 
-isModified:function(paths, modifiedPaths) {
-  if (paths) {
-    if (!Array.isArray(paths)) {
-      paths = paths.split(' ');
-    }
-    const modified = modifiedPaths || this.modifiedPaths();
-    const directModifiedPaths = Object.keys(this.$__.activePaths.states.modify);
-    const isModifiedChild = paths.some(function(path) {
-      return !!~modified.indexOf(path);
-    });
-    return isModifiedChild || paths.some(function(path) {
-      return directModifiedPaths.some(function(mod) {
-        return mod === path || path.startsWith(mod + '.');
-      });
-    });
-  }
-  return this.$__.activePaths.some('modify');
-} 
-$isDefault:function(path) {
-  return (path in this.$__.activePaths.states.default);
-} 
-$isDeleted:function(val) {
-  if (arguments.length === 0) {
-    return !!this.$__.isDeleted;
-  }
-
-  this.$__.isDeleted = !!val;
-  return this;
-} 
-isDirectModified:function(path) {
-  return (path in this.$__.activePaths.states.modify);
-} 
-isInit:function(path) {
-  return (path in this.$__.activePaths.states.init);
-} 
-isSelected:function isSelected(path) {
-  if (this.$__.selected) {
-    if (path === '_id') {
-      return this.$__.selected._id !== 0;
-    }
-
-    const paths = Object.keys(this.$__.selected);
-    let i = paths.length;
-    let inclusive = null;
-    let cur;
-
-    if (i === 1 && paths[0] === '_id') {
-      // only _id was selected.
-      return this.$__.selected._id === 0;
-    }
-
-    while (i--) {
-      cur = paths[i];
-      if (cur === '_id') {
-        continue;
-      }
-      if (!isDefiningProjection(this.$__.selected[cur])) {
-        continue;
-      }
-      inclusive = !!this.$__.selected[cur];
-      break;
-    }
-
-    if (inclusive === null) {
-      return true;
-    }
-
-    if (path in this.$__.selected) {
-      return inclusive;
-    }
-
-    i = paths.length;
-    const pathDot = path + '.';
-
-    while (i--) {
-      cur = paths[i];
-      if (cur === '_id') {
-        continue;
-      }
-
-      if (cur.startsWith(pathDot)) {
-        return inclusive || cur !== pathDot;
-      }
-
-      if (pathDot.startsWith(cur + '.')) {
-        return inclusive;
-      }
-    }
-
-    return !inclusive;
-  }
-
-  return true;
-} 
-isDirectSelected:function isDirectSelected(path) {
-  if (this.$__.selected) {
-    if (path === '_id') {
-      return this.$__.selected._id !== 0;
-    }
-
-    const paths = Object.keys(this.$__.selected);
-    let i = paths.length;
-    let inclusive = null;
-    let cur;
-
-    if (i === 1 && paths[0] === '_id') {
-      // only _id was selected.
-      return this.$__.selected._id === 0;
-    }
-
-    while (i--) {
-      cur = paths[i];
-      if (cur === '_id') {
-        continue;
-      }
-      if (!isDefiningProjection(this.$__.selected[cur])) {
-        continue;
-      }
-      inclusive = !!this.$__.selected[cur];
-      break;
-    }
-
-    if (inclusive === null) {
-      return true;
-    }
-
-    if (path in this.$__.selected) {
-      return inclusive;
-    }
-
-    return !inclusive;
-  }
-
-  return true;
-} 
-validate:function(options, callback) {
-  if (typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-
-  return utils.promiseOrCallback(callback, cb => this.$__validate(options, function(error) {
-    cb(error);
-  }), this.constructor.events);
-} 
-validateSync:function(pathsToValidate, options) {
-  const _this = this;
-
-  const hasValidateModifiedOnlyOption = options &&
-      (typeof options === 'object') &&
-      ('validateModifiedOnly' in options);
-
-  let shouldValidateModifiedOnly;
-  if (hasValidateModifiedOnlyOption) {
-    shouldValidateModifiedOnly = !!options.validateModifiedOnly;
-  } else {
-    shouldValidateModifiedOnly = this.schema.options.validateModifiedOnly;
-  }
-
-  if (typeof pathsToValidate === 'string') {
-    pathsToValidate = pathsToValidate.split(' ');
-  }
-
-  // only validate required fields when necessary
-  const pathDetails = _getPathsToValidate(this);
-  let paths = shouldValidateModifiedOnly ?
-    pathDetails[0].filter((path) => this.isModified(path)) :
-    pathDetails[0];
-  const skipSchemaValidators = pathDetails[1];
-
-  if (pathsToValidate && pathsToValidate.length) {
-    const tmp = [];
-    for (let i = 0; i < paths.length; ++i) {
-      if (pathsToValidate.indexOf(paths[i]) !== -1) {
-        tmp.push(paths[i]);
-      }
-    }
-    paths = tmp;
-  }
-
-  const validating = {};
-
-  paths.forEach(function(path) {
-    if (validating[path]) {
-      return;
-    }
-
-    validating[path] = true;
-
-    const p = _this.schema.path(path);
-    if (!p) {
-      return;
-    }
-    if (!_this.$isValid(path)) {
-      return;
-    }
-
-    const val = _this.$__getValue(path);
-    const err = p.doValidateSync(val, _this, {
-      skipSchemaValidators: skipSchemaValidators[path],
-      path: path
-    });
-    if (err && (!p.$isMongooseDocumentArray || err.$isArrayValidatorError)) {
-      if (p.$isSingleNested &&
-          err.name === 'ValidationError' &&
-          p.schema.options.storeSubdocValidationError === false) {
-        return;
-      }
-      _this.invalidate(path, err, undefined, true);
-    }
-  });
-
-  const err = _this.$__.validationError;
-  _this.$__.validationError = undefined;
-  _this.emit('validate', _this);
-  _this.constructor.emit('validate', _this);
-
-  if (err) {
-    for (const key in err.errors) {
-      // Make sure cast errors persist
-      if (err.errors[key] instanceof MongooseError.CastError) {
-        _this.invalidate(key, err.errors[key]);
-      }
-    }
-  }
-
-  return err;
-} 
-invalidate:function(path, err, val, kind) {
-  if (!this.$__.validationError) {
-    this.$__.validationError = new ValidationError(this);
-  }
-
-  if (this.$__.validationError.errors[path]) {
-    return;
-  }
-
-  if (!err || typeof err === 'string') {
-    err = new ValidatorError({
-      path: path,
-      message: err,
-      type: kind || 'user defined',
-      value: val
-    });
-  }
-
-  if (this.$__.validationError === err) {
-    return this.$__.validationError;
-  }
-
-  this.$__.validationError.addError(path, err);
-  return this.$__.validationError;
-} 
-$markValid:function(path) {
-  if (!this.$__.validationError || !this.$__.validationError.errors[path]) {
-    return;
-  }
-
-  delete this.$__.validationError.errors[path];
-  if (Object.keys(this.$__.validationError.errors).length === 0) {
-    this.$__.validationError = null;
-  }
-} 
-$isValid:function(path) {
-  return !this.$__.validationError || !this.$__.validationError.errors[path];
-} 
-$__reset:function reset() {
-  let _this = this;
-  DocumentArray || (DocumentArray = require('./types/documentarray'));
-
-  this.$__.activePaths
-    .map('init', 'modify', function(i) {
-      return _this.$__getValue(i);
-    })
-    .filter(function(val) {
-      return val && val instanceof Array && val.isMongooseDocumentArray && val.length;
-    })
-    .forEach(function(array) {
-      let i = array.length;
-      while (i--) {
-        const doc = array[i];
-        if (!doc) {
-          continue;
-        }
-        doc.$__reset();
-      }
-
-      _this.$__.activePaths.init(array.$path());
-
-      array[arrayAtomicsSymbol] = {};
-    });
-
-  this.$__.activePaths.
-    map('init', 'modify', function(i) {
-      return _this.$__getValue(i);
-    }).
-    filter(function(val) {
-      return val && val.$isSingleNested;
-    }).
-    forEach(function(doc) {
-      doc.$__reset();
-      _this.$__.activePaths.init(doc.$basePath);
-    });
-
-  // clear atomics
-  this.$__dirty().forEach(function(dirt) {
-    const type = dirt.value;
-
-    if (type && type[arrayAtomicsSymbol]) {
-      type[arrayAtomicsSymbol] = {};
-    }
-  });
-
-  // Clear 'dirty' cache
-  this.$__.activePaths.clear('modify');
-  this.$__.activePaths.clear('default');
-  this.$__.validationError = undefined;
-  this.errors = undefined;
-  _this = this;
-  this.schema.requiredPaths().forEach(function(path) {
-    _this.$__.activePaths.require(path);
-  });
-
-  return this;
-} 
-$__dirty:function() {
-  const _this = this;
-
-  let all = this.$__.activePaths.map('modify', function(path) {
-    return {
-      path: path,
-      value: _this.$__getValue(path),
-      schema: _this.$__path(path)
-    };
-  });
-
-  // gh-2558: if we had to set a default and the value is not undefined,
-  // we have to save as well
-  all = all.concat(this.$__.activePaths.map('default', function(path) {
-    if (path === '_id' || _this.$__getValue(path) == null) {
-      return;
-    }
-    return {
-      path: path,
-      value: _this.$__getValue(path),
-      schema: _this.$__path(path)
-    };
-  }));
-
-  // Sort dirty paths in a flat hierarchy.
-  all.sort(function(a, b) {
-    return (a.path < b.path ? -1 : (a.path > b.path ? 1 : 0));
-  });
-
-  // Ignore "foo.a" if "foo" is dirty already.
-  const minimal = [];
-  let lastPath;
-  let top;
-
-  all.forEach(function(item) {
-    if (!item) {
-      return;
-    }
-    if (lastPath == null || item.path.indexOf(lastPath) !== 0) {
-      lastPath = item.path + '.';
-      minimal.push(item);
-      top = item;
-    } else if (top != null &&
-        top.value != null &&
-        top.value[arrayAtomicsSymbol] != null &&
-        top.value.hasAtomics()) {
-      // special case for top level MongooseArrays
-      // the `top` array itself and a sub path of `top` are being modified.
-      // the only way to honor all of both modifications is through a $set
-      // of entire array.
-      top.value[arrayAtomicsSymbol] = {};
-      top.value[arrayAtomicsSymbol].$set = top.value;
-    }
-  });
-
-  top = lastPath = null;
-  return minimal;
-} 
-$__setSchema:function(schema) {
-  schema.plugin(idGetter, { deduplicate: true });
-  compile(schema.tree, this, undefined, schema.options);
-
-  // Apply default getters if virtual doesn't have any (gh-6262)
-  for (const key of Object.keys(schema.virtuals)) {
-    schema.virtuals[key]._applyDefaultGetters();
-  }
-
-  this.schema = schema;
-  this[documentSchemaSymbol] = schema;
-} 
-$__getArrayPathsToValidate:function() {
-  DocumentArray || (DocumentArray = require('./types/documentarray'));
-
-  // validate all document arrays.
-  return this.$__.activePaths
-    .map('init', 'modify', function(i) {
-      return this.$__getValue(i);
-    }.bind(this))
-    .filter(function(val) {
-      return val && val instanceof Array && val.isMongooseDocumentArray && val.length;
-    }).reduce(function(seed, array) {
-      return seed.concat(array);
-    }, [])
-    .filter(function(doc) {
-      return doc;
-    });
-} 
-$__getAllSubdocs:function() {
-  DocumentArray || (DocumentArray = require('./types/documentarray'));
-  Embedded = Embedded || require('./types/embedded');
-
-  function docReducer(doc, seed, path) {
-    let val = doc;
-    if (path) {
-      if (doc instanceof Document && doc[documentSchemaSymbol].paths[path]) {
-        val = doc._doc[path];
-      } else {
-        val = doc[path];
-      }
-    }
-    if (val instanceof Embedded) {
-      seed.push(val);
-    } else if (val instanceof Map) {
-      seed = Array.from(val.keys()).reduce(function(seed, path) {
-        return docReducer(val.get(path), seed, null);
-      }, seed);
-    } else if (val && val.$isSingleNested) {
-      seed = Object.keys(val._doc).reduce(function(seed, path) {
-        return docReducer(val._doc, seed, path);
-      }, seed);
-      seed.push(val);
-    } else if (val && val.isMongooseDocumentArray) {
-      val.forEach(function _docReduce(doc) {
-        if (!doc || !doc._doc) {
-          return;
-        }
-        seed = Object.keys(doc._doc).reduce(function(seed, path) {
-          return docReducer(doc._doc, seed, path);
-        }, seed);
-        if (doc instanceof Embedded) {
-          seed.push(doc);
-        }
-      });
-    } else if (val instanceof Document && val.$__isNested) {
-      seed = Object.keys(val).reduce(function(seed, path) {
-        return docReducer(val, seed, path);
-      }, seed);
-    }
-    return seed;
-  }
-
-  const _this = this;
-  const subDocs = Object.keys(this._doc).reduce(function(seed, path) {
-    return docReducer(_this, seed, path);
-  }, []);
-
-  return subDocs;
-} 
-$__handleReject:function handleReject(err) {
-  // emit on the Model if listening
-  if (this.listeners('error').length) {
-    this.emit('error', err);
-  } else if (this.constructor.listeners && this.constructor.listeners('error').length) {
-    this.constructor.emit('error', err);
-  } else if (this.listeners && this.listeners('error').length) {
-    this.emit('error', err);
-  }
-} 
-$toObject:function(options, json) {
-  let defaultOptions = {
-    transform: true,
-    flattenDecimals: true
-  };
-
-  const path = json ? 'toJSON' : 'toObject';
-  const baseOptions = get(this, 'constructor.base.options.' + path, {});
-  const schemaOptions = get(this, 'schema.options', {});
-  // merge base default options with Schema's set default options if available.
-  // `clone` is necessary here because `utils.options` directly modifies the second input.
-  defaultOptions = utils.options(defaultOptions, clone(baseOptions));
-  defaultOptions = utils.options(defaultOptions, clone(schemaOptions[path] || {}));
-
-  // If options do not exist or is not an object, set it to empty object
-  options = utils.isPOJO(options) ? clone(options) : {};
-
-  if (!('flattenMaps' in options)) {
-    options.flattenMaps = defaultOptions.flattenMaps;
-  }
-
-  let _minimize;
-  if (options.minimize != null) {
-    _minimize = options.minimize;
-  } else if (defaultOptions.minimize != null) {
-    _minimize = defaultOptions.minimize;
-  } else {
-    _minimize = schemaOptions.minimize;
-  }
-
-  // The original options that will be passed to `clone()`. Important because
-  // `clone()` will recursively call `$toObject()` on embedded docs, so we
-  // need the original options the user passed in, plus `_isNested` and
-  // `_parentOptions` for checking whether we need to depopulate.
-  const cloneOptions = Object.assign(utils.clone(options), {
-    _isNested: true,
-    json: json,
-    minimize: _minimize
-  });
-
-  const depopulate = options.depopulate ||
-    get(options, '_parentOptions.depopulate', false);
-  // _isNested will only be true if this is not the top level document, we
-  // should never depopulate
-  if (depopulate && options._isNested && this.$__.wasPopulated) {
-    // populated paths that we set to a document
-    return clone(this._id, cloneOptions);
-  }
-
-  // merge default options with input options.
-  options = utils.options(defaultOptions, options);
-  options._isNested = true;
-  options.json = json;
-  options.minimize = _minimize;
-
-  cloneOptions._parentOptions = options;
-
-  // remember the root transform function
-  // to save it from being overwritten by sub-transform functions
-  const originalTransform = options.transform;
-
-  let ret = clone(this._doc, cloneOptions) || {};
-
-  if (options.getters) {
-    applyGetters(this, ret, 'paths', cloneOptions);
-    // applyGetters for paths will add nested empty objects;
-    // if minimize is set, we need to remove them.
-    if (options.minimize) {
-      ret = minimize(ret) || {};
-    }
-  }
-
-  if (options.virtuals || options.getters && options.virtuals !== false) {
-    applyGetters(this, ret, 'virtuals', cloneOptions);
-  }
-
-  if (options.versionKey === false && this.schema.options.versionKey) {
-    delete ret[this.schema.options.versionKey];
-  }
-
-  let transform = options.transform;
-
-  // In the case where a subdocument has its own transform function, we need to
-  // check and see if the parent has a transform (options.transform) and if the
-  // child schema has a transform (this.schema.options.toObject) In this case,
-  // we need to adjust options.transform to be the child schema's transform and
-  // not the parent schema's
-  if (transform === true || (schemaOptions.toObject && transform)) {
-    const opts = options.json ? schemaOptions.toJSON : schemaOptions.toObject;
-
-    if (opts) {
-      transform = (typeof options.transform === 'function' ? options.transform : opts.transform);
-    }
-  } else {
-    options.transform = originalTransform;
-  }
-
-  if (typeof transform === 'function') {
-    const xformed = transform(this, ret, options);
-    if (typeof xformed !== 'undefined') {
-      ret = xformed;
-    }
-  }
-
-  return ret;
-} 
-toObject:function(options) {
-  return this.$toObject(options);
-} 
-toJSON:function(options) {
-  return this.$toObject(options, true);
-} 
-inspect:function(options) {
-  const isPOJO = utils.isPOJO(options);
-  let opts;
-  if (isPOJO) {
-    opts = options;
-    opts.minimize = false;
-  }
-  const ret = this.toObject(opts);
-
-  if (ret == null) {
-    // If `toObject()` returns null, `this` is still an object, so if `inspect()`
-    // prints out null this can cause some serious confusion. See gh-7942.
-    return 'MongooseDocument { ' + ret + ' }';
-  }
-
-  return ret;
-} 
-toString:function() {
-  const ret = this.inspect();
-  if (typeof ret === 'string') {
-    return ret;
-  }
-  return inspect(ret);
-} 
-equals:function(doc) {
-  if (!doc) {
-    return false;
-  }
-
-  const tid = this.get('_id');
-  const docid = doc.get ? doc.get('_id') : doc;
-  if (!tid && !docid) {
-    return deepEqual(this, doc);
-  }
-  return tid && tid.equals
-    ? tid.equals(docid)
-    : tid === docid;
-} 
-populate:function populate() {
-  if (arguments.length === 0) {
-    return this;
-  }
-
-  const pop = this.$__.populate || (this.$__.populate = {});
-  const args = utils.args(arguments);
-  let fn;
-
-  if (typeof args[args.length - 1] === 'function') {
-    fn = args.pop();
-  }
-
-  // allow `doc.populate(callback)`
-  if (args.length) {
-    // use hash to remove duplicate paths
-    const res = utils.populate.apply(null, args);
-    for (let i = 0; i < res.length; ++i) {
-      pop[res[i].path] = res[i];
-    }
-  }
-
-  if (fn) {
-    const paths = utils.object.vals(pop);
-    this.$__.populate = undefined;
-    let topLevelModel = this.constructor;
-    if (this.$__isNested) {
-      topLevelModel = this.$__.scope.constructor;
-      const nestedPath = this.$__.nestedPath;
-      paths.forEach(function(populateOptions) {
-        populateOptions.path = nestedPath + '.' + populateOptions.path;
-      });
-    }
-
-    // Use `$session()` by default if the document has an associated session
-    // See gh-6754
-    if (this.$session() != null) {
-      const session = this.$session();
-      paths.forEach(path => {
-        if (path.options == null) {
-          path.options = { session: session };
-          return;
-        }
-        if (!('session' in path.options)) {
-          path.options.session = session;
-        }
-      });
-    }
-
-    topLevelModel.populate(this, paths, fn);
-  }
-
-  return this;
-} 
-execPopulate:function(callback) {
-  return utils.promiseOrCallback(callback, cb => {
-    this.populate(cb);
-  }, this.constructor.events);
-} 
-populated:function(path, val, options) {
-  // val and options are internal
-  if (val === null || val === void 0) {
-    if (!this.$__.populated) {
-      return undefined;
-    }
-    const v = this.$__.populated[path];
-    if (v) {
-      return v.value;
-    }
-    return undefined;
-  }
-
-  // internal
-  if (val === true) {
-    if (!this.$__.populated) {
-      return undefined;
-    }
-    return this.$__.populated[path];
-  }
-
-  this.$__.populated || (this.$__.populated = {});
-  this.$__.populated[path] = {value: val, options: options};
-
-  // If this was a nested populate, make sure each populated doc knows
-  // about its populated children (gh-7685)
-  const pieces = path.split('.');
-  for (let i = 0; i < pieces.length - 1; ++i) {
-    const subpath = pieces.slice(0, i + 1).join('.');
-    const subdoc = this.get(subpath);
-    if (subdoc != null && subdoc.$__ != null && this.populated(subpath)) {
-      const rest = pieces.slice(i + 1).join('.');
-      subdoc.populated(rest, val, options);
-      // No need to continue because the above recursion should take care of
-      // marking the rest of the docs as populated
-      break;
-    }
-  }
-
-  return val;
-} 
-depopulate:function(path) {
-  if (typeof path === 'string') {
-    path = path.split(' ');
-  }
-  let populatedIds;
-  const virtualKeys = this.$$populatedVirtuals ? Object.keys(this.$$populatedVirtuals) : [];
-  const populated = get(this, '$__.populated', {});
-
-  if (arguments.length === 0) {
-    // Depopulate all
-    for (let i = 0; i < virtualKeys.length; i++) {
-      delete this.$$populatedVirtuals[virtualKeys[i]];
-      delete this._doc[virtualKeys[i]];
-      delete populated[virtualKeys[i]];
-    }
-
-    const keys = Object.keys(populated);
-
-    for (let i = 0; i < keys.length; i++) {
-      populatedIds = this.populated(keys[i]);
-      if (!populatedIds) {
-        continue;
-      }
-      delete populated[keys[i]];
-      this.$set(keys[i], populatedIds);
-    }
-    return this;
-  }
-
-  for (let i = 0; i < path.length; i++) {
-    populatedIds = this.populated(path[i]);
-    delete populated[path[i]];
-
-    if (virtualKeys.indexOf(path[i]) !== -1) {
-      delete this.$$populatedVirtuals[path[i]];
-      delete this._doc[path[i]];
-    } else if (populatedIds) {
-      this.$set(path[i], populatedIds);
-    }
-  }
-  return this;
-} 
-$__fullPath:function(path) {
-  // overridden in SubDocuments
-  return path || '';
-} 
-1-23-2020-19:16:36:577 connecting to mongodb...
-1-23-2020-19:16:38:50 Reading events...
-1-23-2020-19:16:38:51 Reading UFC 1: The Beginning
-1-23-2020-19:16:38:52 Searching through weight classes
-1-23-2020-19:16:38:52 No weight class found
-1-23-2020-19:16:39:355 Saving match: 
-1-23-2020-19:17:25:862 connecting to mongodb...
-1-23-2020-19:17:26:731 Reading events...
-1-23-2020-19:17:26:731 Reading UFC 1: The Beginning
-1-23-2020-19:17:26:732 Searching through weight classes
-1-23-2020-19:17:26:732 No weight class found
-1-23-2020-19:17:34:953 Saving match: 
-1-23-2020-19:17:34:954 
+1-25-2020-8:17:38:201 Searching through weight classes
+1-25-2020-8:17:38:202 No weight class found
+1-25-2020-8:17:38:211 Finding fighters Ken Shamrock and Patrick Smith
+1-25-2020-8:17:38:474 Saving match: 
+1-25-2020-8:17:38:475 
 organization:UFC 
 eventName:UFC 1: The Beginning 
-matchOrder:0 
-isFiveRounds:true 
+matchOrder:3 
+isFiveRounds:false 
 isTitleFight:false 
 weightClass:0 
-fighters:5df98b1cb4e09826e489c463,5df98b26b4e09826e489c583 
+fighters:5df98b0fb4e09826e489c323,5df98b28b4e09826e489c5b5 
 winnerIndex:1 
 championIndex:null 
 method:Submission 
-time:1:44 
-methodInfo:rear naked choke 
+time:1:49 
+methodInfo:heel hook 
 decisionInfo: 
 round: 
 isTestData:false 
 isMockData:false 
-1-23-2020-19:17:35:650 Updating fighter record:
-1-23-2020-19:17:35:702 
+1-25-2020-8:17:38:493 Searching through weight classes
+1-25-2020-8:17:38:500 No weight class found
+1-25-2020-8:17:38:500 Finding fighters Royce Gracie and Art Jimmerson
+1-25-2020-8:17:38:739 Saving match: 
+1-25-2020-8:17:38:740 
+organization:UFC 
+eventName:UFC 1: The Beginning 
+matchOrder:4 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b26b4e09826e489c583,5df98b18b4e09826e489c409 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:2:18 
+methodInfo:mount 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:38:762 Searching through weight classes
+1-25-2020-8:17:38:762 No weight class found
+1-25-2020-8:17:38:763 Finding fighters Kevin Rosier and Zane Frazier
+1-25-2020-8:17:38:875 Saving match: 
+1-25-2020-8:17:38:875 
+organization:UFC 
+eventName:UFC 1: The Beginning 
+matchOrder:5 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b0eb4e09826e489c30b,5df98b07b4e09826e489c250 
+winnerIndex:1 
+championIndex:null 
+method:TKO 
+time:4:20 
+methodInfo:corner stoppage 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:38:888 Searching through weight classes
+1-25-2020-8:17:38:888 No weight class found
+1-25-2020-8:17:38:888 Finding fighters Gerard Gordeau and Teila Tuli
+1-25-2020-8:17:39:30 Saving match: 
+1-25-2020-8:17:39:31 
+organization:UFC 
+eventName:UFC 1: The Beginning 
+matchOrder:6 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b08b4e09826e489c26d,5df98b1cb4e09826e489c463 
+winnerIndex:1 
+championIndex:null 
+method:TKO 
+time:0:26 
+methodInfo:head kick 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:39:56 Searching through weight classes
+1-25-2020-8:17:39:58 No weight class found
+1-25-2020-8:17:39:59 Finding fighters Jason DeLucia and Trent Jenkins
+1-25-2020-8:17:39:219 Saving match: 
+1-25-2020-8:17:39:220 
+organization:UFC 
+eventName:UFC 1: The Beginning 
+matchOrder:7 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98afcb4e09826e489c126,5df98b29b4e09826e489c5d4 
+winnerIndex:1 
+championIndex:null 
+method:Submission 
+time:0:52 
+methodInfo:rear-naked choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:43:644 Updating fighter record:
+1-25-2020-8:17:43:645 
 isChampion:false 
 record:[object Object] 
-matches:5e2a37965cc43d2c10a00f86,5e2a37965cc43d2c10a00f86 
-1-23-2020-19:17:36:606 Updating fighter record:
-1-23-2020-19:17:36:642 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:662 Updating fighter record:
+1-25-2020-8:17:43:663 
 isChampion:false 
 record:[object Object] 
-matches:5e2a37965cc43d2c10a00f86,5e2a37965cc43d2c10a00f86 
-1-23-2020-19:22:34:870 connecting to mongodb...
-1-23-2020-19:22:35:442 Reading events...
-1-23-2020-19:22:35:443 Reading UFC 1: The Beginning
-1-23-2020-19:22:35:443 Searching through weight classes
-1-23-2020-19:22:35:444 No weight class found
-1-23-2020-19:22:35:538 TypeError: Cannot read property '_id' of null
-    at createDatabase (X:\git\mma-app\mma-app\backend\tools\data tools\data creation scripts\dataCreationTool.js:109:42)
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:665 Updating fighter record:
+1-25-2020-8:17:43:700 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:716 Updating fighter record:
+1-25-2020-8:17:43:717 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:718 Updating fighter record:
+1-25-2020-8:17:43:718 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:719 Updating fighter record:
+1-25-2020-8:17:43:720 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:747 Updating fighter record:
+1-25-2020-8:17:43:747 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:775 Updating fighter record:
+1-25-2020-8:17:43:775 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:810 Updating fighter record:
+1-25-2020-8:17:43:830 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:873 Updating fighter record:
+1-25-2020-8:17:43:876 
+isChampion:false 
+record:[object Object] 
+matches:5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f98,5e2c3ff13cc546129c160f99,5e2c3ff13cc546129c160f99,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9a,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9b,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9c,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9d,5e2c3ff23cc546129c160f9e,5e2c3ff23cc546129c160f9e,5e2c3ff33cc546129c160f9f,5e2c3ff33cc546129c160f9f 
+1-25-2020-8:17:43:888 Finished updating fighter records
+1-25-2020-8:17:45:603 Reading UFC 2: No Way Out
+1-25-2020-8:17:45:605 Searching through weight classes
+1-25-2020-8:17:45:609 No weight class found
+1-25-2020-8:17:45:609 Finding fighters Royce Gracie and Patrick Smith
+1-25-2020-8:17:46:588 Saving match: 
+1-25-2020-8:17:46:589 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:0 
+isFiveRounds:true 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b26b4e09826e489c583,5df98b0fb4e09826e489c323 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:1:17 
+methodInfo:punches 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:46:604 Searching through weight classes
+1-25-2020-8:17:46:606 No weight class found
+1-25-2020-8:17:46:606 Finding fighters Patrick Smith and Johnny Rhodes
+1-25-2020-8:17:46:861 Saving match: 
+1-25-2020-8:17:46:861 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:1 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b0fb4e09826e489c323,5df98affb4e09826e489c16c 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:1:07 
+methodInfo:guillotine choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:46:887 Searching through weight classes
+1-25-2020-8:17:46:887 No weight class found
+1-25-2020-8:17:46:888 Finding fighters Royce Gracie and Remco Pardoel
+1-25-2020-8:17:47:113 Saving match: 
+1-25-2020-8:17:47:114 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:2 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b13b4e09826e489c372,5df98b26b4e09826e489c583 
+winnerIndex:1 
+championIndex:null 
+method:Submission 
+time:1:31 
+methodInfo:lapel choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:47:136 Searching through weight classes
+1-25-2020-8:17:47:137 No weight class found
+1-25-2020-8:17:47:137 Finding fighters Patrick Smith and Scott Morris
+1-25-2020-8:17:47:351 Saving match: 
+1-25-2020-8:17:47:352 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:3 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98afeb4e09826e489c161,5df98b0fb4e09826e489c323 
+winnerIndex:1 
+championIndex:null 
+method:KO 
+time:0:30 
+methodInfo:elbows 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:47:373 Searching through weight classes
+1-25-2020-8:17:47:374 No weight class found
+1-25-2020-8:17:47:374 Finding fighters Johnny Rhodes and Fred Ettish
+1-25-2020-8:17:47:504 Saving match: 
+1-25-2020-8:17:47:505 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:4 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98affb4e09826e489c16c,5df98b1bb4e09826e489c458 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:3:07 
+methodInfo:bulldog choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:47:526 Searching through weight classes
+1-25-2020-8:17:47:526 No weight class found
+1-25-2020-8:17:47:527 Finding fighters Remco Pardoel and Orlando Wiet
+1-25-2020-8:17:47:691 Saving match: 
+1-25-2020-8:17:47:692 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:5 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b3cb4e09826e489c7c8,5df98b13b4e09826e489c372 
+winnerIndex:1 
+championIndex:null 
+method:KO 
+time:1:29 
+methodInfo:elbows 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:47:711 Searching through weight classes
+1-25-2020-8:17:47:718 No weight class found
+1-25-2020-8:17:47:718 Finding fighters Royce Gracie and Jason DeLucia
+1-25-2020-8:17:47:868 Saving match: 
+1-25-2020-8:17:47:868 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:6 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b29b4e09826e489c5d4,5df98b26b4e09826e489c583 
+winnerIndex:1 
+championIndex:null 
+method:Submission 
+time:1:07 
+methodInfo:armlock 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:47:888 Searching through weight classes
+1-25-2020-8:17:47:889 No weight class found
+1-25-2020-8:17:47:889 Finding fighters Scott Morris and Sean Daugherty
+1-25-2020-8:17:48:113 Saving match: 
+1-25-2020-8:17:48:114 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:7 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98afeb4e09826e489c161,5df98b3eb4e09826e489c816 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:0:20 
+methodInfo:guillotine choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:48:127 Searching through weight classes
+1-25-2020-8:17:48:127 No weight class found
+1-25-2020-8:17:48:128 Finding fighters Patrick Smith and Ray Wizard
+1-25-2020-8:17:48:314 Saving match: 
+1-25-2020-8:17:48:315 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:8 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b1cb4e09826e489c47c,5df98b0fb4e09826e489c323 
+winnerIndex:1 
+championIndex:null 
+method:Submission 
+time:0:58 
+methodInfo:guillotine choke 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:48:332 Searching through weight classes
+1-25-2020-8:17:48:333 No weight class found
+1-25-2020-8:17:48:334 Finding fighters Johnny Rhodes and David Levicki
+1-25-2020-8:17:48:666 Saving match: 
+1-25-2020-8:17:48:667 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:9 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b00b4e09826e489c193,5df98affb4e09826e489c16c 
+winnerIndex:1 
+championIndex:null 
+method:Submission 
+time:12:13 
+methodInfo:punches 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:48:669 Searching through weight classes
+1-25-2020-8:17:48:670 No weight class found
+1-25-2020-8:17:48:671 Finding fighters Frank Hamaker and Thaddeus Luster
+1-25-2020-8:17:48:850 Saving match: 
+1-25-2020-8:17:48:851 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:10 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b21b4e09826e489c4fc,5df98b1db4e09826e489c481 
+winnerIndex:0 
+championIndex:null 
+method:Submission 
+time:4:52 
+methodInfo:armlock 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:48:864 Searching through weight classes
+1-25-2020-8:17:48:864 No weight class found
+1-25-2020-8:17:48:865 Finding fighters Orlando Wiet and Robert Lucarelli
+1-25-2020-8:17:48:971 Saving match: 
+1-25-2020-8:17:48:972 
+organization:UFC 
+eventName:UFC 2: No Way Out 
+matchOrder:11 
+isFiveRounds:false 
+isTitleFight:false 
+weightClass:0 
+fighters:5df98b3cb4e09826e489c7c8,5df98b33b4e09826e489c6d6 
+winnerIndex:0 
+championIndex:null 
+method:TKO 
+time:2:50 
+methodInfo:corner stoppage 
+decisionInfo: 
+round: 
+isTestData:false 
+isMockData:false 
+1-25-2020-8:17:48:998 Searching through weight classes
+1-25-2020-8:17:49:6 No weight class found
+1-25-2020-8:17:49:7 Finding fighters Remco Pardoel and Alberto Cerro
+1-25-2020-8:17:49:81 TypeError: Cannot read property '_id' of null
+    at createDatabase (X:\git\mma-app\mma-app\backend\tools\data tools\data creation scripts\dataCreationTool.js:110:40)
     at process._tickCallback (internal/process/next_tick.js:68:7)
-1-23-2020-20:39:27:44 connecting to mongodb...
-1-23-2020-20:39:27:775 Reading events...
-1-23-2020-20:39:27:775 Reading UFC 1: The Beginning
-1-23-2020-20:39:27:776 Searching through weight classes
-1-23-2020-20:39:27:776 No weight class found
-1-23-2020-20:39:27:873 TypeError: Cannot read property '_id' of null
-    at createDatabase (X:\git\mma-app\mma-app\backend\tools\data tools\data creation scripts\dataCreationTool.js:109:42)
-    at process._tickCallback (internal/process/next_tick.js:68:7)
-1-23-2020-20:39:42:417 connecting to mongodb...
-1-23-2020-20:39:42:838 Reading events...
-1-23-2020-20:39:42:841 Reading UFC 1: The Beginning
-1-23-2020-20:39:43:785 Searching through weight classes
-1-23-2020-20:39:43:785 No weight class found

@@ -7571,7 +7571,7 @@
       "matches": [
         {
           "weightClass": "Lightweight",
-          "redFighter": "Khabib Nurmagomedov(c)",
+          "redFighter": "Khabib Nurmagomedov (c)",
           "outcome": "def.",
           "blueFighter": "Conor McGregor",
           "time": "3:03",
@@ -63279,7 +63279,7 @@
           "weightClass": "N/A",
           "redFighter": "Mark Coleman",
           "outcome": "",
-          "blueFighter": "",
+          "blueFighter": "Scott Ferrozzo",
           "time": "",
           "round": "",
           "method": "",

@@ -1,7 +1,8 @@
+import {Schema} from 'mongoose';
 
 const mongoose = require('mongoose');
-const MatchModel = require('../../../models/match.model');
-const FighterModel = require("../../../models/fighter.model");
+const MatchModel:Schema = require('../../../models/match.model');
+const FighterModel:Schema = require("../../../models/fighter.model");
 const mongoPassword = require('../../../../../../pas');
 const databaseURL = 'mongodb+srv://sandesh:' + mongoPassword.PASSWORD + '@mean-stack-optfw.mongodb.net/node-angular?retryWrites=true';
 const randomNumberGen = require("../../CustomTools").randomNumber;
@@ -13,21 +14,8 @@ const eventObj = require('../../data tools/data/UFC/eventData.json');
 // TODO: Add match type on the database (lower in priority)
 // const matchType = ['Main', 'Prelims', 'Early Prelims'];
 
-const createFighter = async (firstName, lastName, imageLink) => {
-  console.log("Trying to save fighter " + firstName + " " + lastName + " with image " + imageLink);
-  const fighterObject = {
-    firstName: firstName,
-    lastName: lastName,
-    imagePath: imageLink,
-    isTestData: false,
-    isMockData: false
-  };
-  try {
-    await FighterModel(fighterObject).save();
-  } catch (err) {
-    console.log("Failed to save fighter " + firstName + " " + lastName);
-    console.log(err);
-  }
+const createFighter = async () => {
+  
 };
 
 const createFighters = async () => {
@@ -39,8 +27,14 @@ const createFighters = async () => {
       const currentLine = splitData[i].split(",");
       const imageLink = currentLine[1];
       const currentFighterName = currentLine[0].split(" ");
+      const fighterObject = {
+        firstName: currentFighterName[0],
+        lastName: currentFighterName[currentFighterName.length - 1],
+        imagePath: imageLink,
+        isTestData: false,
+        isMockData: false
+      };
 
-      createFighter(currentFighterName[0], lastName[currentFighterName.length - 1], imageLink);
       const fighter = FighterModel(fighterObject);
       const savedFighter = await fighter.save();
       console.log(savedFighter.firstName + " has been saved");
@@ -62,6 +56,7 @@ const getNameArray = name => {
 };
 
 const getWeightClass = (weightClassName) => {
+  console.log("Searching through weight classes");
   if (weightClassName.includes("Catchweight")) {
     return weightClassName.match(/\d+.\d+/)[0];
   }
@@ -70,6 +65,7 @@ const getWeightClass = (weightClassName) => {
       return weightClassMap[weightClass];
     }
   }
+  console.log("No weight class found")
   return 0;
 };
 
@@ -83,11 +79,10 @@ const logObject = obj => {
 const createDatabase = async () => {
   let fighterRecordMap = {};
 
-  console.log("Trying to connect to mongodb...");
+  console.log("connecting to mongodb...")
   try {
     await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
   } catch (err) {
-    console.log("Could not connect to mongodb");
     console.log(err);
   }
 
@@ -98,7 +93,8 @@ const createDatabase = async () => {
   // Starting from the oldest event to the newest
   // TODO: change index
   for (let j = 0; j < eventLen; j++) {
-    const currentEvent = events[eventLen - j - 1];
+    const currentEvent = events[eventLen - j - 420];
+    console.log(currentEvent);
     const matches = currentEvent.matches;
     const matchesLen = matches.length;
 
@@ -116,20 +112,12 @@ const createDatabase = async () => {
 
       console.log("Finding fighters " + winnerName[0] + " " + winnerName[winnerName.length - 1] + " and " + loserName[0] + " " + loserName[loserName.length - 1])
       // TODO: need to create the fighter if it's their first match
-      let winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[winnerName.length - 1] });
-      let loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[loserName.length - 1] });
+      const winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[winnerName.length - 1] });
+      const loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[loserName.length - 1] });
 
-      // TODO: might want to call the ufc website to find image link
       if (winner == null) {
-        console.log("Could not find winner");
-        winner = createFighter(winnerName[0], winnerName[winnerName.length - 1], "NONE");
-      }
 
-      if (loser == null) {
-        console.log("Could not find loser");
-        loser = createFighter(loserName[0], loserName[loserName.length - 1], "NONE");
       }
-
       fighterArray[winnerIndex] = winner._id;
       fighterArray[loserIndex] = loser._id;
       let previousChampIndex = null;
@@ -138,21 +126,19 @@ const createDatabase = async () => {
       let isTitleFight = false;
 
       if (i == 0) {
+        const redFighterIsChamp = currentMatch.redFighter.includes("c)");
+        const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
+        if (redFighterIsChamp || blueFighterIsChamp) {
+          if (redFighterIsChamp) {
+            previousChampIndex = winnerIndex;
+          } else {
+            previousChampIndex = loserIndex;
+          }
+          isTitleFight = true;
+        }
+
         isFiveRounder = true;
       }
-
-      const redFighterIsChamp = currentMatch.redFighter.includes("c)");
-      const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
-      if (redFighterIsChamp || blueFighterIsChamp) {
-        console.log("Match is championship fight")
-        if (redFighterIsChamp) {
-          previousChampIndex = winnerIndex;
-        } else {
-          previousChampIndex = loserIndex;
-        }
-        isTitleFight = true;
-      }
-
 
       const matchIsNoContest = currentMatch.method == "No Contest";
       const matchIsDraw = currentMatch.method.includes("Draw");
@@ -182,9 +168,9 @@ const createDatabase = async () => {
       };
 
       const match = new MatchModel(matchObject);
-      const savedMatch = await match.save();
-      console.log("Saving match");
-
+      //const savedMatch = await match.save();
+      console.log("Saving match: ");
+      //logObject(matchObject);
       let winnerObject = fighterRecordMap[winner.id];
       let loserObject = fighterRecordMap[loser.id];
 
@@ -220,16 +206,16 @@ const createDatabase = async () => {
         }
       }
 
-      winnerObject.matches.push(savedMatch._id);
-      loserObject.matches.push(savedMatch._id);
+      winnerObject.matches.push("savedMatch._id");
+      loserObject.matches.push("savedMatch._id");
     }
   }
   //TODO: Need to test
-  console.log("Updating fighter records")
   for (let fighterId in fighterRecordMap) {
-    console.log("Updating fighter " + fighterId);
+    console.log("Updating fighter record:");
     const fighterObj = fighterRecordMap[fighterId];
-    await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
+    //await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
+    logObject(fighterObj);
   }
   console.log("Finished updating fighter records");
 };
@@ -258,7 +244,7 @@ const newFighterObject = {
 }
 
 const now = new Date();
-const logFile = fs.createWriteStream('dataCreation.access.log' + now.getTime(), { flags: 'a' });
+const logFile = fs.createWriteStream('dataCreation.access.log' + now.getMilliseconds(), { flags: 'a' });
 
 console.log = log => {
   logFile.write(timeStamp() + " " + util.format(log) + '\n');
