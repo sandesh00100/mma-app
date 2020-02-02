@@ -1,8 +1,9 @@
 mat-panel-title{
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
-
 p {
   text-align: center;
 }
@@ -16,7 +17,7 @@ img {
   border-radius: 15%;
 }
 
-.fighterImageContainer {
+.fighterContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,4 +36,26 @@ mat-action-row {
   background-image: linear-gradient(to left, #8f6B29, #FDE08D, #DF9F28); 
   background-color: yellow; /* For browsers that do not support gradients */
   
+}
+
+.titleMatch img {
+  box-shadow: 10px 10px 15px #643d03;
+}
+
+.event {
+  color: grey;
+}
+
+.match {
+  font-weight: 500;
+  font-size: larger;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fighterInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

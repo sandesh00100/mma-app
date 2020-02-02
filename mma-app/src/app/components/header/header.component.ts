@@ -11,16 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
- 
+
   private authServiceListener: Subscription;
-  isAuth:boolean = false;
-  username:string;
+  filterOptions: string[] = ["Event", "Fighter"];
+  isAuth: boolean = false;
+  username: string;
   constructor(private authService: AuthService, private dialogService: MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.isAuth = this.authService.userIsAuth();
     this.username = this.authService.getEmail();
-    
+
     this.authServiceListener = this.authService.getAuthStatusListener().subscribe(auth => {
       this.isAuth = auth;
       this.username = this.authService.getEmail();
@@ -28,17 +29,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-   this.authServiceListener.unsubscribe();
+    this.authServiceListener.unsubscribe();
   }
 
-  signout(){
+  signout() {
     this.authService.signout();
   }
 
-  openHistory(){
+  openHistory() {
     this.router.navigate(["/history"]);
   }
-  openPreferenceDialog(){
+  openPreferenceDialog() {
     this.dialogService.open(PreferencesComponent);
   }
 

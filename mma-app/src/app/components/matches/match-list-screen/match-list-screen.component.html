@@ -4,15 +4,29 @@
             <mat-accordion multi="true" >
                 <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}" [disabled]="isLoading">
                     <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            {{match.eventName}} {{match.fighters[0].lastName}} VS {{match.fighters[1].lastName}}
-                        </mat-panel-title>
+                            <mat-panel-title>
+                                <div class="event">
+                                    {{match.eventName}} ({{match.weightClass}} lbs)
+                                </div>
+                                <div>
+                                    
+                                </div>
+                                <div class="match">
+                                {{match.fighters[0].lastName}} VS {{match.fighters[1].lastName}}
+                                </div>
+                            </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div class="fighterImageContainer">
-                        <img [src]="match.fighters[0].imagePath" [alt]="match.fighters[0].lastName">
+                    <div class="fighterContainer">
+                        
+                        <div class="fighterInfo">
+                            <img [src]="match.fighters[0].imagePath" [alt]="match.fighters[0].lastName">
+                            <div class="fighterDescription">
+                                Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.draws}}
+                            </div>
+                        </div>
+                        <!--
                         <mat-list >
                             <mat-list-item >
-                                <!-- TODO: Definitely needs to be cleaned up/optimized maybe create a model for fighters-->
                             {{match.fighters[0].record.wins}}-{{match.fighters[0].record.losses}}-{{match.fighters[0].record.disqualifications}} Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.disqualifications}}
                             </mat-list-item>
                             <mat-list-item >
@@ -20,7 +34,13 @@
                             </mat-list-item>
                             <mat-list-item>other stats...</mat-list-item>
                         </mat-list>
-                        <img [src]="match.fighters[1].imagePath" [alt]="match.fighters[1].lastName">
+                    -->
+                        <div class="fighterInfo">
+                            <img [src]="match.fighters[1].imagePath" [alt]="match.fighters[1].lastName">
+                            <div class="fighterDescription">
+                                Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.draws}}
+                            </div>
+                        </div>
                     </div>
 
 

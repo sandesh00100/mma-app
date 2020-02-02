@@ -15,9 +15,9 @@ const ERROR_MESSAGE_OBJECT = {
 const fetchMatches = async (pageSize, currentPage, org) => {
 
     // Find matches by looking at the org name, getting the corrosponding page and populating the fighter ids
-    // TODO: remove ignorable database data from fighters
+    // TODO: Need to figure out a way to have a seconday sort on matchOrder
     const fetchedMatches = await MatchModel.find({ organization: org }, CustomTools.ignoreUtility.ignoreObject)
-        .sort({ date: -1 })
+        .sort({date: 1})
         .skip(pageSize * (currentPage - 1))
         .limit(pageSize)
         .populate({ path: 'fighters', select: CustomTools.ignoreUtility.ignoreString});

@@ -17,3 +17,11 @@ ul {
 .accountButton {
     margin-right: 2em;
 }
+
+mat-select {
+    width: 100px;
+}
+
+.search {
+    width:400px;
+}

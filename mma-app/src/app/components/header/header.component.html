@@ -3,15 +3,38 @@
                 <span class="title">Fudgement</span>
         </a>
         <span class="spacer"></span>
+        <mat-select placeholder="Filter By">
+                <mat-option *ngFor="let option of filterOptions" [value]="option">
+                        {{option}}
+                </mat-option>
+        </mat-select>
+        <mat-form-field class="search">
+                <input matInput type="text">
+                <button mat-button>
+                        <mat-icon>add</mat-icon>
+                </button>
+                <button mat-button>
+                        <mat-icon>search</mat-icon>
+                </button>
+        </mat-form-field>
+        <span class="spacer"></span>
         <ul>
-        <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
-        <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
-        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton"><mat-icon>expand_more</mat-icon>{{username}} </button>
-        <mat-menu #menu="matMenu" xPosition="after">
-                <button mat-menu-item (click)="openHistory()"><mat-icon>history</mat-icon>Judge History </button>
-                <button mat-menu-item (click)="openPreferenceDialog()"><mat-icon>settings</mat-icon>Preferences </button>
-                <button mat-menu-item (click)="signout()" *ngIf="isAuth"><mat-icon>settings_power</mat-icon>Sign-Out</button>
-        </mat-menu>
-        
+                <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
+                <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
+                <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton">
+                        <mat-icon>expand_more</mat-icon>{{username}}
+                </button>
+                <mat-menu #menu="matMenu" xPosition="after">
+                        <button mat-menu-item (click)="openHistory()">
+                                <mat-icon>history</mat-icon>Judge History
+                        </button>
+                        <button mat-menu-item (click)="openPreferenceDialog()">
+                                <mat-icon>settings</mat-icon>Preferences
+                        </button>
+                        <button mat-menu-item (click)="signout()" *ngIf="isAuth">
+                                <mat-icon>settings_power</mat-icon>Sign-Out
+                        </button>
+                </mat-menu>
+
         </ul>
 </mat-toolbar>
