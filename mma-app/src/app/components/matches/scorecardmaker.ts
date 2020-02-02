@@ -1,4 +1,4 @@
-import { FighterCard } from "./fighterCard";
+import { FighterCard, FighterInfo } from "./fighterCard";
 import { Round } from "./round";
 import { Stat } from "./stat.model";
 import { Match } from "./match.model";
@@ -37,8 +37,18 @@ export class ScoreCardMaker {
       }
 
       const fighters = fetchedMatch.fighters;
-      let redFighterCard = new FighterCard(fighters[0]._id, redFighterRounds, { fighterName: fighters[0].firstName + " " + fighters[0].lastName, lastName: fighters[0].lastName });
-      let blueFighterCard = new FighterCard(fighters[1]._id, blueFighterRounds, { fighterName: fighters[1].firstName + " " + fighters[1].lastName, lastName: fighters[1].lastName });
+      const redFighterInfo = {
+        fighterName: fighters[0].firstName + " " + fighters[0].lastName,
+        lastName: fighters[0].lastName,
+        imagePath: fighters[0].imagePath
+      };
+      const blueFighterInfo = {
+        fighterName: fighters[1].firstName + " " + fighters[1].lastName,
+        lastName: fighters[1].lastName,
+        imagePath: fighters[1].imagePath
+      };
+      let redFighterCard = new FighterCard(fighters[0]._id, redFighterRounds, redFighterInfo);
+      let blueFighterCard = new FighterCard(fighters[1]._id, blueFighterRounds, blueFighterInfo);
 
       this.redFighterCard = redFighterCard;
       this.blueFighterCard = blueFighterCard;
@@ -161,20 +171,12 @@ export class ScoreCardMaker {
     return roundArray;
   }
 
-  public getRedFighterLastName() {
-    return this.redFighterCard.fighterInfo.lastName;
+  public getRedFighterInfo(): FighterInfo{
+    return this.redFighterCard.fighterInfo;
   }
 
-  public getBlueFighterLastName() {
-    return this.blueFighterCard.fighterInfo.lastName;
-  }
-
-  public getRedFighterName() {
-    return this.redFighterCard.fighterInfo.fighterName;
-  }
-
-  public getBlueFighterName() {
-    return this.blueFighterCard.fighterInfo.fighterName;
+  public getBlueFighterInfo(): FighterInfo{
+    return this.blueFighterCard.fighterInfo;
   }
 
   public getRedFighterRoundStats(round: number) {
@@ -184,5 +186,4 @@ export class ScoreCardMaker {
   public getBlueFighterRoundStats(round: number) {
     return this.blueFighterCard.rounds[round - 1].stats;
   }
-
 }

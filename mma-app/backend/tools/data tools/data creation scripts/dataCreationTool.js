@@ -20,9 +20,17 @@ const createFighter = async (firstName, lastName, imageLink) => {
     lastName: lastName,
     imagePath: imageLink,
     isTestData: false,
-    isMockData: false
+    isMockData: false,
+    record: {
+      "wins": 0,
+      "losses": 0,
+      "draws": 0,
+      "disqualifications": 0,
+      "noContest": 0
+    }
   };
   try {
+    console.log("Sucessfully saved fighter! " + firstName + " " + lastName);
     await FighterModel(fighterObject).save();
   } catch (err) {
     console.log("Failed to save fighter " + firstName + " " + lastName);
@@ -73,6 +81,17 @@ const getWeightClass = (weightClassName) => {
   return 0;
 };
 
+const getChangeLogMap = () => {
+  const text = fs.readFileSync("../data/UFC/addChangeLog.txt", "utf8").split("\n");
+  let eventDateMap = {};
+  text.forEach(line => {
+    const lineArr = line.split(",");
+    eventDateMap[lineArr[0]] = lineArr[1] + "," + lineArr[2];
+  });
+
+  return eventDateMap;
+};
+
 const logObject = obj => {
   let objString = "";
   for (let attr in obj) {
@@ -97,139 +116,175 @@ const createDatabase = async () => {
 
   // Starting from the oldest event to the newest
   // TODO: change index
+  const changeLogMap = getChangeLogMap();
   for (let j = 0; j < eventLen; j++) {
     const currentEvent = events[eventLen - j - 1];
+    const currentEventNumber = currentEvent.number;
+    const currentEventDate = currentEvent.date;
     const matches = currentEvent.matches;
     const matchesLen = matches.length;
 
-    console.log("Reading " + currentEvent.name);
-    for (let i = 0; i < matchesLen; i++) {
-      const currentMatch = matches[i];
-      const fighterArray = [];
-      const weightClass = getWeightClass(currentMatch.weightClass);
+    if ((currentEventNumber in changeLogMap) && (changeLogMap[currentEventNumber].trim() == currentEventDate.trim())) {
+      console.log("Reading " + currentEvent.name);
+      for (let i = 0; i < matchesLen; i++) {
+        const currentMatch = matches[i];
+        const fighterArray = [];
+        const weightClass = getWeightClass(currentMatch.weightClass);
 
-      const winnerName = getNameArray(currentMatch.redFighter);
-      const loserName = getNameArray(currentMatch.blueFighter);
+        const winnerName = getNameArray(currentMatch.redFighter);
+        const loserName = getNameArray(currentMatch.blueFighter);
 
-      let winnerIndex = randomNumberGen(0, 2);
-      const loserIndex = Math.abs(winnerIndex - 1);
+        let winnerIndex = randomNumberGen(0, 2);
+        const loserIndex = Math.abs(winnerIndex - 1);
 
-      console.log("Finding fighters " + winnerName[0] + " " + winnerName[winnerName.length - 1] + " and " + loserName[0] + " " + loserName[loserName.length - 1])
-      // TODO: need to create the fighter if it's their first match
-      let winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[winnerName.length - 1] });
-      let loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[loserName.length - 1] });
+        console.log("Finding fighters " + winnerName[0] + " " + winnerName[winnerName.length - 1] + " and " + loserName[0] + " " + loserName[loserName.length - 1])
+        // TODO: need to create the fighter if it's their first match
+        let winner = await FighterModel.findOne({ firstName: winnerName[0], lastName: winnerName[winnerName.length - 1] });
+        let loser = await FighterModel.findOne({ firstName: loserName[0], lastName: loserName[loserName.length - 1] });
 
-      // TODO: might want to call the ufc website to find image link
-      if (winner == null) {
-        console.log("Could not find winner");
-        winner = createFighter(winnerName[0], winnerName[winnerName.length - 1], "NONE");
-      }
+        // TODO: might want to call the ufc website to find image link
+        if (winner == null) {
+          console.log("Could not find winner");
+          winner = await createFighter(winnerName[0], winnerName[winnerName.length - 1], "NONE");
+        }
 
-      if (loser == null) {
-        console.log("Could not find loser");
-        loser = createFighter(loserName[0], loserName[loserName.length - 1], "NONE");
-      }
+        if (loser == null) {
+          console.log("Could not find loser");
+          loser = await createFighter(loserName[0], loserName[loserName.length - 1], "NONE");
+        }
 
-      fighterArray[winnerIndex] = winner._id;
-      fighterArray[loserIndex] = loser._id;
-      let previousChampIndex = null;
+        fighterArray[winnerIndex] = winner._id;
+        fighterArray[loserIndex] = loser._id;
+        let previousChampIndex = null;
 
-      let isFiveRounder = false;
-      let isTitleFight = false;
+        let isFiveRounder = false;
+        let isTitleFight = false;
 
-      if (i == 0) {
-        isFiveRounder = true;
-      }
+        if (i == 0) {
+          isFiveRounder = true;
+        }
 
-      const redFighterIsChamp = currentMatch.redFighter.includes("c)");
-      const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
-      if (redFighterIsChamp || blueFighterIsChamp) {
-        console.log("Match is championship fight")
-        if (redFighterIsChamp) {
-          previousChampIndex = winnerIndex;
+        const redFighterIsChamp = currentMatch.redFighter.includes("c)");
+        const blueFighterIsChamp = currentMatch.blueFighter.includes("c)");
+        if (redFighterIsChamp || blueFighterIsChamp) {
+          console.log("Match is championship fight")
+          if (redFighterIsChamp) {
+            previousChampIndex = winnerIndex;
+          } else {
+            previousChampIndex = loserIndex;
+          }
+          isTitleFight = true;
+        }
+
+
+        const matchIsNoContest = currentMatch.method == "No Contest";
+        const matchIsDraw = currentMatch.method.includes("Draw");
+        const matchIsDq = currentMatch.method == "Disqualification";
+
+        if (matchIsDraw || matchIsNoContest) {
+          winnerIndex = -1;
+        }
+
+        const matchObject = {
+          organization: "UFC",
+          eventName: currentEvent.name,
+          matchOrder: i,
+          isFiveRounds: isFiveRounder,
+          isTitleFight: isTitleFight,
+          weightClass: weightClass,
+          fighters: fighterArray,
+          winnerIndex: winnerIndex,
+          championIndex: previousChampIndex,
+          method: currentMatch.method,
+          time: currentMatch.time,
+          methodInfo: currentMatch.methodInfo,
+          decisionInfo: currentMatch.decisionInfo,
+          round: currentMatch.round,
+          isTestData: false,
+          isMockData: false
+        };
+
+        const match = new MatchModel(matchObject);
+        const savedMatch = await match.save();
+        console.log("Saving match");
+
+        let winnerObject = fighterRecordMap[winner.id];
+        let loserObject = fighterRecordMap[loser.id];
+
+        if (winnerObject == null) {
+          winnerObject = { isChampion: false, record: { ...record }, matches: [] };
+          fighterRecordMap[winner.id] = winnerObject;
+        }
+
+        if (loserObject == null) {
+          loserObject = { isChampion: false, record: { ...record }, matches: [] };
+          fighterRecordMap[loser.id] = loserObject;
+        }
+
+        if (matchIsDraw) {
+          winnerObject.record.draws += 1;
+          loserObject.record.draws += 1;
+        } else if (matchIsNoContest) {
+          winnerObject.record.noContest += 1;
+          loserObject.record.noContest += 1;
         } else {
-          previousChampIndex = loserIndex;
-        }
-        isTitleFight = true;
-      }
 
+          if (isTitleFight) {
+            winnerObject.isChampion = true;
+            loserObject.isChampion = false;
+          }
 
-      const matchIsNoContest = currentMatch.method == "No Contest";
-      const matchIsDraw = currentMatch.method.includes("Draw");
-      const matchIsDq = currentMatch.method == "Disqualification";
+          winnerObject.record.wins += 1;
 
-      if (matchIsDraw || matchIsNoContest) {
-        winnerIndex = -1;
-      }
-
-      const matchObject = {
-        organization: "UFC",
-        eventName: currentEvent.name,
-        matchOrder: i,
-        isFiveRounds: isFiveRounder,
-        isTitleFight: isTitleFight,
-        weightClass: weightClass,
-        fighters: fighterArray,
-        winnerIndex: winnerIndex,
-        championIndex: previousChampIndex,
-        method: currentMatch.method,
-        time: currentMatch.time,
-        methodInfo: currentMatch.methodInfo,
-        decisionInfo: currentMatch.decisionInfo,
-        round: currentMatch.round,
-        isTestData: false,
-        isMockData: false
-      };
-
-      const match = new MatchModel(matchObject);
-      const savedMatch = await match.save();
-      console.log("Saving match");
-
-      let winnerObject = fighterRecordMap[winner.id];
-      let loserObject = fighterRecordMap[loser.id];
-
-      if (winnerObject == null) {
-        winnerObject = { ...newFighterObject, record: { ...newFighterObject.record } };
-        fighterRecordMap[winner.id] = winnerObject;
-      }
-
-      if (loserObject == null) {
-        loserObject = { ...newFighterObject, record: { ...newFighterObject.record } };
-        fighterRecordMap[loser.id] = loserObject;
-      }
-
-      if (matchIsDraw) {
-        winnerObject.record.draws += 1;
-        loserObject.record.draws += 1;
-      } else if (matchIsNoContest) {
-        winnerObject.record.noContest += 1;
-        loserObject.record.noContest += 1;
-      } else {
-
-        if (isTitleFight) {
-          winnerObject.isChampion = true;
-          loserObject.isChampion = false;
+          if (matchIsDq) {
+            loserObject.record.disqualifications += 1;
+          } else {
+            loserObject.record.losses += 1;
+          }
         }
 
-        winnerObject.record.wins += 1;
-
-        if (matchIsDq) {
-          loserObject.record.disqualifications += 1;
-        } else {
-          loserObject.record.losses += 1;
-        }
+        winnerObject.matches.push(savedMatch._id);
+        loserObject.matches.push(savedMatch._id);
       }
-
-      winnerObject.matches.push(savedMatch._id);
-      loserObject.matches.push(savedMatch._id);
     }
+
   }
+
+  // might want to make this synchronous
+  fs.writeFile("fighterRecordMap.json", JSON.stringify(fighterRecordMap), err => {
+    if (err) {
+      console.log("Could not save fighter record map");
+      console.log(err);
+    } else {
+      console.log("File sucessfully saved");
+    }
+  });
   //TODO: Need to test
   console.log("Updating fighter records")
   for (let fighterId in fighterRecordMap) {
     console.log("Updating fighter " + fighterId);
     const fighterObj = fighterRecordMap[fighterId];
-    await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
+    try {
+      // TODO: TEST NEW UPDATE
+      //await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
+      await FighterModel.updateOne(
+        { _id: fighterId },
+        {
+          $set: { isChampion: fighterObj.isChampion },
+          $pushAll: { matches: fighterObj.matches },
+          $inc: {
+            "record.wins":fighterObj.record.wins,
+            "record.losses":fighterObj.record.losses,
+            "record.draws":fighterObj.record.draws,
+            "record.disqualifications":fighterObj.record.disqualifications,
+            "record.noContest":fighterObj.record.disqualifications
+          }
+        });
+    } catch (err) {
+      console.log("could not update fighter " + fighterId);
+      console.log(err);
+    }
+
   }
   console.log("Finished updating fighter records");
 };
@@ -246,19 +301,16 @@ const weightClassMap = {
   "Flyweight": 125
 };
 
-const newFighterObject = {
-  isChampion: false,
-  record: {
-    wins: 0,
-    losses: 0,
-    draws: 0,
-    disqualifications: 0
-  },
-  matches: []
+const record = {
+  wins: 0,
+  losses: 0,
+  draws: 0,
+  disqualifications: 0,
+  noContest: 0
 }
 
 const now = new Date();
-const logFile = fs.createWriteStream('dataCreation.access.log' + now.getTime(), { flags: 'a' });
+const logFile = fs.createWriteStream('logs/dataCreation.log' + now.getTime(), { flags: 'a' });
 
 console.log = log => {
   logFile.write(timeStamp() + " " + util.format(log) + '\n');

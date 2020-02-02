@@ -62,7 +62,7 @@ mat-card-actions {
 
 
 img {
-    object-fit: cover;
+    object-fit: contain;
     height: 15em;
     width: 15em;
     margin: 0.625em;
@@ -109,7 +109,7 @@ img {
     opacity: 0.5;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    background-image: linear-gradient(to right, blue, red);
+    background-image: linear-gradient(to right, red, blue);
 }
 
 .slider::-webkit-slider-thumb {

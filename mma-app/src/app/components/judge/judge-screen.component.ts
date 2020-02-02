@@ -8,6 +8,7 @@ import { JudgeService } from './judge.service';
 import { Subscription} from 'rxjs';
 import { StatValidator } from '../utility/Stat.validator';
 import { Match } from '../matches/match.model';
+import { FighterInfo, FighterCard } from '../matches/fighterCard';
 
 @Component({
   selector: 'app-judge-screen',
@@ -25,6 +26,9 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
   private breakStarted: boolean = false;
   private currentTimeInSeconds: number;
   private preferenceStatsSubscription: Subscription;
+
+  currentRedFighterInfo:FighterInfo;
+  currentBlueFighterInfo:FighterInfo;
 
   currentRedFighterStats: Stat[];
   currentBlueFighterStats: Stat[];
@@ -51,6 +55,9 @@ export class JudgeScreenComponent implements OnInit, OnDestroy {
         const fetchedMatch: Match = matchData.match;
 
         this.currentScoreCard = new ScoreCardMaker(fetchedMatch);
+        this.currentRedFighterInfo = this.currentScoreCard.getRedFighterInfo();
+        this.currentBlueFighterInfo = this.currentScoreCard.getBlueFighterInfo();
+
         this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
 

@@ -1,0 +1,131 @@
+2-1-2020-9:17:42:521 Trying to connect to mongodb...
+2-1-2020-9:17:43:211 Reading events...
+2-1-2020-9:17:43:212 Reading UFC 246: McGregor vs. Cowboy
+2-1-2020-9:17:43:214 Finding fighters Conor McGregor and Donald Cerrone
+2-1-2020-9:17:43:367 Saving match
+2-1-2020-9:17:43:368 Finding fighters Holly Holm and Raquel Pennington
+2-1-2020-9:17:43:483 Saving match
+2-1-2020-9:17:43:484 Finding fighters Aleksei Oleinik and Maurice Greene
+2-1-2020-9:17:43:592 Saving match
+2-1-2020-9:17:43:593 Finding fighters Brian Kelleher and Ode Osbourne
+2-1-2020-9:17:43:681 Could not find loser
+2-1-2020-9:17:43:682 Trying to save fighter Ode Osbourne with image NONE
+2-1-2020-9:17:44:14 Saving match
+2-1-2020-9:17:44:15 Finding fighters Carlos Ferreira and Anthony Pettis
+2-1-2020-9:17:44:151 Saving match
+2-1-2020-9:17:44:151 Finding fighters Roxanne Modafferi and Maycee Barber
+2-1-2020-9:17:45:96 Saving match
+2-1-2020-9:17:45:97 Finding fighters Sodiq Yusuff and Andre Fili
+2-1-2020-9:17:45:532 Saving match
+2-1-2020-9:17:45:533 Finding fighters Askar Askarov and Tim Elliott
+2-1-2020-9:17:45:643 Saving match
+2-1-2020-9:17:45:644 Finding fighters Drew Dober and Nasrat Haqparast
+2-1-2020-9:17:45:749 Saving match
+2-1-2020-9:17:45:750 Finding fighters Aleksa Camur and Justin Ledet
+2-1-2020-9:17:45:824 Could not find winner
+2-1-2020-9:17:45:825 Trying to save fighter Aleksa Camur with image NONE
+2-1-2020-9:17:45:866 Saving match
+2-1-2020-9:17:45:867 Finding fighters Sabina Mazo and JJ Aldrich
+2-1-2020-9:17:45:973 Saving match
+2-1-2020-9:17:45:974 Reading UFC Fight Night: Blaydes vs. dos Santos
+2-1-2020-9:17:45:975 Finding fighters Curtis Blaydes and Junior Santos
+2-1-2020-9:17:46:96 Saving match
+2-1-2020-9:17:46:97 Finding fighters Michael Chiesa and Rafael Anjos
+2-1-2020-9:17:46:210 Saving match
+2-1-2020-9:17:46:211 Finding fighters Alex Perez and Jordan Espinosa
+2-1-2020-9:17:46:317 Saving match
+2-1-2020-9:17:46:318 Finding fighters Angela Hill and Hannah Cifers
+2-1-2020-9:17:46:435 Saving match
+2-1-2020-9:17:46:436 Finding fighters Jamahal Hill and Darko Stošić
+2-1-2020-9:17:46:506 Could not find winner
+2-1-2020-9:17:46:507 Trying to save fighter Jamahal Hill with image NONE
+2-1-2020-9:17:46:551 Saving match
+2-1-2020-9:17:46:555 Finding fighters Bevon Lewis and Dequan Townsend
+2-1-2020-9:17:46:665 Saving match
+2-1-2020-9:17:46:666 Finding fighters Arnold Allen and Nik Lentz
+2-1-2020-9:17:46:770 Saving match
+2-1-2020-9:17:46:771 Finding fighters Justine Kish and Lucie Pudilová
+2-1-2020-9:17:46:890 Saving match
+2-1-2020-9:17:46:891 Finding fighters Montel Jackson and Felipe Colares
+2-1-2020-9:17:46:999 Saving match
+2-1-2020-9:17:47:0 Finding fighters Sara McMann and Lina Länsberg
+2-1-2020-9:17:47:167 Saving match
+2-1-2020-9:17:47:173 Finding fighters Brett Johns and Tony Gravely
+2-1-2020-9:17:47:242 Could not find loser
+2-1-2020-9:17:47:242 Trying to save fighter Tony Gravely with image NONE
+2-1-2020-9:17:47:282 Saving match
+2-1-2020-9:17:47:283 Finding fighters Herbert Burns and Nate Landwehr
+2-1-2020-9:17:47:353 Could not find winner
+2-1-2020-9:17:47:354 Trying to save fighter Herbert Burns with image NONE
+2-1-2020-9:17:47:355 Could not find loser
+2-1-2020-9:17:47:356 Trying to save fighter Nate Landwehr with image NONE
+2-1-2020-9:17:47:751 Saving match
+2-1-2020-9:17:47:752 Updating fighter records
+2-1-2020-9:17:47:753 Updating fighter 5df98b30b4e09826e489c689
+2-1-2020-9:17:47:768 File sucessfully saved
+2-1-2020-9:17:47:801 Updating fighter 5df98afbb4e09826e489c117
+2-1-2020-9:17:47:836 Updating fighter 5df98b33b4e09826e489c6dd
+2-1-2020-9:17:47:873 Updating fighter 5df98b33b4e09826e489c6e1
+2-1-2020-9:17:47:920 Updating fighter 5df98b2cb4e09826e489c629
+2-1-2020-9:17:47:960 Updating fighter 5df98b0bb4e09826e489c2ab
+2-1-2020-9:17:47:998 Updating fighter 5df98b20b4e09826e489c4d4
+2-1-2020-9:17:48:33 Updating fighter undefined
+2-1-2020-9:17:48:35 could not save fighter undefined
+2-1-2020-9:17:48:36 { CastError: Cast to ObjectId failed for value "undefined" at path "_id" for model "Fighter"
+    at new CastError (x:\git\mma-app\mma-app\node_modules\mongoose\lib\error\cast.js:29:11)
+    at ObjectId.cast (x:\git\mma-app\mma-app\node_modules\mongoose\lib\schema\objectid.js:244:11)
+    at ObjectId.SchemaType.applySetters (x:\git\mma-app\mma-app\node_modules\mongoose\lib\schematype.js:948:12)
+    at ObjectId.SchemaType._castForQuery (x:\git\mma-app\mma-app\node_modules\mongoose\lib\schematype.js:1362:15)
+    at ObjectId.SchemaType.castForQuery (x:\git\mma-app\mma-app\node_modules\mongoose\lib\schematype.js:1352:15)
+    at ObjectId.SchemaType.castForQueryWrapper (x:\git\mma-app\mma-app\node_modules\mongoose\lib\schematype.js:1331:15)
+    at cast (x:\git\mma-app\mma-app\node_modules\mongoose\lib\cast.js:307:32)
+    at model.Query.Query.cast (x:\git\mma-app\mma-app\node_modules\mongoose\lib\query.js:4608:12)
+    at model.Query.Query._castConditions (x:\git\mma-app\mma-app\node_modules\mongoose\lib\query.js:1790:10)
+    at model.Query._updateThunk (x:\git\mma-app\mma-app\node_modules\mongoose\lib\query.js:3614:8)
+    at model.Query.<anonymous> (x:\git\mma-app\mma-app\node_modules\mongoose\lib\query.js:3724:23)
+    at model.Query._wrappedThunk [as _updateOne] (x:\git\mma-app\mma-app\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+    at process.nextTick (x:\git\mma-app\mma-app\node_modules\kareem\index.js:369:33)
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  message:
+   'Cast to ObjectId failed for value "undefined" at path "_id" for model "Fighter"',
+  name: 'CastError',
+  stringValue: '"undefined"',
+  kind: 'ObjectId',
+  value: 'undefined',
+  path: '_id',
+  reason: undefined,
+  model: Model { Fighter } }
+2-1-2020-9:17:48:130 Updating fighter 5df98b3fb4e09826e489c825
+2-1-2020-9:17:48:164 Updating fighter 5df98b1fb4e09826e489c4b7
+2-1-2020-9:17:48:205 Updating fighter 5df98b15b4e09826e489c3b6
+2-1-2020-9:17:48:239 Updating fighter 5df98b06b4e09826e489c22e
+2-1-2020-9:17:48:275 Updating fighter 5df98b22b4e09826e489c50f
+2-1-2020-9:17:48:311 Updating fighter 5df98b03b4e09826e489c1ed
+2-1-2020-9:17:48:351 Updating fighter 5df98b1db4e09826e489c487
+2-1-2020-9:17:48:392 Updating fighter 5df98b1db4e09826e489c48c
+2-1-2020-9:17:48:431 Updating fighter 5df98afdb4e09826e489c13b
+2-1-2020-9:17:48:469 Updating fighter 5df98b13b4e09826e489c386
+2-1-2020-9:17:48:506 Updating fighter 5df98b02b4e09826e489c1bc
+2-1-2020-9:17:48:542 Updating fighter 5df98b00b4e09826e489c18c
+2-1-2020-9:17:48:578 Updating fighter 5df98b0ab4e09826e489c291
+2-1-2020-9:17:48:615 Updating fighter 5df98b0db4e09826e489c2e6
+2-1-2020-9:17:48:651 Updating fighter 5df98b14b4e09826e489c399
+2-1-2020-9:17:48:688 Updating fighter 5df98b23b4e09826e489c536
+2-1-2020-9:17:48:726 Updating fighter 5df98b20b4e09826e489c4da
+2-1-2020-9:17:48:772 Updating fighter 5df98b1ab4e09826e489c43a
+2-1-2020-9:17:48:810 Updating fighter 5df98b3ab4e09826e489c791
+2-1-2020-9:17:48:847 Updating fighter 5df98b0eb4e09826e489c2fb
+2-1-2020-9:17:48:885 Updating fighter 5df98b1cb4e09826e489c47b
+2-1-2020-9:17:48:921 Updating fighter 5df98b3fb4e09826e489c826
+2-1-2020-9:17:48:956 Updating fighter 5df98b2db4e09826e489c635
+2-1-2020-9:17:48:991 Updating fighter 5df98b00b4e09826e489c197
+2-1-2020-9:17:49:25 Updating fighter 5df98b12b4e09826e489c364
+2-1-2020-9:17:49:61 Updating fighter 5df98b15b4e09826e489c3a7
+2-1-2020-9:17:49:98 Updating fighter 5df98b01b4e09826e489c1af
+2-1-2020-9:17:49:133 Updating fighter 5df98b3cb4e09826e489c7ca
+2-1-2020-9:17:49:172 Updating fighter 5df98b22b4e09826e489c51b
+2-1-2020-9:17:49:215 Updating fighter 5df98b3db4e09826e489c7fd
+2-1-2020-9:17:49:249 Updating fighter 5df98b25b4e09826e489c561
+2-1-2020-9:17:49:287 Updating fighter 5df98b3cb4e09826e489c7dc
+2-1-2020-9:17:49:322 Updating fighter 5df98b03b4e09826e489c1e1
+2-1-2020-9:17:49:358 Finished updating fighter records

@@ -5,9 +5,9 @@ export class FighterCard {
     public fighterId: string;
     public rounds: Round[];
     // Maybe give a better type
-    public fighterInfo: any;
+    public fighterInfo: FighterInfo;
 
-    constructor (fighterId:string, rounds:Round[], fighterInfo:any) {
+    constructor (fighterId:string, rounds:Round[], fighterInfo:FighterInfo) {
         this.rounds = rounds;
         this.fighterId = fighterId;
         this.fighterInfo = fighterInfo;
@@ -22,4 +22,10 @@ export class FighterCard {
         });
         return roundInfoList;
     }
+}
+
+export interface FighterInfo {
+    fighterName: string,
+    lastName: string,
+    imagePath: string
 }

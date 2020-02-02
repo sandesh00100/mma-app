@@ -9,7 +9,7 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="fighterImageContainer">
-                        <img [src]="tempFighter1Img" [alt]="match.fighters[0].lastName">
+                        <img [src]="match.fighters[0].imagePath" [alt]="match.fighters[0].lastName">
                         <mat-list >
                             <mat-list-item >
                                 <!-- TODO: Definitely needs to be cleaned up/optimized maybe create a model for fighters-->
@@ -20,7 +20,7 @@
                             </mat-list-item>
                             <mat-list-item>other stats...</mat-list-item>
                         </mat-list>
-                        <img [src]="tempFighter2Img" [alt]="match.fighters[1].lastName">
+                        <img [src]="match.fighters[1].imagePath" [alt]="match.fighters[1].lastName">
                     </div>
 
 

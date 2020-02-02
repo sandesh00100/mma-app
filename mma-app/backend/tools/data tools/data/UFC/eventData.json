@@ -1,6 +1,275 @@
 {
   "events": [
     {
+      "name": "UFC Fight Night: Blaydes vs. dos Santos",
+      "number": "507",
+      "date": "Jan 25, 2020",
+      "source": "/wiki/UFC_Fight_Night:_Blaydes_vs._dos_Santos",
+      "matches": [
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Curtis Blaydes",
+          "outcome": "def.",
+          "blueFighter": "Junior dos Santos",
+          "time": "1:06",
+          "round": "2",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Michael Chiesa",
+          "outcome": "def.",
+          "blueFighter": "Rafael dos Anjos",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "Alex Perez",
+          "outcome": "def.",
+          "blueFighter": "Jordan Espinosa",
+          "time": "2:33",
+          "round": "1",
+          "method": "Technical Submission",
+          "methodInfo": "arm-triangle choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Strawweight",
+          "redFighter": "Angela Hill",
+          "outcome": "def.",
+          "blueFighter": "Hannah Cifers",
+          "time": "4:26",
+          "round": "2",
+          "method": "TKO",
+          "methodInfo": "elbows and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Jamahal Hill",
+          "outcome": "def.",
+          "blueFighter": "Darko Sto\u0161i\u0107",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201327, 29\u201327, 29\u201327"
+        },
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Bevon Lewis",
+          "outcome": "def.",
+          "blueFighter": "Dequan Townsend",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Arnold Allen",
+          "outcome": "def.",
+          "blueFighter": "Nik Lentz",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 30\u201327"
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Justine Kish",
+          "outcome": "def.",
+          "blueFighter": "Lucie Pudilov\u00e1",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Montel Jackson",
+          "outcome": "def.",
+          "blueFighter": "Felipe Colares",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201326, 30\u201326, 30\u201325"
+        },
+        {
+          "weightClass": "Women's Bantamweight",
+          "redFighter": "Sara McMann",
+          "outcome": "def.",
+          "blueFighter": "Lina L\u00e4nsberg",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201326, 30\u201325"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Brett Johns",
+          "outcome": "def.",
+          "blueFighter": "Tony Gravely",
+          "time": "2:53",
+          "round": "3",
+          "method": "Submission",
+          "methodInfo": "rear-naked choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Herbert Burns",
+          "outcome": "def.",
+          "blueFighter": "Nate Landwehr",
+          "time": "2:43",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "knee",
+          "decisionInfo": ""
+        }
+      ]
+    },
+    {
+      "name": "UFC 246: McGregor vs. Cowboy",
+      "number": "506",
+      "date": "Jan 18, 2020",
+      "source": "/wiki/UFC_246",
+      "matches": [
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Conor McGregor",
+          "outcome": "def.",
+          "blueFighter": "Donald Cerrone",
+          "time": "0:40",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "head kick and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Bantamweight",
+          "redFighter": "Holly Holm",
+          "outcome": "def.",
+          "blueFighter": "Raquel Pennington",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Aleksei Oleinik",
+          "outcome": "def.",
+          "blueFighter": "Maurice Greene",
+          "time": "4:38",
+          "round": "2",
+          "method": "Submission",
+          "methodInfo": "armbar",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Brian Kelleher",
+          "outcome": "def.",
+          "blueFighter": "Ode Osbourne",
+          "time": "2:49",
+          "round": "1",
+          "method": "Submission",
+          "methodInfo": "guillotine choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Carlos Diego Ferreira",
+          "outcome": "def.",
+          "blueFighter": "Anthony Pettis",
+          "time": "1:46",
+          "round": "2",
+          "method": "Submission",
+          "methodInfo": "rear-naked choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Roxanne Modafferi",
+          "outcome": "def.",
+          "blueFighter": "Maycee Barber",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201326"
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Sodiq Yusuff",
+          "outcome": "def.",
+          "blueFighter": "Andre Fili",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "Askar Askarov",
+          "outcome": "def.",
+          "blueFighter": "Tim Elliott",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Drew Dober",
+          "outcome": "def.",
+          "blueFighter": "Nasrat Haqparast",
+          "time": "1:10",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Aleksa Camur",
+          "outcome": "def.",
+          "blueFighter": "Justin Ledet",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Sabina Mazo",
+          "outcome": "def.",
+          "blueFighter": "JJ Aldrich",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 29\u201328"
+        }
+      ]
+    },
+    {
       "name": "UFC Fight Night: Edgar vs. The Korean Zombie",
       "number": "505",
       "date": "Dec 21, 2019",

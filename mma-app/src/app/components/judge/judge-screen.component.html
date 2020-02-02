@@ -1,15 +1,15 @@
 <mat-card *ngIf="currentScoreCard != null && initialPreferenceFetch">
     <mat-card-header>
-        <mat-card-title>{{currentScoreCard.getRedFighterLastName()}} VS {{currentScoreCard.getBlueFighterLastName()}}
+        <mat-card-title>{{currentRedFighterInfo.lastName}} VS {{currentBlueFighterInfo.lastName}}
         </mat-card-title>
         <mat-card-subtitle>{{currentScoreCard.eventName}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <mat-card>
-            <mat-card-header>{{currentScoreCard.getRedFighterName()}}</mat-card-header>
+            <mat-card-header>{{currentRedFighterInfo.fighterName}}</mat-card-header>
             <mat-card-content class="fighterCard">
                 <div>
-                    <img src="https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg" alt="">
+                    <img [src]="currentRedFighterInfo.imagePath" alt="">
                 </div>
                 <div>
                     <div *ngFor="let stat of currentRedFighterStats">
@@ -70,11 +70,10 @@
         </div>
 
         <mat-card>
-            <mat-card-header>{{currentScoreCard.getBlueFighterName()}}</mat-card-header>
+            <mat-card-header>{{currentBlueFighterInfo.fighterName}}</mat-card-header>
             <mat-card-content class="fighterCard">
                 <div>
-                    <img src="https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg"
-                        alt="">
+                    <img [src]="currentBlueFighterInfo.imagePath" alt="">
                 </div>
 
                 <div>
