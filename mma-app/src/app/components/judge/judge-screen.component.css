@@ -151,3 +151,12 @@ img {
     font-weight: bold;
     color: red;
 }
+
+.redFighter{
+    color:rgb(179, 1, 1);
+  }
+
+.blueFighter{
+    color:rgb(0, 100, 167);
+}
+  

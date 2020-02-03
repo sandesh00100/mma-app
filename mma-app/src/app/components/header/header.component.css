@@ -19,9 +19,14 @@ ul {
 }
 
 mat-select {
-    width: 100px;
+    width: 125px;
+    font-size: smaller;
 }
 
 .search {
     width:400px;
+}
+
+mat-tool-bar {
+    box-shadow: 10px 10px 15px #aaaaaa;
 }

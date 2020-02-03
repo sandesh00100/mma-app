@@ -21,7 +21,7 @@
                         <div class="fighterInfo">
                             <img [src]="match.fighters[0].imagePath" [alt]="match.fighters[0].lastName">
                             <div class="fighterDescription">
-                                Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.draws}}
+                                {{organization}} Record {{match.fighters[0].record.wins}}-{{match.fighters[0].record.losses}}-{{match.fighters[0].record.draws}}
                             </div>
                         </div>
                         <!--
@@ -38,7 +38,7 @@
                         <div class="fighterInfo">
                             <img [src]="match.fighters[1].imagePath" [alt]="match.fighters[1].lastName">
                             <div class="fighterDescription">
-                                Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.draws}}
+                                {{organization}} Record {{match.fighters[1].record.wins}}-{{match.fighters[1].record.losses}}-{{match.fighters[1].record.draws}}
                             </div>
                         </div>
                     </div>

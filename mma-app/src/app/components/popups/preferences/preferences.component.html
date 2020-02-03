@@ -14,7 +14,7 @@
                 <input matInput type="number" [(ngModel)]="stat.max" placeholder="Max" (focusout)="correctStat(stat)" autocomplete="off">
             </mat-form-field>
             <mat-slide-toggle [(ngModel)]="stat.isShared" (change)="resetSharedStat(stat)">
-                Ratio
+                Slider
             </mat-slide-toggle>
             <button mat-button (click)=removeStat(stat)>
                 <mat-icon>clear</mat-icon>
@@ -35,7 +35,7 @@
                 <input matInput type="number" [(ngModel)]="newStat.max" placeholder="Max" autocomplete="off" (focusout)="correctStat(newStat)">
             </mat-form-field>
             <mat-slide-toggle [(ngModel)]="newStat.isShared" >
-                Ratio
+                Slider
             </mat-slide-toggle>
             <button mat-button (click)="addStat()">
                 <mat-icon>add</mat-icon>
