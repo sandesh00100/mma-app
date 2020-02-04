@@ -13,6 +13,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PreferencesComponent } from './components/popups/preferences/preferences.component';
 import { HistoryComponent } from './components/history/history.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,15 @@ import { HistoryComponent } from './components/history/history.component';
     MatSnackBarModule,
     MatTableModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers, 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   // Hammerjs used to make sliding work for matsliders
   
