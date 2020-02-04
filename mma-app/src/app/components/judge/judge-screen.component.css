@@ -1,4 +1,10 @@
+@font-face {
+    font-family:'digital-clock-font';
+    src: url(digital-7.regular.ttf);
+  }
+
 .scoreCard {
+    border-radius: 25px;
     /* background-image: linear-gradient(to right, #ffd9d9, #ddf2ff); */
 }
 
@@ -49,9 +55,11 @@ mat-card-actions {
     text-align: center;
     text-shadow: #000 0px 0px 1px;
     background: black;
-    border-radius:20px;
+    font-size: large;
+    /* border-radius:20px; */
     width: 50%;
     text-align: center;
+    font-family:'digital-clock-font'
 }
 
 .roundsContainer {
@@ -157,17 +165,18 @@ img {
 }
 
 .redFighter{
-    /* color:rgb(179, 1, 1); */
+    color:rgb(179, 1, 1);
     background-image:linear-gradient(to bottom right, #ffd9d9, #ffffff);
   }
 
 .blueFighter{
-    /* color:rgb(0, 100, 167); */
+    color:rgb(0, 100, 167);
     background-image:linear-gradient(to bottom left, #ddf2ff, #ffffff);
 }
 
 .redFighter, .blueFighter {
     /* background-color: #f3f3f3; */
-    box-shadow: 10px 10px 10px #818181;
+    border-radius: 25px;
+    box-shadow: 10px 10px 25px #818181;
     
 }
