@@ -21,6 +21,11 @@ ul {
 mat-select {
     width: 125px;
     font-size: smaller;
+    color: #b71c1c;
+}
+
+mat-icon {
+    color: #b71c1c !important;
 }
 
 .search {
@@ -29,4 +34,12 @@ mat-select {
 
 mat-tool-bar {
     box-shadow: 10px 10px 15px #aaaaaa;
+}
+
+.title {
+    color: #b71c1c;
+}
+
+mat-toolbar {
+    background-color: white;
 }
