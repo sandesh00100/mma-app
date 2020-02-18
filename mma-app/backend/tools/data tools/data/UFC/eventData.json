@@ -1,6 +1,297 @@
 {
   "events": [
     {
+      "name": "UFC Fight Night: Anderson vs. B\u0142achowicz 2",
+      "number": "509",
+      "date": "Feb 15, 2020",
+      "source": "/wiki/UFC_Fight_Night:_Anderson_vs._B%C5%82achowicz_2",
+      "matches": [
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Jan B\u0142achowicz",
+          "outcome": "def.",
+          "blueFighter": "Corey Anderson",
+          "time": "3:08",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punch",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Diego Sanchez",
+          "outcome": "def.",
+          "blueFighter": "Michel Pereira",
+          "time": "3:09",
+          "round": "3",
+          "method": "DQ",
+          "methodInfo": "illegal knee",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Montana De La Rosa",
+          "outcome": "def.",
+          "blueFighter": "Mara Romero Borella",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Brok Weaver",
+          "outcome": "def.",
+          "blueFighter": "Kazula Vargas",
+          "time": "4:02",
+          "round": "1",
+          "method": "DQ",
+          "methodInfo": "illegal knee",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Catchweight (128 lbs)",
+          "redFighter": "Ray Borg",
+          "outcome": "def.",
+          "blueFighter": "Rog\u00e9rio Bontorin",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201325"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Lando Vannata",
+          "outcome": "def.",
+          "blueFighter": "Yancy Medeiros",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Daniel Rodriguez",
+          "outcome": "def.",
+          "blueFighter": "Tim Means",
+          "time": "3:37",
+          "round": "2",
+          "method": "Submission",
+          "methodInfo": "guillotine choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "John Dodson",
+          "outcome": "def.",
+          "blueFighter": "Nathaniel Wood",
+          "time": "0:16",
+          "round": "3",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Scott Holtzman",
+          "outcome": "def.",
+          "blueFighter": "Jim Miller",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Devin Clark",
+          "outcome": "def.",
+          "blueFighter": "Dequan Townsend",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201326, 30\u201326"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Merab Dvalishvili",
+          "outcome": "def.",
+          "blueFighter": "Casey Kenney",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201325, 29\u201328"
+        },
+        {
+          "weightClass": "Women's Bantamweight",
+          "redFighter": "Macy Chiasson",
+          "outcome": "def.",
+          "blueFighter": "Shanna Young",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201326, 30\u201326, 30\u201326"
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "Raulian Paiva",
+          "outcome": "def.",
+          "blueFighter": "Mark De La Rosa",
+          "time": "4:42",
+          "round": "2",
+          "method": "KO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        }
+      ]
+    },
+    {
+      "name": "UFC 247: Jones vs. Reyes",
+      "number": "508",
+      "date": "Feb 8, 2020",
+      "source": "/wiki/UFC_247",
+      "matches": [
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Jon Jones (c)",
+          "outcome": "def.",
+          "blueFighter": "Dominick Reyes",
+          "time": "5:00",
+          "round": "5",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "48\u201347, 48\u201347, 49\u201346"
+        },
+        {
+          "weightClass": "Women\u2019s Flyweight",
+          "redFighter": "Valentina Shevchenko (c)",
+          "outcome": "def.",
+          "blueFighter": "Katlyn Chookagian",
+          "time": "1:03",
+          "round": "3",
+          "method": "TKO",
+          "methodInfo": "elbows and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Justin Tafa",
+          "outcome": "def.",
+          "blueFighter": "Juan Adams",
+          "time": "1:59",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Dan Ige",
+          "outcome": "def.",
+          "blueFighter": "Mirsad Bekti\u0107",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Derrick Lewis",
+          "outcome": "def.",
+          "blueFighter": "Ilir Latifi",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Trevin Giles",
+          "outcome": "def.",
+          "blueFighter": "James Krause",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Lauren Murphy",
+          "outcome": "def.",
+          "blueFighter": "Andrea Lee",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 30\u201327"
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Khaos Williams",
+          "outcome": "def.",
+          "blueFighter": "Alex Morono",
+          "time": "0:27",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Mario Bautista",
+          "outcome": "def.",
+          "blueFighter": "Miles Johns",
+          "time": "1:41",
+          "round": "2",
+          "method": "TKO",
+          "methodInfo": "flying knee and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Journey Newson",
+          "outcome": "def.",
+          "blueFighter": "Domingo Pilarte",
+          "time": "0:38",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Andre Ewell",
+          "outcome": "def.",
+          "blueFighter": "Jonathan Martinez",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 30\u201327"
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Youssef Zalal",
+          "outcome": "def.",
+          "blueFighter": "Austin Lingo",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        }
+      ]
+    },
+    {
       "name": "UFC Fight Night: Blaydes vs. dos Santos",
       "number": "507",
       "date": "Jan 25, 2020",

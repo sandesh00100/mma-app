@@ -31,7 +31,7 @@ const createFighter = async (firstName, lastName, imageLink) => {
   };
   try {
     console.log("Sucessfully saved fighter! " + firstName + " " + lastName);
-    await FighterModel(fighterObject).save();
+    return await FighterModel(fighterObject).save();
   } catch (err) {
     console.log("Failed to save fighter " + firstName + " " + lastName);
     console.log(err);
@@ -123,11 +123,11 @@ const createDatabase = async () => {
     const currentEventDate = currentEvent.date;
     const matches = currentEvent.matches;
     const matchesLen = matches.length;
-
+    let currentMatchNum = 0;
     if ((currentEventNumber in changeLogMap) && (changeLogMap[currentEventNumber].trim() == currentEventDate.trim())) {
       console.log("Reading " + currentEvent.name);
       for (let i = 0; i < matchesLen; i++) {
-        const currentMatch = matches[i];
+        const currentMatch = matches[matchesLen-i-1];
         const fighterArray = [];
         const weightClass = getWeightClass(currentMatch.weightClass);
 
@@ -188,7 +188,7 @@ const createDatabase = async () => {
         const matchObject = {
           organization: "UFC",
           eventName: currentEvent.name,
-          matchOrder: i,
+          matchOrder: currentMatchNum,
           isFiveRounds: isFiveRounder,
           isTitleFight: isTitleFight,
           weightClass: weightClass,
@@ -201,11 +201,13 @@ const createDatabase = async () => {
           decisionInfo: currentMatch.decisionInfo,
           round: currentMatch.round,
           isTestData: false,
-          isMockData: false
+          isMockData: false,
+          date: currentEventDate
         };
 
         const match = new MatchModel(matchObject);
         const savedMatch = await match.save();
+        currentMatchNum++;
         console.log("Saving match");
 
         let winnerObject = fighterRecordMap[winner.id];
@@ -271,7 +273,7 @@ const createDatabase = async () => {
         { _id: fighterId },
         {
           $set: { isChampion: fighterObj.isChampion },
-          $pushAll: { matches: fighterObj.matches },
+          $push: { matches: {$each:fighterObj.matches}},
           $inc: {
             "record.wins":fighterObj.record.wins,
             "record.losses":fighterObj.record.losses,
