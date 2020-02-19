@@ -8,11 +8,11 @@ import { MatchesComponent } from './components/matches/match-list-screen/match-l
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './components/auth/auth.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JudgeScreenComponent } from './components/judge/judge-screen.component';
+import { ScoreCardComponent } from './components/judge/scorecard/scorecard.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PreferencesComponent } from './components/popups/preferences/preferences.component';
-import { HistoryComponent } from './components/history/history.component';
+import { HistoryComponent } from './components/judge/history/history.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -24,7 +24,7 @@ import { environment } from '../environments/environment';
     HeaderComponent,
     MatchesComponent,
     AuthComponent,
-    JudgeScreenComponent,
+    ScoreCardComponent,
     PreferencesComponent,
     HistoryComponent
   ],

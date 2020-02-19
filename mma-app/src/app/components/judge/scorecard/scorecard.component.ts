@@ -1,21 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatchService } from '../matches/match.service';
+import { MatchService } from '../../matches/match.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ScoreCardMaker } from '../matches/scorecardmaker';
-import { Stat } from '../matches/stat.model';
+import { ScoreCardMaker } from './scorecardmaker';
+import { Stat } from '../../matches/stat.model';
 import { FormGroup } from '@angular/forms';
-import { JudgeService } from './judge.service';
+import { JudgeService } from '../judge.service';
 import { Subscription} from 'rxjs';
-import { StatValidator } from '../utility/Stat.validator';
-import { Match } from '../matches/match.model';
-import { FighterInfo, FighterCard } from '../matches/fighterCard';
+import { StatValidator } from '../../utility/Stat.validator';
+import { Match } from '../../matches/match.model';
+import { FighterInfo, FighterCard } from './fighterCard';
 
 @Component({
-  selector: 'app-judge-screen',
-  templateUrl: './judge-screen.component.html',
-  styleUrls: ['./judge-screen.component.css']
+  selector: 'app-scorecard',
+  templateUrl: './scorecard.component.html',
+  styleUrls: ['./scorecard.component.css']
 })
-export class JudgeScreenComponent implements OnInit, OnDestroy {
+export class ScoreCardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.preferenceStatsSubscription.unsubscribe();
   }

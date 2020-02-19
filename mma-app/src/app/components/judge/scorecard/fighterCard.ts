@@ -1,5 +1,5 @@
 import {Round} from './round';
-import { Stat } from './stat.model';
+import { Stat } from '../../matches/stat.model';
 
 export class FighterCard {
     public fighterId: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { JudgeService } from '../judge/judge.service';
-import { ScoreCard } from '../matches/scorecard.model';
+import { JudgeService } from '../judge.service';
+import { ScoreCard } from '../scorecard/scorecard.model';
 import { PageEvent } from '@angular/material';
 import { Subscription } from 'rxjs';
 

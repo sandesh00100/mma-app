@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Subject, Observable } from 'rxjs';
 import { Stat } from '../matches/stat.model';
-import { ScoreCardMaker } from '../matches/scorecardmaker';
+import { ScoreCardMaker } from './scorecard/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
-import { ScoreCard } from '../matches/scorecard.model';
+import { ScoreCard } from './scorecard/scorecard.model';
 
 const httpURL = environment.apiUrl + '/judge';
 

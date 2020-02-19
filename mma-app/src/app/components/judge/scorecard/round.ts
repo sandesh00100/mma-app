@@ -1,4 +1,4 @@
-import { Stat } from "./stat.model";
+import { Stat } from "../../matches/stat.model";
 
 export class Round {
     public roundNumber: number;

@@ -1,6 +1,6 @@
 a {
     text-decoration:none;
-    color: white;
+    color: #b71c1c;
 }
 
 ul {
@@ -18,6 +18,7 @@ ul {
     margin-right: 2em;
 }
 
+/* Probably should use scss */
 mat-select {
     width: 125px;
     font-size: smaller;
@@ -38,8 +39,4 @@ mat-tool-bar {
 
 .title {
     color: #b71c1c;
-}
-
-mat-toolbar {
-    background-color: white;
 }
