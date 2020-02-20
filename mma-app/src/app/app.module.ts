@@ -1,12 +1,10 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig, MatDialogModule, MatSlideToggleModule, MatSnackBarModule, MatTableModule, MatOptionModule, MatSelectModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthComponent } from './components/auth/auth.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ScoreCardComponent } from './components/judge/scorecard/scorecard.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -17,18 +15,19 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { AuthModule } from './components/auth/auth.module';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     MatchesComponent,
-    AuthComponent,
     ScoreCardComponent,
     PreferencesComponent,
     HistoryComponent
   ],
   imports: [
+    HeaderModule,
     BrowserModule,
     MatToolbarModule,
     BrowserAnimationsModule,
@@ -54,6 +53,7 @@ import { environment } from '../environments/environment';
     MatTableModule,
     MatOptionModule,
     MatSelectModule,
+    AuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers, 
       runtimeChecks: {
