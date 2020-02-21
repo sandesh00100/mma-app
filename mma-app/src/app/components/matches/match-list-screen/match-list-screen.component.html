@@ -1,6 +1,9 @@
 <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onChangedTab($event)">
     <mat-tab [label]="organization" *ngFor="let organization of organizations">
         <div class="tabBodyContainer">
+            <div *ngIf="matches && matches.length <= 0">
+                <h1>{{organizations[currentOrgIndex]}} coming soon!</h1>
+            </div>
             <mat-accordion multi="true" >
                 <mat-expansion-panel *ngFor="let match of matches" [ngClass]="{'titleMatch': match.isTitleFight}" [disabled]="isLoading">
                     <mat-expansion-panel-header>

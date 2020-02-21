@@ -15,10 +15,8 @@ export class MatchesComponent implements OnInit, OnDestroy {
   currentRouterLink:string = "/signin";
   isAuth:boolean = false;
   // TODO: Might want to change from being hard coded
-  organizations: string[] = ['UFC', 'Bellator'];
+  organizations: string[] = ['UFC', 'Bellator', 'One FC'];
   currentOrgIndex: number = 0;
-  tempFighter1Img: string = "https://amp.businessinsider.com/images/5b0533fd1ae66272008b4f90-750-375.jpg";
-  tempFighter2Img: string = "https://www.aljazeera.com/mritems/Images/2019/9/8/1cbece168fa24aefb2b37a739e83e59f_18.jpg";
   private matchesSub: Subscription;
   private authSub: Subscription;
   matches: Match[];

@@ -1,58 +1,33 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MatToolbarModule, MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDividerModule, MatListModule, MatInputModule, MatMenuModule, MatIconModule, MatSliderModule, GestureConfig, MatDialogModule, MatSlideToggleModule, MatSnackBarModule, MatTableModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import { GestureConfig} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatchesComponent } from './components/matches/match-list-screen/match-list-screen.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { ScoreCardComponent } from './components/judge/scorecard/scorecard.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
-import { PreferencesComponent } from './components/popups/preferences/preferences.component';
-import { HistoryComponent } from './components/judge/history/history.component';
+import { PreferencesComponent } from './components/judge/preferences/preferences.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthModule } from './components/auth/auth.module';
 import { HeaderModule } from './components/header/header.module';
+import { JudgeModule } from './components/judge/judge.module';
+import { MatchesModule } from './components/matches/matches.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MatchesComponent,
-    ScoreCardComponent,
-    PreferencesComponent,
-    HistoryComponent
+    AppComponent
   ],
   imports: [
-    HeaderModule,
     BrowserModule,
-    MatToolbarModule,
     BrowserAnimationsModule,
-    MatTabsModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatButtonModule,
-    MatPaginatorModule,
     HttpClientModule,
-    MatDividerModule,
-    MatListModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSliderModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatOptionModule,
-    MatSelectModule,
+    HeaderModule,
+    MatchesModule,
+    JudgeModule,
     AuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers, 
