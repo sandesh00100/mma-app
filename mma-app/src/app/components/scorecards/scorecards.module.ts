@@ -32,4 +32,4 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatIconModule
   ]
 })
-export class JudgeModule { }
+export class ScoreCardsModule { }

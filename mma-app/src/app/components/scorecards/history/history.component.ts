@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { JudgeService } from '../judge.service';
+import { ScoreCardService } from '../scorecards.service';
 import { ScoreCard } from '../scorecard/scorecard.model';
 import { PageEvent } from '@angular/material';
 import { Subscription } from 'rxjs';
@@ -20,21 +20,21 @@ export class HistoryComponent implements OnInit, OnDestroy {
   judgeHistory: ScoreCard[];
   private judgeHistorySubs: Subscription;
 
-  constructor(private judgeService: JudgeService) { }
+  constructor(private ScoreCardService: ScoreCardService) { }
 
   ngOnInit() {
-    this.judgeHistorySubs = this.judgeService.getJudgeHistoryUpdateListener().subscribe(judgeHistoryData => {
+    this.judgeHistorySubs = this.ScoreCardService.getJudgeHistoryUpdateListener().subscribe(judgeHistoryData => {
       this.judgeHistory = judgeHistoryData.scoreCards;
       this.pageLength = judgeHistoryData.totalScoreCards;
       console.log(judgeHistoryData);
     });
-    this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
+    this.ScoreCardService.getJudgeHistory(this.pageSize, this.currentPage);
   }
 
   onChangedPage(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    this.judgeService.getJudgeHistory(this.pageSize, this.currentPage);
+    this.ScoreCardService.getJudgeHistory(this.pageSize, this.currentPage);
   }
 
   /**

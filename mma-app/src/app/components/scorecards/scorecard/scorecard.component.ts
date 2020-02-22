@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ScoreCardMaker } from './scorecardmaker';
 import { Stat } from '../../matches/stat.model';
 import { FormGroup } from '@angular/forms';
-import { JudgeService } from '../judge.service';
+import { ScoreCardService } from '../scorecards.service';
 import { Subscription} from 'rxjs';
 import { StatValidator } from '../../utility/Stat.validator';
 import { Match } from '../../matches/match.model';
@@ -43,7 +43,7 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
   seconds: string = "00";
   currentTimerColor: string;
 
-  constructor(private matchService: MatchService, private route: ActivatedRoute, private judgeService: JudgeService) { }
+  constructor(private matchService: MatchService, private route: ActivatedRoute, private ScoreCardService: ScoreCardService) { }
 
   ngOnInit() {
     // Don't fetch if we already have a match from the match-list-screen
@@ -61,7 +61,7 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
         this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
 
-        this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
+        this.preferenceStatsSubscription = this.ScoreCardService.getPreferenceUpdateListener().subscribe(statsData => {
 
           if (!this.initialPreferenceFetch) {
             this.currentScoreCard.initializeStats(statsData);
@@ -76,7 +76,7 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
 
         });
 
-        this.judgeService.getPreferences();
+        this.ScoreCardService.getPreferences();
       });
     });
   }
@@ -201,7 +201,7 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
   }
 
   submitScoreCard() {
-    this.judgeService.saveScoreCard(this.currentScoreCard);
+    this.ScoreCardService.saveScoreCard(this.currentScoreCard);
   }
 
   /**

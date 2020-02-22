@@ -4,8 +4,6 @@ import { AuthComponent } from './auth.component';
 import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [AuthComponent],
   imports: [

@@ -6,15 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
-import { PreferencesComponent } from './components/judge/preferences/preferences.component';
+import { PreferencesComponent } from './components/scorecards/preferences/preferences.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AuthModule } from './components/auth/auth.module';
 import { HeaderModule } from './components/header/header.module';
-import { JudgeModule } from './components/judge/judge.module';
+import { ScoreCardsModule } from './components/scorecards/scorecards.module';
 import { MatchesModule } from './components/matches/matches.module';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -27,16 +28,27 @@ import { MatchesModule } from './components/matches/matches.module';
     AppRoutingModule,
     HeaderModule,
     MatchesModule,
-    JudgeModule,
+    ScoreCardsModule,
     AuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers, 
       runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
+        // Makes sure that states are never mutated in our store
+        strictStateImmutability:true,
+        strictActionImmutability:true,
+        // Ensures our actions are not serializable
+        strictActionSerializability:true,
+        // Makes sure states are serializable
+        strictStateSerializability:true
       }
     }),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) : [],
+    StoreRouterConnectingModule.forRoot({
+      // adds router state to the store
+      stateKey: 'router',
+      // find out the difference between minimal and full formats
+      routerState: RouterState.Minimal
+    })
   ],
   // Hammerjs used to make sliding work for matsliders
   

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
-import { PreferencesComponent } from '../judge/preferences/preferences.component';
+import { PreferencesComponent } from '../scorecards/preferences/preferences.component';
 import { Router } from '@angular/router';
 
 @Component({

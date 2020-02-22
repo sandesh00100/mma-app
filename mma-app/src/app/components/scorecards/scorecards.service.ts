@@ -15,7 +15,7 @@ const httpURL = environment.apiUrl + '/judge';
 })
 
 // TODO: Probably should change how we're loading the data, maybe create an object that encapsulates these score cards
-export class JudgeService {
+export class ScoreCardService {
   private preferenceUpdateListener = new Subject<Stat[]>();
   private judgeHistoryUpdateListener = new Subject<{scoreCards: ScoreCard[], totalScoreCards: number}>();
   private preferenceStats: Stat[];

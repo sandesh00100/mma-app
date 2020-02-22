@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JudgeService } from './judge.service';
+import { ScoreCardService } from './scorecards.service';
 
 describe('JudgeService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: JudgeService = TestBed.get(JudgeService);
+    const service: ScoreCardService = TestBed.get(ScoreCardService);
     expect(service).toBeTruthy();
   });
 });
