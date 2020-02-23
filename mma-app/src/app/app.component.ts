@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './components/judge/judge.service';
+import { JudgeService } from './components/judge/judge.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,11 @@ import { AuthService } from './components/judge/judge.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authService: AuthService){
+  constructor(private judgeService: JudgeService){
     
   }
   ngOnInit(): void {
-    this.authService.autoAuthUser();
+    this.judgeService.autoAuthUser();
   }
   title = 'app';
 }

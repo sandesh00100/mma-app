@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../judge.service';
+import { JudgeService } from '../judge.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   form:FormGroup;
   mode: String;
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private judgeService: JudgeService,private router:Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
 
   authorize(){
     if (this.mode == 'Sign in'){
-      this.authService.signinUser(this.form.value.email,this.form.value.password);
+      this.judgeService.signinUser(this.form.value.email,this.form.value.password);
     } else {
       console.log(this.form.value);
-      this.authService.registerUser(this.form.value.email,this.form.value.password);
+      this.judgeService.registerUser(this.form.value.email,this.form.value.password);
     }
   }
 }

@@ -2,17 +2,17 @@
 // Works like a middleware for outgoing requests
 import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AuthService } from "./judge.service";
+import { JudgeService } from "./judge.service";
 
 // Requirement by angular to put a injectable tag
 @Injectable()
 
 export class AuthInterceptor implements HttpInterceptor{
-    constructor(private authService: AuthService) {
+    constructor(private judgeService: JudgeService) {
         
     }
     intercept(req: HttpRequest<any>, next: HttpHandler){
-        const authToken = this.authService.getToken();
+        const authToken = this.judgeService.getToken();
 
         // Need to clone outgoing requests and not edit them outright because how it functions in the back
         const authRequest = req.clone({

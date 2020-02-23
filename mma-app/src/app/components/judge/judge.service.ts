@@ -11,7 +11,7 @@ const httpURL = environment.apiUrl + '/judge';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class JudgeService {
   isAuth: boolean = false;
   private token: string;
   private authStatusListener = new Subject<boolean>();

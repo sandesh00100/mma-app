@@ -3,7 +3,7 @@ import { MatchService } from '../match.service';
 import { Subscription } from 'rxjs';
 import { Match } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
-import { AuthService } from '../../judge/judge.service';
+import { JudgeService } from '../../judge/judge.service';
 
 @Component({
   selector: 'app-matches',
@@ -25,11 +25,11 @@ export class MatchesComponent implements OnInit, OnDestroy {
   pageSizeOptions: number[] = [1,5,10,20]
   currentPage: number = 1;
   isLoading: boolean = false;
-  constructor(private matchService: MatchService, private authService: AuthService) { }
+  constructor(private matchService: MatchService, private judgeService: JudgeService) { }
 
   ngOnInit() {
     this.matchService.getMatches(this.pageSize,1,'UFC');
-    this.isAuth = this.authService.userIsAuth();
+    this.isAuth = this.judgeService.userIsAuth();
     this.getListeners();
   }
   
@@ -47,7 +47,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
         console.log(this.matches);
     });
 
-    this.authSub = this.authService.getAuthStatusListener().subscribe(auth => {
+    this.authSub = this.judgeService.getAuthStatusListener().subscribe(auth => {
       this.isAuth = auth;
       console.log(this.currentRouterLink);
     });

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../judge/judge.service';
+import { JudgeService } from '../judge/judge.service';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../scorecards/preferences/preferences.component';
@@ -12,28 +12,28 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  private authServiceListener: Subscription;
+  private judgeServiceListener: Subscription;
   filterOptions: string[] = ["Event", "Fighter"];
   isAuth: boolean = false;
   username: string;
-  constructor(private authService: AuthService, private dialogService: MatDialog, private router: Router) { }
+  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router) { }
 
   ngOnInit() {
-    this.isAuth = this.authService.userIsAuth();
-    this.username = this.authService.getEmail();
+    this.isAuth = this.judgeService.userIsAuth();
+    this.username = this.judgeService.getEmail();
 
-    this.authServiceListener = this.authService.getAuthStatusListener().subscribe(auth => {
+    this.judgeServiceListener = this.judgeService.getAuthStatusListener().subscribe(auth => {
       this.isAuth = auth;
-      this.username = this.authService.getEmail();
+      this.username = this.judgeService.getEmail();
     });
   }
 
   ngOnDestroy(): void {
-    this.authServiceListener.unsubscribe();
+    this.judgeServiceListener.unsubscribe();
   }
 
   signout() {
-    this.authService.signout();
+    this.judgeService.signout();
   }
 
   openHistory() {
