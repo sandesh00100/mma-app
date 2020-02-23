@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptor } from './components/judge/auth.interceptor';
-import { PreferencesComponent } from './components/scorecards/preferences/preferences.component';
+import { PreferencesComponent } from './components/judge/preferences/preferences.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';

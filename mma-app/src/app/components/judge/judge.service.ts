@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JudgeData } from './judge.model';
 import { environment } from 'src/environments/environment';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
+import { Stat } from '../matches/stat.model';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
@@ -18,9 +19,35 @@ export class JudgeService {
   private judgeId: string;
   private tokenTimer: any;
   private email: string;
+  private preferenceUpdateListener = new Subject<Stat[]>();
+  private preferenceStats: Stat[];
 
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
+  getPreferences(): void{
+    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).subscribe(transformedStatData => {
+      this.preferenceStats = transformedStatData.stats;
+      this.preferenceUpdateListener.next([...this.preferenceStats]);
+    });
+  }
+
+  getPreferenceUpdateListener(): Subject<Stat[]>{
+    return this.preferenceUpdateListener;
+  }
+
+  updatePreferences(statList: Stat[]): Observable<{message: string}>{
+    return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
+  }
+
+  updatePreferenceListeners(statList: Stat[]): void{
+    this.preferenceStats = statList;
+    this.preferenceUpdateListener.next([...this.preferenceStats]);
+  };
+  
+  getStats(): Stat[]{
+    return [...this.preferenceStats];
+  };
+  
   registerUser(email: string, password: string): void{
     const judgeData: JudgeData = {
       email: email,

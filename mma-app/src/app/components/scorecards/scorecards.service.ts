@@ -16,20 +16,11 @@ const httpURL = environment.apiUrl + '/judge';
 
 // TODO: Probably should change how we're loading the data, maybe create an object that encapsulates these score cards
 export class ScoreCardService {
-  private preferenceUpdateListener = new Subject<Stat[]>();
   private judgeHistoryUpdateListener = new Subject<{scoreCards: ScoreCard[], totalScoreCards: number}>();
-  private preferenceStats: Stat[];
   private judgeHistory: ScoreCard[];
 
   constructor(private http:HttpClient, private router:Router, private snackBar: MatSnackBar) {
 
-  }
-
-  getPreferences(): void{
-    this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).subscribe(transformedStatData => {
-      this.preferenceStats = transformedStatData.stats;
-      this.preferenceUpdateListener.next([...this.preferenceStats]);
-    });
   }
 
   // TODO: add error and retries for all htttp calls
@@ -42,25 +33,8 @@ export class ScoreCardService {
     });
   }
 
-  getPreferenceUpdateListener(): Subject<Stat[]>{
-    return this.preferenceUpdateListener;
-  }
-
   getJudgeHistoryUpdateListener(): Subject<{scoreCards: ScoreCard[], totalScoreCards: number}>{
     return this.judgeHistoryUpdateListener;
-  }
-
-  updatePreferences(statList: Stat[]): Observable<{message: string}>{
-    return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
-  }
-
-  updatePreferenceListeners(statList: Stat[]): void{
-    this.preferenceStats = statList;
-    this.preferenceUpdateListener.next([...this.preferenceStats]);
-  };
-
-  getStats(): Stat[]{
-    return [...this.preferenceStats];
   }
 
   getJudgeHistory(scoreCardsPerPage:number, currentPage:number): void {

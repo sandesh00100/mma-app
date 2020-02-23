@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ScoreCardService } from '../scorecards.service';
+import { JudgeService } from '../judge.service';
 import { Router } from '@angular/router';
 import { Stat } from '../../matches/stat.model';
 import { Subscription } from 'rxjs';
@@ -27,17 +27,17 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private ScoreCardService: ScoreCardService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
+  constructor(private JudgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
 
   ngOnInit() {
     this.resetStat();
     if (this.router.url.includes("judge")) {
-      this.preferenceStats = this.ScoreCardService.getStats();
+      this.preferenceStats = this.JudgeService.getStats();
     } else {
-      this.preferenceStatsSub = this.ScoreCardService.getPreferenceUpdateListener().subscribe(statsData => {
+      this.preferenceStatsSub = this.JudgeService.getPreferenceUpdateListener().subscribe(statsData => {
         this.preferenceStats = statsData;
       });
-      this.ScoreCardService.getPreferences();
+      this.JudgeService.getPreferences();
     }
   }
 
@@ -67,8 +67,8 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   updatePreferences() {
-    this.ScoreCardService.updatePreferences(this.preferenceStats).subscribe(response => {
-      this.ScoreCardService.updatePreferenceListeners(this.preferenceStats);
+    this.JudgeService.updatePreferences(this.preferenceStats).subscribe(response => {
+      this.JudgeService.updatePreferenceListeners(this.preferenceStats);
       this.snackBar.open(response.message, 'Saved',
         {
           duration: 2000
