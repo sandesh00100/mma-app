@@ -27,17 +27,17 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private JudgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
+  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
 
   ngOnInit() {
     this.resetStat();
     if (this.router.url.includes("judge")) {
-      this.preferenceStats = this.JudgeService.getStats();
+      this.preferenceStats = this.judgeService.getStats();
     } else {
-      this.preferenceStatsSub = this.JudgeService.getPreferenceUpdateListener().subscribe(statsData => {
+      this.preferenceStatsSub = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
         this.preferenceStats = statsData;
       });
-      this.JudgeService.getPreferences();
+      this.judgeService.getPreferences();
     }
   }
 
@@ -67,8 +67,8 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   updatePreferences() {
-    this.JudgeService.updatePreferences(this.preferenceStats).subscribe(response => {
-      this.JudgeService.updatePreferenceListeners(this.preferenceStats);
+    this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
+      this.judgeService.updatePreferenceListeners(this.preferenceStats);
       this.snackBar.open(response.message, 'Saved',
         {
           duration: 2000

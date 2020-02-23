@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
 import { ScoreCard } from './scorecard/scorecard.model';
 
-const httpURL = environment.apiUrl + '/judge';
+const httpURL = environment.apiUrl + '/scorecards';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class ScoreCardService {
 
   // TODO: add error and retries for all htttp calls
   saveScoreCard(ScoreCardMaker: ScoreCardMaker): void {
-    this.http.post<{message: string}>(`${httpURL}/scorecard`,ScoreCardMaker.getJsonObject()).subscribe(response => {
+    this.http.post<{message: string}>(`${httpURL}`,ScoreCardMaker.getJsonObject()).subscribe(response => {
       this.router.navigate(['/']);
       this.snackBar.open(response.message, 'Success', {
         duration: 3000
@@ -47,6 +47,6 @@ export class ScoreCardService {
         totalScoreCards: fetchedJudgeHistory.totalScoreCards
       }
       this.judgeHistoryUpdateListener.next(fetchedJudgeHistoryData);
-    });;
+    });
   }
 }
