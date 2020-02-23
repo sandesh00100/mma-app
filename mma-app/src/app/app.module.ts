@@ -5,13 +5,13 @@ import { GestureConfig} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { AuthInterceptor } from './components/judge/auth.interceptor';
 import { PreferencesComponent } from './components/scorecards/preferences/preferences.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { AuthModule } from './components/auth/auth.module';
+import { JudgeModule } from './components/judge/judge.module';
 import { HeaderModule } from './components/header/header.module';
 import { ScoreCardsModule } from './components/scorecards/scorecards.module';
 import { MatchesModule } from './components/matches/matches.module';
@@ -29,7 +29,7 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
     HeaderModule,
     MatchesModule,
     ScoreCardsModule,
-    AuthModule,
+    JudgeModule,
     StoreModule.forRoot(reducers, {
       metaReducers, 
       runtimeChecks: {

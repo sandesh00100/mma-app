@@ -5,6 +5,7 @@ const app = express();
 
 const matchRoutes = require('./routes/match.route');
 const judgeRoutes = require('./routes/judge.route');
+const scorecardRoutes = require('./routes/scorecard.route');
 
 const mongoose = require('mongoose');
 // secure password relative to app.js
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
   });
 
 app.use('/api/matches', matchRoutes);
-app.use('/api/judge',judgeRoutes)
+app.use('/api/judge',judgeRoutes);
+app.use('/api/scorecards', scorecardRoutes);
 
 module.exports = app;

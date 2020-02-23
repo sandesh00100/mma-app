@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthData } from './auth.model';
+import { JudgeData } from './judge.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
@@ -22,13 +22,13 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
   registerUser(email: string, password: string): void{
-    const authData: AuthData = {
+    const judgeData: JudgeData = {
       email: email,
       password: password
     }
 
     // Don't want to authorize users right after because we want them to verify that their email is theirs
-    this.http.post<{message:string}>(`${httpURL}/register`, authData)
+    this.http.post<{message:string}>(`${httpURL}/register`, judgeData)
       .subscribe(response => {
         this.snackBar.open(response.message, 'Success', {
           duration: 3000
@@ -42,12 +42,12 @@ export class AuthService {
   }
 
   signinUser(email: string, password: string): void{
-    const authData: AuthData = {
+    const judgeData: JudgeData = {
       email: email,
       password: password
     }
 
-    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
+    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, judgeData)
       .subscribe(response => {
         if (response.token) {
           const expiresInDuration = response.expiresIn;
@@ -59,7 +59,7 @@ export class AuthService {
           this.authStatusListener.next(this.isAuth);
           const now = new Date();
           const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
-          this.saveAuthData(this.token, expirationDate, this.judgeId, this.email);
+          this.saveJudgeData(this.token, expirationDate, this.judgeId, this.email);
           this.authStatusListener.next(this.isAuth);
           
           this.snackBar.open(response.message, 'Success', {
@@ -85,7 +85,7 @@ export class AuthService {
     this.authStatusListener.next(false);
     this.judgeId = null;
     clearTimeout(this.tokenTimer);
-    this.clearAuthData();
+    this.clearJudgeData();
     this.snackBar.open("Successfully signed out!", 'Success', {
       duration: 3000
     });
@@ -113,7 +113,7 @@ export class AuthService {
    * Used automatically authenticate user if auth info is valid in local storage
    */
   autoAuthUser() {
-    const authInfo = this.getAuthData();
+    const authInfo = this.getJudgeData();
     if (!authInfo){
       return;
     }
@@ -137,7 +137,7 @@ export class AuthService {
    * @param judgeId judgeId gotten from login
    * @param email email used to signin
    */
-   private saveAuthData(token: string, expirationDate: Date, judgeId: string, email: string): void {
+   private saveJudgeData(token: string, expirationDate: Date, judgeId: string, email: string): void {
     localStorage.setItem('token', token);
     // isostring to convert date to string
     localStorage.setItem('expiration', expirationDate.toISOString());
@@ -148,7 +148,7 @@ export class AuthService {
   /**
    * Clears auth data from local storage
    */
-  private clearAuthData(): void {
+  private clearJudgeData(): void {
     localStorage.removeItem("token");
     localStorage.removeItem('expiration');
     localStorage.removeItem('judgeId');
@@ -158,7 +158,7 @@ export class AuthService {
   /**
    * Gets auth information from local storage and puts it in the service
    */
-  private getAuthData(): any{
+  private getJudgeData(): any{
     const token = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expiration");
     const judgeId = localStorage.getItem('judgeId');3

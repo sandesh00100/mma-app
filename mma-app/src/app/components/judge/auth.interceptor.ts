@@ -2,7 +2,7 @@
 // Works like a middleware for outgoing requests
 import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AuthService } from "./auth.service";
+import { AuthService } from "./judge.service";
 
 // Requirement by angular to put a injectable tag
 @Injectable()

@@ -3,7 +3,7 @@ import { MatchService } from '../match.service';
 import { Subscription } from 'rxjs';
 import { Match } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../judge/judge.service';
 
 @Component({
   selector: 'app-matches',

@@ -1,4 +1,4 @@
-export interface AuthData{
+export interface JudgeData{
     email:string,
     password: string
 }

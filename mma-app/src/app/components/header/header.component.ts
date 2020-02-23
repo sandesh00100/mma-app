@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../judge/judge.service';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../scorecards/preferences/preferences.component';
