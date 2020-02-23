@@ -6,7 +6,7 @@ import { Stat } from '../../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { ScoreCardService } from '../scorecards.service';
 import { Subscription} from 'rxjs';
-import { StatValidator } from '../../utility/Stat.validator';
+import { StatValidator } from '../../../utility/Stat.validator';
 import { Match } from '../../matches/match.model';
 import { FighterInfo} from './fighterCard';
 import { JudgeService } from '../../judge/judge.service';

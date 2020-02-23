@@ -1,4 +1,4 @@
-import { Stat } from "../matches/stat.model";
+import { Stat } from "../components/matches/stat.model";
 
 export class StatValidator {
 

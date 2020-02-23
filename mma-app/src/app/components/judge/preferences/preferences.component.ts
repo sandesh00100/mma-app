@@ -3,7 +3,7 @@ import { JudgeService } from '../judge.service';
 import { Router } from '@angular/router';
 import { Stat } from '../../matches/stat.model';
 import { Subscription } from 'rxjs';
-import { StatValidator } from '../../utility/Stat.validator';
+import { StatValidator } from '../../../utility/Stat.validator';
 import { MatSnackBar, MatDialogRef } from '@angular/material';
 
 @Component({

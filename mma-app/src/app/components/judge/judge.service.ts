@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { JudgeData } from './judge.model';
 import { environment } from 'src/environments/environment';
 import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
 import { Stat } from '../matches/stat.model';
+import { AuthData } from './judge.model';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
@@ -49,13 +49,13 @@ export class JudgeService {
   };
   
   registerUser(email: string, password: string): void{
-    const judgeData: JudgeData = {
+    const authData: AuthData = {
       email: email,
       password: password
     }
 
     // Don't want to authorize users right after because we want them to verify that their email is theirs
-    this.http.post<{message:string}>(`${httpURL}/register`, judgeData)
+    this.http.post<{message:string}>(`${httpURL}/register`, authData)
       .subscribe(response => {
         this.snackBar.open(response.message, 'Success', {
           duration: 3000
@@ -69,12 +69,12 @@ export class JudgeService {
   }
 
   signinUser(email: string, password: string): void{
-    const judgeData: JudgeData = {
+    const authData: AuthData = {
       email: email,
       password: password
     }
 
-    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, judgeData)
+    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
       .subscribe(response => {
         if (response.token) {
           const expiresInDuration = response.expiresIn;
