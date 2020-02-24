@@ -56,7 +56,7 @@
 
             </div>
             <!-- Use fighter1stats to display shared sliders but update fighter 2 stats as it gets updated-->
-            <div class="slidercontainer" *ngFor="let stat of currentRedFighterStats">
+            <div class="slidercontainer" *ngFor="let stat of currentRedFighterStats; let i = index" [attr.data-index]="i">
                 <div *ngIf="stat.isShared">
                     <div class="sliderValueContainer">
                         <div>{{stat.value}}%</div>
@@ -64,7 +64,7 @@
                         <div>{{100 - stat.value}}%</div>
                     </div>
                     <input type="range" min="0" max="100" [(ngModel)]="stat.value" class="slider"
-                        (change)="updateBlueFighterStat(stat.name)">
+                        (ngModelChange)="updateBlueFighterStat(stat.name,stat.value)" [ngStyle]="{'background':hslValues[i]}">
                 </div>
             </div>
         </div>

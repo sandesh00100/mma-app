@@ -33,6 +33,9 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
 
   currentRedFighterStats: Stat[];
   currentBlueFighterStats: Stat[];
+
+  hslValues: string[];
+
   currentInputValue;
   form: FormGroup;
   initialPreferenceFetch: boolean = false;
@@ -188,8 +191,10 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
    * Change current stat list based on what the current round is
    */
   updateCurrentStatLists() {
+
     this.currentRedFighterStats = this.currentScoreCard.getRedFighterRoundStats(this.currentRound);
     this.currentBlueFighterStats = this.currentScoreCard.getBlueFighterRoundStats(this.currentRound);
+    this.hslValues = this.currentScoreCard.getStatHslValues(this.currentRound);
   }
 
   /**
@@ -197,8 +202,12 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
    * This method allows us to update fighter 2 stats after a judge has changed the slider.
    * @param statName
    */
-  updateBlueFighterStat(statName: string) {
-    this.currentBlueFighterStats.find(stat => stat.name == statName).value = 100 - this.currentRedFighterStats.find(stat => stat.name == statName).value;
+  updateBlueFighterStat(statName: string, redValue: number) {
+    const blueFighterStat:Stat = this.currentBlueFighterStats.find(stat => stat.name == statName);
+    const statIndex = this.currentBlueFighterStats.indexOf(blueFighterStat);
+    this.hslValues[statIndex] = this.calculateHslValue(redValue);
+    console.log(this.hslValues[statIndex]);
+    blueFighterStat.value = 100 - this.currentRedFighterStats.find(stat => stat.name == statName).value;
   }
 
   submitScoreCard() {
@@ -213,5 +222,18 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
    */
   correctStat(stat: Stat) {
    StatValidator.correctValues(stat);
+  }
+
+  calculateHslValue(redFighterPercentage: number): string{
+    const redHue = 0;
+    const blueHue = 199;
+    const blueFighterPercentage = 100-redFighterPercentage;
+    if (redFighterPercentage == 50) {
+      return "hsl(0, 0%, 100%)";//white
+    } else if (redFighterPercentage > 50) {
+      return `hsl(${redHue},100%,${(100-(redFighterPercentage/2))}%)`
+    } else {
+      return `hsl(${blueHue},100%,${(100-(blueFighterPercentage/2))}%)`
+    }
   }
 }

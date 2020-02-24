@@ -103,6 +103,10 @@ export class JudgeService {
       });
   }
 
+  signinUserNew(authData:AuthData): void{
+    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData);
+  }
+
   /**
    *  Reset all auth data, clear auth data from local storage and navigate to home screen.
    */

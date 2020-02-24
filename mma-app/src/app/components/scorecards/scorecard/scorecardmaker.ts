@@ -16,7 +16,7 @@ export class ScoreCardMaker {
   public eventName: string;
   public numRounds: number;
 
-
+  
   constructor(fetchedMatch: Match) {
 
       this.matchId = fetchedMatch._id;
@@ -171,6 +171,10 @@ export class ScoreCardMaker {
     return roundArray;
   }
 
+  public getStatHslValues(roundNumber:number): string[]{
+    return this.redFighterCard.rounds[roundNumber-1].hslValues;
+  }
+  
   public getRedFighterInfo(): FighterInfo{
     return this.redFighterCard.fighterInfo;
   }

@@ -3,6 +3,7 @@ import { Stat } from "../../matches/stat.model";
 export class Round {
     public roundNumber: number;
     public stats: Stat[] = [];
+    public hslValues: string[] = [];
 
     constructor(roundNumber:number) {
         this.roundNumber = roundNumber;
@@ -17,6 +18,11 @@ export class Round {
             max:max,
             isGreater:false
         });
+        let defaultHslValue = null;
+        if (isShared) {
+            defaultHslValue = "hsl(0, 0%, 100%)";
+        }
+        this.hslValues.push(defaultHslValue);
     }
 
     // TODO: Create an interface for round
@@ -25,5 +31,9 @@ export class Round {
             round: this.roundNumber,
             stats: this.stats
         }
+    }
+
+    public getHslValues(): string[] {
+        return this.hslValues;
     }
 }
