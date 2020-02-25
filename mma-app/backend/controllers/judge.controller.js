@@ -87,8 +87,9 @@ const signinJudge = async (req, res, next) => {
           message: "Sucessfully signed in!",
           token: token,
           expiresIn: 3600,
-          judgeId: foundJudge._id,
-          email: foundJudge.email
+          id: foundJudge._id,
+          email: foundJudge.email,
+          preferences: foundJudge.preferences
         });
 
       }

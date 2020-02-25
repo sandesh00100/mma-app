@@ -206,7 +206,6 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
     const blueFighterStat:Stat = this.currentBlueFighterStats.find(stat => stat.name == statName);
     const statIndex = this.currentBlueFighterStats.indexOf(blueFighterStat);
     this.hslValues[statIndex] = this.calculateHslValue(redValue);
-    console.log(this.hslValues[statIndex]);
     blueFighterStat.value = 100 - this.currentRedFighterStats.find(stat => stat.name == statName).value;
   }
 
@@ -225,15 +224,10 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
   }
 
   calculateHslValue(redFighterPercentage: number): string{
-    const redHue = 0;
-    const blueHue = 199;
+    const blueHue = 240;
+    const range = 120;
     const blueFighterPercentage = 100-redFighterPercentage;
-    if (redFighterPercentage == 50) {
-      return "hsl(0, 0%, 100%)";//white
-    } else if (redFighterPercentage > 50) {
-      return `hsl(${redHue},100%,${(100-(redFighterPercentage/2))}%)`
-    } else {
-      return `hsl(${blueHue},100%,${(100-(blueFighterPercentage/2))}%)`
-    }
+    const calculatedHue = blueHue + (range * (blueFighterPercentage/100));
+    return `hsl(${calculatedHue},100%,50%)`;
   }
 }

@@ -79,6 +79,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
   resetStat() {
     this.newStat = {
+      id:undefined,
       name: undefined,
       min: undefined,
       max: undefined,

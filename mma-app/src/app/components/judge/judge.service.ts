@@ -74,13 +74,14 @@ export class JudgeService {
       password: password
     }
 
-    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData)
+    this.http.post<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:Stat[]}>(`${httpURL}/signin`, authData)
       .subscribe(response => {
+        console.log(response);
         if (response.token) {
           const expiresInDuration = response.expiresIn;
           this.setAuthTimer(expiresInDuration);
           this.email = email;
-          this.judgeId = response.judgeId;
+          this.judgeId = response.id;
           this.token = response.token;
           this.isAuth = true;
           this.authStatusListener.next(this.isAuth);
@@ -103,8 +104,8 @@ export class JudgeService {
       });
   }
 
-  signinUserNew(authData:AuthData): void{
-    this.http.post<{ message:string, token: string, expiresIn: number, judgeId: string, email: string }>(`${httpURL}/signin`, authData);
+  signinUserNew(authData:AuthData): Observable<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:any }>{
+    return this.http.post<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:any}>(`${httpURL}/signin`, authData);
   }
 
   /**

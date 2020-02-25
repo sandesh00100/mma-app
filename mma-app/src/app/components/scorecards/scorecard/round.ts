@@ -11,6 +11,7 @@ export class Round {
     
     public addNewStat(statName: string, isShared:boolean, initialValue: any, min: number, max?:number){
         this.stats.push({
+            id:undefined,
             name:statName,
             value: initialValue,
             isShared: isShared,
@@ -20,7 +21,7 @@ export class Round {
         });
         let defaultHslValue = null;
         if (isShared) {
-            defaultHslValue = "hsl(0, 0%, 100%)";
+            defaultHslValue = "hsl(300, 100%, 50%)";
         }
         this.hslValues.push(defaultHslValue);
     }

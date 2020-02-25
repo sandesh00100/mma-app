@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { JudgeService } from '../judge.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/reducers';
+import { login } from '../judge.actions';
+import { AuthData } from '../judge.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +15,7 @@ import { Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   form:FormGroup;
   mode: String;
-  constructor(private judgeService: JudgeService,private router:Router) { }
+  constructor(private judgeService: JudgeService,private router:Router, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -33,6 +37,7 @@ export class LoginComponent implements OnInit {
   authorize(){
     if (this.mode == 'Sign in'){
       this.judgeService.signinUser(this.form.value.email,this.form.value.password);
+      this.store.dispatch(login({authData:{email:this.form.value.email,password:this.form.value.password}}));
     } else {
       console.log(this.form.value);
       this.judgeService.registerUser(this.form.value.email,this.form.value.password);

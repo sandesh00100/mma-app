@@ -1,26 +1,13 @@
-import { Judge } from "../judge.model";
-import { createReducer, on } from "@ngrx/store";
-import { login, authenticated } from "../judge.actions";
+import { ActionReducerMap } from "@ngrx/store";
+import { PreferenceState, preferenceReducer } from "./preference.reducer";
+import { AuthState, authReducer } from "./auth.reducer";
 
 export interface JudgeState {
-    judge: Judge;
-    isAuth: boolean;
-    jwtToken: string;
+    auth:AuthState
+    preferences:PreferenceState;
 }
 
-export const initialJudgeState: JudgeState = {
-    judge:null,
-    isAuth: false,
-    jwtToken:null
-};
-
-export const judgeReducer = createReducer(
-    initialJudgeState,
-    on(authenticated, (state: JudgeState,action) => {
-        return {
-            judge: action.judge,
-            isAuth: true,
-            jwtToken:action.token
-        };
-    })
-);
+export const reducers: ActionReducerMap<JudgeState> = {
+    preferences:preferenceReducer,
+    auth:authReducer
+  };

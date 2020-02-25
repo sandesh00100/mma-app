@@ -4,7 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { judgeReducer } from './reducers';
+import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { JudgeEffects } from './judge.effects';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -16,7 +18,8 @@ import { judgeReducer } from './reducers';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    StoreModule.forFeature("judge",judgeReducer)
+    StoreModule.forFeature("judge",reducers),
+    EffectsModule.forFeature([JudgeEffects])
   ]
 })
 export class JudgeModule { }

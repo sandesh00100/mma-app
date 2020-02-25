@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthData, Judge } from "./judge.model";
+import { Stat } from "../matches/stat.model";
 
 export const login = createAction(
     "[Login Page] User Login",
@@ -7,10 +8,15 @@ export const login = createAction(
 )
 
 export const authenticated = createAction(
-    "[Authenticate Effect]",
-    props<{judge:Judge,token:string}>()
+    "[Authenticate Effect] Authenticated",
+    props<{judge:Judge,preferences:Stat[],jwtToken:{token:string,expiresIn:number}}>()
+);
+
+export const authenticationFailed = createAction(
+    "[Authenticate Effect] Failed To Authenticate",
+    props<{message:string}>()
 );
 
 export const logout = createAction(
     "[Header Dropdown] User Login"
-)
+);
