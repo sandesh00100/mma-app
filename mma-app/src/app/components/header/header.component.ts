@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../judge/preferences/preferences.component';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/reducers';
+import { logout } from '../judge/judge.actions';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   filterOptions: string[] = ["Event", "Fighter"];
   isAuth: boolean = false;
   username: string;
-  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router) { }
+  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.isAuth = this.judgeService.userIsAuth();
@@ -33,6 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   signout() {
+    this.store.dispatch(logout());
     this.judgeService.signout();
   }
 

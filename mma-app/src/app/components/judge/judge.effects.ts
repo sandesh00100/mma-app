@@ -38,7 +38,7 @@ export class JudgeEffects {
                 catchError(err => of(authenticationFailed({message:err.error.message})))
             )
     );
-
+    
     constructor(private actions$: Actions, private judgeService: JudgeService) {
 
     }

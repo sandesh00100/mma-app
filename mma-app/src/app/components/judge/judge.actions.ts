@@ -3,20 +3,26 @@ import { AuthData, Judge } from "./judge.model";
 import { Stat } from "../matches/stat.model";
 
 export const login = createAction(
-    "[Login Page] User Login",
-    props<{authData:AuthData}>()
+    "[Header Dropdown] Judge Login",
+    props<{ authData: AuthData }>()
 )
 
 export const authenticated = createAction(
-    "[Authenticate Effect] Authenticated",
-    props<{judge:Judge,preferences:Stat[],jwtToken:{token:string,expiresIn:number}}>()
+    "[Judge Effect] Authenticated",
+    props<{ judge: Judge, preferences: Stat[], jwtToken: { token: string, expiresIn: number } }>()
 );
 
 export const authenticationFailed = createAction(
-    "[Authenticate Effect] Failed To Authenticate",
-    props<{message:string}>()
+    "[Judge Effect] Failed To Authenticate",
+    props<{ message: string }>()
+);
+
+// TODO: Still need to implement auto logout
+export const startTimer = createAction(
+    "[Judge Effect] Start Timer",
+    props<{ expirationDuration: number }>()
 );
 
 export const logout = createAction(
-    "[Header Dropdown] User Login"
+    "[Header Dropdown] Judge Logout"
 );
