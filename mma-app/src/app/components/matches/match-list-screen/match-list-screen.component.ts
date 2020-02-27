@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../match.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Match } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
 import { JudgeService } from '../../judge/judge.service';
+import { Store, select } from '@ngrx/store';
+import { AppState } from 'src/app/reducers';
+import { isAuth, isNotAuth } from '../../judge/judge.selector';
 
 @Component({
   selector: 'app-matches',
@@ -13,7 +16,8 @@ import { JudgeService } from '../../judge/judge.service';
 export class MatchesComponent implements OnInit, OnDestroy {
   
   currentRouterLink:string = "/signin";
-  isAuth:boolean = false;
+  isAuth$:Observable<boolean>;
+  isNotAuth$:Observable<boolean>;
   // TODO: Might want to change from being hard coded
   organizations: string[] = ['UFC', 'Bellator', 'One FC'];
   currentOrgIndex: number = 0;
@@ -25,17 +29,23 @@ export class MatchesComponent implements OnInit, OnDestroy {
   pageSizeOptions: number[] = [1,5,10,20]
   currentPage: number = 1;
   isLoading: boolean = false;
-  constructor(private matchService: MatchService, private judgeService: JudgeService) { }
+  constructor(private matchService: MatchService, private judgeService: JudgeService, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.matchService.getMatches(this.pageSize,1,'UFC');
-    this.isAuth = this.judgeService.userIsAuth();
+    this.isAuth$ = this.store.pipe(
+      select(isAuth)
+    );
+
+    this.isNotAuth$ = this.store.pipe(
+      select(isNotAuth)
+    );
+
     this.getListeners();
   }
   
   ngOnDestroy(): void {
     this.matchesSub.unsubscribe();
-    this.authSub.unsubscribe();
   }
   
   getListeners(){
@@ -44,12 +54,6 @@ export class MatchesComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.matches = matchData.matches;
         this.pageLength = matchData.maxMatch;
-        console.log(this.matches);
-    });
-
-    this.authSub = this.judgeService.getAuthStatusListener().subscribe(auth => {
-      this.isAuth = auth;
-      console.log(this.currentRouterLink);
     });
   }
 

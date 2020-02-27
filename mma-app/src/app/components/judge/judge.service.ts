@@ -108,22 +108,6 @@ export class JudgeService {
     return this.http.post<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:any}>(`${httpURL}/signin`, authData);
   }
 
-  /**
-   *  Reset all auth data, clear auth data from local storage and navigate to home screen.
-   */
-  signout(){
-    this.token = null;
-    this.isAuth = false;
-    this.authStatusListener.next(false);
-    this.judgeId = null;
-    clearTimeout(this.tokenTimer);
-    this.clearJudgeData();
-    this.snackBar.open("Successfully signed out!", 'Success', {
-      duration: 3000
-    });
-    this.router.navigate(['/']);
-  }
-
   getAuthStatusListener():Subject<boolean>{
     return this.authStatusListener;
   }
@@ -178,16 +162,6 @@ export class JudgeService {
   }
 
   /**
-   * Clears auth data from local storage
-   */
-  private clearJudgeData(): void {
-    localStorage.removeItem("token");
-    localStorage.removeItem('expiration');
-    localStorage.removeItem('judgeId');
-    localStorage.removeItem('email');
-  }
-
-  /**
    * Gets auth information from local storage and puts it in the service
    */
   private getJudgeData(): any{
@@ -216,7 +190,6 @@ export class JudgeService {
     // Set time in miliseconds
     console.log("setting timer: " + duration);
     this.tokenTimer = setTimeout(() => {
-      this.signout();
     }, duration * 1000);
   }
 }

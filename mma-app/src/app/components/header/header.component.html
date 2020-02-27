@@ -1,4 +1,4 @@
-<mat-toolbar >
+<mat-toolbar>
         <a routerLink="">
                 <span class="title">Judgement MMA</span>
         </a>
@@ -19,11 +19,15 @@
         </mat-form-field>
         <span class="spacer"></span>
         <ul>
-                <a mat-button routerLink="/signin" routerLinkActive="mat-accent" *ngIf="!isAuth">Sign-In</a>
-                <a mat-button routerLink="/register" routerLinkActive="mat-accent" *ngIf="!isAuth">Register</a>
-                <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuth" class="accountButton">
-                        <mat-icon>expand_more</mat-icon>{{username}}
-                </button>
+                <a mat-button routerLink="/signin" routerLinkActive="mat-accent"
+                        *ngIf="(isNotAuth$ | async)">Sign-In</a>
+                <a mat-button routerLink="/register" routerLinkActive="mat-accent"
+                        *ngIf="(isNotAuth$ | async)">Register</a>
+                <div *ngIf="(judge$ | async) as judge">
+                        <button mat-button [matMenuTriggerFor]="menu" *ngIf="(isAuth$ | async)" class="accountButton">
+                                <mat-icon>expand_more</mat-icon>{{judge.email}}
+                        </button>
+                </div>
                 <mat-menu #menu="matMenu" xPosition="after">
                         <button mat-menu-item (click)="openHistory()">
                                 <mat-icon>history</mat-icon>Judge History
@@ -31,10 +35,11 @@
                         <button mat-menu-item (click)="openPreferenceDialog()">
                                 <mat-icon>settings</mat-icon>Preferences
                         </button>
-                        <button mat-menu-item (click)="signout()" *ngIf="isAuth">
+                        <button mat-menu-item (click)="signout()" *ngIf="(isAuth$ | async)">
                                 <mat-icon>settings_power</mat-icon>Sign-Out
                         </button>
                 </mat-menu>
 
         </ul>
+
 </mat-toolbar>

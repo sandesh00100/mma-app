@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { authenticated } from "../judge.actions";
+import { authenticated, logout } from "../judge.actions";
 import { Judge } from "../judge.model";
 
 export interface AuthState {
@@ -25,5 +25,12 @@ export const authReducer = createReducer(
             isAuth: true,
             jwtToken:action.jwtToken
         };
+    }),
+    on(logout, (state:AuthState, action) => {
+        return {
+            judge:null,
+            isAuth: false,
+            jwtToken:null
+        }
     })
 );

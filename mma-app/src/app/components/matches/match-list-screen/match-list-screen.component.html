@@ -49,7 +49,12 @@
 
                     <mat-action-row>
                         <!-- if someone is authorized then go to the judge page else go to the signin page-->
-                        <a mat-button color="primary" [routerLink]="(isAuth) ? ['/judge',match._id] : '/signin'">Judge Match</a>
+                        <div *ngIf="(isAuth$ | async)">
+                            <a mat-button color="primary" [routerLink]="['/judge',match._id]">Judge Match</a>
+                        </div>
+                        <div *ngIf="(isNotAuth$ | async)">
+                            <a mat-button color="primary" [routerLink]="'/signin'">Please Sign-in to Judge!</a>
+                        </div>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>

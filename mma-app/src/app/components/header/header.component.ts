@@ -1,12 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JudgeService } from '../judge/judge.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../judge/preferences/preferences.component';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { logout } from '../judge/judge.actions';
+import { Judge } from '../judge/judge.model';
+import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -17,18 +20,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private judgeServiceListener: Subscription;
   filterOptions: string[] = ["Event", "Fighter"];
-  isAuth: boolean = false;
+  isAuth$:Observable<boolean>;
+  isNotAuth$:Observable<boolean>;
+
+  judge$:Observable<Judge>;
+
   username: string;
   constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.isAuth = this.judgeService.userIsAuth();
-    this.username = this.judgeService.getEmail();
-
-    this.judgeServiceListener = this.judgeService.getAuthStatusListener().subscribe(auth => {
-      this.isAuth = auth;
-      this.username = this.judgeService.getEmail();
-    });
+    this.isAuth$ = this.store.pipe(
+      select(isAuth),
+      tap(auth => {
+        console.log("here"),
+        console.log(auth);
+      }),
+    );
+    
+    this.isNotAuth$ = this.store.pipe(
+      select(isNotAuth)
+    );
+    
+    this.judge$ = this.store.pipe(
+      select(selectJudge)
+    );
   }
 
   ngOnDestroy(): void {
@@ -37,7 +52,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   signout() {
     this.store.dispatch(logout());
-    this.judgeService.signout();
   }
 
   openHistory() {
