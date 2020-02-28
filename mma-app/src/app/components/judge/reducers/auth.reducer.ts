@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { authenticated, logout } from "../judge.actions";
+import { authenticated, logout} from "../judge.actions";
 import { Judge } from "../judge.model";
 
 export interface AuthState {

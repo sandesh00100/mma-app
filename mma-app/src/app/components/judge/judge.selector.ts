@@ -8,6 +8,11 @@ export const selectAuthState = createSelector(
     judgeState => judgeState.auth
 );
 
+export const selectJudge = createSelector(
+    selectAuthState,
+    authState => authState.judge
+);
+
 export const isAuth = createSelector(
     selectAuthState,
     authState => authState.isAuth
@@ -18,7 +23,7 @@ export const isNotAuth = createSelector(
     authStatus => !authStatus
 );
 
-export const selectJudge = createSelector(
+export const selectToken = createSelector(
     selectAuthState,
-    authState => authState.judge
+    authState => authState.jwtToken.token
 );

@@ -2,17 +2,15 @@
 // Works like a middleware for outgoing requests
 import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { JudgeService } from "./judge.service";
 
 // Requirement by angular to put a injectable tag
 @Injectable()
 
 export class AuthInterceptor implements HttpInterceptor{
-    constructor(private judgeService: JudgeService) {
+    constructor() {
         
     }
     intercept(req: HttpRequest<any>, next: HttpHandler){
-        const authToken = this.judgeService.getToken();
 
         // Need to clone outgoing requests and not edit them outright because how it functions in the back
         const authRequest = req.clone({
@@ -21,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor{
              * Use Bearer and white space because its the convention, we also parse the string after the white space in the back end
              * Making sure the user is Authorized for each request
              * */
-            headers: req.headers.set('Authorization',"Bearer " + authToken)
+            headers: req.headers.set('Authorization',"Bearer " + localStorage.getItem("token"))
         });
 
         return next.handle(authRequest);

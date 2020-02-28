@@ -17,12 +17,11 @@ export const authenticationFailed = createAction(
     props<{ message: string }>()
 );
 
-// TODO: Still need to implement auto logout
-export const startTimer = createAction(
+export const autoAuth = createAction(
     "[Judge Effect] Start Timer",
     props<{ expirationDuration: number }>()
 );
 
 export const logout = createAction(
-    "[Header Dropdown] Judge Logout"
+    "[Header Dropdown | Time Out] Judge Logout"
 );

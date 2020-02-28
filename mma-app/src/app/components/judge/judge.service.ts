@@ -6,6 +6,9 @@ import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
 import { Stat } from '../matches/stat.model';
 import { AuthData } from './judge.model';
+import { AppState } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
+import { logout } from './judge.actions';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
@@ -22,7 +25,7 @@ export class JudgeService {
   private preferenceUpdateListener = new Subject<Stat[]>();
   private preferenceStats: Stat[];
 
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar,private store: Store<AppState>) { }
 
   getPreferences(): void{
     this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`).subscribe(transformedStatData => {
@@ -107,24 +110,7 @@ export class JudgeService {
   signinUserNew(authData:AuthData): Observable<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:any }>{
     return this.http.post<{ message:string, token: string, expiresIn: number, id: string, email: string,preferences:any}>(`${httpURL}/signin`, authData);
   }
-
-  getAuthStatusListener():Subject<boolean>{
-    return this.authStatusListener;
-  }
-
-  // TODO: need to check where else this should be used
-  userIsAuth(): boolean{
-    return this.isAuth;
-  }
-
-  getToken(): string{
-    return this.token;
-  }
-
-  getEmail(): string{
-    return this.email;
-  }
-
+  
   /**
    * Used automatically authenticate user if auth info is valid in local storage
    */
@@ -186,10 +172,11 @@ export class JudgeService {
    * Depending on the number of seconds. This sets a timer for the client side
    * @param duration number of seconds
    */
-  private setAuthTimer(duration: number): void{
+   setAuthTimer(duration: number): void{
     // Set time in miliseconds
     console.log("setting timer: " + duration);
     this.tokenTimer = setTimeout(() => {
+      this.store.dispatch(logout);
     }, duration * 1000);
   }
 }
