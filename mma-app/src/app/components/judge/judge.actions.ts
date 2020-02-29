@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { AuthData, Judge } from "./judge.model";
+import { AuthData, Judge, JwtToken } from "./judge.model";
 import { Stat } from "../matches/stat.model";
 
 export const login = createAction(
@@ -9,7 +9,7 @@ export const login = createAction(
 
 export const authenticated = createAction(
     "[Judge Effect] Authenticated",
-    props<{ judge: Judge, preferences: Stat[], jwtToken: { token: string, expiresIn: number } }>()
+    props<{ judge: Judge, preferences: Stat[], jwtToken:JwtToken }>()
 );
 
 export const authenticationFailed = createAction(
@@ -17,9 +17,26 @@ export const authenticationFailed = createAction(
     props<{ message: string }>()
 );
 
+export const loadAuthInfoFromStorage = createAction(
+    "[Judge Service] Load Judge From Local Storage",
+    props<{ judge: Judge, jwtToken:JwtToken}>()
+);
+
+export const loadPreferences = createAction(
+    "[Judge Service] Load Preferences"
+);
+
+export const preferencesLoaded = createAction(
+    "[Judge Effect] Preferences Loaded",
+    props<{preferences:Stat[]}>()
+);
+export const loadPreferencesFailed = createAction(
+    "[Judge Effect] Load Preferences failed",
+    props<{ message: string }>()
+);
+
 export const autoAuth = createAction(
-    "[Judge Effect] Start Timer",
-    props<{ expirationDuration: number }>()
+    "[App Component] Auto Authenticate"
 );
 
 export const logout = createAction(

@@ -31,10 +31,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isAuth$ = this.store.pipe(
       select(isAuth),
-      tap(auth => {
-        console.log("here"),
-        console.log(auth);
-      }),
     );
     
     this.isNotAuth$ = this.store.pipe(

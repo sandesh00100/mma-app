@@ -5,10 +5,10 @@ import { environment } from 'src/environments/environment';
 import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
 import { Stat } from '../matches/stat.model';
-import { AuthData } from './judge.model';
+import { AuthData, JwtToken, Judge } from './judge.model';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
-import { logout } from './judge.actions';
+import { logout, login, loadAuthInfoFromStorage, loadPreferences } from './judge.actions';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
@@ -32,6 +32,10 @@ export class JudgeService {
       this.preferenceStats = transformedStatData.stats;
       this.preferenceUpdateListener.next([...this.preferenceStats]);
     });
+  }
+
+  getPreferencesNew(): Observable<any>{
+    return this.http.get<{message:string, stats: Stat[]}>(`${httpURL}/preference/stats`);
   }
 
   getPreferenceUpdateListener(): Subject<Stat[]>{
@@ -121,14 +125,13 @@ export class JudgeService {
     }
     const now = new Date();
     const expiresIn = authInfo.expirationDate.getTime() - now.getTime();
-    console.log(authInfo, expiresIn);
+    //console.log(authInfo, expiresIn);
     if (expiresIn > 0) {
-      this.token = authInfo.token;
       this.setAuthTimer(expiresIn/1000);
-      this.isAuth = true;
-      this.judgeId = authInfo.judgeId;
-      this.email = authInfo.email;
-      this.authStatusListener.next(true);
+
+      // TODO: might want to combine these two dispatches
+      this.store.dispatch(loadAuthInfoFromStorage({judge:authInfo.judge, jwtToken:authInfo.jwtToken}));
+      this.store.dispatch(loadPreferences());
     }
   }
   
@@ -150,21 +153,26 @@ export class JudgeService {
   /**
    * Gets auth information from local storage and puts it in the service
    */
-  private getJudgeData(): any{
+  private getJudgeData(): {jwtToken:JwtToken, expirationDate:Date, judge:Judge}{
     const token = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expiration");
-    const judgeId = localStorage.getItem('judgeId');3
-    
+    const judgeId = localStorage.getItem('judgeId');
     const email = localStorage.getItem('email');
-    if (!token || !expirationDate) {
+    const expirationDuration = localStorage.getItem('tokenExpirationDuration');
+    if (!token || !expirationDate || !email || !judgeId || !expirationDuration) {
       return;
     }
 
     return {
-      token: token,
+      jwtToken:{
+        token:token,
+        expiresIn: +expirationDuration
+      },
       expirationDate: new Date(expirationDate),
-      judgeId: judgeId,
-      email:email
+      judge:{
+        id: judgeId,
+        email:email
+      }
     };
   }
   
@@ -176,7 +184,7 @@ export class JudgeService {
     // Set time in miliseconds
     console.log("setting timer: " + duration);
     this.tokenTimer = setTimeout(() => {
-      this.store.dispatch(logout);
+      this.store.dispatch(logout());
     }, duration * 1000);
   }
 }

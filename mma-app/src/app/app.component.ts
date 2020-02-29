@@ -14,7 +14,7 @@ export class AppComponent {
     
   }
   ngOnInit(): void {
-    this.store.dispatch(autoAuth);
+    // this.store.dispatch(autoAuth);
     this.judgeService.autoAuthUser();
   }
   title = 'app';

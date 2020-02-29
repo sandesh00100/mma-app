@@ -2,9 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JudgeService } from '../judge.service';
 import { Router } from '@angular/router';
 import { Stat } from '../../matches/stat.model';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { StatValidator } from '../../../utility/Stat.validator';
 import { MatSnackBar, MatDialogRef } from '@angular/material';
+import { AppState } from 'src/app/reducers';
+import { Store, select } from '@ngrx/store';
+import { selectPreferences } from '../judge.selector';
 
 @Component({
   selector: 'app-preferences',
@@ -13,6 +16,7 @@ import { MatSnackBar, MatDialogRef } from '@angular/material';
 })
 
 /**
+ * FIXME: ADDING AND REMOVING PREFRENCES STILL BROKEN
  * TODO: Defaults button, make users have minimum of 1 stat
  */
 export class PreferencesComponent implements OnInit, OnDestroy {
@@ -22,40 +26,44 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     }
 
   }
-
-  preferenceStats: Stat[];
+  preferences$: Observable<Stat[]>;
+  preferenceStatsOld: Stat[];
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>) { }
+  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>, private store:Store<AppState>) { }
 
   ngOnInit() {
+    this.preferences$ = this.store.pipe(
+      select(selectPreferences)
+    );
+
     this.resetStat();
     if (this.router.url.includes("judge")) {
-      this.preferenceStats = this.judgeService.getStats();
+      this.preferenceStatsOld = this.judgeService.getStats();
     } else {
       this.preferenceStatsSub = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
-        this.preferenceStats = statsData;
+        this.preferenceStatsOld = statsData;
       });
       this.judgeService.getPreferences();
     }
   }
 
   removeStat(stat: Stat) {
-    this.preferenceStats = this.preferenceStats.filter(currentStat => {
+    this.preferenceStatsOld = this.preferenceStatsOld.filter(currentStat => {
       return currentStat != stat;
     });
   }
 
   addStat() {
-    const isValid = StatValidator.isValidStat(this.newStat, this.preferenceStats);
+    const isValid = StatValidator.isValidStat(this.newStat, this.preferenceStatsOld);
     if (isValid) {
 
       if (this.newStat.isShared) {
         this.resetSharedStat(this.newStat);
       }
       
-      this.preferenceStats.push(this.newStat);
+      this.preferenceStatsOld.push(this.newStat);
       this.resetStat();
     } else {
       this.snackBar.open('Please enter a valid name.', 'Error',
@@ -67,8 +75,8 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   updatePreferences() {
-    this.judgeService.updatePreferences(this.preferenceStats).subscribe(response => {
-      this.judgeService.updatePreferenceListeners(this.preferenceStats);
+    this.judgeService.updatePreferences(this.preferenceStatsOld).subscribe(response => {
+      this.judgeService.updatePreferenceListeners(this.preferenceStatsOld);
       this.snackBar.open(response.message, 'Saved',
         {
           duration: 2000

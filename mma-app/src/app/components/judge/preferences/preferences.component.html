@@ -1,6 +1,6 @@
 <div>
     <h1>Preferences</h1>
-    <div class="statContainer">
+    <div class="statContainer" *ngIf="(preferences$ | async) as preferenceStats">
         <div class="statItemContainer" *ngFor="let stat of preferenceStats">
             <span>{{stat.name}}</span>
             <span class="spacer"></span>
