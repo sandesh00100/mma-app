@@ -5,15 +5,15 @@
             <span>{{stat.name}}</span>
             <span class="spacer"></span>
             <mat-form-field *ngIf="!stat.isShared">
-                <input matInput type="number" [(ngModel)]="stat.value" placeholder="Initial"  (focusout)="correctStat(stat)" autocomplete="off">
+                <input #initial matInput type="number" [value]="stat.value" placeholder="Initial"  (focusout)="updateStat(stat.id,initial.value,'value')" autocomplete="off">
             </mat-form-field>
             <mat-form-field *ngIf="!stat.isShared">
-                <input matInput type="number" [(ngModel)]="stat.min" placeholder="Min" (focusout)="correctStat(stat)" autocomplete="off">
+                <input #min matInput type="number" [value]="stat.min" placeholder="Min" (focusout)="updateStat(stat.id,min.value,'min')" autocomplete="off">
             </mat-form-field>
             <mat-form-field *ngIf="!stat.isShared">
-                <input matInput type="number" [(ngModel)]="stat.max" placeholder="Max" (focusout)="correctStat(stat)" autocomplete="off">
+                <input #max matInput type="number" [value]="stat.max" placeholder="Max" (focusout)="updateStat(stat.id,max.value,'max')" autocomplete="off">
             </mat-form-field>
-            <mat-slide-toggle [(ngModel)]="stat.isShared" (change)="resetSharedStat(stat)">
+            <mat-slide-toggle [ngModel]="stat.isShared" (change)="resetSharedStat(stat)">
                 Slider
             </mat-slide-toggle>
             <button mat-button (click)=removeStat(stat)>
@@ -26,15 +26,15 @@
             </mat-form-field>
             <span class="spacer"></span>
             <mat-form-field *ngIf="!newStat.isShared">
-                <input matInput type="number" [(ngModel)]="newStat.value" placeholder="Initial" autocomplete="off" (focusout)="correctStat(newStat)">
+                <input matInput type="number" [(ngModel)]="newStat.value" placeholder="Initial" autocomplete="off" (focusout)="correctStat(stat,null)">
             </mat-form-field>
             <mat-form-field *ngIf="!newStat.isShared">
-                <input matInput type="number" [(ngModel)]="newStat.min" placeholder="Min" autocomplete="off" (focusout)="correctStat(newStat)">
+                <input matInput type="number" [(ngModel)]="newStat.min" placeholder="Min" autocomplete="off" (focusout)="correctStat(stat,null)">
             </mat-form-field>
             <mat-form-field *ngIf="!newStat.isShared">
-                <input matInput type="number" [(ngModel)]="newStat.max" placeholder="Max" autocomplete="off" (focusout)="correctStat(newStat)">
+                <input matInput type="number" [(ngModel)]="newStat.max" placeholder="Max" autocomplete="off" (focusout)="correctStat(stat,null)">
             </mat-form-field>
-            <mat-slide-toggle [(ngModel)]="newStat.isShared" >
+            <mat-slide-toggle [ngModel]="newStat.isShared" >
                 Slider
             </mat-slide-toggle>
             <button mat-button (click)="addStat()">
@@ -43,8 +43,8 @@
         </div>
 
         <div class="buttonContainer">
-            <button mat-button class="saveButton" (click)="updatePreferences()">
-                <mat-icon>save</mat-icon> Save Preferences
+            <button mat-button class="saveButton" (click)="closeDialog()">
+                <mat-icon>close</mat-icon> Close Dialog
             </button>
         </div>
 

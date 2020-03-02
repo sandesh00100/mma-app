@@ -42,3 +42,32 @@ export const autoAuth = createAction(
 export const logout = createAction(
     "[Header Dropdown | Time Out] Judge Logout"
 );
+
+export const addStat = createAction(
+    "[Preference Dialog] Add Stat",
+    props<{stat:Stat}>()
+);
+
+export const statAdded = createAction(
+    "[Judge Effect] Stat Added",
+    props<{stat:Stat}>()
+);
+
+export const statAddedFailed = createAction(
+    "[Judge Effect] Stat Add Failed"
+);
+
+export const deleteStat = createAction(
+    "[Preference Dialog] Stat Delete",
+    props<{statId:string}>()
+);
+
+export const deletedStat = createAction(
+    "[Preference Dialog] Stat Deleteted",
+    props<{message:string}>()
+);
+
+export const deleteStatFailed = createAction(
+    "[Judge Effect] Stat Delete Failed",
+    props<{statId:string}>()
+);

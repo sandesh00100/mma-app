@@ -1,7 +1,7 @@
 import { Stat } from "../../matches/stat.model";
 import {createEntityAdapter, EntityState} from '@ngrx/entity';
 import { createReducer, on } from "@ngrx/store";
-import { authenticated, preferencesLoaded } from "../judge.actions";
+import { authenticated, preferencesLoaded, statAdded, deleteStat } from "../judge.actions";
 
 export interface PreferenceState extends EntityState<Stat> {
     preferencesLoaded:boolean
@@ -18,7 +18,9 @@ export const initialPreferenceState = adapter.getInitialState({
 export const preferenceReducer = createReducer(
     initialPreferenceState,
     on(authenticated, (state,action) => adapter.addAll(action.preferences,{...state,preferencesLoaded:true})),
-    on(preferencesLoaded, (state,action) => adapter.addAll(action.preferences,{...state,preferencesLoaded:true}))
+    on(preferencesLoaded, (state,action) => adapter.addAll(action.preferences,{...state,preferencesLoaded:true})),
+    on(statAdded,(state,action) => adapter.addOne(action.stat,state)),
+    on(deleteStat,(state,action) => adapter.removeOne(action.statId,state))
 );
 
 export const {

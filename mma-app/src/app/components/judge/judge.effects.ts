@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed } from "./judge.actions";
+import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed, addStat, statAdded, statAddedFailed, deleteStat, deleteStatFailed, deletedStat } from "./judge.actions";
 import { JudgeService } from "./judge.service";
-import { switchMap, map, tap, catchError } from 'rxjs/operators';
+import { switchMap, map, tap, catchError, mergeMap } from 'rxjs/operators';
 import { Judge } from "./judge.model";
 import { of } from "rxjs";
 import { Router } from "@angular/router";
+import { dispatch } from "rxjs/internal/observable/pairs";
 
 @Injectable()
 export class JudgeEffects {
@@ -87,6 +88,42 @@ export class JudgeEffects {
             catchError(err => of(authenticationFailed({ message: err.error.message })))
         )
     );
+    
+    addStat$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(addStat),
+            mergeMap(
+                addStatAction => {
+                    return this.judgeService.addStat(addStatAction.stat);
+                }
+            ),
+            map(
+                (response:any) => {
+                    console.log(response);
+                    const modifiedStat = {
+                        ...response.savedStat,
+                        id:response.savedStat._id
+                    };
+                    return statAdded({stat:modifiedStat});
+                }
+            ),
+            catchError(err => of(statAddedFailed))
+        )
+    );
+
+    deleteStat$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(deleteStat),
+            mergeMap(
+                action => this.judgeService.deleteStat(action.statId)  
+            ),
+            map(
+                response => deletedStat(response.message)
+            ),
+            catchError(err => of(deleteStatFailed))
+        )
+    );
+    
     constructor(private actions$: Actions, private judgeService: JudgeService, private router: Router) {
 
     }

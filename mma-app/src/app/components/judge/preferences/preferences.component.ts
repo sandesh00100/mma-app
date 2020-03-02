@@ -8,6 +8,7 @@ import { MatSnackBar, MatDialogRef } from '@angular/material';
 import { AppState } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
 import { selectPreferences } from '../judge.selector';
+import { addStat, deleteStat } from '../judge.actions';
 
 @Component({
   selector: 'app-preferences',
@@ -50,9 +51,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   removeStat(stat: Stat) {
-    this.preferenceStatsOld = this.preferenceStatsOld.filter(currentStat => {
-      return currentStat != stat;
-    });
+    this.store.dispatch(deleteStat({statId:stat.id}));
   }
 
   addStat() {
@@ -62,7 +61,8 @@ export class PreferencesComponent implements OnInit, OnDestroy {
       if (this.newStat.isShared) {
         this.resetSharedStat(this.newStat);
       }
-      
+      this.store.dispatch(addStat({stat:this.newStat}));
+
       this.preferenceStatsOld.push(this.newStat);
       this.resetStat();
     } else {
@@ -103,7 +103,17 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     stat.value = 50;
   }
 
-  correctStat(stat: Stat) {
+  updateStat(id: string, newValue:number, attribute:string){
+
+  }
+
+  correctStat(stat: Stat, newValue) {
+    console.log(stat);
+    console.log(newValue);
     StatValidator.correctValues(stat);
+  }
+
+  closeDialog(){
+    this.dialogRef.close();
   }
 }

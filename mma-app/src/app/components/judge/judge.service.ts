@@ -46,6 +46,14 @@ export class JudgeService {
     return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
 
+  addStat(stat: Stat): any{
+    return this.http.post<{message:string,savedStat:Stat}>(`${httpURL}/preference/stats`,stat);
+  }
+
+  deleteStat(statId: string): Observable<any> {
+    return this.http.delete<{message:String}>(`${httpURL}/preference/stats/${statId}`);
+  }
+
   updatePreferenceListeners(statList: Stat[]): void{
     this.preferenceStats = statList;
     this.preferenceUpdateListener.next([...this.preferenceStats]);

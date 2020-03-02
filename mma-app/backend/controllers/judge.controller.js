@@ -3,6 +3,7 @@ const ScoreCardModel = require('../models/scorecard.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const CustomTools = require('../tools/CustomTools');
+const mongoose = require('mongoose');
 /**
  * Registers the Judge
  * @param {*} req contains the email and password of the Judge
@@ -171,7 +172,61 @@ const updateStatPreferences = (req, res, next) => {
       });
       console.log(err);
     });
+};
 
+const addStat = (req, res, next) => {
+  const judgeId = req.userData.userId;
+  const statId = mongoose.Types.ObjectId();
+
+  const newStat = {
+    ...req.body,
+    _id:statId
+  };
+  console.log(req.body);
+  console.log(newStat);
+  JudgeModel.updateOne({ _id: judgeId},{
+    $push:{
+      "preferences.stats":newStat
+    }
+  }).then(
+    savedStat => {
+      res.status(200).json({
+        message:"Sucessfully saved stat",
+        savedStat:newStat
+      })
+    }
+  ).catch( err => {
+    res.status(500).json({
+      message:"Could not save stat"
+    });
+  });
+}
+
+const deleteStat = (req, res, next) => {
+  const judgeId = req.userData.userId;
+  console.log(req.params);
+  
+  JudgeModel.updateOne({_id:judgeId},{
+    $pull:{
+      "preferences.stats":{
+        _id:req.params.statId
+      }
+    }
+  }).then(
+    deletedResponse => {
+      res.status(200).json({
+        message:"Sucessfully deleted stat"
+      });
+    }
+  ).catch(
+    err => {
+      res.status(500).json({
+        message:"Failed to delete stat"
+      });
+    }
+  );
+
+  
 };
 
 const getJudgeHistory = (req, res, next) => {
@@ -223,6 +278,7 @@ module.exports = {
   signinJudge: signinJudge,
   getStatInfo: getStatInfo,
   saveScoreCard: saveScoreCard,
-  updateStatPreferences: updateStatPreferences,
+  addStat: addStat,
+  deleteStat: deleteStat,
   getJudgeHistory: getJudgeHistory
 };
