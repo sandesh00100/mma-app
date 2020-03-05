@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthData, Judge, JwtToken } from "./judge.model";
 import { Stat } from "../matches/stat.model";
+import { Update } from "@ngrx/entity";
 
 export const login = createAction(
     "[Header Dropdown] Judge Login",
@@ -63,11 +64,16 @@ export const deleteStat = createAction(
 );
 
 export const deletedStat = createAction(
-    "[Preference Dialog] Stat Deleteted",
+    "[Preference Dialog] Stat Deleted",
     props<{message:string}>()
 );
 
 export const deleteStatFailed = createAction(
     "[Judge Effect] Stat Delete Failed",
     props<{statId:string}>()
+);
+
+export const updateStat = createAction(
+    "[Perference Dialog] Updating Stat",
+    props<{update: Update<Stat>}>()
 );

@@ -8,7 +8,8 @@ import { MatSnackBar, MatDialogRef } from '@angular/material';
 import { AppState } from 'src/app/reducers';
 import { Store, select } from '@ngrx/store';
 import { selectPreferences } from '../judge.selector';
-import { addStat, deleteStat } from '../judge.actions';
+import { addStat, deleteStat, updateStat } from '../judge.actions';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-preferences',
@@ -32,7 +33,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   newStat: Stat;
   private preferenceStatsSub: Subscription;
 
-  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>, private store:Store<AppState>) { }
+  constructor(private judgeService: JudgeService, private router: Router, private snackBar: MatSnackBar, private dialogRef: MatDialogRef<PreferencesComponent>, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.preferences$ = this.store.pipe(
@@ -51,7 +52,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   removeStat(stat: Stat) {
-    this.store.dispatch(deleteStat({statId:stat.id}));
+    this.store.dispatch(deleteStat({ statId: stat.id }));
   }
 
   addStat() {
@@ -59,9 +60,11 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     if (isValid) {
 
       if (this.newStat.isShared) {
-        this.resetSharedStat(this.newStat);
+        this.newStat.min = 0;
+        this.newStat.max = 100;
+        this.newStat.value = 50;
       }
-      this.store.dispatch(addStat({stat:this.newStat}));
+      this.store.dispatch(addStat({ stat: this.newStat }));
 
       this.preferenceStatsOld.push(this.newStat);
       this.resetStat();
@@ -87,7 +90,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
   resetStat() {
     this.newStat = {
-      id:undefined,
+      id: undefined,
       name: undefined,
       min: undefined,
       max: undefined,
@@ -98,22 +101,65 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   resetSharedStat(stat: Stat) {
-    stat.min = 0;
-    stat.max = 100;
-    stat.value = 50;
+    let statUpdate:Update<Stat> = {
+      id:stat.id,
+      changes:{
+        min:0,
+        max:100,
+        value:50,
+        isShared:!stat.isShared
+      }
+    }
+
+    this.store.dispatch(updateStat({update:statUpdate}));
   }
 
-  updateStat(id: string, newValue:number, attribute:string){
+  updateStat(inputHtmlElement, attribute: string, currentStatState: Stat) {
+    const inputValue = +inputHtmlElement.value;
+    // Make sure user has entered a value
+    if (inputHtmlElement.value.trim() != "") {
+      switch (attribute) {
+        case "value":
+          if (inputValue> currentStatState.max){
+            inputHtmlElement.value = currentStatState.max;
+          } else if(inputValue < currentStatState.min) {
+            inputHtmlElement.value = currentStatState.min;
+          }
+          break;
+        case "min":
+          if (inputValue > currentStatState.value) {
+            inputHtmlElement.value = currentStatState.value;
+          }
+          break;
+        case "max":
+          if (inputValue < currentStatState.value) {
+            inputHtmlElement.value = currentStatState.value;
+          }
+          break;
+        default:
+          break;
+      }
+      let changedStatState:Stat = {
+        ...currentStatState,
+      }
+      changedStatState[attribute] = +inputHtmlElement.value;
+  
+      let statUpdate:Update<Stat> = {
+        id:currentStatState.id,
+        changes:changedStatState
+      }
+  
+      this.store.dispatch(updateStat({update:statUpdate}));
+    }
 
+    
   }
 
-  correctStat(stat: Stat, newValue) {
-    console.log(stat);
-    console.log(newValue);
+  correctStat(stat: Stat) {
     StatValidator.correctValues(stat);
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close();
   }
 }
