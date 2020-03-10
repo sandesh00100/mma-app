@@ -115,8 +115,12 @@ export class PreferencesComponent implements OnInit, OnDestroy {
   }
 
   updateStat(inputHtmlElement, attribute: string, currentStatState: Stat) {
-    const inputValue = +inputHtmlElement.value;
+    const inputValue = +inputHtmlElement.value; 
+    console.log(inputValue);
     // Make sure user has entered a value
+    let changedStatState:Stat = {
+      ...currentStatState,
+    }
     if (inputHtmlElement.value.trim() != "") {
       switch (attribute) {
         case "value":
@@ -139,20 +143,25 @@ export class PreferencesComponent implements OnInit, OnDestroy {
         default:
           break;
       }
-      let changedStatState:Stat = {
-        ...currentStatState,
-      }
       changedStatState[attribute] = +inputHtmlElement.value;
-  
-      let statUpdate:Update<Stat> = {
-        id:currentStatState.id,
-        changes:changedStatState
+    } else if(attribute == "value"){
+      if (currentStatState.min != undefined) {
+        changedStatState[attribute] = currentStatState.min;
+      } else if (currentStatState.max != undefined) {
+        changedStatState[attribute] = currentStatState.max;
+      } else {
+        changedStatState[attribute] = 0;
       }
-  
-      this.store.dispatch(updateStat({update:statUpdate}));
+    } else {
+      changedStatState[attribute] = undefined;
+    }
+    
+    let statUpdate:Update<Stat> = {
+      id:currentStatState.id,
+      changes:changedStatState
     }
 
-    
+    this.store.dispatch(updateStat({update:statUpdate}));
   }
 
   correctStat(stat: Stat) {
