@@ -46,6 +46,10 @@ export class JudgeService {
     return this.http.post<{message:string}>(`${httpURL}/preference/stats`,statList);
   }
 
+  updatePreference(id: number|string, updatedStat: Partial<Stat>){
+    return this.http.patch<{message:string}>(`${httpURL}/preference/stats/${id}`, updatedStat);
+  }
+
   addStat(stat: Stat): any{
     return this.http.post<{message:string,savedStat:Stat}>(`${httpURL}/preference/stats`,stat);
   }

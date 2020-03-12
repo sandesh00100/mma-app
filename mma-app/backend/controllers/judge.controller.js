@@ -158,20 +158,20 @@ const saveScoreCard = (req, res, next) => {
 };
 
 // TODO: Check all return codes
-const updateStatPreferences = (req, res, next) => {
+const updateStatPreference = (req, res, next) => {
   const judgeId = req.userData.userId;
   // NOT UPDATING CORRECTLY
-  JudgeModel.updateOne({ _id: judgeId }, { "preferences.stats": req.body })
-    .then(savedJudgePreferences => {
-      res.status(200).json({
-        message: "Preferences updated sucessfully"
-      });
-    }).catch(err => {
-      res.status(500).json({
-        message: "An error occurred when updating preferences"
-      });
-      console.log(err);
-    });
+  // JudgeModel.updateOne({ _id: judgeId }, { "preferences.stats": req.body })
+  //   .then(savedJudgePreferences => {
+  //     res.status(200).json({
+  //       message: "Preferences updated sucessfully"
+  //     });
+  //   }).catch(err => {
+  //     res.status(500).json({
+  //       message: "An error occurred when updating preferences"
+  //     });
+  //     console.log(err);
+  //   });
 };
 
 const addStat = (req, res, next) => {
@@ -280,5 +280,6 @@ module.exports = {
   saveScoreCard: saveScoreCard,
   addStat: addStat,
   deleteStat: deleteStat,
+  updateStat: updateStatPreference,
   getJudgeHistory: getJudgeHistory
 };

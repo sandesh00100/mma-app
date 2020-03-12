@@ -77,3 +77,13 @@ export const updateStat = createAction(
     "[Perference Dialog] Updating Stat",
     props<{update: Update<Stat>}>()
 );
+
+export const updatedStat = createAction(
+    "[Judge Effect] Stat Updated",
+    props<{message: string}>()
+);
+
+export const updatedStatFailed = createAction(
+    "[Judge Effect] Stat Update Failed",
+    props<{message: string}>()
+);

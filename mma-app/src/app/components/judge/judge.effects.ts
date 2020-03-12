@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed, addStat, statAdded, statAddedFailed, deleteStat, deleteStatFailed, deletedStat } from "./judge.actions";
+import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed, addStat, statAdded, statAddedFailed, deleteStat, deleteStatFailed, deletedStat, updateStat, updatedStatFailed } from "./judge.actions";
 import { JudgeService } from "./judge.service";
-import { switchMap, map, tap, catchError, mergeMap } from 'rxjs/operators';
+import { switchMap, map, tap, catchError, mergeMap, concatMap } from 'rxjs/operators';
 import { Judge } from "./judge.model";
 import { of } from "rxjs";
 import { Router } from "@angular/router";
@@ -124,6 +124,17 @@ export class JudgeEffects {
         )
     );
     
+    // TODO: might need to turn dispatch on if catch error doesn't work with it off
+    updateStat$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(updateStat),
+            concatMap(
+                action => this.judgeService.updatePreference(action.update.id, action.update.changes)
+            ),
+            catchError(err => of(updatedStatFailed))
+        ),
+        {dispatch:false}
+    );
     constructor(private actions$: Actions, private judgeService: JudgeService, private router: Router) {
 
     }
