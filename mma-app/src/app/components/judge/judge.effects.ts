@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed, addStat, statAdded, statAddedFailed, deleteStat, deleteStatFailed, deletedStat, updateStat, updatedStatFailed } from "./judge.actions";
+import { login, authenticated, authenticationFailed, logout, autoAuth, loadPreferences, preferencesLoaded, loadPreferencesFailed, addStat, statAdded, statAddedFailed, deleteStat, deleteStatFailed, deletedStat, updateStat, updatedStatFailed, updatedStat } from "./judge.actions";
 import { JudgeService } from "./judge.service";
 import { switchMap, map, tap, catchError, mergeMap, concatMap } from 'rxjs/operators';
 import { Judge } from "./judge.model";
@@ -131,9 +131,11 @@ export class JudgeEffects {
             concatMap(
                 action => this.judgeService.updatePreference(action.update.id, action.update.changes)
             ),
+            map(
+                (response: any) => updatedStat(response.message)
+            ),  
             catchError(err => of(updatedStatFailed))
-        ),
-        {dispatch:false}
+        )
     );
     constructor(private actions$: Actions, private judgeService: JudgeService, private router: Router) {
 

@@ -8,7 +8,7 @@ import { Stat } from '../matches/stat.model';
 import { AuthData, JwtToken, Judge } from './judge.model';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
-import { logout, login, loadAuthInfoFromStorage, loadPreferences } from './judge.actions';
+import { logout, login, loadAuthInfoFromStorage, loadPreferences, updateStat } from './judge.actions';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';
@@ -47,6 +47,8 @@ export class JudgeService {
   }
 
   updatePreference(id: number|string, updatedStat: Partial<Stat>){
+    console.log(updateStat);
+    console.log("called");
     return this.http.patch<{message:string}>(`${httpURL}/preference/stats/${id}`, updatedStat);
   }
 
