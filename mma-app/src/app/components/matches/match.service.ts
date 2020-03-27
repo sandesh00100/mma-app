@@ -38,4 +38,8 @@ export class MatchService {
   getMatchUpdateListener(): Subject<{matches: Match[], maxMatch:number}>{
       return this.matchesUpdated;
   }
+
+  searchFighters():Observable<{message:string, fighters:string[]}> {
+    return this.http.get<{message:string, fighters:string[]}>(`${httpURL}/search/service`);
+  }
 }

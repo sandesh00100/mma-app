@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { JudgeService } from '../judge/judge.service';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription, Observable, fromEvent } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../judge/preferences/preferences.component';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { AppState } from 'src/app/reducers';
 import { logout } from '../judge/judge.actions';
 import { Judge } from '../judge/judge.model';
 import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
-import { tap } from 'rxjs/operators';
+import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -22,10 +22,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   filterOptions: string[] = ["Event", "Fighter"];
   isAuth$:Observable<boolean>;
   isNotAuth$:Observable<boolean>;
+  searchedFighters$:Observable<string>;
 
   judge$:Observable<Judge>;
 
   username: string;
+
+  @ViewChild("searchInput", {static: true}) input: ElementRef;
   constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private store: Store<AppState>) { }
 
   ngOnInit() {
@@ -40,6 +43,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.judge$ = this.store.pipe(
       select(selectJudge)
     );
+
+    // this.searchedFighters$ = fromEvent(this.input.nativeElement, 'keyup')
+    // .pipe(
+    //   map(
+    //     (event:any) => event.target.value
+    //   ),
+    //   debounceTime(400),
+    //   distinctUntilChanged(),
+    //   switchMap(
+    //     search => 
+    //   )
+    // )
   }
 
   ngOnDestroy(): void {

@@ -3,7 +3,7 @@
                 <span class="title">Judgement MMA</span>
         </a>
         <span class="spacer"></span>
-        <mat-select placeholder="Match Filter">
+        <mat-select #searchInput placeholder="Match Filter" [value]="filterOptions[0]">
                 <mat-option *ngFor="let option of filterOptions" [value]="option">
                         {{option}}
                 </mat-option>

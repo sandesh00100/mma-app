@@ -31,6 +31,7 @@ export class JudgeEffects {
                         this.judgeService.setAuthTimer(expirationDuration);
                     }
                 ),
+                //TODO: It seems like sometimes you are not able to sign in right after you register
                 map(response => {
                     const judge: Judge = {
                         id: response.id,
