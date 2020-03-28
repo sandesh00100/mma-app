@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { JudgeService } from '../judge/judge.service';
-import { Subscription, Observable, fromEvent } from 'rxjs';
+import { Subscription, Observable, fromEvent, iif } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../judge/preferences/preferences.component';
 import { Router } from '@angular/router';
@@ -10,6 +10,8 @@ import { logout } from '../judge/judge.actions';
 import { Judge } from '../judge/judge.model';
 import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
 import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
+import { MatchService } from '../matches/match.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-header',
@@ -22,14 +24,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   filterOptions: string[] = ["Event", "Fighter"];
   isAuth$:Observable<boolean>;
   isNotAuth$:Observable<boolean>;
-  searchedFighters$:Observable<string>;
-
+  searchResults$:Observable<string[]>;
+  searchMode:string = this.filterOptions[0];
   judge$:Observable<Judge>;
 
   username: string;
 
   @ViewChild("searchInput", {static: true}) input: ElementRef;
-  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private store: Store<AppState>) { }
+  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private matchService: MatchService, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.isAuth$ = this.store.pipe(
@@ -44,17 +46,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
       select(selectJudge)
     );
 
-    // this.searchedFighters$ = fromEvent(this.input.nativeElement, 'keyup')
-    // .pipe(
-    //   map(
-    //     (event:any) => event.target.value
-    //   ),
-    //   debounceTime(400),
-    //   distinctUntilChanged(),
-    //   switchMap(
-    //     search => 
-    //   )
-    // )
+    this.searchResults$ = fromEvent(this.input.nativeElement, 'keyup')
+    .pipe(
+      map(
+        (event:any) => event.target.value
+      ),
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(
+        (search:string) => {
+          if (search.length > 0){
+            return this.matchService.search(search,this.searchMode.toLowerCase());
+          } else {
+            return [];
+          }
+        }
+      ),
+      map(
+        (res:{message:string,searchResult:string[]}) => res.searchResult
+      )
+    )
   }
 
   ngOnDestroy(): void {

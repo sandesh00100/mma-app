@@ -72,9 +72,58 @@ const getMatch =  (req, res, next) => {
     }
 }
 
+const search = (req, res, next) => {
+    const search = req.params.search;
+    const mode = req.params.mode;
+    if (mode == "fighter") {
+        const multipleWordsArr = search.split(" ");
+
+    let firstNameSearch;
+    let lastNameSearch;
+
+    if (multipleWordsArr.length > 1) {
+        firstNameSearch = multipleWordsArr[0];
+        lastNameSearch = multipleWordsArr[multipleWordsArr.length-1];
+    } else {
+        firstNameSearch = search;
+        lastNameSearch = search;
+    }
+    console.log("Search: " + search);
+
+    FighterModel.find({
+            $or:[{firstName:{$regex: `.*${firstNameSearch}.*`,$options:'i'}},
+                {lastName:{$regex: `.*${lastNameSearch}.*`,$options:'i'}}]
+        })
+        .limit(5)
+        .then(foundFighters => {
+                let fighterNameList = foundFighters.map(fighter => fighter.firstName + " " + fighter.lastName);
+                console.log(fighterNameList);
+                res.status(200).json({
+                    message: "Search Completed",
+                    searchResult: fighterNameList
+                });
+        });
+    } else if (mode == "event") {
+        // TODO: might want to think of something more efficient maybe create a seperate collection for events
+        MatchModel.distinct("eventName",{eventName:{$regex: `.*${search}.*`,$options:'i'}})
+        .then(foundEvents => {
+            res.status(200).json({
+                message: "Search Completed",
+                searchResult: foundEvents.slice(0,5)
+            });
+        });
+    } else {
+        res.status(400).json({
+            message: "Options does not contain " + mode,
+        });
+    }
+    
+};
+
 module.exports = {
     getMatches: getMatches,
     getMatch:getMatch,
     // exporting fetchMatches for unit testing
-    fetchMatches: fetchMatches
+    fetchMatches: fetchMatches,
+    search: search
 };

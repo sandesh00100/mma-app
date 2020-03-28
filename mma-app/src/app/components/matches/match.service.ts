@@ -39,7 +39,7 @@ export class MatchService {
       return this.matchesUpdated;
   }
 
-  searchFighters():Observable<{message:string, fighters:string[]}> {
-    return this.http.get<{message:string, fighters:string[]}>(`${httpURL}/search/service`);
+  search(search: string, mode: string):Observable<{message:string, fighters:string[]}> {
+    return this.http.get<{message:string, fighters:string[]}>(`${httpURL}/search/${mode}/${search}`);
   }
 }

@@ -3,19 +3,22 @@
                 <span class="title">Judgement MMA</span>
         </a>
         <span class="spacer"></span>
-        <mat-select #searchInput placeholder="Match Filter" [value]="filterOptions[0]">
+        <mat-select placeholder="Match Filter" [(ngModel)]="searchMode">
                 <mat-option *ngFor="let option of filterOptions" [value]="option">
                         {{option}}
                 </mat-option>
         </mat-select>
         <mat-form-field class="search">
-                <input matInput type="text">
+                <input #searchInput matInput type="text" list="searchList">
                 <button mat-button>
                         <mat-icon>add</mat-icon>
                 </button>
                 <button mat-button>
                         <mat-icon>search</mat-icon>
                 </button>
+                <datalist id="searchList" *ngIf="(searchResults$|async) as searchResults">
+                        <option *ngFor="let searchResult of searchResults" [value] = "searchResult"></option>
+                </datalist>        
         </mat-form-field>
         <span class="spacer"></span>
         <ul>
