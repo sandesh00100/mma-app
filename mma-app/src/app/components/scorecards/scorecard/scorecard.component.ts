@@ -56,7 +56,8 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
       const matchId = paramMap.get('matchId');
 
       this.matchService.getMatch(matchId).subscribe(matchData => {
-        const fetchedMatch: Match = matchData.match;
+        const fetchedMatch: Match = {...matchData.match,id:matchData.match._id};
+        delete fetchedMatch["_id"];
 
         this.currentScoreCard = new ScoreCardMaker(fetchedMatch);
         this.currentRedFighterInfo = this.currentScoreCard.getRedFighterInfo();

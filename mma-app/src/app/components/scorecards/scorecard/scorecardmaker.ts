@@ -19,7 +19,7 @@ export class ScoreCardMaker {
   
   constructor(fetchedMatch: Match) {
 
-      this.matchId = fetchedMatch._id;
+      this.matchId = fetchedMatch.id;
       this.eventName = fetchedMatch.eventName;
 
       if (fetchedMatch.isFiveRounds){
@@ -47,8 +47,8 @@ export class ScoreCardMaker {
         lastName: fighters[1].lastName,
         imagePath: fighters[1].imagePath
       };
-      let redFighterCard = new FighterCard(fighters[0]._id, redFighterRounds, redFighterInfo);
-      let blueFighterCard = new FighterCard(fighters[1]._id, blueFighterRounds, blueFighterInfo);
+      let redFighterCard = new FighterCard(fighters[0].id, redFighterRounds, redFighterInfo);
+      let blueFighterCard = new FighterCard(fighters[1].id, blueFighterRounds, blueFighterInfo);
 
       this.redFighterCard = redFighterCard;
       this.blueFighterCard = blueFighterCard;

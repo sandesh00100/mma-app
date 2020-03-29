@@ -7,6 +7,8 @@ import { ScoreCardMaker } from './scorecard/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
 import { ScoreCard } from './scorecard/scorecard.model';
+import { map } from 'rxjs/operators';
+import { Match } from '../matches/match.model';
 
 const httpURL = environment.apiUrl + '/scorecards';
 
@@ -39,8 +41,31 @@ export class ScoreCardService {
 
   getJudgeHistory(scoreCardsPerPage:number, currentPage:number): void {
     const queryParams = `?pageSize=${scoreCardsPerPage}&page=${currentPage}`;
-    this.http.get<{message:string, scoreCards: ScoreCard[] ,totalScoreCards: number}>(`${httpURL}/history/${queryParams}`).subscribe(fetchedJudgeHistory => {
-      console.log(fetchedJudgeHistory);
+    this.http.get<{message:string, scoreCards:any[] ,totalScoreCards: number}>(`${httpURL}/history/${queryParams}`)
+    .pipe(
+      map(
+        response => {
+          console.log("Fetching ScoreCards");
+          console.log(response);
+          let modifiedScoreCards = response.scoreCards.map(scoreCard => {
+            let modifiedMatch; 
+            if (typeof scoreCard.match != "string"){
+              modifiedMatch = {...scoreCard.match,id:scoreCard.match._id};
+              delete modifiedMatch["_id"];
+            }
+            return {
+              ...scoreCard,
+              match:modifiedMatch
+            };
+          });
+          return {
+            ...response,
+            scoreCards:modifiedScoreCards
+          }
+        }
+      )
+    )
+    .subscribe(fetchedJudgeHistory => {
       this.judgeHistory = fetchedJudgeHistory.scoreCards;
       const fetchedJudgeHistoryData = {
         scoreCards: [...this.judgeHistory],

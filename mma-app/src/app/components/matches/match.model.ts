@@ -1,6 +1,6 @@
 // Maybe create a seperate match model later on
 export interface Match {
-    _id:string,
+    id:string,
     eventName: string,
     organization: string,
     weightClass: number,
@@ -10,7 +10,7 @@ export interface Match {
     isTitleFight: boolean,
     date: Date,
     fighters:{
-        _id:string,
+        id:string,
         firstName:string,
         lastName:string,
         isActive:boolean,
@@ -22,4 +22,14 @@ export interface Match {
             disqualifications:number
         }
     }[]
+}
+
+export enum MatchFilterMode {
+    Event,
+    Fighter
+}
+
+export interface Filter {
+    mode:MatchFilterMode,
+    search:string
 }
