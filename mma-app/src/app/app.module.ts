@@ -17,6 +17,7 @@ import { ScoreCardsModule } from './components/scorecards/scorecards.module';
 import { MatchesModule } from './components/matches/matches.module';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
+import { EntityDataModule } from '@ngrx/data';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EffectsModule } from '@ngrx/effects';
     ScoreCardsModule,
     JudgeModule,
     EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
     StoreModule.forRoot(reducers, {
       metaReducers, 
       runtimeChecks: {
