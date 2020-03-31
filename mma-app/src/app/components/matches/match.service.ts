@@ -18,7 +18,7 @@ export class MatchService {
   getMatches(matchesPerPage: number, currentPage: number, org: string) {
 
     const queryParams = `?pageSize=${matchesPerPage}&page=${currentPage}&org=${org}`;
-    this.http.get<{ message: string, matches: any[], totalMatches: number }>(`${httpURL}/${queryParams}`)
+    this.http.get<{ message: string, matches: any[], totalMatches: number }>(`${httpURL}/deprecated/${queryParams}`)
     .pipe(
       map(response => {
         const modifiedMatches = response.matches.map(match => {

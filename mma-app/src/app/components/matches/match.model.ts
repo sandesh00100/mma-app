@@ -25,8 +25,8 @@ export interface Match {
 }
 
 export enum MatchFilterMode {
-    Event,
-    Fighter
+    event,
+    fighter
 }
 
 export interface Filter {
