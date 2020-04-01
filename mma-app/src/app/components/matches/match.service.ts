@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Match } from './match.model';
+import { Match, SearchResponse } from './match.model';
 import { Subject, Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -54,7 +54,7 @@ export class MatchService {
       return this.matchesUpdated;
   }
 
-  search(search: string, mode: string):Observable<{message:string, fighters:string[]}> {
-    return this.http.get<{message:string, fighters:string[]}>(`${httpURL}/search/${mode}/${search}`);
+  search(search: string, mode: string):Observable<SearchResponse> {
+    return this.http.get<SearchResponse>(`${httpURL}/search/${mode}/${search}`);
   }
 }

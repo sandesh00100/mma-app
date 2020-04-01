@@ -33,3 +33,8 @@ export interface Filter {
     mode:MatchFilterMode,
     search:string
 }
+
+export interface SearchResponse extends Response {
+    searchResults:string[],
+    searchIds:string[]
+}

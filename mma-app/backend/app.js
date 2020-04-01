@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/matches', matchRoutes);
+app.use('/api/matches',matchRoutes);
 app.use('/api/judge',judgeRoutes);
 app.use('/api/scorecards', scorecardRoutes);
 

@@ -12,6 +12,7 @@ import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
 import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
 import { MatchService } from '../matches/match.service';
 import { stringify } from 'querystring';
+import { SearchResponse } from '../matches/match.model';
 
 @Component({
   selector: 'app-header',
@@ -62,8 +63,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
           }
         }
       ),
+      tap(
+        res => console.log(res)
+      ),
       map(
-        (res:{message:string,searchResult:string[]}) => res.searchResult
+        (res:SearchResponse) => res.searchResults
       )
     )
   }
