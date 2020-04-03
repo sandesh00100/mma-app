@@ -160,24 +160,32 @@ const search = (req, res, next) => {
         })
             .limit(5)
             .then(foundFighters => {
-                let fighterNameList = foundFighters.map(fighter => fighter.firstName + " " + fighter.lastName);
-                let searchIds = foundFighters.map(fighter => fighter._id);
+                let searchResults = foundFighters.map(fighter => {
+                    return {
+                        searchItem:fighter.firstName + " " + fighter.lastName,
+                        searchId:fighter._id
+                    };
+                });
 
-                console.log(fighterNameList);
                 res.status(200).json({
                     message: "Search Completed",
-                    searchResults: fighterNameList,
-                    searchIds: searchIds
+                    searchResults: searchResults
                 });
             });
     } else if (mode == "event") {
         // TODO: might want to think of something more efficient maybe create a seperate collection for events
         MatchModel.distinct("eventName", { eventName: { $regex: `.*${search}.*`, $options: 'i' } })
             .then(foundEvents => {
+
+                let searchResults = foundEvents.slice(0, 5).map(foundEvent => {
+                    return {
+                        searchItem:foundEvent,
+                        searchId:null
+                    };
+                });
                 res.status(200).json({
                     message: "Search Completed",
-                    searchResults: foundEvents.slice(0, 5),
-                    searchIds:null
+                    searchResults: searchResults
                 });
             });
     } else {

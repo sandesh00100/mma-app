@@ -14,7 +14,7 @@ export const initialMatchState: FilterState = {
         filters: []
 }
 
-export const matchReducer = createReducer(
+export const filterReducer = createReducer(
     initialMatchState,
     on(addFilter, (state: FilterState, action) => {
         let filters: Filter[] = [...state.filters];

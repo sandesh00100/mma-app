@@ -12,7 +12,7 @@ import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
 import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
 import { MatchService } from '../matches/match.service';
 import { stringify } from 'querystring';
-import { SearchResponse } from '../matches/match.model';
+import { SearchResponse, MatchFilterMode, SearchResult } from '../matches/match.model';
 
 @Component({
   selector: 'app-header',
@@ -22,10 +22,10 @@ import { SearchResponse } from '../matches/match.model';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private judgeServiceListener: Subscription;
-  filterOptions: string[] = ["Event", "Fighter"];
+  filterOptions: string[] = [MatchFilterMode.event, MatchFilterMode.fighter];
   isAuth$:Observable<boolean>;
   isNotAuth$:Observable<boolean>;
-  searchResults$:Observable<string[]>;
+  searchResults$:Observable<SearchResult[]>;
   searchMode:string = this.filterOptions[0];
   judge$:Observable<Judge>;
 
@@ -85,6 +85,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   openPreferenceDialog() {
     this.dialogService.open(PreferencesComponent);
+  }
+
+  addFilter(searchInput){
+    console.log(searchInput.id);
   }
 
 }

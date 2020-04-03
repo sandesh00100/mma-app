@@ -25,8 +25,8 @@ export interface Match {
 }
 
 export enum MatchFilterMode {
-    event,
-    fighter
+    event = "Event",
+    fighter = "Fighter"
 }
 
 export interface Filter {
@@ -35,6 +35,10 @@ export interface Filter {
 }
 
 export interface SearchResponse extends Response {
-    searchResults:string[],
-    searchIds:string[]
+    searchResults:SearchResult[]
+}
+
+export interface SearchResult {
+    searchItem:string,
+    searchId:string
 }
