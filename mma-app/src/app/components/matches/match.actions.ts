@@ -7,6 +7,11 @@ export const addFilter = createAction(
     props<{filter:Filter}>()
 );
 
+export const removeFilter = createAction(
+    "[Filter Chips] Removing Filter",
+    props<{filter:Filter}>()
+);
+
 export const updateItemsPerPage = createAction(
     "[Filter Options] Updating Items Per Page",
     props<{itemsPerPage:number}>()

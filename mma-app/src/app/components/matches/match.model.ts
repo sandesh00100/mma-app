@@ -31,7 +31,7 @@ export enum MatchFilterMode {
 
 export interface Filter {
     mode:MatchFilterMode,
-    search:string
+    searchResult:SearchResult
 }
 
 export interface SearchResponse extends Response {

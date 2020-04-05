@@ -10,13 +10,13 @@
         </mat-select>
         <mat-form-field class="search">
                 <input #searchInput matInput type="text" list="searchList">
-                <button mat-button (click)="addFilter(searchInput)">
+                <button mat-button (click)="addFilter()">
                         <mat-icon>add</mat-icon>
                 </button>
                 <button mat-button>
                         <mat-icon>search</mat-icon>
                 </button>
-                <datalist id="searchList" *ngIf="(searchResults$|async) as searchResults">
+                <datalist id="searchList" *ngIf="searchResults">
                         <option *ngFor="let searchResult of searchResults" [id]="searchResult.searchId" [value] = "searchResult.searchItem"></option>
                 </datalist>        
         </mat-form-field>

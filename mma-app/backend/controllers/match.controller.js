@@ -144,20 +144,29 @@ const search = (req, res, next) => {
 
         let firstNameSearch;
         let lastNameSearch;
+        let searchFirstAndLast = false;
 
         if (multipleWordsArr.length > 1) {
             firstNameSearch = multipleWordsArr[0];
             lastNameSearch = multipleWordsArr[multipleWordsArr.length - 1];
+            searchFirstAndLast = true;
         } else {
             firstNameSearch = search;
             lastNameSearch = search;
         }
-        console.log("Search: " + search);
+        
+        let searchQueryArray = [
+            { firstName: { $regex: `.*${firstNameSearch}.*`, $options: 'i' } },
+            { lastName: { $regex: `.*${lastNameSearch}.*`, $options: 'i' } }
+        ];
 
-        FighterModel.find({
-            $or: [{ firstName: { $regex: `.*${firstNameSearch}.*`, $options: 'i' } },
-            { lastName: { $regex: `.*${lastNameSearch}.*`, $options: 'i' } }]
-        })
+        let queryAttribute = searchFirstAndLast ? "$and" : "$or";
+        let searchQueryObj = {};
+        
+        searchQueryObj[queryAttribute] = searchQueryArray;
+
+        console.log(searchQueryObj);
+        FighterModel.find(searchQueryObj)
             .limit(5)
             .then(foundFighters => {
                 let searchResults = foundFighters.map(fighter => {

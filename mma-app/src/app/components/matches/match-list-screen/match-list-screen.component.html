@@ -62,6 +62,12 @@
     </mat-tab>
 </mat-tab-group>
 <div class="filterOptions">
+    <mat-chip-list *ngIf="(filters$ | async) as filters">
+        <mat-chip *ngFor="let filter of filters" [removable]="true" (removed)="removeFilter(filter)">
+            {{filter.mode}}:{{filter.searchResult.searchItem}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
     <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
     (page)="pageEvent = onChangedPage($event)">
 </mat-paginator>

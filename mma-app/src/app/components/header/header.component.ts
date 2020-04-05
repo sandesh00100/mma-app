@@ -13,6 +13,7 @@ import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switc
 import { MatchService } from '../matches/match.service';
 import { stringify } from 'querystring';
 import { SearchResponse, MatchFilterMode, SearchResult } from '../matches/match.model';
+import { addFilter } from '../matches/match.actions';
 
 @Component({
   selector: 'app-header',
@@ -22,17 +23,19 @@ import { SearchResponse, MatchFilterMode, SearchResult } from '../matches/match.
 export class HeaderComponent implements OnInit, OnDestroy {
 
   private judgeServiceListener: Subscription;
-  filterOptions: string[] = [MatchFilterMode.event, MatchFilterMode.fighter];
+  filterOptions: MatchFilterMode[] = [MatchFilterMode.event, MatchFilterMode.fighter];
   isAuth$:Observable<boolean>;
   isNotAuth$:Observable<boolean>;
-  searchResults$:Observable<SearchResult[]>;
-  searchMode:string = this.filterOptions[0];
+  searchResultsSubscription:Subscription;
+  searchResults:SearchResult[];
+
+  searchMode:MatchFilterMode = this.filterOptions[0];
   judge$:Observable<Judge>;
 
   username: string;
 
   @ViewChild("searchInput", {static: true}) input: ElementRef;
-  constructor(private judgeService: JudgeService, private dialogService: MatDialog, private router: Router, private matchService: MatchService, private store: Store<AppState>) { }
+  constructor(private dialogService: MatDialog, private router: Router, private matchService: MatchService, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.isAuth$ = this.store.pipe(
@@ -47,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       select(selectJudge)
     );
 
-    this.searchResults$ = fromEvent(this.input.nativeElement, 'keyup')
+    this.searchResultsSubscription = fromEvent(this.input.nativeElement, 'keyup')
     .pipe(
       map(
         (event:any) => event.target.value
@@ -69,11 +72,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       map(
         (res:SearchResponse) => res.searchResults
       )
-    )
+    ).subscribe(
+      (searchResults:SearchResult[]) => {
+        this.searchResults = searchResults;
+      }
+    );
   }
 
   ngOnDestroy(): void {
     this.judgeServiceListener.unsubscribe();
+    this.searchResultsSubscription.unsubscribe();
   }
 
   signout() {
@@ -87,8 +95,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dialogService.open(PreferencesComponent);
   }
 
-  addFilter(searchInput){
-    console.log(searchInput.id);
+  addFilter(){
+    if (this.searchResults.length > 0) {
+      this.store.dispatch(addFilter({filter:{
+        mode:this.searchMode,
+        searchResult:this.searchResults[0]
+      }}));
+    } else {
+      // TODO: Give better error message
+      console.log("Not valid");
+    }
   }
 
 }
