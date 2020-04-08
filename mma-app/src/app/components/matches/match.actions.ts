@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Filter } from "./match.model";
+import { Filter, Organization } from "./match.model";
 
 
 export const addFilter = createAction(
@@ -12,15 +12,12 @@ export const removeFilter = createAction(
     props<{filter:Filter}>()
 );
 
-export const updateItemsPerPage = createAction(
-    "[Filter Options] Updating Items Per Page",
-    props<{itemsPerPage:number}>()
+export const updatePageOptions = createAction(
+    "[Paginator] Updating Page Options",
+    props<{currentPage:number,pageSize:number}>()
 );
 
-export const nextPage = createAction(
-    "[Filter Options] Next Page"
-);
-
-export const prevPage = createAction(
-    "[Filter Options] Previous Page" 
+export const updateOrg = createAction(
+    "[Orginization Tabs] Updating Orginization",
+    props<{newOrg:Organization}>()
 );

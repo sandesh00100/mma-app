@@ -5,9 +5,12 @@ import { LoginComponent } from './components/judge/login/login.component';
 import { ScoreCardComponent } from './components/scorecards/scorecard/scorecard.component';
 import { AuthGuard } from './components/judge/auth.guard';
 import { HistoryComponent } from './components/scorecards/history/history.component';
+import { MatchResolver } from './components/matches/match.resolver';
 
 const routes: Routes = [
-  {path:'', component:MatchesComponent},
+  {path:'', component:MatchesComponent, resolve:{
+    Matches:MatchResolver
+  }},
   {path:'signin', component:LoginComponent},
   {path:'register', component:LoginComponent},
   {path:'judge/:matchId', component:ScoreCardComponent, canActivate:[AuthGuard]},

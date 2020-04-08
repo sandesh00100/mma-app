@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatchService } from '../match.service';
 import { Subscription, Observable } from 'rxjs';
-import { Match, Filter } from '../match.model';
+import { Match, Filter, Organization } from '../match.model';
 import { PageEvent, MatTabChangeEvent } from '@angular/material';
 import { JudgeService } from '../../judge/judge.service';
 import { Store, select } from '@ngrx/store';
@@ -9,7 +9,7 @@ import { AppState } from 'src/app/reducers';
 import { isAuth, isNotAuth } from '../../judge/judge.selector';
 import { selectFilters } from '../match.selector';
 import { createHostListener } from '@angular/compiler/src/core';
-import { removeFilter } from '../match.actions';
+import { removeFilter, updatePageOptions, updateOrg } from '../match.actions';
 
 @Component({
   selector: 'app-matches',
@@ -22,7 +22,7 @@ export class MatchesComponent implements OnInit, OnDestroy {
   isAuth$:Observable<boolean>;
   isNotAuth$:Observable<boolean>;
   // TODO: Might want to change from being hard coded
-  organizations: string[] = ['UFC', 'Bellator', 'One FC'];
+  organizations: Organization[] = [Organization.ufc, Organization.bellator, Organization.oneFc];
   currentOrgIndex: number = 0;
   private matchesSub: Subscription;
   private authSub: Subscription;
@@ -68,12 +68,14 @@ export class MatchesComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
+    this.store.dispatch(updatePageOptions({currentPage:this.currentPage,pageSize:this.pageSize}));
     this.matchService.getMatches(this.pageSize,this.currentPage,this.organizations[this.currentOrgIndex]);
   }
   
   onChangedTab(tabData: MatTabChangeEvent){
     this.isLoading = true;
     this.currentOrgIndex = tabData.index;
+    this.store.dispatch(updateOrg({newOrg:this.organizations[this.currentOrgIndex]}));
     this.matchService.getMatches(this.pageSize,this.currentPage,this.organizations[this.currentOrgIndex]);
   }
 

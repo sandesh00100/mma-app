@@ -1,17 +1,20 @@
-import { Match, Filter } from "../match.model";
+import { Match, Filter, Organization } from "../match.model";
 import { createReducer, on } from "@ngrx/store";
-import { addFilter, removeFilter } from "../match.actions";
+import { addFilter, removeFilter, updatePageOptions, updateOrg } from "../match.actions";
 import { flatObjectsAreEqual } from "src/app/utility/checkEquality";
+import { state } from "@angular/animations";
 
 export interface FilterState{
         currentPage: number,
         pageSize: number,
+        org:Organization,
         filters: Filter[]
 }
 
 export const initialMatchState: FilterState = {
         currentPage: 1,
         pageSize: 5,
+        org:Organization.ufc,
         filters: []
 }
 
@@ -38,5 +41,29 @@ export const filterReducer = createReducer(
             ...state,
             filters:filters
         }
+    }),
+    on(updatePageOptions, (state: FilterState, action) => {
+        return {
+            ...state,
+            currentPage:action.currentPage,
+            pageSize:action.pageSize
+        }
+    }),
+    on(updateOrg, (state: FilterState, action) => {
+        return {
+            ...state,
+            org:action.newOrg
+        }
     })
 );
+
+export const filterStateToQuery = (filterState:FilterState):string => {
+    let queryString = `?pageSize=${filterState.pageSize}&page=${filterState.currentPage}&org=${filterState.org}`;
+
+    for (const filter of filterState.filters) {
+        const filterOption = filter.searchResult.searchId == null ? filter.searchResult.searchItem : filter.searchResult.searchId;
+        queryString += `&${filter.mode.toLowerCase()}=${filterOption}`;
+    }
+
+    return queryString;
+};

@@ -8,6 +8,7 @@ import { MatchesDataService } from './matches.data.service';
 import { MatchEntityService } from './match.entity.service';
 import { StoreModule } from '@ngrx/store';
 import { filterReducer } from './reducers';
+import { MatchResolver } from './match.resolver';
 
 const entityMetaData: EntityMetadataMap = {
   Match: {
@@ -33,7 +34,8 @@ const entityMetaData: EntityMetadataMap = {
   ],
   providers:[
     MatchEntityService,
-    MatchesDataService
+    MatchesDataService,
+    MatchResolver
   ]
 })
 export class MatchesModule {

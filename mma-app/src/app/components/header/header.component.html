@@ -13,9 +13,9 @@
                 <button mat-button (click)="addFilter()">
                         <mat-icon>add</mat-icon>
                 </button>
-                <button mat-button>
+                <!-- <button mat-button>
                         <mat-icon>search</mat-icon>
-                </button>
+                </button> -->
                 <datalist id="searchList" *ngIf="searchResults">
                         <option *ngFor="let searchResult of searchResults" [id]="searchResult.searchId" [value] = "searchResult.searchItem"></option>
                 </datalist>        

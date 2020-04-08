@@ -29,6 +29,11 @@ export enum MatchFilterMode {
     fighter = "Fighter"
 }
 
+export enum Organization {
+    ufc="UFC",
+    bellator="Bellator",
+    oneFc="One FC"
+}
 export interface Filter {
     mode:MatchFilterMode,
     searchResult:SearchResult
