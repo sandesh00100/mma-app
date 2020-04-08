@@ -33,7 +33,6 @@ export class MatchService {
       })
     )
     .subscribe(fetchedMatches => {
-         console.log(fetchedMatches);
          this.matches = fetchedMatches.matches;
          this.matchesUpdated.next({matches:[...this.matches], maxMatch: fetchedMatches.totalMatches});
       });

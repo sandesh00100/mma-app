@@ -1,11 +1,11 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { MatchEntityService } from "./match.entity.service";
 import { tap, take, catchError, filter, first } from "rxjs/operators";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
 import { selectFilterState } from "./match.selector";
-import { FilterState, filterStateToQuery } from "./reducers";
+import { FilterState } from "./reducers";
 import { of, Observable } from "rxjs";
 
 @Injectable()
@@ -20,8 +20,10 @@ export class MatchResolver implements Resolve<Boolean>{
             tap(loaded => {
                 if (!loaded) {
                     console.log("Calling match service");
-                    getFilterState(this.store).then(filterState => {
-                        this.matchService.getWithQuery(filterStateToQuery(filterState));
+                    this.getFilterState(this.store).then(filterState => {
+                        //Looks like we have to getAll() first so that we can make use of the loaded$ observable
+                        this.matchService.getAll();
+                        console.log("Finished calling match service")
                     }).catch(err => {
                         of(false);
                     })
@@ -32,9 +34,7 @@ export class MatchResolver implements Resolve<Boolean>{
         )
     }
 
-}
-
-const getFilterState = function getFilterState(store:Store<AppState>): Promise<FilterState>{
+    private getFilterState(store:Store<AppState>): Promise<FilterState>{
         const filterPromise:Promise<FilterState> = new Promise((resolve,reject)=>{
             this.store.select(selectFilterState)
             .pipe(
@@ -47,11 +47,14 @@ const getFilterState = function getFilterState(store:Store<AppState>): Promise<F
                 )
             ).subscribe(
                 (filterState:FilterState) => {
-                    console.log("selecting " + filterState);
+                    console.log("selecting ");
+                    console.log(filterState);
                     resolve(filterState);
                 }
             )
         });
 
         return filterPromise;
+}
+
 }

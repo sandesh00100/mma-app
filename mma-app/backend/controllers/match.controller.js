@@ -65,8 +65,6 @@ const fetchMatches = async (query) => {
         mongoQueryObj.eventName = {$in:eventFilters};
     }
     
-    console.log(fighterFilters);
-    console.log(fighterIds);
     const fetchedMatches = await MatchModel.find(mongoQueryObj, CustomTools.ignoreUtility.ignoreObject)
         .sort({ date: -1, matchOrder: -1 })
         .skip(pageSize * (+query.page - 1))
@@ -100,6 +98,8 @@ const getMatchesDeprecated = (req, res, next) => {
 };
 
 const getMatches = (req, res, next) => {
+    console.log("gettingMatches");
+    console.log(req.query);
     if (req.query) {
         fetchMatches(req.query).then(fetchedMatches => {
             res.status(200).json(fetchedMatches);
