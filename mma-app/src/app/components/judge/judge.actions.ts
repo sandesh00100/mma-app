@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { AuthData, Judge, JwtToken } from "./judge.model";
-import { Stat } from "../matches/stat.model";
 import { Update } from "@ngrx/entity";
+import { Stat } from "../matchesExplorer/stat.model";
 
 export const login = createAction(
     "[Header Dropdown] Judge Login",

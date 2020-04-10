@@ -2,13 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Subject, Observable } from 'rxjs';
-import { Stat } from '../matches/stat.model';
 import { ScoreCardMaker } from './scorecard/scorecardmaker';
 import { Router } from '@angular/router';
 import { MatSnackBar} from '@angular/material';
 import { ScoreCard } from './scorecard/scorecard.model';
 import { map } from 'rxjs/operators';
-import { Match } from '../matches/match.model';
 
 const httpURL = environment.apiUrl + '/scorecards';
 

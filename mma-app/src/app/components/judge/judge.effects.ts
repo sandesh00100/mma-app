@@ -86,7 +86,7 @@ export class JudgeEffects {
                 });
                 return preferencesLoaded({preferences:modifiedPreferences})
             }),
-            catchError(err => of(authenticationFailed({ message: err.error.message })))
+            catchError(err => of(authenticationFailed({ message: err.message})))
         )
     );
     

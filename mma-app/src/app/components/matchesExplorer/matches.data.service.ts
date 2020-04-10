@@ -7,7 +7,7 @@ import { environment } from "src/environments/environment";
 import { map, tap, catchError } from "rxjs/operators";
 import { AppState } from "src/app/reducers";
 import { Store } from "@ngrx/store";
-import { updateTotalMatches } from "./match.actions";
+import { updateTotalMatches } from "./matchesExplorer.actions";
 
 const httpURL = environment.apiUrl + '/matches';
 @Injectable()

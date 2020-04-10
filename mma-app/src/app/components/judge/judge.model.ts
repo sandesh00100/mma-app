@@ -1,5 +1,3 @@
-import { Stat } from "../matches/stat.model";
-
 export interface Judge {
     id:string,
     email:string

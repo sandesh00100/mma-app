@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
-import { Stat } from '../matches/stat.model';
 import { AuthData, JwtToken, Judge } from './judge.model';
 import { AppState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { logout, login, loadAuthInfoFromStorage, loadPreferences, updateStat } from './judge.actions';
+import { Stat } from '../matchesExplorer/stat.model';
 
 // TODO: Add loading screen
 const httpURL = environment.apiUrl + '/judge';

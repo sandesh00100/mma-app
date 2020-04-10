@@ -14,10 +14,10 @@ import { environment } from '../environments/environment';
 import { JudgeModule } from './components/judge/judge.module';
 import { HeaderModule } from './components/header/header.module';
 import { ScoreCardsModule } from './components/scorecards/scorecards.module';
-import { MatchesModule } from './components/matches/matches.module';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { EntityDataModule } from '@ngrx/data';
+import { MatchesModule } from './components/matchesExplorer/matchesExplorer.module';
 
 @NgModule({
   declarations: [

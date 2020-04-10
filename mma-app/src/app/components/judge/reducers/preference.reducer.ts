@@ -1,7 +1,7 @@
-import { Stat } from "../../matches/stat.model";
 import {createEntityAdapter, EntityState} from '@ngrx/entity';
 import { createReducer, on } from "@ngrx/store";
 import { authenticated, preferencesLoaded, statAdded, deleteStat, updateStat } from "../judge.actions";
+import { Stat } from '../../matchesExplorer/stat.model';
 
 export interface PreferenceState extends EntityState<Stat> {
     preferencesLoaded:boolean

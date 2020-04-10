@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JudgeService } from '../judge.service';
 import { Router } from '@angular/router';
-import { Stat } from '../../matches/stat.model';
 import { Subscription, Observable } from 'rxjs';
 import { StatValidator } from '../../../utility/Stat.validator';
 import { MatSnackBar, MatDialogRef } from '@angular/material';
@@ -10,6 +9,7 @@ import { Store, select } from '@ngrx/store';
 import { selectPreferences } from '../judge.selector';
 import { addStat, deleteStat, updateStat } from '../judge.actions';
 import { Update } from '@ngrx/entity';
+import { Stat } from '../../matchesExplorer/stat.model';
 
 @Component({
   selector: 'app-preferences',

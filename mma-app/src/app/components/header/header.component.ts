@@ -10,10 +10,9 @@ import { logout } from '../judge/judge.actions';
 import { Judge } from '../judge/judge.model';
 import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
 import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
-import { MatchService } from '../matches/match.service';
-import { stringify } from 'querystring';
-import { SearchResponse, MatchFilterMode, SearchResult } from '../matches/match.model';
-import { addFilter } from '../matches/match.actions';
+import { MatchFilterMode, SearchResult, SearchResponse } from '../matchesExplorer/match.model';
+import { addFilter } from '../matchesExplorer/matchesExplorer.actions';
+import { MatchService } from '../matchesExplorer/match.service';
 
 @Component({
   selector: 'app-header',

@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { Filter, Organization, Match } from "./match.model";
-import { FilterState } from "./reducers";
 import { EntityActionFactory, EntityOp, MergeStrategy } from "@ngrx/data";
+import { FilterState } from "./reducers/filter.reducer";
 
 
 export const addFilter = createAction(

@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatchService } from '../../matches/match.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ScoreCardMaker } from './scorecardmaker';
-import { Stat } from '../../matches/stat.model';
 import { FormGroup } from '@angular/forms';
 import { ScoreCardService } from '../scorecards.service';
 import { Subscription} from 'rxjs';
 import { StatValidator } from '../../../utility/Stat.validator';
-import { Match } from '../../matches/match.model';
 import { FighterInfo} from './fighterCard';
 import { JudgeService } from '../../judge/judge.service';
+import { Stat } from '../../matchesExplorer/stat.model';
+import { MatchService } from '../../matchesExplorer/match.service';
+import { Match } from '../../matchesExplorer/match.model';
 
 @Component({
   selector: 'app-scorecard',

@@ -1,5 +1,5 @@
-import { Stat } from "../../matches/stat.model";
-import { Match } from "../../matches/match.model";
+import { Match } from "../../matchesExplorer/match.model";
+import { Stat } from "../../matchesExplorer/stat.model";
 
 export interface ScoreCard {
     judge: string,

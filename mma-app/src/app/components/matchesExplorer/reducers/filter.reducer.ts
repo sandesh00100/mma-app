@@ -1,8 +1,7 @@
-import { Match, Filter, Organization } from "../match.model";
+import { Filter, Organization } from "../match.model";
 import { createReducer, on } from "@ngrx/store";
-import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches } from "../match.actions";
+import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches } from "../matchesExplorer.actions";
 import { flatObjectsAreEqual } from "src/app/utility/checkEquality";
-import { state } from "@angular/animations";
 
 export interface FilterState{
         currentPage: number,

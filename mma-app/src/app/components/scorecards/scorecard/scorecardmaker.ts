@@ -1,8 +1,8 @@
 import { FighterCard, FighterInfo } from "./fighterCard";
 import { Round } from "./round";
-import { Stat } from "../../matches/stat.model";
-import { Match } from "../../matches/match.model";
 import { ScoreCard } from "./scorecard.model";
+import { Match } from "../../matchesExplorer/match.model";
+import { Stat } from "../../matchesExplorer/stat.model";
 
 /**
  * Class Used to set up a scorecard before you submit it.
