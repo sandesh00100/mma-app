@@ -71,7 +71,7 @@ const fetchMatches = async (query) => {
         .limit(pageSize)
         .populate({ path: 'fighters', select: CustomTools.ignoreUtility.ignoreString });
 
-    const totalMatches = await MatchModel.countDocuments({ organization: org });
+    const totalMatches = await MatchModel.countDocuments(mongoQueryObj);
 
 
     return {

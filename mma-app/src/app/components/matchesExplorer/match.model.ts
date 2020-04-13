@@ -43,6 +43,11 @@ export interface SearchResponse extends Response {
     searchResults:SearchResult[]
 }
 
+export interface MatchesResponse extends Response {
+    matches: Match[],
+    totalMatches: number,
+    message: string
+}
 export interface SearchResult {
     searchItem:string,
     searchId:string

@@ -7,9 +7,11 @@ import { JudgeService } from '../judge/judge.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { isAuth, isNotAuth } from '../judge/judge.selector';
-import { selectFilters, selectFilterState } from './matchesExplorer.selector';
-import { removeFilter, updatePageOptions, updateOrg} from './matchesExplorer.actions';
+import { selectFilters, selectFilterState, selectAllMatches, areMatchesLoaded } from './matchesExplorer.selector';
+import { removeFilter, updatePageOptions, updateOrg, getMatches} from './matchesExplorer.actions';
 import { FilterState, filterStateToQuery } from './reducers/filter.reducer';
+import { selectAllArticles } from './reducers/match.reducer';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-matches',
@@ -28,12 +30,13 @@ export class MatchExplorerComponent implements OnInit, OnDestroy {
   private filterStateSub: Subscription;
   filters$: Observable<Filter[]>;
   filterState:FilterState;
-  matches: Match[];
+  matches$: Observable<Match[]>;
   pageLength: number = 0;
   pageSize: number = 5;
   pageSizeOptions: number[] = [1,5,10,20]
   currentPage: number = 1;
   isLoading: boolean = false;
+  matchesAreLoaded$: Observable<boolean>;
   constructor(private matchService: MatchService, private judgeService: JudgeService, private store: Store<AppState>) { }
 
   ngOnInit() {
@@ -50,6 +53,17 @@ export class MatchExplorerComponent implements OnInit, OnDestroy {
       select(selectFilters)
     );
 
+    this.matches$ = this.store.pipe(
+      select(selectAllMatches),
+      tap(matches => {
+        console.log("SELECTING ALL MATCHES")
+        console.log(matches);
+      })
+    );
+
+    this.matchesAreLoaded$ = this.store.pipe(
+      select(areMatchesLoaded)
+    );
     this.filterStateSub = this.store.pipe(
       select(selectFilterState)
     ).subscribe((filterState:FilterState) => {
@@ -57,23 +71,23 @@ export class MatchExplorerComponent implements OnInit, OnDestroy {
         console.log(filterState);
         this.filterState = filterState;
     });
-    
-    this.getListeners();
+
+    // this.getListeners();
   }
   
   ngOnDestroy(): void {
-    this.matchesSub.unsubscribe();
+    // this.matchesSub.unsubscribe();
     this.filterStateSub.unsubscribe();
   }
   
-  getListeners(){
-    this.isLoading = true;
-    this.matchesSub = this.matchService.getMatchUpdateListener().subscribe((matchData: {matches: Match[], maxMatch:number}) => {
-        this.isLoading = false;
-        this.matches = matchData.matches;
-        this.pageLength = matchData.maxMatch;
-    });
-  }
+  // getListeners(){
+  //   this.isLoading = true;
+  //   this.matchesSub = this.matchService.getMatchUpdateListener().subscribe((matchData: {matches: Match[], maxMatch:number}) => {
+  //       this.isLoading = false;
+  //       // this.matches = matchData.matches;
+  //       this.pageLength = matchData.maxMatch;
+  //   });
+  // }
 
   onChangedPage(pageData: PageEvent){
     this.isLoading = true;

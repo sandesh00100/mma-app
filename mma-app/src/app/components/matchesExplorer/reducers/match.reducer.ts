@@ -1,6 +1,7 @@
 import { EntityState, createEntityAdapter } from "@ngrx/entity";
 import { Match } from "../match.model";
-import { createReducer } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
+import { getMatchesSuccess } from "../matchesExplorer.actions";
 
 export interface MatchState extends EntityState<Match> {
     matchesLoaded:boolean
@@ -13,7 +14,8 @@ export const initialMatchState = adapter.getInitialState({
 });
 
 export const matchReducer = createReducer(
-    initialMatchState
+    initialMatchState,
+    on(getMatchesSuccess,(state,action) => adapter.addAll(action.matches,{...state,matchesLoaded:true})),
 );
 
 export const {

@@ -1,40 +1,41 @@
 import { Injectable } from "@angular/core";
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { tap, take, catchError, filter, first } from "rxjs/operators";
-import { Store } from "@ngrx/store";
+import { tap, take, catchError, filter, first, finalize } from "rxjs/operators";
+import { Store, select } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
-import { selectFilterState } from "./matchesExplorer.selector";
+import { selectFilterState, areMatchesLoaded } from "./matchesExplorer.selector";
 import { of, Observable } from "rxjs";
 import { FilterState } from "./reducers/filter.reducer";
+import { getMatches } from "./matchesExplorer.actions";
 
 @Injectable()
+// Need to review the logic of this resolver
 export class MatchResolver implements Resolve<Boolean>{
+    loading = false;
     constructor(private store:Store<AppState>) {
     
     }
 
     resolve(route:ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        // console.log("Trying to resolve...");
-        // return this.matchService.loaded$.pipe(
-        //     tap(loaded => {
-        //         if (!loaded) {
-        //             console.log("Calling match service");
-        //             this.getFilterState(this.store).then(filterState => {
-        //                 //Looks like we have to getAll() first so that we can make use of the loaded$ observable
-        //                 this.matchService.getAll();
-        //                 console.log("Finished calling match service")
-        //             }).catch(err => {
-        //                 of(false);
-        //             })
-        //         }
-        //     }),
-        //     filter(loaded => !!loaded),
-        //     first()
-        // )
-        return of(true);
+        return this.store.pipe(
+            select(areMatchesLoaded),
+            tap(matchesLoaded => {
+                if(!this.loading && !matchesLoaded){
+                    this.loading = true;
+                    this.getFilterState().then(
+                        (filterState:FilterState) => {
+                            this.store.dispatch(getMatches({filterState}));
+                        }
+                    )
+                }
+            }),
+            first(matchesLoaded => matchesLoaded),
+            first(),
+            finalize(() => this.loading = false)
+        );
     }
 
-    private getFilterState(store:Store<AppState>): Promise<FilterState>{
+    private getFilterState(): Promise<FilterState>{
         const filterPromise:Promise<FilterState> = new Promise((resolve,reject)=>{
             this.store.select(selectFilterState)
             .pipe(

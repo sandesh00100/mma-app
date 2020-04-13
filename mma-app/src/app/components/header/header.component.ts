@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isNotAuth$:Observable<boolean>;
   searchResultsSubscription:Subscription;
   searchResults:SearchResult[];
-
+  currentSearch:string;
   searchMode:MatchFilterMode = this.filterOptions[0];
   judge$:Observable<Judge>;
 
@@ -96,6 +96,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   addFilter(){
     if (this.searchResults.length > 0) {
+      this.currentSearch = "";
       this.store.dispatch(addFilter({filter:{
         mode:this.searchMode,
         searchResult:this.searchResults[0]

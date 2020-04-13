@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { MatchResolver } from './matchesExplorer.resolver';
 import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { MatcheExplorerEffects } from './matchesExplorer.effects';
 
 @NgModule({
   declarations: [MatchExplorerComponent],
@@ -17,6 +19,7 @@ import { reducers } from './reducers';
     MatButtonModule,
     RouterModule,
     StoreModule.forFeature("matchExplorer", reducers),
+    EffectsModule.forFeature([MatcheExplorerEffects]),
     MatChipsModule,
     MatIconModule
   ],

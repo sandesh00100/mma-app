@@ -1,7 +1,8 @@
 import { Filter, Organization } from "../match.model";
 import { createReducer, on } from "@ngrx/store";
-import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches } from "../matchesExplorer.actions";
+import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches, getMatchesSuccess } from "../matchesExplorer.actions";
 import { flatObjectsAreEqual } from "src/app/utility/checkEquality";
+import { statAdded } from "../../judge/judge.actions";
 
 export interface FilterState{
         currentPage: number,
@@ -57,6 +58,12 @@ export const filterReducer = createReducer(
         }
     }),
     on(updateTotalMatches, (state: FilterState, action)=>{
+        return {
+            ...state,
+            totalMatches:action.totalMatches
+        }
+    }),
+    on(getMatchesSuccess, (state: FilterState, action) => {
         return {
             ...state,
             totalMatches:action.totalMatches

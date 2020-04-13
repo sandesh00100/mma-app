@@ -33,3 +33,12 @@ export const getMatches = createAction(
     "[Filter Options] Updating Filter Options",
     props<{filterState:FilterState}>()
 );
+
+export const getMatchesSuccess = createAction(
+    "[Match Explorer Effect] Successfully Fetched Matches",
+    props<{message:string,matches:Match[],totalMatches:number}>()
+);
+
+export const getMatchesFailure = createAction(
+    "[Match Explorer Effect] Failed to Fetch Matches"
+);

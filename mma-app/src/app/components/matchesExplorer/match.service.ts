@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Match, SearchResponse } from './match.model';
-import { Subject, Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Match, SearchResponse, MatchesResponse } from './match.model';
+import { Subject, Observable, of} from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { FilterState, filterStateToQuery } from './reducers/filter.reducer';
 
 const httpURL = environment.apiUrl + '/matches';
 
@@ -56,4 +57,30 @@ export class MatchService {
   search(search: string, mode: string):Observable<SearchResponse> {
     return this.http.get<SearchResponse>(`${httpURL}/search/${mode}/${search}`);
   }
+
+  getMatchesWithQuery(filterState:FilterState): Observable<MatchesResponse>{
+    console.log(filterStateToQuery(filterState));
+    return this.http.get<{ message: string, matches: any[], totalMatches: number }>(`${httpURL}/${filterStateToQuery(filterState)}`).pipe(
+        map(
+            response => {
+              const formattedMatches:Match[] = response.matches.map(match => {
+                let modifiedMatch = {
+                    ...match,
+                    id:match._id
+                };
+                return modifiedMatch;
+            });
+            
+            return {
+              ...response,
+              matches:formattedMatches
+            };
+            }
+        ),
+        catchError(err => {
+            console.log(err);
+            return of(err);
+        })
+    );
+}
 }

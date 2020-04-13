@@ -9,7 +9,7 @@
                 </mat-option>
         </mat-select>
         <mat-form-field class="search">
-                <input #searchInput matInput type="text" list="searchList">
+                <input #searchInput matInput type="text" list="searchList" [(ngModel)]="currentSearch">
                 <button mat-button (click)="addFilter()">
                         <mat-icon>add</mat-icon>
                 </button>
