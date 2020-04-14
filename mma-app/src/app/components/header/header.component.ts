@@ -107,4 +107,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  clearSearchResult(){
+    console.log("Clearing search results");
+    this.searchResults = [];
+  }
 }

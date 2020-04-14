@@ -3,13 +3,13 @@
                 <span class="title">Judgement MMA</span>
         </a>
         <span class="spacer"></span>
-        <mat-select placeholder="Match Filter" [(ngModel)]="searchMode">
+        <mat-select placeholder="Match Filter" [(ngModel)]="searchMode" (selectionChange)="clearSearchResult()">
                 <mat-option *ngFor="let option of filterOptions" [value]="option">
                         {{option}}
                 </mat-option>
         </mat-select>
         <mat-form-field class="search">
-                <input #searchInput matInput type="text" list="searchList" [(ngModel)]="currentSearch">
+                <input #searchInput matInput type="text" list="searchList" [(ngModel)]="currentSearch" >
                 <button mat-button (click)="addFilter()">
                         <mat-icon>add</mat-icon>
                 </button>
@@ -17,7 +17,7 @@
                         <mat-icon>search</mat-icon>
                 </button> -->
                 <datalist id="searchList" *ngIf="searchResults">
-                        <option *ngFor="let searchResult of searchResults" [id]="searchResult.searchId" [value] = "searchResult.searchItem"></option>
+                        <option *ngFor="let searchResult of searchResults" [id]="searchResult.searchId" [value] = "searchResult.searchItem" (input)="trigger()"></option>
                 </datalist>        
         </mat-form-field>
         <span class="spacer"></span>
