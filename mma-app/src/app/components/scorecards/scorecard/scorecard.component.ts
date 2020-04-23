@@ -10,6 +10,10 @@ import { JudgeService } from '../../judge/judge.service';
 import { Stat } from '../../matchesExplorer/stat.model';
 import { MatchService } from '../../matchesExplorer/match.service';
 import { Match } from '../../matchesExplorer/match.model';
+import { AppState } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
+import { selectPreferenceState, selectPreferences } from '../../judge/judge.selector';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-scorecard',
@@ -47,7 +51,7 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
   seconds: string = "00";
   currentTimerColor: string;
 
-  constructor(private matchService: MatchService, private route: ActivatedRoute, private ScoreCardService: ScoreCardService, private judgeService: JudgeService) { }
+  constructor(private matchService: MatchService, private route: ActivatedRoute, private ScoreCardService: ScoreCardService, private judgeService: JudgeService, private store:Store<AppState>) { }
 
   ngOnInit() {
     // Don't fetch if we already have a match from the match-list-screen
@@ -65,20 +69,20 @@ export class ScoreCardComponent implements OnInit, OnDestroy {
 
         this.rounds = this.currentScoreCard.getNumericalRoundArray();
         this.currentTimeInSeconds = this.SECONDS_PER_ROUND;
-
-        this.preferenceStatsSubscription = this.judgeService.getPreferenceUpdateListener().subscribe(statsData => {
-
-          if (!this.initialPreferenceFetch) {
-            this.currentScoreCard.initializeStats(statsData);
+        this.preferenceStatsSubscription = this.store.select(selectPreferences)
+        .pipe(
+          tap(preferences => console.log(preferences))
+        ).subscribe((preferences:Stat[]) => {
+         if (!this.initialPreferenceFetch) {
+            this.currentScoreCard.initializeStats(preferences);
             this.updateClock();
             this.updateCurrentStatLists();
             this.initialPreferenceFetch = true;
           } else {
             //TODO: update current score card according to the updated stats
             console.log("Getting info from preference subscription");
-            this.currentScoreCard.updateStats(statsData);
+            this.currentScoreCard.updateStats(preferences);
           }
-
         });
 
         this.judgeService.getPreferences();

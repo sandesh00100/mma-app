@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import { JudgeService } from '../judge/judge.service';
-import { Subscription, Observable, fromEvent, iif } from 'rxjs';
+import { Subscription, Observable, fromEvent} from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { PreferencesComponent } from '../judge/preferences/preferences.component';
 import { Router } from '@angular/router';
@@ -9,7 +8,7 @@ import { AppState } from 'src/app/reducers';
 import { logout } from '../judge/judge.actions';
 import { Judge } from '../judge/judge.model';
 import { isAuth, selectJudge, isNotAuth } from '../judge/judge.selector';
-import { tap, map, debounce, distinct, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
+import { tap, map, distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
 import { MatchFilterMode, SearchResult, SearchResponse } from '../matchesExplorer/match.model';
 import { addFilter } from '../matchesExplorer/matchesExplorer.actions';
 import { MatchService } from '../matchesExplorer/match.service';

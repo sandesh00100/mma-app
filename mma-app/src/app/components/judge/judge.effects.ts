@@ -6,7 +6,6 @@ import { switchMap, map, tap, catchError, mergeMap, concatMap } from 'rxjs/opera
 import { Judge } from "./judge.model";
 import { of } from "rxjs";
 import { Router } from "@angular/router";
-import { dispatch } from "rxjs/internal/observable/pairs";
 
 @Injectable()
 export class JudgeEffects {

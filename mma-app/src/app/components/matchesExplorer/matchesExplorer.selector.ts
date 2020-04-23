@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { FilterState } from "./reducers/filter.reducer";
 import { MatchExplorerState } from "./reducers";
 import { selectAllArticles } from "./reducers/match.reducer";
 
