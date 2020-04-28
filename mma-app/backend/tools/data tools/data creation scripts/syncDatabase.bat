@@ -10,3 +10,4 @@ python eventDataFilesToJson.py
 cd "../data creation scripts"
 echo Syncing database with event json file
 node dataCreationTool.js
+pause

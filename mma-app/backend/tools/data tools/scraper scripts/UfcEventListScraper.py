@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen as uReq
 from urllib import error
 import csv
-
+import sys
 '''
 
 UFC EVENT LIST SCRAPER
@@ -54,8 +54,9 @@ try:
                 rowDict['Name'] = tableDatas[1].get_text().strip()
                 rowDict['Date'] = tableDatas[2].get_text().strip()
                 csvWriter.writerow(rowDict)
-
-except error.HTTPError:
+    sys.exit(1)
+except:
+    sys.exit(1)
     print("Can't Access UFC fighter WIKI")
 
 

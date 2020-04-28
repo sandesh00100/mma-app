@@ -4,7 +4,7 @@ from urllib import error
 import csv
 import time
 import os
-
+import sys
 '''
 
 UFC EVENT SCRAPER
@@ -134,6 +134,8 @@ try:
                         writeTableCsv(validResultsTable,eventFilePath)
                 
                 time.sleep(2)
+    sys.exit(0)
 
-except error.HTTPError:
+except:
+    sys.exit(1)
     print("Can't Access UFC fighter WIKI")
