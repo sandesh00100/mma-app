@@ -5,6 +5,7 @@ import csv
 import time
 import os
 import sys
+import datetime
 '''
 
 UFC EVENT SCRAPER
@@ -24,6 +25,8 @@ UFC_EVENT_LIST_CSV_PATH =  "../data/UFC/UFC_Event_List.csv"
 FIGHT_TABLE_HEADER_SET = set(["Weight class","Method","Round","Time","Notes"])
 INFO_TABLE_HEADER_SET = set(["Promotion","Date","Venue","Attendance","Total gate"])
 DATE_HEADER = "Date"
+
+dateDic = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}
 
 def isFightTable(table):
     rows = table.find_all(ROW_TAG)
@@ -86,21 +89,23 @@ def writeTableCsv(table, eventFilePath):
 
 matchFileList = os.listdir("X:/git/mma-app/mma-app/backend/tools/data tools/data/UFC/UFC Events")
 dateSet = set()
-
+now = datetime.datetime.now()
 for matchFile in matchFileList:
     matchFileArr = matchFile.split(",")
     matchFileArrLen = len(matchFileArr)
     year = matchFileArr[matchFileArrLen-1].split(".")[0]
     monthDay = matchFileArr[matchFileArrLen-2]
     dateSet.add(monthDay + "," + year)
-
 try:
     with open(UFC_EVENT_LIST_CSV_PATH,'r') as ufcEventListCsv:
         csvReader = csv.DictReader(ufcEventListCsv)
         for row in csvReader:
-            eventDate = row["Date"].replace(' ','')
+            eventDateStr = row["Date"].replace(' ','')
+            eventDateArr = eventDateStr.split(",")
+            currentEventDate = datetime.datetime(int(eventDateArr[1]),int(dateDic[eventDateArr[0][:3]]),int(eventDateArr[0][3:len(eventDateArr[0])]))
             wikiLink = row["WikiLink"]
-            if eventDate not in dateSet:
+
+            if (eventDateStr not in dateSet) and (currentEventDate < now):
                 if len(wikiLink) > 0:
                     print("Requesting " + wikiLink)
                     
@@ -136,6 +141,6 @@ try:
                 time.sleep(2)
     sys.exit(0)
 
-except:
+except Exception as ex:
+    print(ex)
     sys.exit(1)
-    print("Can't Access UFC fighter WIKI")

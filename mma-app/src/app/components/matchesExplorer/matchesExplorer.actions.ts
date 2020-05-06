@@ -1,6 +1,5 @@
 import { createAction, props } from "@ngrx/store";
 import { Filter, Organization, Match } from "./match.model";
-import { EntityActionFactory, EntityOp, MergeStrategy } from "@ngrx/data";
 import { FilterState } from "./reducers/filter.reducer";
 
 

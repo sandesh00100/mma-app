@@ -2,7 +2,6 @@ import { Filter, Organization } from "../match.model";
 import { createReducer, on } from "@ngrx/store";
 import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches, getMatchesSuccess } from "../matchesExplorer.actions";
 import { flatObjectsAreEqual } from "src/app/utility/checkEquality";
-import { statAdded } from "../../judge/judge.actions";
 
 export interface FilterState{
         currentPage: number,

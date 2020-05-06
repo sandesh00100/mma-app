@@ -53,11 +53,15 @@ try:
                     rowDict['WikiLink'] = tableDatas[1].a['href'].strip()
                 rowDict['Name'] = tableDatas[1].get_text().strip()
                 rowDict['Date'] = tableDatas[2].get_text().strip()
-                csvWriter.writerow(rowDict)
+                attendence = tableDatas[5].get_text().strip()
+                if attendence != "Cancelled":
+                    print(attendence)
+                    csvWriter.writerow(rowDict)
     sys.exit(1)
-except:
+except Exception as ex:
+    print(ex)
     sys.exit(1)
-    print("Can't Access UFC fighter WIKI")
+
 
 
 
