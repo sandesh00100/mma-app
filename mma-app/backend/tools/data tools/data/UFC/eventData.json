@@ -1,6 +1,555 @@
 {
   "events": [
     {
+      "name": "UFC Fight Night: Lee vs. Oliveira",
+      "number": "513",
+      "date": "Mar 14, 2020",
+      "source": "/wiki/UFC_Fight_Night:_Lee_vs._Oliveira",
+      "matches": [
+        {
+          "weightClass": "Catchweight (158.5 lbs)",
+          "redFighter": "Charles Oliveira",
+          "outcome": "def.",
+          "blueFighter": "Kevin Lee",
+          "time": "0:28",
+          "round": "3",
+          "method": "Submission",
+          "methodInfo": "guillotine choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Gilbert Burns",
+          "outcome": "def.",
+          "blueFighter": "Demian Maia",
+          "time": "2:34",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Renato Moicano",
+          "outcome": "def.",
+          "blueFighter": "Damir Had\u017eovi\u0107",
+          "time": "0:44",
+          "round": "1",
+          "method": "Submission",
+          "methodInfo": "rear-naked choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Nikita Krylov",
+          "outcome": "def.",
+          "blueFighter": "Johnny Walker",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Francisco Trinaldo",
+          "outcome": "def.",
+          "blueFighter": "John Makdessi",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 29\u201328"
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "Brandon Moreno",
+          "outcome": "def.",
+          "blueFighter": "Jussier Formiga",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Women's Strawweight",
+          "redFighter": "Amanda Ribas",
+          "outcome": "def.",
+          "blueFighter": "Randa Markos",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201326, 30\u201325, 30\u201325"
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Elizeu Zaleski dos Santos",
+          "outcome": "def.",
+          "blueFighter": "Alexey Kunchenko",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Enrique Barzola",
+          "outcome": "vs.",
+          "blueFighter": "Rani Yahya",
+          "time": "5:00",
+          "round": "3",
+          "method": "Draw",
+          "methodInfo": "majority",
+          "decisionInfo": "29\u201328, 28\u201328, 28\u201328"
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Maryna Moroz",
+          "outcome": "def.",
+          "blueFighter": "Mayra Bueno Silva",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "David Dvo\u0159\u00e1k",
+          "outcome": "def.",
+          "blueFighter": "Bruno Gustavo da Silva",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Women's Bantamweight",
+          "redFighter": "Bea Malecki",
+          "outcome": "def.",
+          "blueFighter": "Veronica Macedo",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        }
+      ]
+    },
+    {
+      "name": "UFC 248: Adesanya vs. Romero",
+      "number": "512",
+      "date": "Mar 7, 2020",
+      "source": "/wiki/UFC_248",
+      "matches": [
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Israel Adesanya (c)",
+          "outcome": "def.",
+          "blueFighter": "Yoel Romero",
+          "time": "5:00",
+          "round": "5",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "48\u201347, 48\u201347, 49\u201346"
+        },
+        {
+          "weightClass": "Women's Strawweight",
+          "redFighter": "Zhang Weili (c)",
+          "outcome": "def.",
+          "blueFighter": "Joanna J\u0119drzejczyk",
+          "time": "5:00",
+          "round": "5",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "48\u201347, 47\u201348, 48\u201347"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Beneil Dariush",
+          "outcome": "def.",
+          "blueFighter": "Drakkar Klose",
+          "time": "1:00",
+          "round": "2",
+          "method": "KO",
+          "methodInfo": "punch",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Neil Magny",
+          "outcome": "def.",
+          "blueFighter": "Li Jingliang",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Alex Oliveira",
+          "outcome": "def.",
+          "blueFighter": "Max Griffin",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "28\u201329, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Sean O'Malley",
+          "outcome": "def.",
+          "blueFighter": "Jos\u00e9 Alberto Qui\u00f1\u00f3nez",
+          "time": "2:02",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "head kick and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Mark Madsen",
+          "outcome": "def.",
+          "blueFighter": "Austin Hubbard",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Rodolfo Vieira",
+          "outcome": "def.",
+          "blueFighter": "Saparbek Safarov",
+          "time": "2:58",
+          "round": "1",
+          "method": "Submission",
+          "methodInfo": "arm-triangle choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Gerald Meerschaert",
+          "outcome": "def.",
+          "blueFighter": "Deron Winn",
+          "time": "2:13",
+          "round": "3",
+          "method": "Submission",
+          "methodInfo": "rear-naked choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Giga Chikadze",
+          "outcome": "def.",
+          "blueFighter": "Jamall Emmers",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "29\u201328, 28\u201329, 29\u201328"
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Danaa Batgerel",
+          "outcome": "def.",
+          "blueFighter": "Guido Cannetti",
+          "time": "3:01",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        }
+      ]
+    },
+    {
+      "name": "UFC Fight Night: Benavidez vs. Figueiredo",
+      "number": "511",
+      "date": "Feb 29, 2020",
+      "source": "/wiki/UFC_Fight_Night:_Benavidez_vs._Figueiredo",
+      "matches": [
+        {
+          "weightClass": "Catchweight (127.5 lbs)",
+          "redFighter": "Deiveson Figueiredo",
+          "outcome": "def.",
+          "blueFighter": "Joseph Benavidez",
+          "time": "1:54",
+          "round": "2",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Featherweight",
+          "redFighter": "Felicia Spencer",
+          "outcome": "def.",
+          "blueFighter": "Zarah Fairn dos Santos",
+          "time": "3:37",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "elbows and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Magomed Ankalaev",
+          "outcome": "def.",
+          "blueFighter": "Ion Cu\u021belaba",
+          "time": "0:38",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "head kicks and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Featherweight",
+          "redFighter": "Megan Anderson",
+          "outcome": "def.",
+          "blueFighter": "Norma Dumont Viana",
+          "time": "3:31",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punch",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Catchweight (149.5 lbs)",
+          "redFighter": "Grant Dawson",
+          "outcome": "def.",
+          "blueFighter": "Darrick Minner",
+          "time": "1:38",
+          "round": "2",
+          "method": "Submission",
+          "methodInfo": "rear-naked choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Bantamweight",
+          "redFighter": "Kyler Phillips",
+          "outcome": "def.",
+          "blueFighter": "Gabriel Silva",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Middleweight",
+          "redFighter": "Brendan Allen",
+          "outcome": "def.",
+          "blueFighter": "Tom Breese",
+          "time": "4:47",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "elbows and punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Marcin Tybura",
+          "outcome": "def.",
+          "blueFighter": "Sergey Spivak",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 29\u201328"
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Luis Pe\u00f1a",
+          "outcome": "def.",
+          "blueFighter": "Steve Garcia",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Jordan Griffin",
+          "outcome": "def.",
+          "blueFighter": "T.J. Brown",
+          "time": "3:38",
+          "round": "2",
+          "method": "Technical Submission",
+          "methodInfo": "guillotine choke",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Spike Carlyle",
+          "outcome": "def.",
+          "blueFighter": "Aalon Cruz",
+          "time": "1:25",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Sean Brady",
+          "outcome": "def.",
+          "blueFighter": "Ismail Naurdiev",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 30\u201327"
+        }
+      ]
+    },
+    {
+      "name": "UFC Fight Night: Felder vs. Hooker",
+      "number": "510",
+      "date": "Feb 23, 2020",
+      "source": "/wiki/UFC_Fight_Night:_Felder_vs._Hooker",
+      "matches": [
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Dan Hooker",
+          "outcome": "def.",
+          "blueFighter": "Paul Felder",
+          "time": "5:00",
+          "round": "5",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "47\u201348, 48\u201347, 48\u201347"
+        },
+        {
+          "weightClass": "Light Heavyweight",
+          "redFighter": "Jimmy Crute",
+          "outcome": "def.",
+          "blueFighter": "Micha\u0142 Oleksiejczuk",
+          "time": "3:29",
+          "round": "1",
+          "method": "Submission",
+          "methodInfo": "kimura",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Women's Strawweight",
+          "redFighter": "Yan Xiaonan",
+          "outcome": "def.",
+          "blueFighter": "Karolina Kowalkiewicz",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201326, 30\u201326, 30\u201326"
+        },
+        {
+          "weightClass": "Heavyweight",
+          "redFighter": "Marcos Rog\u00e9rio de Lima",
+          "outcome": "def.",
+          "blueFighter": "Ben Sosoli",
+          "time": "1:28",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Brad Riddell",
+          "outcome": "def.",
+          "blueFighter": "Magomed Mustafaev",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "split",
+          "decisionInfo": "29\u201328, 28\u201329, 29\u201328"
+        },
+        {
+          "weightClass": "Featherweight",
+          "redFighter": "Zubaira Tukhugov",
+          "outcome": "def.",
+          "blueFighter": "Kevin Aguilar",
+          "time": "3:21",
+          "round": "1",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Lightweight",
+          "redFighter": "Jalin Turner",
+          "outcome": "def.",
+          "blueFighter": "Joshua Culibao",
+          "time": "3:01",
+          "round": "2",
+          "method": "TKO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Jake Matthews",
+          "outcome": "def.",
+          "blueFighter": "Emil Weber Meek",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "29\u201328, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Welterweight",
+          "redFighter": "Song Kenan",
+          "outcome": "def.",
+          "blueFighter": "Callan Potter",
+          "time": "2:20",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punches",
+          "decisionInfo": ""
+        },
+        {
+          "weightClass": "Flyweight",
+          "redFighter": "Kai Kara-France",
+          "outcome": "def.",
+          "blueFighter": "Tyson Nam",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 30\u201327, 30\u201327"
+        },
+        {
+          "weightClass": "Women's Strawweight",
+          "redFighter": "Angela Hill",
+          "outcome": "def.",
+          "blueFighter": "Loma Lookboonmee",
+          "time": "5:00",
+          "round": "3",
+          "method": "Decision",
+          "methodInfo": "unanimous",
+          "decisionInfo": "30\u201327, 29\u201328, 29\u201328"
+        },
+        {
+          "weightClass": "Women's Flyweight",
+          "redFighter": "Priscila Cachoeira",
+          "outcome": "def.",
+          "blueFighter": "Shana Dobson",
+          "time": "0:40",
+          "round": "1",
+          "method": "KO",
+          "methodInfo": "punch",
+          "decisionInfo": ""
+        }
+      ]
+    },
+    {
       "name": "UFC Fight Night: Anderson vs. B\u0142achowicz 2",
       "number": "509",
       "date": "Feb 15, 2020",
