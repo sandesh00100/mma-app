@@ -1,0 +1,229 @@
+5-6-2020-21:49:39:735 Trying to connect to mongodb...
+5-6-2020-21:49:40:213 Reading events...
+5-6-2020-21:49:40:215 Reading UFC Fight Night: Felder vs. Hooker
+5-6-2020-21:49:40:216 Finding fighters Priscila Cachoeira and Shana Dobson
+5-6-2020-21:49:40:366 Saving match
+5-6-2020-21:49:40:368 Finding fighters Angela Hill and Loma Lookboonmee
+5-6-2020-21:49:40:480 Saving match
+5-6-2020-21:49:40:482 Finding fighters Kai Kara-France and Tyson Nam
+5-6-2020-21:49:40:600 Saving match
+5-6-2020-21:49:40:602 Finding fighters Song Kenan and Callan Potter
+5-6-2020-21:49:40:707 Saving match
+5-6-2020-21:49:40:708 Finding fighters Jake Matthews and Emil Meek
+5-6-2020-21:49:40:820 Saving match
+5-6-2020-21:49:40:821 Finding fighters Jalin Turner and Joshua Culibao
+5-6-2020-21:49:40:892 Could not find loser
+5-6-2020-21:49:40:893 Trying to save fighter Joshua Culibao with image NONE
+5-6-2020-21:49:40:895 Sucessfully saved fighter! Joshua Culibao
+5-6-2020-21:49:40:972 Saving match
+5-6-2020-21:49:40:973 Finding fighters Zubaira Tukhugov and Kevin Aguilar
+5-6-2020-21:49:41:83 Saving match
+5-6-2020-21:49:41:85 Finding fighters Brad Riddell and Magomed Mustafaev
+5-6-2020-21:49:41:200 Saving match
+5-6-2020-21:49:41:202 Finding fighters Marcos Lima and Ben Sosoli
+5-6-2020-21:49:41:310 Saving match
+5-6-2020-21:49:41:311 Finding fighters Yan Xiaonan and Karolina Kowalkiewicz
+5-6-2020-21:49:41:421 Saving match
+5-6-2020-21:49:41:423 Finding fighters Jimmy Crute and Michał Oleksiejczuk
+5-6-2020-21:49:41:562 Saving match
+5-6-2020-21:49:41:564 Finding fighters Dan Hooker and Paul Felder
+5-6-2020-21:49:41:675 Saving match
+5-6-2020-21:49:41:677 Reading UFC Fight Night: Benavidez vs. Figueiredo
+5-6-2020-21:49:41:677 Finding fighters Sean Brady and Ismail Naurdiev
+5-6-2020-21:49:41:808 Saving match
+5-6-2020-21:49:41:809 Finding fighters Spike Carlyle and Aalon Cruz
+5-6-2020-21:49:41:880 Could not find winner
+5-6-2020-21:49:41:882 Trying to save fighter Spike Carlyle with image NONE
+5-6-2020-21:49:41:883 Sucessfully saved fighter! Spike Carlyle
+5-6-2020-21:49:41:922 Could not find loser
+5-6-2020-21:49:41:923 Trying to save fighter Aalon Cruz with image NONE
+5-6-2020-21:49:41:924 Sucessfully saved fighter! Aalon Cruz
+5-6-2020-21:49:41:998 Saving match
+5-6-2020-21:49:42:0 Finding fighters Jordan Griffin and T.J. Brown
+5-6-2020-21:49:42:69 Could not find loser
+5-6-2020-21:49:42:71 Trying to save fighter T.J. Brown with image NONE
+5-6-2020-21:49:42:72 Sucessfully saved fighter! T.J. Brown
+5-6-2020-21:49:42:144 Saving match
+5-6-2020-21:49:42:145 Finding fighters Luis Peña and Steve Garcia
+5-6-2020-21:49:42:215 Could not find loser
+5-6-2020-21:49:42:216 Trying to save fighter Steve Garcia with image NONE
+5-6-2020-21:49:42:218 Sucessfully saved fighter! Steve Garcia
+5-6-2020-21:49:42:294 Saving match
+5-6-2020-21:49:42:296 Finding fighters Marcin Tybura and Sergey Spivak
+5-6-2020-21:49:42:404 Saving match
+5-6-2020-21:49:42:405 Finding fighters Brendan Allen and Tom Breese
+5-6-2020-21:49:42:577 Saving match
+5-6-2020-21:49:42:579 Finding fighters Kyler Phillips and Gabriel Silva
+5-6-2020-21:49:42:703 Could not find winner
+5-6-2020-21:49:42:704 Trying to save fighter Kyler Phillips with image NONE
+5-6-2020-21:49:42:705 Sucessfully saved fighter! Kyler Phillips
+5-6-2020-21:49:42:802 Saving match
+5-6-2020-21:49:42:804 Finding fighters Grant Dawson and Darrick Minner
+5-6-2020-21:49:42:888 Could not find loser
+5-6-2020-21:49:42:889 Trying to save fighter Darrick Minner with image NONE
+5-6-2020-21:49:42:891 Sucessfully saved fighter! Darrick Minner
+5-6-2020-21:49:42:966 Saving match
+5-6-2020-21:49:42:967 Finding fighters Megan Anderson and Norma Viana
+5-6-2020-21:49:43:56 Could not find loser
+5-6-2020-21:49:43:58 Trying to save fighter Norma Viana with image NONE
+5-6-2020-21:49:43:59 Sucessfully saved fighter! Norma Viana
+5-6-2020-21:49:43:130 Saving match
+5-6-2020-21:49:43:132 Finding fighters Magomed Ankalaev and Ion Cuțelaba
+5-6-2020-21:49:43:247 Saving match
+5-6-2020-21:49:43:248 Finding fighters Felicia Spencer and Zarah Santos
+5-6-2020-21:49:43:364 Saving match
+5-6-2020-21:49:43:366 Finding fighters Deiveson Figueiredo and Joseph Benavidez
+5-6-2020-21:49:43:475 Saving match
+5-6-2020-21:49:43:476 Reading UFC 248: Adesanya vs. Romero
+5-6-2020-21:49:43:477 Finding fighters Danaa Batgerel and Guido Cannetti
+5-6-2020-21:49:43:583 Saving match
+5-6-2020-21:49:43:584 Finding fighters Giga Chikadze and Jamall Emmers
+5-6-2020-21:49:43:670 Could not find loser
+5-6-2020-21:49:43:671 Trying to save fighter Jamall Emmers with image NONE
+5-6-2020-21:49:43:672 Sucessfully saved fighter! Jamall Emmers
+5-6-2020-21:49:43:746 Saving match
+5-6-2020-21:49:43:748 Finding fighters Gerald Meerschaert and Deron Winn
+5-6-2020-21:49:43:885 Saving match
+5-6-2020-21:49:43:887 Finding fighters Rodolfo Vieira and Saparbek Safarov
+5-6-2020-21:49:44:16 Saving match
+5-6-2020-21:49:44:17 Finding fighters Mark Madsen and Austin Hubbard
+5-6-2020-21:49:44:129 Saving match
+5-6-2020-21:49:44:130 Finding fighters Sean O'Malley and José Quiñónez
+5-6-2020-21:49:44:244 Saving match
+5-6-2020-21:49:44:245 Finding fighters Alex Oliveira and Max Griffin
+5-6-2020-21:49:44:354 Saving match
+5-6-2020-21:49:44:355 Finding fighters Neil Magny and Li Jingliang
+5-6-2020-21:49:44:467 Saving match
+5-6-2020-21:49:44:469 Finding fighters Beneil Dariush and Drakkar Klose
+5-6-2020-21:49:44:579 Saving match
+5-6-2020-21:49:44:580 Finding fighters Zhang Weili and Joanna Jędrzejczyk
+5-6-2020-21:49:44:654 Match is championship fight
+5-6-2020-21:49:44:690 Saving match
+5-6-2020-21:49:44:692 Finding fighters Israel Adesanya and Yoel Romero
+5-6-2020-21:49:44:762 Match is championship fight
+5-6-2020-21:49:44:801 Saving match
+5-6-2020-21:49:44:802 Reading UFC Fight Night: Lee vs. Oliveira
+5-6-2020-21:49:44:803 Finding fighters Bea Malecki and Veronica Macedo
+5-6-2020-21:49:44:910 Saving match
+5-6-2020-21:49:44:911 Finding fighters David Dvořák and Bruno Silva
+5-6-2020-21:49:44:983 Could not find winner
+5-6-2020-21:49:44:984 Trying to save fighter David Dvořák with image NONE
+5-6-2020-21:49:44:985 Sucessfully saved fighter! David Dvořák
+5-6-2020-21:49:45:85 Saving match
+5-6-2020-21:49:45:86 Finding fighters Maryna Moroz and Mayra Silva
+5-6-2020-21:49:45:298 Saving match
+5-6-2020-21:49:45:299 Finding fighters Enrique Barzola and Rani Yahya
+5-6-2020-21:49:45:407 Saving match
+5-6-2020-21:49:45:408 Finding fighters Elizeu Santos and Alexey Kunchenko
+5-6-2020-21:49:45:520 Saving match
+5-6-2020-21:49:45:523 Finding fighters Amanda Ribas and Randa Markos
+5-6-2020-21:49:45:635 Saving match
+5-6-2020-21:49:45:636 Finding fighters Brandon Moreno and Jussier Formiga
+5-6-2020-21:49:45:743 Saving match
+5-6-2020-21:49:45:745 Finding fighters Francisco Trinaldo and John Makdessi
+5-6-2020-21:49:45:855 Saving match
+5-6-2020-21:49:45:857 Finding fighters Nikita Krylov and Johnny Walker
+5-6-2020-21:49:45:970 Saving match
+5-6-2020-21:49:45:972 Finding fighters Renato Moicano and Damir Hadžović
+5-6-2020-21:49:46:81 Saving match
+5-6-2020-21:49:46:82 Finding fighters Gilbert Burns and Demian Maia
+5-6-2020-21:49:46:190 Saving match
+5-6-2020-21:49:46:192 Finding fighters Charles Oliveira and Kevin Lee
+5-6-2020-21:49:46:312 Saving match
+5-6-2020-21:49:46:314 Updating fighter records
+5-6-2020-21:49:46:314 Updating fighter 5df98b08b4e09826e489c257
+5-6-2020-21:49:46:320 File sucessfully saved
+5-6-2020-21:49:46:352 Updating fighter 5df98b19b4e09826e489c42b
+5-6-2020-21:49:46:389 Updating fighter 5df98b0eb4e09826e489c2fb
+5-6-2020-21:49:46:425 Updating fighter 5df98b31b4e09826e489c6a3
+5-6-2020-21:49:46:468 Updating fighter 5df98b2db4e09826e489c642
+5-6-2020-21:49:46:507 Updating fighter 5df98b2bb4e09826e489c60a
+5-6-2020-21:49:46:543 Updating fighter 5df98af7b4e09826e489c09a
+5-6-2020-21:49:46:578 Updating fighter 5df98b14b4e09826e489c39e
+5-6-2020-21:49:46:614 Updating fighter 5df98b26b4e09826e489c582
+5-6-2020-21:49:46:650 Updating fighter 5df98b40b4e09826e489c847
+5-6-2020-21:49:46:686 Updating fighter 5df98afab4e09826e489c0f9
+5-6-2020-21:49:46:721 Updating fighter 5eb36934a07c1d2a985a3ac7
+5-6-2020-21:49:46:761 Updating fighter 5df98af8b4e09826e489c0c1
+5-6-2020-21:49:46:798 Updating fighter 5df98b37b4e09826e489c758
+5-6-2020-21:49:46:835 Updating fighter 5df98af6b4e09826e489c089
+5-6-2020-21:49:46:871 Updating fighter 5df98b29b4e09826e489c5cc
+5-6-2020-21:49:46:907 Updating fighter 5df98b41b4e09826e489c853
+5-6-2020-21:49:46:943 Updating fighter 5df98b2fb4e09826e489c673
+5-6-2020-21:49:46:978 Updating fighter 5df98b19b4e09826e489c41a
+5-6-2020-21:49:47:13 Updating fighter 5df98b08b4e09826e489c272
+5-6-2020-21:49:47:49 Updating fighter 5df98b41b4e09826e489c854
+5-6-2020-21:49:47:85 Updating fighter 5df98b3bb4e09826e489c7b9
+5-6-2020-21:49:47:119 Updating fighter 5df98b2cb4e09826e489c627
+5-6-2020-21:49:47:165 Updating fighter 5df98b07b4e09826e489c251
+5-6-2020-21:49:47:200 Updating fighter 5df98afeb4e09826e489c15d
+5-6-2020-21:49:47:235 Updating fighter 5df98b24b4e09826e489c53e
+5-6-2020-21:49:47:271 Updating fighter 5eb36935a07c1d2a985a3ad0
+5-6-2020-21:49:47:307 Updating fighter 5eb36935a07c1d2a985a3ad1
+5-6-2020-21:49:47:343 Updating fighter 5df98b1eb4e09826e489c4a6
+5-6-2020-21:49:47:377 Updating fighter 5eb36936a07c1d2a985a3ad3
+5-6-2020-21:49:47:414 Updating fighter 5df98b3eb4e09826e489c7fe
+5-6-2020-21:49:47:450 Updating fighter 5eb36936a07c1d2a985a3ad5
+5-6-2020-21:49:47:494 Updating fighter 5df98b0fb4e09826e489c314
+5-6-2020-21:49:47:529 Updating fighter 5df98b3cb4e09826e489c7e1
+5-6-2020-21:49:47:564 Updating fighter 5df98b1bb4e09826e489c459
+5-6-2020-21:49:47:620 Updating fighter 5df98b25b4e09826e489c559
+5-6-2020-21:49:47:656 Updating fighter 5eb36936a07c1d2a985a3ad9
+5-6-2020-21:49:47:694 Updating fighter 5df98b06b4e09826e489c224
+5-6-2020-21:49:47:729 Updating fighter 5df98afeb4e09826e489c151
+5-6-2020-21:49:47:767 Updating fighter 5eb36936a07c1d2a985a3adb
+5-6-2020-21:49:47:801 Updating fighter 5df98b2fb4e09826e489c66a
+5-6-2020-21:49:47:841 Updating fighter 5eb36937a07c1d2a985a3add
+5-6-2020-21:49:47:897 Updating fighter 5df98b2fb4e09826e489c681
+5-6-2020-21:49:47:939 Updating fighter 5df98b3bb4e09826e489c7ae
+5-6-2020-21:49:47:977 Updating fighter 5df98b0ab4e09826e489c290
+5-6-2020-21:49:48:40 Updating fighter 5df98b28b4e09826e489c5b9
+5-6-2020-21:49:48:76 Updating fighter 5df98b1cb4e09826e489c475
+5-6-2020-21:49:48:113 Updating fighter 5df98b1fb4e09826e489c4cc
+5-6-2020-21:49:48:156 Updating fighter 5df98b22b4e09826e489c511
+5-6-2020-21:49:48:195 Updating fighter 5df98b02b4e09826e489c1d0
+5-6-2020-21:49:48:242 Updating fighter 5df98af6b4e09826e489c08a
+5-6-2020-21:49:48:278 Updating fighter 5eb36937a07c1d2a985a3ae3
+5-6-2020-21:49:48:333 Updating fighter 5df98afcb4e09826e489c12b
+5-6-2020-21:49:48:391 Updating fighter 5df98b19b4e09826e489c421
+5-6-2020-21:49:48:428 Updating fighter 5df98b0eb4e09826e489c306
+5-6-2020-21:49:48:464 Updating fighter 5df98b27b4e09826e489c5a2
+5-6-2020-21:49:48:499 Updating fighter 5df98b37b4e09826e489c749
+5-6-2020-21:49:48:534 Updating fighter 5df98b29b4e09826e489c5c9
+5-6-2020-21:49:48:570 Updating fighter 5df98b3fb4e09826e489c832
+5-6-2020-21:49:48:604 Updating fighter 5df98b38b4e09826e489c773
+5-6-2020-21:49:48:639 Updating fighter 5df98b31b4e09826e489c6a0
+5-6-2020-21:49:48:675 Updating fighter 5df98b0bb4e09826e489c2be
+5-6-2020-21:49:48:712 Updating fighter 5df98b1bb4e09826e489c449
+5-6-2020-21:49:48:747 Updating fighter 5df98b37b4e09826e489c753
+5-6-2020-21:49:48:786 Updating fighter 5df98b0db4e09826e489c2f0
+5-6-2020-21:49:48:823 Updating fighter 5df98b01b4e09826e489c1b1
+5-6-2020-21:49:48:859 Updating fighter 5df98b35b4e09826e489c70d
+5-6-2020-21:49:48:898 Updating fighter 5df98b3fb4e09826e489c82a
+5-6-2020-21:49:48:934 Updating fighter 5df98b32b4e09826e489c6b7
+5-6-2020-21:49:48:970 Updating fighter 5df98b00b4e09826e489c198
+5-6-2020-21:49:49:5 Updating fighter 5df98b0cb4e09826e489c2cc
+5-6-2020-21:49:49:48 Updating fighter 5df98b15b4e09826e489c3bb
+5-6-2020-21:49:49:84 Updating fighter 5eb36938a07c1d2a985a3aef
+5-6-2020-21:49:49:120 Updating fighter 5df98b3eb4e09826e489c80c
+5-6-2020-21:49:49:156 Updating fighter 5df98b30b4e09826e489c687
+5-6-2020-21:49:49:194 Updating fighter 5df98b01b4e09826e489c1b3
+5-6-2020-21:49:49:229 Updating fighter 5df98b1db4e09826e489c486
+5-6-2020-21:49:49:264 Updating fighter 5df98b28b4e09826e489c5b1
+5-6-2020-21:49:49:301 Updating fighter 5df98b29b4e09826e489c5db
+5-6-2020-21:49:49:347 Updating fighter 5df98b07b4e09826e489c24a
+5-6-2020-21:49:49:385 Updating fighter 5df98afeb4e09826e489c16b
+5-6-2020-21:49:49:427 Updating fighter 5df98b29b4e09826e489c5cd
+5-6-2020-21:49:49:473 Updating fighter 5df98b35b4e09826e489c718
+5-6-2020-21:49:49:515 Updating fighter 5df98b39b4e09826e489c78b
+5-6-2020-21:49:49:571 Updating fighter 5df98b0cb4e09826e489c2d5
+5-6-2020-21:49:49:611 Updating fighter 5df98b17b4e09826e489c3e3
+5-6-2020-21:49:49:655 Updating fighter 5df98b1eb4e09826e489c4a9
+5-6-2020-21:49:49:695 Updating fighter 5df98b2cb4e09826e489c61d
+5-6-2020-21:49:49:730 Updating fighter 5df98b15b4e09826e489c3b7
+5-6-2020-21:49:49:766 Updating fighter 5df98b40b4e09826e489c849
+5-6-2020-21:49:49:805 Updating fighter 5df98b0bb4e09826e489c2ba
+5-6-2020-21:49:49:841 Updating fighter 5df98affb4e09826e489c183
+5-6-2020-21:49:49:913 Updating fighter 5df98afeb4e09826e489c15e
+5-6-2020-21:49:49:950 Updating fighter 5df98b11b4e09826e489c342
+5-6-2020-21:49:49:987 Finished updating fighter records

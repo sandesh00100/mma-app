@@ -29,13 +29,8 @@ const createFighter = async (firstName, lastName, imageLink) => {
       "noContest": 0
     }
   };
-  try {
     console.log("Sucessfully saved fighter! " + firstName + " " + lastName);
     return await FighterModel(fighterObject).save();
-  } catch (err) {
-    console.log("Failed to save fighter " + firstName + " " + lastName);
-    console.log(err);
-  }
 };
 
 const createFighters = async () => {
@@ -103,13 +98,7 @@ const createDatabase = async () => {
   let fighterRecordMap = {};
 
   console.log("Trying to connect to mongodb...");
-  try {
-    await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
-  } catch (err) {
-    console.log("Could not connect to mongodb");
-    console.log(err);
-  }
-
+  await mongoose.connect(databaseURL, { useNewUrlParser: true, useCreateIndex: true });
   const events = eventObj.events;
   const eventLen = events.length;
   console.log("Reading events...")
@@ -266,7 +255,6 @@ const createDatabase = async () => {
   for (let fighterId in fighterRecordMap) {
     console.log("Updating fighter " + fighterId);
     const fighterObj = fighterRecordMap[fighterId];
-    try {
       // TODO: TEST NEW UPDATE
       //await FighterModel.updateOne({ _id: fighterId }, { $set: { record: fighterObj.record, isChampion: fighterObj.isChampion, matches: fighterObj.matches } });
       await FighterModel.updateOne(
@@ -282,10 +270,6 @@ const createDatabase = async () => {
             "record.noContest":fighterObj.record.disqualifications
           }
         });
-    } catch (err) {
-      console.log("could not update fighter " + fighterId);
-      console.log(err);
-    }
 
   }
   console.log("Finished updating fighter records");
@@ -323,5 +307,5 @@ createDatabase().then(() => {
   process.exit(0);
 }).catch(err => {
   console.log(err);
-  process.exit(-1);
+  process.exit(1);
 });
