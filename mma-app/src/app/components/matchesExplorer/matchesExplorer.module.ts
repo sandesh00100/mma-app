@@ -8,6 +8,7 @@ import { MatchResolver } from './matchesExplorer.resolver';
 import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { MatcheExplorerEffects } from './matchesExplorer.effects';
+import { MatchFilterModule } from '../matchfilter/matchFilter.module';
 
 @NgModule({
   declarations: [MatchExplorerComponent],
@@ -21,7 +22,8 @@ import { MatcheExplorerEffects } from './matchesExplorer.effects';
     StoreModule.forFeature("matchExplorer", reducers),
     EffectsModule.forFeature([MatcheExplorerEffects]),
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatchFilterModule
   ],
   providers:[
     MatchResolver

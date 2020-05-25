@@ -1,0 +1,12 @@
+<div class="filterOptions" *ngIf="(filter$|async) as filterState">
+    <mat-chip-list *ngIf="filterState.filters">
+        <mat-chip *ngFor="let filter of filterState.filters" [removable]="true" (removed)="removeFilter(filter)">
+            {{filter.mode}}:{{filter.searchResult.searchItem}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
+    <mat-paginator [length]="filterState.totalMatches" [pageSize]="filterState.pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = onChangedPage($event)">
+    </mat-paginator>
+</div>
+

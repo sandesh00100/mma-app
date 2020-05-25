@@ -61,15 +61,5 @@
         </div>
     </mat-tab>
 </mat-tab-group>
-<div class="filterOptions" *ngIf="filterState">
-    <mat-chip-list *ngIf="filterState.filters">
-        <mat-chip *ngFor="let filter of filterState.filters" [removable]="true" (removed)="removeFilter(filter)">
-            {{filter.mode}}:{{filter.searchResult.searchItem}}
-            <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-    </mat-chip-list>
-    <mat-paginator [length]="filterState.totalMatches" [pageSize]="filterState.pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = onChangedPage($event)">
-</mat-paginator>
-</div>
-
+<app-matchfilter>
+</app-matchfilter>  
