@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { FilterState } from '../matchesExplorer/reducers/filter.reducer';
@@ -14,6 +14,7 @@ import { Filter } from '../matchesExplorer/match.model';
   styleUrls: ['./matchfilter.component.css']
 })
 export class MatchfilterComponent implements OnInit {
+  @Input() isScoreCard: boolean;
   filter$:Observable<FilterState>;
   pageLength: number = 0;
   pageSize: number = 5;
@@ -31,7 +32,12 @@ export class MatchfilterComponent implements OnInit {
   onChangedPage(pageData: PageEvent){
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
-    this.store.dispatch(updatePageOptions({currentPage:this.currentPage,pageSize:this.pageSize}));
+    console.log(this.isScoreCard);
+
+    if (this.isScoreCard) {
+    } else {
+      this.store.dispatch(updatePageOptions({currentPage:this.currentPage,pageSize:this.pageSize}));
+    }
     console.log("FILTER STATE");
     //console.log(this.filterState);
  }
