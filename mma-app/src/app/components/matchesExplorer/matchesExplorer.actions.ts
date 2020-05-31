@@ -29,8 +29,7 @@ export const updateTotalMatches = createAction(
 );
 
 export const getMatches = createAction(
-    "[Filter Options] Updating Filter Options",
-    props<{filterState:FilterState}>()
+    "[Match Resolver] Fetching Matches"
 );
 
 export const getMatchesSuccess = createAction(

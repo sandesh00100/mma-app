@@ -30,16 +30,16 @@ export class MatchfilterComponent implements OnInit {
   }
 
   onChangedPage(pageData: PageEvent){
+    console.log("PAGE EVENT:");
+    console.log(pageData);
     this.currentPage = pageData.pageIndex + 1;
     this.pageSize = pageData.pageSize;
     console.log(this.isScoreCard);
 
-    if (this.isScoreCard) {
+    if (!this.isScoreCard) {
     } else {
       this.store.dispatch(updatePageOptions({currentPage:this.currentPage,pageSize:this.pageSize}));
     }
-    console.log("FILTER STATE");
-    //console.log(this.filterState);
  }
  
   removeFilter(filterToRemove:Filter){

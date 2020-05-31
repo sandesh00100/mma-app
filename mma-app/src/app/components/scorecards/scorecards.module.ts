@@ -6,7 +6,8 @@ import { ScoreCardComponent } from './scorecard/scorecard.component';
 import { MatTabsModule, MatCardModule, MatExpansionModule, MatButtonModule, MatPaginatorModule, MatDialogModule, MatSlideToggleModule, MatSnackBarModule, MatTableModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatInputModule, MatIconModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { StoreModule } from '@ngrx/store';
+import { scoreCardReducer } from './reducers/index';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
-  ]
+    MatIconModule,
+    StoreModule.forFeature("scoreCard", scoreCardReducer)
+  ] 
 })
 export class ScoreCardsModule { }
