@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Match, SearchResponse, MatchesResponse } from './match.model';
 import { Subject, Observable, of} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { FilterState, filterStateToQuery } from './reducers/filter.reducer';
+import { FilterState, filterStateToQuery } from '../matchfilter/reducers';
 
 const httpURL = environment.apiUrl + '/matches';
 

@@ -1,6 +1,6 @@
-import { Filter, Organization } from "../match.model";
+import { Filter, Organization } from "../../matchesExplorer/match.model";
 import { createReducer, on } from "@ngrx/store";
-import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches, getMatchesSuccess } from "../matchesExplorer.actions";
+import { addFilter, removeFilter, updatePageOptions, updateOrg, updateTotalMatches, getMatchesSuccess } from "../../matchesExplorer/matchesExplorer.actions";
 import { flatObjectsAreEqual } from "src/app/utility/checkEquality";
 
 export interface FilterState{

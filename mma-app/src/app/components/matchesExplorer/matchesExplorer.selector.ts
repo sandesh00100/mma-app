@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { MatchExplorerState } from "./reducers";
-import { selectAllArticles } from "./reducers/match.reducer";
+import { selectAllArticles } from "./reducers/index";
+import { MatchState } from "./reducers";
 
-export const selectMatchList = createFeatureSelector<MatchExplorerState>("matchExplorer");
+export const selectMatchList = createFeatureSelector<MatchState>("Matches");
 
 export const selectFilterState = createSelector(
     selectMatchList,
@@ -16,12 +16,12 @@ export const selectFilters = createSelector(
 
 export const areMatchesLoaded = createSelector(
     selectMatchList,
-    matchListState => matchListState.matches.matchesLoaded
+    matchListState => matchListState.matchesLoaded
 );
 
 export const selectMatchState = createSelector(
     selectMatchList,
-    matchList => matchList.matches,
+    matchList => matchList,
 );
 
 export const selectAllMatches = createSelector(

@@ -6,7 +6,7 @@ import { AppState } from "src/app/reducers";
 import { Store } from "@ngrx/store";
 import { switchMap, map, mergeMap, catchError, tap, take } from "rxjs/operators";
 import { selectFilterState } from "./matchesExplorer.selector";
-import { FilterState } from "./reducers/filter.reducer";
+import { FilterState } from "../matchfilter/reducers";
 import { MatchesResponse } from "./match.model";
 import { of } from "rxjs";
 

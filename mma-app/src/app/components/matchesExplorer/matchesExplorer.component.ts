@@ -5,7 +5,7 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/reducers';
 import { isAuth, isNotAuth } from '../judge/judge.selector';
 import { selectFilterState, selectAllMatches, areMatchesLoaded } from './matchesExplorer.selector';
-import { FilterState } from './reducers/filter.reducer';
+import { FilterState } from '../matchfilter/reducers';
 import { tap } from 'rxjs/operators';
 
 @Component({

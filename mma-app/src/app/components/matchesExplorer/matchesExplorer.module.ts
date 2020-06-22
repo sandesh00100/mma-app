@@ -5,7 +5,7 @@ import { MatExpansionModule, MatTabsModule, MatButtonModule, MatPaginatorModule,
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { MatchResolver } from './matchesExplorer.resolver';
-import { reducers } from './reducers';
+import { matchReducer } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { MatcheExplorerEffects } from './matchesExplorer.effects';
 import { MatchFilterModule } from '../matchfilter/matchFilter.module';
@@ -19,7 +19,7 @@ import { MatchFilterModule } from '../matchfilter/matchFilter.module';
     MatTabsModule,
     MatButtonModule,
     RouterModule,
-    StoreModule.forFeature("matchExplorer", reducers),
+    StoreModule.forFeature("matches", matchReducer),
     EffectsModule.forFeature([MatcheExplorerEffects]),
     MatChipsModule,
     MatIconModule,
