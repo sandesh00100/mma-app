@@ -1,5 +1,5 @@
 # Judgement MMA
-This application let's mma fans be the judge of fights. Currently it supports basic scoring for all UFC fights and the support for other organizations is coming soon. Scoring live fights is also being worked on. I am looking to deploy this application in late 2020.
+This application let's mma fans be the judge of fights. Currently it supports basic scoring for all UFC fights and the support for other organizations is coming soon. Scoring live fights is also being worked on.
 
 ## Technologies Used (MEAN Stack)
 * MongoDB for the database
